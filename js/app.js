@@ -197,7 +197,7 @@ $('body').ready(() => {
             </tr>
             ${tags.map(tag => {
                 const ts = new Date(tag.last.ts);
-                const aggts = tag.agg ? (new Date(tag.agg.ts)) : null;
+                const mediants = tag.median ? (new Date(tag.median.ts)) : null;
                 const firstts = tag.first ? (new Date(tag.first.ts)) : null;
                 return `
                     <tr>
@@ -207,10 +207,10 @@ $('body').ready(() => {
                                     <small class="font-weight-lighter">
                                         ${col.format ? col.format(tag, `last`, col.field) : tag.last[col.field]}
                                     </small>
-                                    ${tag.agg ? `
+                                    ${tag.median ? `
                                         <br>
                                         <small class="font-weight-lighter">
-                                            <em>${col.format ? col.format(tag, `agg`, col.field) : tag.agg[col.field]}<em>
+                                            <em>${col.format ? col.format(tag, `median`, col.field) : tag.median[col.field]}<em>
                                         </small>
                                     ` : ``}
                                     ${tag.first ? `
@@ -241,10 +241,10 @@ $('body').ready(() => {
                             <small class="font-weight-lighter jstooltip" title="${ts.getHours()}h${ts.getMinutes()}'${ts.getSeconds()}">
                                 ${((now - tag.last.ts) / 1000).toFixed(0)}
                             </small>
-                            ${aggts ? `
+                            ${mediants ? `
                                 <br>
-                                <small class="font-weight-lighter jstooltip" title="${aggts.getHours()}h${aggts.getMinutes()}'${aggts.getSeconds()}">
-                                    <em>${moment(aggts).fromNow(true)}</em>
+                                <small class="font-weight-lighter jstooltip" title="${mediants.getHours()}h${mediants.getMinutes()}'${mediants.getSeconds()}">
+                                    <em>${moment(mediants).fromNow(true)}</em>
                                 </small>
                             ` : ``}
                             ${firstts ? `
@@ -939,7 +939,7 @@ $('body').ready(() => {
         const col_left = 6;
         const col_right = 6;
         return `
-            <em>Sampling</em>
+            <em>Sampling configuration</em>
             <div class="row mt-4">
                 <div class="col-8">
                     <form id="form-sampling">
@@ -949,6 +949,9 @@ $('body').ready(() => {
                             </label>
                             <div class="col-sm-${col_right}">
                                 ${tpl.field.number(`history`, data)}
+                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                    <em>Max samples in history</em>
+                                </small>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -957,6 +960,9 @@ $('body').ready(() => {
                             </label>
                             <div class="col-sm-${col_right}">
                                 ${tpl.field.number(`interval`, data)}
+                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                    <em>Sampling interval (in ms)</em>
+                                </small>
                             </div>
                         </div>
                     </form>

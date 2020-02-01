@@ -81,7 +81,7 @@ ruuvitag.on('found', tag => {
                 last: null,
                 first: null,
                 samples: 0,
-                agg: null,
+                median: null,
             }
         }
         data.ts = Date.now()
@@ -134,27 +134,27 @@ const sampleAggregation = () => {
                     }
                 }
             }
-            const agg = {
+            const median = {
                 has: false,
                 measures: {},
             }
             for (const measure in _measures) {
                 if (_measures[measure].length) {
-                    agg.has = true
+                    median.has = true
                     _measures[measure] = _measures[measure].sort(up)
                     let index = null
                     if (_measures[measure].length % 2 === 1) {
                         index = Math.floor(_measures[measure].length / 2)
-                        agg.measures[measure] = _measures[measure][index]
+                        median.measures[measure] = _measures[measure][index]
                     } else {
                         index = _measures[measure].length / 2
-                        agg.measures[measure] = (_measures[measure][index] + _measures[measure][index - 1]) / 2
+                        median.measures[measure] = (_measures[measure][index] + _measures[measure][index - 1]) / 2
                     }
                 }
             }
-            if (agg.has) {
-                agg.measures.ts = now
-                tags[id].agg = agg.measures
+            if (median.has) {
+                median.measures.ts = now
+                tags[id].median = median.measures
             }
         }
     }
@@ -189,7 +189,7 @@ const activateTargetInterval = (target) => {
             // console.log(`broadcast to "${target.name}"`)
             for (const tag in tags) {
                 if (target.tags && target.tags[tag] !== undefined) {
-                    broadcast({target, tag: tags[tag], field: `agg`})
+                    broadcast({target, tag: tags[tag], field: `median`})
                 }
             }
         }, 1000 * target.interval),
