@@ -37,9 +37,9 @@ html.h-100
                     .col-6.pt-2
                         textarea#sampling-json(style="display: none;") #{JSON.stringify(config.sampling)}
                         #config
-                    .col-6.pt-2
-                        em Addon
-                        pre #{JSON.stringify(addon, null, 2)}
+                    //- .col-6.pt-2
+                    //-     em Addon
+                    //-     pre #{JSON.stringify(addon, null, 2)}
 
     script(src="app.js")
     script(src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js")

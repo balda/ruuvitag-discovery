@@ -48,9 +48,9 @@ const targets = [
         label: `InfluxDB`,
         measurement: true,
         config: [
-            {
-                name: `protocol`,
-            },
+            // {
+            //     name: `protocol`,
+            // },
             {
                 name: `host`,
             },
