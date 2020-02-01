@@ -43,7 +43,7 @@ All the configuration is done in the web interface and saved in `/data/config.js
 
 #### History
 
-Default configuration retain 100 measures max per RuuviTag (`history` config). History is used to calculate `frequency` (number of measures read per minute) and `period` (time in seconds between measures read).
+Default configuration retain 100 measures max per RuuviTag (`history` config). History is used to calculate `frequency` (number of measures read per minute) and `period` (time in seconds between measures read). `samples` additional measure count measures in tag history.
 
 #### Sampling
 
@@ -68,18 +68,19 @@ See [Ruuvi sensor protocols](https://github.com/ruuvi/ruuvi-sensor-protocols/) t
 - Tx power (data format 5)
 - Movement counter (data format 5)
 - Measurement sequence number (data format 5)
+- Data format
 
 ##### Additional measures
 
 Calculated using default measures
 
-- Acceleration
-- Equilibrium vapor pressure
 - Absolute humidity
+- Acceleration
 - Air density
-- Dew point
-- Vapor pressure deficit
 - Battery level
+- Dew point
+- Equilibrium vapor pressure
+- Vapor pressure deficit
 
 ### Targets
 
@@ -103,7 +104,7 @@ Target have also specific configuration:
 - `password`: broker password
 - `topic`: topic prefix
 
-For now, only `mqtt:` protocol is supported.
+_For now, only `mqtt:` protocol is supported._
 
 MQTT target use `measurement` option:
 
@@ -134,7 +135,7 @@ MQTT target use `measurement` option:
 - `password`: server password
 - `database`: server database
 
-For now, only `http:` protocol is supported.
+_For now, only `http:` protocol is supported._
 
 InfluxDB target use `measurement` option:
 
@@ -147,7 +148,7 @@ InfluxDB target use `measurement` option:
 - `port`: server port
 - `prefix`: path prefix
 
-For now, only `http:` protocol is supported.
+_For now, only `http:` protocol is supported._
 
 Measures are writen in `[prefix].[ruuvitag.field].[measure.field]` serie.
 
