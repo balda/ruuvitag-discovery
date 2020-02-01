@@ -325,7 +325,9 @@ $('body').ready(() => {
                             </td>
                             <td>
                                 <small class="font-weight-lighter">
-                                    ${target.type}
+                                    ${(app.config.targets.find(t => {
+                                        return `${target.type}` === `${t.type}`;
+                                    })).label}
                                 </small>
                             </td>
                             <td>
@@ -429,7 +431,7 @@ $('body').ready(() => {
                         ` : ``}
                         <div class="form-group row">
                             <label class="col-sm-${col_left}">
-                                ${target.label} Target
+                                ${target.label}
                             </label>
                             <div class="col-sm-${col_right}">
                                 <div class="custom-control custom-radio custom-control-inline">
