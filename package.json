@@ -1,7 +1,7 @@
 {
   "name": "ruuvitag-discovery",
   "version": "0.0.1",
-  "description": "Discover Ruuvitag Weather Station in a simple UI and broadcast sensor measures to configurable targets (MQTT, InfluxDB, Graphite).",
+  "description": "Discover RuuviTag Environmental Sensors using a web interface and broadcast measures to configurable targets (MQTT, InfluxDB and Graphite).",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
