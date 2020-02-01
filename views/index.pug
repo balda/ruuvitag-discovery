@@ -1,0 +1,47 @@
+doctype html
+html.h-100
+
+  head
+    meta(charset="utf-8")
+    base(href="/")
+    <!--[if LT IE 8]></base><![endif]-->
+    title #{addon.name}
+    meta(name="robots" content="noindex")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+    script(src="//code.jquery.com/jquery-3.4.1.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js")
+
+  body.h-100
+    .container-fluid#page
+        .row#header(style="background-color:#45A5F0; color: white;")
+            .col-8.p-3.pl-4
+                span.mr-4 RuuviTags Discovery
+                a.mr-4.panel-view.text-white.jstooltip(data-target="panel-tags" title="Discover RuuviTags" href="#")
+                    i.fal.fa-signal-stream
+                a.mr-4.panel-view.text-white.jstooltip(data-target="panel-targets" title="Targets" href="#")
+                    i.fal.fa-database
+                a.mr-4.panel-view.text-white.jstooltip(data-target="panel-config" title="Configuration" href="#")
+                    i.fal.fa-cog
+            .col-4.m-auto.pr-4
+                .float-right
+                    small: em v#{addon.version}
+        
+        #content.mb-4
+            .panel-display#panel-tags(style="display: none-;")
+                #tags
+            .panel-display#panel-targets(style="display: none;")
+                #targets
+            .panel-display#panel-config(style="display: none;")
+                .row
+                    .col-6.pt-2
+                        textarea#sampling-json(style="display: none;") #{JSON.stringify(config.sampling)}
+                        #config
+                    .col-6.pt-2
+                        em Addon
+                        pre #{JSON.stringify(addon, null, 2)}
+
+    script(src="app.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js")
+    script(src="//stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js")
+    script(src="//kit.fontawesome.com/845c15abb5.js" crossorigin="anonymous")

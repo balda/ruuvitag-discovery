@@ -1,0 +1,20 @@
+{
+    "name": "RuuviTag Discovery",
+    "version": "0.0.1",
+    "slug": "ruuvitag-discovery",
+    "description": "RuuviTag BLE Environmental Sensors Discovery",
+    "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+    "url": "https://github.com/balda/ruuvitag-discovery",
+    "startup": "application",
+    "boot": "auto",
+    "privileged": [
+        "SYS_RAWIO"
+    ],
+    "hassio_api": true,
+    "homeassistant_api": true,
+    "host_network": true,
+    "ingress": true,
+    "ingress_port": 8099,
+    "options": {},
+    "schema": false
+}
