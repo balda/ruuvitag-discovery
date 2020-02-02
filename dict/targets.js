@@ -69,6 +69,34 @@ const targets = [
             },
         ],
     },
+    {
+        type: `ha_mqtt`,
+        label: `Home Assistant (MQTT Discovery)`,
+        config: [
+            // {
+            //     name: `protocol`,
+            // },
+            {
+                name: `host`,
+            },
+            {
+                name: `port`,
+                type: `number`,
+            },
+            {
+                name: `topic`,
+            },
+            {
+                name: `username`,
+            },
+            {
+                name: `password`,
+            },
+            // {
+            //     name: `expire_after`,
+            // },
+        ],
+    },
     // {
     //     type: `webhook`,
     //     label: `Webhook`,

@@ -3,6 +3,6 @@
     ":utils/": "./utils/",
     ":dict/": "./dict/",
     "server": {
-        "timeout": 0
+        "timeout": 5
     }
 }

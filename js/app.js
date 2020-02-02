@@ -6,22 +6,6 @@ $('body').ready(() => {
         delete: `btn-link text-danger btn-sm`,
     };
 
-    app.config.sampling = [{
-        field: `samples`,
-        label: `History Samples`,
-        unit_of_measurement: `count`,
-    }, {
-        field: `frequency`,
-        label: `Frequency`,
-        unit_of_measurement: `count/min`,
-        toFixed: 1,
-    }, {
-        field: `period`,
-        label: `Period`,
-        unit_of_measurement: `seconds`,
-        toFixed: 0,
-    }];
-
     app.config.attributes = [{
         field: `id`,
         label: `RuuviTag ID`,
@@ -659,7 +643,7 @@ $('body').ready(() => {
                 <div class="">
                     Measures
                 </div>
-                ${app.config.measures.concat(app.config.sampling).map(measure => {
+                ${app.config.measures.map(measure => {
                     let last = `-`;
                     if (tag[measure.field]) {
                         last = tag[measure.field];
@@ -734,7 +718,7 @@ $('body').ready(() => {
                             </div>
                         </div>
                         <div class="col-3 text-right">
-                            ${last} ${measure.unit_of_measurement ? `${measure.unit_of_measurement}` : ``}
+                            ${last} ${measure.unit ? `${measure.unit}` : ``}
                         </div>
                     </div>
                     `;

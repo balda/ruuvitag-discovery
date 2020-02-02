@@ -52,6 +52,7 @@ const broadcast = ({target, tag, field = `last`}) => {
                 label: tagConfig.measures[measure].label,
                 field: tagConfig.measures[measure].field,
                 value: tagField[measure],
+                measure,
             }
         }).concat(Object.keys(tag).filter(measure => {
             return tagConfig.measures[measure] !== undefined && tag[measure] !== Infinity
@@ -60,6 +61,7 @@ const broadcast = ({target, tag, field = `last`}) => {
                 label: tagConfig.measures[measure].label,
                 field: tagConfig.measures[measure].field,
                 value: tag[measure],
+                measure,
             }
         }))
     }
@@ -72,7 +74,7 @@ ruuvitag.on('found', tag => {
         tags[tag.id] = null
         history[tag.id] = []
     }
-    console.log(`Found RuuviTag ${tag.id}`)
+    console.log(`Discover RuuviTag ${tag.id}`)
     // console.log(`(address "${tag.address}", addressType "${tag.addressType}", connectable "${tag.connectable}")`)
     // console.log(tag)
     tag.on('updated', data => {
