@@ -267,11 +267,7 @@ const store = {
 const server = require(':lib/server')
 
 const end = async (signal) => {
-    console.log({
-        timestamp: (new Date()).toISOString(),
-        object: 'stop',
-        signal: `${signal}`,
-    })
+    console.log(`Stop RuuviTag Discovery`)
     processStopped = true
     // stop broadcasters
     // console.log(`Stop broadcasting...`)

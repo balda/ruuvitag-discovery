@@ -1,21 +1,24 @@
 # RuuviTag Discovery
 
-Discover [RuuviTag Environmental Sensors](https://ruuvi.com/) using a web interface and broadcast measures to configurable targets (MQTT, InfluxDB and Graphite).
+Discover [RuuviTag Environmental Sensors](https://ruuvi.com/) using a web (all measures in one page).
 
+Broadcast measures to configurable targets:
 
-## Features
+- [MQTT](http://mqtt.org/)
+- [InfluxDB](https://docs.influxdata.com/influxdb/)
+- [Graphite](https://graphite.readthedocs.io/en/latest/)
+- [Home Assistant](https://www.home-assistant.io/hassio/) integration (using [MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/))
 
-- Discover multiple RuuviTag measures in one page
-- Broadcast measures to multiple targets
+Other Features:
+
 - Select and configure measures sent to each target
-- Add some measures: acceleration, equilibrium vapor pressure, absolute humidity, air density, dew point, vapor pressure deficit, battery level, reception frequency and reception period
-- Sampling configuration for aggregations
+- Additional measures: absolute humidity, acceleration, air density, battery level, dew point, equilibrium vapor pressure, vapor pressure deficit, reception frequency and reception period
+- Sampling configuration (median measures)
 - Broadcast live or sampled measures
 
 
 ## Roadmap
 
-- [ ] New target: [Home Assistant](https://www.home-assistant.io/hassio/) integration (using [MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/))
 - [ ] Release an [Hass.io](https://www.home-assistant.io/hassio/) addon
 - [ ] Docker image
 - [ ] New target: webhook
@@ -151,6 +154,19 @@ InfluxDB target use `measurement` option:
 _For now, only `http:` protocol is supported._
 
 Measures are writen in `[prefix].[ruuvitag.field].[measure.field]` serie.
+
+#### Home Assistant (MQTT discovery)
+
+- `host`: broker host
+- `port`: broker port
+- `username`: broker username
+- `password`: broker password
+- `topic`: topic prefix
+
+_For now, only `mqtt:` protocol is supported._
+
+[MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/) must be enable on Home Assistant and component `discovery_prefix` must match with `topic` config.
+
 
 ### Configuration file format
 
