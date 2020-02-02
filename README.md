@@ -2,12 +2,12 @@
 
 Discover [RuuviTag Environmental Sensors](https://ruuvi.com/) using a web (all measures in one page).
 
-Broadcast measures to configurable targets:
+Broadcast measures to multiple targets:
 
 - [MQTT](http://mqtt.org/)
 - [InfluxDB](https://docs.influxdata.com/influxdb/)
 - [Graphite](https://graphite.readthedocs.io/en/latest/)
-- [Home Assistant](https://www.home-assistant.io/hassio/) integration (using [MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/))
+- [Home Assistant](https://www.home-assistant.io/hassio/) (using [MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/) integration)
 
 Other Features:
 
@@ -111,7 +111,7 @@ _For now, only `mqtt:` protocol is supported._
 
 MQTT target use `measurement` option:
 
-- `Measure` option send value to `[topic]/[ruuvitag.field]/[measure.field]` topic.
+- `Measure` option send each measure value to `[topic]/[ruuvitag.field]/[measure.field]` topic.
 - `Tag` option send to `[topic]/[ruuvitag.field]` topic a json payload:
 
 ```json
@@ -153,7 +153,7 @@ InfluxDB target use `measurement` option:
 
 _For now, only `http:` protocol is supported._
 
-Measures are writen in `[prefix].[ruuvitag.field].[measure.field]` serie.
+Measures are written in `[prefix].[ruuvitag.field].[measure.field]` series.
 
 #### Home Assistant (MQTT discovery)
 
@@ -161,11 +161,34 @@ Measures are writen in `[prefix].[ruuvitag.field].[measure.field]` serie.
 - `port`: broker port
 - `username`: broker username
 - `password`: broker password
-- `topic`: topic prefix
+- `topic`: Home Assistant `discovery_prefix`
 
 _For now, only `mqtt:` protocol is supported._
 
-[MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/) must be enable on Home Assistant and component `discovery_prefix` must match with `topic` config.
+[MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/) must be enable on Home Assistant and component `discovery_prefix` must match with target `topic` config.
+
+Enabled RuuviTags will be present in the **Devices** list and their measures in **Entities** (one sensor per measure). All measures will be listed in the **MQTT Integration**. So RuuviTags can be placed in an **Area**.
+
+Device name is the one defined in the web interface.
+
+Entity is defined with some attributes:
+
+- Name: device name followed by measure name
+- RuuviTag: id of the tag
+- Measure: name of the measure
+- Unit: displayed if measure has an unit
+- Icon is automatically set
+
+_Remove entity (sensor measure)_
+
+Entities are automatically removed. They can always appear in Home Assistant. After a reboot (or maybe after they disappearing from history), you can "remove" them using Home Assistant interface.
+
+_Remove device_
+
+Home Assistant does not provide an easy way to remove devices. For now, there's only two "solutions":
+
+- Remove MQTT integration.
+- Remove all device entities (see "remove entity"), then edit manually `/config/.storage/core.device_registry` json file, remove RuuviTag reference in the `data.devices` array and reboot.
 
 
 ### Configuration file format
