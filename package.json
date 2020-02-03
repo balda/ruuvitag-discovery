@@ -1,6 +1,6 @@
 {
   "name": "ruuvitag-discovery",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Discover RuuviTag Environmental Sensors using a web interface and broadcast measures to multiple targets (MQTT, InfluxDB, Graphite, Home Assistant).",
   "main": "index.js",
   "scripts": {

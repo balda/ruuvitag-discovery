@@ -15,11 +15,11 @@ Other Features:
 - Additional measures: absolute humidity, acceleration, air density, battery level, dew point, equilibrium vapor pressure, vapor pressure deficit, reception frequency and reception period
 - Sampling configuration (median measures)
 - Broadcast live or sampled measures
+- [Hass.io](https://www.home-assistant.io/hassio/) add-on
 
 
 ## Roadmap
 
-- [ ] Release an [Hass.io](https://www.home-assistant.io/hassio/) addon
 - [ ] Docker image
 - [ ] New target: webhook
 
@@ -36,6 +36,12 @@ npm start
 Web interface url: http://localhost:8099/
 
 Configuration is save in `/data/` directory (create on first run)
+
+#### [Hass.io](https://www.home-assistant.io/hassio/) add-on
+
+On Hass.io add-ons page, add this repository url (`https://github.com/balda/ruuvitag-discovery/`). The add-on will be displayed on the end of the page.
+
+Activate **Show in sidebar** option.
 
 
 ## Configuration

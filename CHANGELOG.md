@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.0] - 2019-02-03
+### Added
+- [Hass.io](https://www.home-assistant.io/hassio/) add-on
+
 ## [0.0.2] - 2019-02-02
 ### Added
 - New Target: [Home Assistant](https://www.home-assistant.io/hassio/) (using [MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/) integration)

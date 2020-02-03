@@ -1,6 +1,8 @@
 // console.log(`OK`);
 $('body').ready(() => {
 
+    const root = $(`base`).attr(`href`);
+
     const btn = {
         color: `btn-light btn-sm`,
         delete: `btn-link text-danger btn-sm`,
@@ -843,7 +845,7 @@ $('body').ready(() => {
             tags[tagId] = tagsNotFound[tagId];
         }
         target.tags = tags;
-        $.post(`/target`, target, (targets) => {
+        $.post(`${root}target`, target, (targets) => {
             tagTargets(targets);
             showTargets();
         });
@@ -870,7 +872,7 @@ $('body').ready(() => {
         const $element = $(e.currentTarget);
         const id = $element.data(`id`);
         if (confirm(`Delete target "${app.targets[1 * id].name}"?`)) {
-            $.post(`/target/delete`, { id }, (targets) => {
+            $.post(`${root}target/delete`, { id }, (targets) => {
                 tagTargets(targets);
                 showTargets();
             });
@@ -897,14 +899,14 @@ $('body').ready(() => {
         }
     };
     const refreshTargets = () => {
-        $.get(`/targets`, (targets) => {
+        $.get(`${root}targets`, (targets) => {
             tagTargets(targets);
             showTargets();
         });
     }
 
     const refreshTags = () => {
-        $.get(`/tags`, (tags) => {
+        $.get(`${root}tags`, (tags) => {
             // console.log(tags);
             app.tags = tags.map(tag => {
                 tag.id = tag.id || (tag.last ? tag.last.id : null);
@@ -962,7 +964,7 @@ $('body').ready(() => {
 
     $page.on(`click`, `.save-sampling`, (e) => {
         e.preventDefault();
-        $.post(`/sampling`, $(`#form-sampling`).serialize(), (result) => {
+        $.post(`${root}sampling`, $(`#form-sampling`).serialize(), (result) => {
             showConfig();
         });
     });

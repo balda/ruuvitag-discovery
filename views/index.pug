@@ -3,7 +3,7 @@ html.h-100
 
   head
     meta(charset="utf-8")
-    base(href="/")
+    base(href=`${ingress}`)
     <!--[if LT IE 8]></base><![endif]-->
     title #{addon.name}
     meta(name="robots" content="noindex")
@@ -41,7 +41,7 @@ html.h-100
                     //-     em Addon
                     //-     pre #{JSON.stringify(addon, null, 2)}
 
-    script(src="app.js")
+    script(src=`${ingress}app.js`)
     script(src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js")
     script(src="//stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js")
     script(src="//kit.fontawesome.com/845c15abb5.js" crossorigin="anonymous")

@@ -7,7 +7,7 @@
     },
     "hassio": {
         "host": "{?>HASS_HOST}",
-        "host?": "",
+        "host?": "http://hassio/",
         "token": "{?>HASSIO_TOKEN}",
         "token?": ""
     }
