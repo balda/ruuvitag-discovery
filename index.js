@@ -294,7 +294,7 @@ const end = async (signal) => {
 }
 
 const run = async () => {
-    server.start({store, config, addon})
+    await server.start({store, config, addon})
 
     handleSampling()
 

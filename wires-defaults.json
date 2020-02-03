@@ -4,5 +4,11 @@
     ":dict/": "./dict/",
     "server": {
         "timeout": 5
+    },
+    "hassio": {
+        "host": "{?>HASS_HOST}",
+        "host?": "",
+        "token": "{?>HASSIO_TOKEN}",
+        "token?": ""
     }
 }
