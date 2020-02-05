@@ -262,7 +262,7 @@ $('body').ready(() => {
     tpl.targets = (targets) => {
         // const now = Date.now();
         return `
-            <div class="mt-4">
+            <div class="my-1">
                 <div class="dropdown">
                     <button class="btn ${btn.color} dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-plus"></i> Target
@@ -276,7 +276,7 @@ $('body').ready(() => {
                     </div>
                 </div>
             </div>
-            <div id="edit-panel-target" class="my-4"></div>
+            <div id="edit-panel-target"></div>
             <div id="table-tags">
             ${targets.length ? `
                 <table class="table table-sm font-weight-lighter">
@@ -400,7 +400,7 @@ $('body').ready(() => {
         const col_left = 4;
         const col_right = (12 - col_left);
         return `
-            <div class="mt-2">
+            <div class="mt-1 pt-2 border-top">
                 <a href="#" class="btn ${btn.color} close-edit-target">
                     Cancel
                 </a>
@@ -784,6 +784,7 @@ $('body').ready(() => {
     $page.on(`click`, `.add-target`, (e) => {
         e.preventDefault();
         const $element = $(e.currentTarget);
+        $(`#table-tags`).hide();
         $(`#edit-panel-target`).html(tpl.target($element.data()));
     });
 
