@@ -930,7 +930,7 @@ $('body').ready(() => {
     });
 
     tpl.config = ({sampling, battery}) => {
-        const col_left = 6;
+        const col_left = 5;
         const col_right = 6;
         return `
             <div class="row">
@@ -950,7 +950,7 @@ $('body').ready(() => {
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-${col_left} col-form-label-sm">
-                                Interval
+                                Sampling interval
                             </label>
                             <div class="col-sm-${col_right}">
                                 ${tpl.field.number(`interval`, sampling)}
@@ -970,14 +970,17 @@ $('body').ready(() => {
                         <div class="form-group row">
                             <label class="col-sm-${col_left} col-form-label-sm">
                                 Min (1%)
+                                <small class="form-text text-muted">
+                                    <em>
+                                        <span class="font-weight-lighter">default 2500mV</span>
+                                    </em>
+                                </small>
                             </label>
                             <div class="col-sm-${col_right}">
                                 ${tpl.field.number(`min`, battery)}
-                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                <small class="form-text text-muted">
                                     <em>
                                         Min mV for 1% battery level
-                                        <br>
-                                        <small class="font-weight-lighter">(default 2500mV)</small>
                                     </em>
                                 </small>
                             </div>
@@ -985,14 +988,17 @@ $('body').ready(() => {
                         <div class="form-group row">
                             <label class="col-sm-${col_left} col-form-label-sm">
                                 Max (100%)
+                                <small class="form-text text-muted">
+                                    <em>
+                                        <span class="font-weight-lighter">default 3000mV</span>
+                                    </em>
+                                </small>
                             </label>
                             <div class="col-sm-${col_right}">
                                 ${tpl.field.number(`max`, battery)}
-                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                <small class="form-text text-muted">
                                     <em>
                                         Max mV for 100% battery level
-                                        <br>
-                                        <small class="font-weight-lighter">(default 3000mV)</small>
                                     </em>
                                 </small>
                             </div>

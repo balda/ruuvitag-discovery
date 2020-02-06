@@ -48,7 +48,8 @@ Activate **Show in sidebar** option.
 
 All the configuration is done in the web interface and saved in `/data/config.json` file.
 
-### Measures
+
+### Global configuration
 
 #### History
 
@@ -59,6 +60,15 @@ Default configuration retain 100 measures max per RuuviTag (`history` config). H
 Default sampling is every 10 seconds (`interval` config). Setting `interval = O` disable sampling (last measures are always sent).
 
 If sampling is enable, `median` measures are sent to non live targets (see targets below)
+
+#### Battery level
+
+Battery level is between 1% and 100%, for respectivly 2500mV (`min` config) and 3000mV (`max` config).
+
+_See [battery FAQ](https://github.com/ruuvi/ruuvitag_fw/wiki/FAQ:-battery) in RuuviTag firmware repository._
+
+
+### Measures
 
 #### Available measures
 
@@ -90,6 +100,7 @@ Calculated using default measures
 - Dew point
 - Equilibrium vapor pressure
 - Vapor pressure deficit
+
 
 ### Targets
 

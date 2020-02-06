@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+## [0.1.1] - 2019-02-06
+### Added
+- Add battery level configuration
+
 ## [0.1.0] - 2019-02-03
 ### Added
 - [Hass.io](https://www.home-assistant.io/hassio/) add-on
@@ -8,9 +14,11 @@
 ### Added
 - New Target: [Home Assistant](https://www.home-assistant.io/hassio/) (using [MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/) integration)
 
-## [0.0.1] - 2020-02-01
+## 0.0.1 - 2020-02-01
 
 First release
 
+[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.1...HEAD
+[0.1.1]: https://github.com/balda/ruuvitag-discovery/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/balda/ruuvitag-discovery/compare/0.0.2...0.1.0
 [0.0.2]: https://github.com/balda/ruuvitag-discovery/compare/0.0.1...0.0.2
