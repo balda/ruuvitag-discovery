@@ -87,7 +87,7 @@ ruuvitag.on('found', tag => {
             }
         }
         data.ts = Date.now()
-        calc(data)
+        calc(data, config)
         data.id = tag.id
         tags[tag.id].id = tag.id
         tags[tag.id].last = data
@@ -261,6 +261,10 @@ const store = {
         config.sampling = sampling
         config.backup()
         handleSampling()
+    },
+    battery: async (battery) => {
+        config.battery = battery
+        config.backup()
     },
 }
 

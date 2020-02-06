@@ -119,7 +119,12 @@ $('body').ready(() => {
             field: `battery`,
             format: (tag, source, field) => {
                 const data = tag[source][field];
-                return Math.round(data);
+                return `
+                    ${Math.round(data)}
+                    <small class="ml-1 font-weight-lighter">
+                        (${Math.round(tag[source].battery_level)}%)
+                    </small>
+                `;
             },
         }, {
             title: `Tx Power`,
@@ -924,20 +929,20 @@ $('body').ready(() => {
         refreshTags();
     });
 
-    tpl.sampling = (data) => {
+    tpl.config = ({sampling, battery}) => {
         const col_left = 6;
         const col_right = 6;
         return `
-            <em>Sampling configuration</em>
-            <div class="row mt-4">
-                <div class="col-8">
-                    <form id="form-sampling">
+            <div class="row">
+                <div class="col-4">
+                    <small>Sampling configuration</small>
+                    <form id="form-sampling" class="mt-4">
                         <div class="form-group row">
                             <label class="col-sm-${col_left} col-form-label-sm">
                                 History
                             </label>
                             <div class="col-sm-${col_right}">
-                                ${tpl.field.number(`history`, data)}
+                                ${tpl.field.number(`history`, sampling)}
                                 <small id="passwordHelpBlock" class="form-text text-muted">
                                     <em>Max samples in history</em>
                                 </small>
@@ -948,7 +953,7 @@ $('body').ready(() => {
                                 Interval
                             </label>
                             <div class="col-sm-${col_right}">
-                                ${tpl.field.number(`interval`, data)}
+                                ${tpl.field.number(`interval`, sampling)}
                                 <small id="passwordHelpBlock" class="form-text text-muted">
                                     <em>Sampling interval (in ms)</em>
                                 </small>
@@ -956,6 +961,44 @@ $('body').ready(() => {
                         </div>
                     </form>
                     <a href="#" class="btn ${btn.color} save-sampling">
+                        Save
+                    </a>
+                </div>
+                <div class="col-4">
+                    <small>Battery level configuration</small>
+                    <form id="form-battery" class="mt-4">
+                        <div class="form-group row">
+                            <label class="col-sm-${col_left} col-form-label-sm">
+                                Min (1%)
+                            </label>
+                            <div class="col-sm-${col_right}">
+                                ${tpl.field.number(`min`, battery)}
+                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                    <em>
+                                        Min mV for 1% battery level
+                                        <br>
+                                        <small class="font-weight-lighter">(default 2500mV)</small>
+                                    </em>
+                                </small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-${col_left} col-form-label-sm">
+                                Max (100%)
+                            </label>
+                            <div class="col-sm-${col_right}">
+                                ${tpl.field.number(`max`, battery)}
+                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                    <em>
+                                        Max mV for 100% battery level
+                                        <br>
+                                        <small class="font-weight-lighter">(default 3000mV)</small>
+                                    </em>
+                                </small>
+                            </div>
+                        </div>
+                    </form>
+                    <a href="#" class="btn ${btn.color} save-battery">
                         Save
                     </a>
                 </div>
@@ -970,9 +1013,17 @@ $('body').ready(() => {
         });
     });
 
+    $page.on(`click`, `.save-battery`, (e) => {
+        e.preventDefault();
+        $.post(`${root}battery`, $(`#form-battery`).serialize(), (result) => {
+            showConfig();
+        });
+    });
+
     const showConfig = () => {
-        const data = JSON.parse($(`#sampling-json`).val());
-        $config.html(tpl.sampling(data));
+        const sampling = JSON.parse($(`#sampling-json`).val());
+        const battery = JSON.parse($(`#battery-json`).val());
+        $config.html(tpl.config({ sampling, battery }));
         $config.find(`.jstooltip`).tooltip({});
     };
 

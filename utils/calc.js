@@ -80,14 +80,14 @@ const vaporPressureDeficit = (data) => {
     data.vapor_pressure_deficit = precision(ew - data.humidity / 100 * ew)
 }
 
-const batteryMin = 2000
-const batteryMax = 3200
-const batteryLevel = (data) => {
-    data.battery_level = Math.max(1, Math.round((data.battery - batteryMin) * 100 / (batteryMax - batteryMin)))
+const batteryLevel = (data, config) => {
+    data.battery_level = Math.round((data.battery - config.battery.min) * 100 / (config.battery.max - config.battery.min))
+    data.battery_level = Math.max(1, data.battery_level)
+    data.battery_level = Math.min(100, data.battery_level)
 }
 
-const calc = (data) => {
-    batteryLevel(data)
+const calc = (data, config) => {
+    batteryLevel(data, config)
     equilibriumVaporPressure(data)
     dewPoint(data)
     airDensity(data)

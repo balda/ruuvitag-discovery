@@ -1,4 +1,4 @@
--const ruuvi = `<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 999.56 1000"><defs><style>.a{fill:#fff;}</style></defs><path class="a" d="M499.59,2C223.56,2-.22,225.81-.25,501.95S223.46,1002,499.48,1002,999.23,778.26,999.32,502.16C999.78,226.42,776.72,2.51,501.1,2.05h-1.51M603,829.42c-174.61,0-316.64-140.69-318.36-315.37a216.85,216.85,0,0,0,70.71,11.63c121.74,0,220.43-98.72,220.44-220.51A220.6,220.6,0,0,0,547.46,197,328.75,328.75,0,0,1,603,191.8c175.87,0,318.44,142.63,318.44,318.58S778.86,829,603,829"/></svg>` //  width="16" height="16"
+-const ruuvi = `<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 999.56 1200"><defs><style>.a{fill:#fff;}</style></defs><path class="a" d="M499.59,2C223.56,2-.22,225.81-.25,501.95S223.46,1002,499.48,1002,999.23,778.26,999.32,502.16C999.78,226.42,776.72,2.51,501.1,2.05h-1.51M603,829.42c-174.61,0-316.64-140.69-318.36-315.37a216.85,216.85,0,0,0,70.71,11.63c121.74,0,220.43-98.72,220.44-220.51A220.6,220.6,0,0,0,547.46,197,328.75,328.75,0,0,1,603,191.8c175.87,0,318.44,142.63,318.44,318.58S778.86,829,603,829"/></svg>` //  width="16" height="16"
 
 doctype html
 html.h-100
@@ -27,11 +27,10 @@ html.h-100
                     i.fal.fa-cog
             .col-4.m-auto.pr-4
                 .float-right
-                    a.mr-1.text-white(href=`https://ruuvi.com/` target="_blank") 
-                        span !{ruuvi} 
                     small: em v#{addon.version}
                     a.ml-2.text-white(href=`${addon.url}` target="_blank")
                         i.fab.fa-github.fa-sm
+                    a.ml-1.text-white(href=`https://ruuvi.com/` target="_blank") !{ruuvi}
         
         #content.mb-4
             .panel-display#panel-tags(style="display: none-;")
@@ -40,12 +39,10 @@ html.h-100
                 #targets
             .panel-display#panel-config(style="display: none;")
                 .row
-                    .col-6.pt-2
+                    .col-12.pt-2
                         textarea#sampling-json(style="display: none;") #{JSON.stringify(config.sampling)}
+                        textarea#battery-json(style="display: none;") #{JSON.stringify(config.battery)}
                         #config
-                    //- .col-6.pt-2
-                    //-     em Addon
-                    //-     pre #{JSON.stringify(addon, null, 2)}
 
     script(src=`${ingress}app.js`)
     script(src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js")
