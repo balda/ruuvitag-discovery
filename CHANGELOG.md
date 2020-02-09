@@ -2,9 +2,9 @@
 
 ## [Unreleased]
 
-## [0.1.3] - 2019-02-09
+## [0.1.4] - 2019-02-09
 ### Added
-- Fix Hass.io config
+- Fix Hass.io config (not fixed in [0.1.3])
 
 ## [0.1.2] - 2019-02-09
 ### Added
@@ -26,7 +26,8 @@
 
 First release
 
-[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.3...HEAD
+[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.4...HEAD
+[0.1.4]: https://github.com/balda/ruuvitag-discovery/compare/0.1.3...0.1.4
 [0.1.3]: https://github.com/balda/ruuvitag-discovery/compare/0.1.2...0.1.3
 [0.1.2]: https://github.com/balda/ruuvitag-discovery/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/balda/ruuvitag-discovery/compare/0.1.0...0.1.1
