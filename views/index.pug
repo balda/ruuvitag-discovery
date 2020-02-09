@@ -19,15 +19,19 @@ html.h-100
         .row#header(style="background-color:#45A5F0; color: white;")
             .col-8.p-3.pl-4
                 span.mr-4 RuuviTags Discovery
-                a.mr-4.panel-view.text-white.jstooltip(data-target="panel-tags" title="Discover RuuviTags" href="#")
-                    i.fal.fa-signal-stream
-                a.mr-4.panel-view.text-white.jstooltip(data-target="panel-targets" title="Targets" href="#")
-                    i.fal.fa-database
-                a.mr-4.panel-view.text-white.jstooltip(data-target="panel-config" title="Configuration" href="#")
-                    i.fal.fa-cog
+                a.mr-4.panel-view.text-white.text-decoration-none.jstooltip(data-target="panel-tags" title="Discover RuuviTags" href="#")
+                    i.fal.fa-sm.fa-signal-stream
+                    small.ml-1.font-weight-lighter Discover
+                a.mr-4.panel-view.text-white.text-decoration-none.jstooltip(data-target="panel-targets" title="Targets" href="#")
+                    i.fal.fa-sm.fa-database
+                    small.ml-1.font-weight-lighter Targets
+                a.mr-4.panel-view.text-white.text-decoration-none.jstooltip(data-target="panel-config" title="Configuration" href="#")
+                    i.fal.fa-sm.fa-cog
+                    small.ml-1.font-weight-lighter Configuration
             .col-4.m-auto.pr-4
                 .float-right
-                    small: em v#{addon.version}
+                    small: em 
+                        a.text-white.font-weight-lighter.text-decoration-none(href=`https://github.com/balda/ruuvitag-discovery/blob/master/CHANGELOG.md` target="_blank") v#{addon.version}
                     a.ml-2.text-white(href=`${addon.url}` target="_blank")
                         i.fab.fa-github.fa-sm
                     a.ml-1.text-white(href=`https://ruuvi.com/` target="_blank") !{ruuvi}

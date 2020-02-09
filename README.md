@@ -1,6 +1,6 @@
 # RuuviTag Discovery
 
-Discover [RuuviTag Environmental Sensors](https://ruuvi.com/) using a web (all measures in one page).
+Discover [RuuviTag Environmental Sensors](https://ruuvi.com/) using a web interface (all measures in one page).
 
 Broadcast measures to multiple targets:
 
