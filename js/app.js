@@ -2,13 +2,20 @@
 $('body').ready(() => {
 
     const root = $(`base`).attr(`href`);
-
     const $page = $(`#page`);
+
+    app.serializeForm = ($form) => {
+        const form = {};
+        for (const param of $form.serializeArray()) {
+            form[param.name] = param.value;
+        }
+        return form;
+    };
+
     const $header = $(`#header`);
     const $content = $(`#content`);
     const $tags = $(`#tags`);
     const $targets = $(`#targets`);
-    const $config = $(`#config`);
 
     const showPanel = (target) => {
         $(`.panel-display`).hide();
@@ -195,27 +202,6 @@ $('body').ready(() => {
         refreshTags();
     });
 
-    $page.on(`click`, `.save-sampling`, (e) => {
-        e.preventDefault();
-        $.post(`${root}sampling`, $(`#form-sampling`).serialize(), (result) => {
-            showConfig();
-        });
-    });
-
-    $page.on(`click`, `.save-battery`, (e) => {
-        e.preventDefault();
-        $.post(`${root}battery`, $(`#form-battery`).serialize(), (result) => {
-            showConfig();
-        });
-    });
-
-    const showConfig = () => {
-        const sampling = JSON.parse($(`#sampling-json`).val());
-        const battery = JSON.parse($(`#battery-json`).val());
-        $config.html(app.tpl.config({ sampling, battery }));
-        $config.find(`.jstooltip`).tooltip({});
-    };
-
     const refreshTargets = () => {
         return $.get(`${root}targets`, (targets) => {
             tagTargets(targets);
@@ -240,7 +226,6 @@ $('body').ready(() => {
     refreshTargets().then(() => {
         refreshTags();
     });
-    showConfig();
 
     // setInterval(refreshTags, 3000);
 

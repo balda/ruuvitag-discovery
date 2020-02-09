@@ -218,6 +218,12 @@ const handleTarget = async (target) => {
     }
 }
 
+const handleTargets = async () => {
+    for (const target of config.targets) {
+        await handleTarget(target)
+    }
+}
+
 const store = {
     tags: () => {
         return Object.keys(tags).map(id => {
@@ -257,14 +263,20 @@ const store = {
             return config.targets
         }
     },
-    sampling: async (sampling) => {
-        config.sampling = sampling
+    config: async (data) => {
+        if (data.battery) {
+            config.battery = data.battery
+        }
+        if (data.sampling) {
+            config.sampling = data.sampling
+            handleSampling()
+        }
+        if (data.targets) {
+            config.targets = data.targets
+            await handleTargets()
+        }
         config.backup()
-        handleSampling()
-    },
-    battery: async (battery) => {
-        config.battery = battery
-        config.backup()
+        return config
     },
 }
 
