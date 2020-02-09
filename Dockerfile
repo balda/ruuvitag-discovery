@@ -14,4 +14,6 @@ RUN npm install --no-audit --production
 COPY . /app
 WORKDIR /app
 
+ENV RUUVI_DISCOVERY_ENV homeassistant
+
 CMD [ "node", "index.js" ]
