@@ -15,6 +15,7 @@
     "host_network": true,
     "ingress": true,
     "ingress_port": 8099,
+    "panel_icon": "mdi:access-point",
     "options": {},
     "schema": false
 }
