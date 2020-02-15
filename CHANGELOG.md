@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.5] - 2019-02-15
+### Added
+- Home Assistant: present tags every minute (on send)
+- Add font-awesome to repository (fix safari cross origin bug)
+
 ## [0.1.4] - 2019-02-09
 ### Added
 - Fix Hass.io config (not fixed in [0.1.3])
@@ -26,7 +31,8 @@
 
 First release
 
-[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.4...HEAD
+[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.5...HEAD
+[0.1.5]: https://github.com/balda/ruuvitag-discovery/compare/0.1.4...0.1.5
 [0.1.4]: https://github.com/balda/ruuvitag-discovery/compare/0.1.3...0.1.4
 [0.1.3]: https://github.com/balda/ruuvitag-discovery/compare/0.1.2...0.1.3
 [0.1.2]: https://github.com/balda/ruuvitag-discovery/compare/0.1.1...0.1.2
