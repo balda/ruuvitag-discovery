@@ -5,6 +5,9 @@
     "server": {
         "timeout": 5
     },
+    "ha_mqtt": {
+        "present": 60
+    },
     "hassio": {
         "host": "{?>HASS_HOST}",
         "host?": "http://hassio/",
