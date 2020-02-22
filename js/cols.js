@@ -33,6 +33,8 @@ app.cols = [
     }, {
         field: `pressure`,
     }, {
+        field: `acceleration`,
+    }, {
         field: `accelerationX`,
     }, {
         field: `accelerationY`,
@@ -50,6 +52,16 @@ app.cols = [
     }, {
         title: `Measurement #`,
         field: `measurementSequenceNumber`,
+    }, {
+        field: `equilibrium_vapor_pressure`,
+    }, {
+        field: `absolute_humidity`,
+    }, {
+        field: `air_density`,
+    }, {
+        field: `dew_point`,
+    }, {
+        field: `vapor_pressure_deficit`,
     }, {
         title: `Samples`,
         field: `samples`,
@@ -110,9 +122,12 @@ app.cols.forEach((col, i) => {
     }
     if (col.render === undefined) {
         app.cols[i].render = (tag, field = `last`) => {
-            const data = tag[field][col.field];
+            let data = tag[field][col.field];
             let render = data;
             if (data) {
+                if (col.scale !== undefined) {
+                    data = data * col.scale;
+                }
                 if (col.accuracy !== undefined) {
                     render = data.toFixed(col.accuracy);
                 }

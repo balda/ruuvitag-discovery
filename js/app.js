@@ -177,6 +177,13 @@ $('body').ready(() => {
         };
     });
 
+    app.showTags = () => {
+        $tags.html(app.tpl.tags());
+        $tags.find(`.jstooltip`).tooltip({
+            html: true,
+        });
+    };
+
     const showTargets = () => {
         $targets.html(app.tpl.targets(app.targets));
         $targets.find(`.jstooltip`).tooltip({});
@@ -216,10 +223,7 @@ $('body').ready(() => {
                 tag.id = tag.id || (tag.last ? tag.last.id : null);
                 return tag;
             });
-            $tags.html(app.tpl.tags(tags));
-            $tags.find(`.jstooltip`).tooltip({
-                html: true,
-            });
+            app.showTags();
         });
     }
 

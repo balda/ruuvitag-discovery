@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.6] - 2019-02-22
+### Added
+- Discovery panel: add tag informations popup
+- Discovery panel: select displayed columns (more available columns)
+- Home Assistant target: add panel icon
+
 ## [0.1.5] - 2019-02-15
 ### Added
 - Home Assistant: present tags every minute (on send)
@@ -31,7 +37,8 @@
 
 First release
 
-[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.5...HEAD
+[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.6...HEAD
+[0.1.6]: https://github.com/balda/ruuvitag-discovery/compare/0.1.5...0.1.6
 [0.1.5]: https://github.com/balda/ruuvitag-discovery/compare/0.1.4...0.1.5
 [0.1.4]: https://github.com/balda/ruuvitag-discovery/compare/0.1.3...0.1.4
 [0.1.3]: https://github.com/balda/ruuvitag-discovery/compare/0.1.2...0.1.3
