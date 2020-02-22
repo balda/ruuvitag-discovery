@@ -1,111 +1,148 @@
 app.tpl.tags = (tags) => {
     // console.log(tags);
-    const now = Date.now();
+    app.ui = {};
+    app.ui._cols = {
+        id: true,
+        dataFormat: true,
+        rssi: true,
+        temperature: true,
+        humidity: true,
+        pressure: true,
+        accelerationX: false,
+        accelerationY: false,
+        accelerationZ: false,
+        battery: true,
+        battery_level: true,
+        txPower: true,
+        movementCounter: true,
+        measurementSequenceNumber: true,
+        samples: true,
+        frequency: true,
+        period: true,
+        ts: true,
+    };
+    app.ui.cols = () => {
+        return app.cols.filter(col => app.ui._cols[col.field] === true);
+    };
     return `
     <div class="my-1">
         <a href="#" class="btn btn-sm ${app.btn.color} refresh-tags">
             <i class="fal fa-sync"></i> Refresh
         </a>
     </div>
-    <table class="table table-sm font-weight-lighter">
-        <tr>
-            ${app.cols.map(col => {
+    <div class="table-responsive">
+        <table class="table table-sm font-weight-lighter">
+            <tr>
+                ${app.ui.cols().map(col => {
+                    return `
+                        <td class="${col.class || `text-right`}">
+                            <small>${col.title}</small>
+                        </td>
+                    `;
+                }).join(``)}
+                <td class="text-center">
+                    <small>Targets</small>
+                </td>
+                <td class="text-center">
+                    <small>Infos</small>
+                </td>
+            </tr>
+            ${tags.map(tag => {
                 return `
-                    <td>
-                        <small>${col.title}</small>
-                    </td>
+                    <tr>
+                        ${app.ui.cols().map(col => {
+                            return `
+                                <td ${col.td || ``} class="${col.class || `text-right`} font-weight-lighter small">
+                                    ${col.render(tag)}
+                                </td>
+                            `;
+                        }).join(``)}
+                        <td class="text-center">
+                            ${app.tagTargets && app.tagTargets[tag.id] ? `
+                                <span class="jstooltip font-weight-lighter" title="${app.tagTargets[tag.id].map(target => {
+                                    return `${target.name} (${target.type})`;
+                                }).join(`, `)}">
+                                    <i class="fal fa-database"></i>
+                                    <span class="small">
+                                        <span class="badge badge-light">${app.tagTargets[tag.id].length}</span>
+                                    </span>
+                                </span>
+                            ` : ``}
+                        </td>
+                        <td class="text-center">
+                            <a href="#" class="text-dark show-tag-measures" data-id="${tag.id}">
+                                <i class="fal fa-info-circle"></i>
+                            </a>
+                        </td>
+                    </tr>
                 `;
             }).join(``)}
-            <td>
-                <small>Samples</small>
-            </td>
-            <td>
-                <small>Freq / min</small>
-            </td>
-            <td>
-                <small>Period (sec)</small>
-            </td>
-            <td>
-                <small>Last seen (sec)</small>
-            </td>
-            <td class="text-center">
-                <small>Targets</small>
-            </td>
-        </tr>
-        ${tags.map(tag => {
-            const ts = new Date(tag.last.ts);
-            const mediants = tag.median ? (new Date(tag.median.ts)) : null;
-            const firstts = tag.first ? (new Date(tag.first.ts)) : null;
-            return `
-                <tr>
-                    ${app.cols.map(col => {
-                        return `
-                            <td>
-                                <small class="font-weight-lighter">
-                                    ${col.format ? col.format(tag, `last`, col.field) : tag.last[col.field]}
-                                </small>
-                                ${tag.median ? `
-                                    <br>
-                                    <small class="font-weight-lighter">
-                                        <em>${col.format ? col.format(tag, `median`, col.field) : tag.median[col.field]}<em>
-                                    </small>
-                                ` : ``}
-                                ${tag.first ? `
-                                    <br>
-                                    <small class="font-weight-lighter">
-                                        <em>${col.format ? col.format(tag, `first`, col.field) : tag.first[col.field]}<em>
-                                    </small>
-                                ` : ``}
-                            </td>
-                        `;
-                    }).join(``)}
-                    <td>
-                        <small class="font-weight-lighter">
-                            ${tag.samples}
-                        </small>
-                    </td>
-                    <td>
-                        <small class="font-weight-lighter jstooltip" title="${tag.frequency}">
-                            ${tag.frequency ? tag.frequency.toFixed(1) : `N/A`}
-                        </small>
-                    </td>
-                    <td>
-                        <small class="font-weight-lighter jstooltip" title="${tag.period}">
-                            ${tag.period ? tag.period.toFixed(0) : `N/A`}
-                        </small>
-                    </td>
-                    <td>
-                        <small class="font-weight-lighter jstooltip" title="${ts.getHours()}h${ts.getMinutes()}'${ts.getSeconds()}">
-                            ${((now - tag.last.ts) / 1000).toFixed(0)}
-                        </small>
-                        ${mediants ? `
-                            <br>
-                            <small class="font-weight-lighter jstooltip" title="${mediants.getHours()}h${mediants.getMinutes()}'${mediants.getSeconds()}">
-                                <em>${moment(mediants).fromNow(true)}</em>
-                            </small>
-                        ` : ``}
-                        ${firstts ? `
-                            <br>
-                            <small class="font-weight-lighter jstooltip" title="${firstts.getHours()}h${firstts.getMinutes()}'${firstts.getSeconds()}">
-                                <em>${moment(firstts).fromNow(true)}</em>
-                            </small>
-                        ` : ``}
-                    </td>
-                    <td class="text-center">
-                        <small class="font-weight-lighter">
-                        ${app.tagTargets && app.tagTargets[tag.id] ? `
-                            <span class="jstooltip" title="${app.tagTargets[tag.id].map(target => {
-                                return `${target.name} (${target.type})`;
-                            }).join(`, `)}">
-                                <i class="fal fa-database"></i>
-                                <span class="badge badge-light">${app.tagTargets[tag.id].length}</span>
-                            <span>
-                        ` : `-`}
-                        </small>
-                    </td>
-                </tr>
-            `;
-        }).join(``)}
-    </table>
+        </table>
+    </div>
     `;
 };
+
+$('body').ready(() => {
+
+    const $page = $(`#page`);
+
+    $page.on(`click`, `.show-tag-measures`, (e) => {
+        e.preventDefault();
+        const $element = $(e.currentTarget);
+        const id = $element.data(`id`);
+        const tag = app.tags.find(t => t.id === id);
+        const sources = [`last`, `median`, `first`];
+        app.modal.show({
+            header: `
+                RuuviTag
+                <span class="font-weight-lighter">
+                    ${tag.id}
+                </span>`,
+            body: `
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            Measure
+                        </div>
+                        ${sources.map(source => {
+                            return `
+                                <div class="col text-right">
+                                    ${source}
+                                </div>
+                            `;
+                        }).join(``)}
+                    </div>
+                    ${Object.keys(tag.last).filter(field => field !== `id`).sort().map(field => {
+                        const col = app.cols.find(c => c.field === field);
+                        return `
+                            <div class="row font-weight-lighter">
+                                <div class="col">
+                                    ${col ? `${col.title} ${col.unit ? `(${col.unit})` : ``}` : `${field}`}
+                                </div>
+                                ${sources.map(source => {
+                                    return `
+                                        <div class="col text-right">
+                                            ${col ? col.render(tag, source) : `${tag[source][field]}`}
+                                        </div>
+                                    `;
+                                }).join(``)}
+                            </div>
+                        `;
+                    }).join(``)}
+                </div>
+            `,
+            // <pre>${JSON.stringify(tag, null, 2)}</pre>
+            footer: `
+                ${app.cols.filter(c => c.global === true).map(col => {
+                    return `
+                        <span class="mr-4 font-weight-lighter">
+                            ${col.title}:
+                            ${col.render(tag)}
+                        </span>
+                    `;
+                }).join(``)}
+            `,
+        });
+    });
+
+});

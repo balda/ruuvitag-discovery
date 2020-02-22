@@ -3,7 +3,7 @@
 doctype html
 html.h-100
 
-  head
+head
     meta(charset="utf-8")
     base(href=`${ingress}`)
     <!--[if LT IE 8]></base><![endif]-->
@@ -15,7 +15,8 @@ html.h-100
     script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js")
     script(src=`${ingress}assets/fa/all.min-5.12.1.js`)
 
-  body.h-100
+body.h-100
+      
     .container-fluid#page
         .row#header(style="background-color:#45A5F0; color: white;")
             .col-8.p-3.pl-4
@@ -48,6 +49,13 @@ html.h-100
                         textarea#sampling-json(style="display: none;") #{JSON.stringify(config.sampling)}
                         textarea#battery-json(style="display: none;") #{JSON.stringify(config.battery)}
                         #config
+
+    #modal.modal(tabindex="-1" role="dialog")
+        .modal-dialog.modal-xl.modal-dialog-scrollable.modal-dialog-centered(role="document")
+            .modal-content
+                .modal-header
+                .modal-body
+                .modal-footer
 
     script(src=`${ingress}app.js`)
     script(src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js")

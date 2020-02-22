@@ -216,9 +216,10 @@ $('body').ready(() => {
                 tag.id = tag.id || (tag.last ? tag.last.id : null);
                 return tag;
             });
-            const now = Date.now();
             $tags.html(app.tpl.tags(tags));
-            $tags.find(`.jstooltip`).tooltip({});
+            $tags.find(`.jstooltip`).tooltip({
+                html: true,
+            });
         });
     }
 

@@ -1,12 +1,20 @@
+app.formats = {
+    sub: (data) => {
+        return `
+            <span class="jstooltip" title="${data}">
+                ${data.substring(0,4)}
+            </span>
+        `;
+    },
+};
+
 app.cols = [
     {
         title: `ID`,
         field: `id`,
-        format: (tag, source, field) => {
-            if (source !== `last`) {
-                return `${source}`;
-            }
-            const data = tag[source][field];
+        class: `text-left`,
+        render: (tag, field = `last`) => {
+            const data = tag[field].id;
             return `
                 <span class="jstooltip" title="${data}">
                     ${data.substring(0,4)}
@@ -14,84 +22,112 @@ app.cols = [
             `;
         },
     }, {
-        title: `Format`,
+        title: `Data Format`,
         field: `dataFormat`,
-        format: (tag, source, field) => {
-            if (source !== `last`) {
-                return ``;
-            }
-            const data = tag[source][field];
-            return data;
-        },
     }, {
-        title: `RSSI`,
         field: `rssi`,
-        format: (tag, source, field) => {
-            const data = tag[source][field];
-            return Math.round(data);
-        },
     }, {
-        title: `Temperature`,
         field: `temperature`,
-        format: (tag, source, field) => {
-            const data = tag[source][field];
-            return data.toFixed(2);
-        },
     }, {
-        title: `Humidity`,
         field: `humidity`,
-        format: (tag, source, field) => {
-            const data = tag[source][field];
-            return data.toFixed(1);
-        },
     }, {
-        title: `Pressure`,
         field: `pressure`,
-        format: (tag, source, field) => {
-            const data = tag[source][field];
-            return Math.round(data);
-        },
-    // }, {
-    //     title: `Acceleration X`,
-    //     field: `accelerationX`,
-    // }, {
-    //     title: `Acceleration Y`,
-    //     field: `accelerationY`,
-    // }, {
-    //     title: `Acceleration Z`,
-    //     field: `accelerationZ`,
     }, {
-        title: `Battery`,
+        field: `accelerationX`,
+    }, {
+        field: `accelerationY`,
+    }, {
+        field: `accelerationZ`,
+    }, {
         field: `battery`,
-        format: (tag, source, field) => {
-            const data = tag[source][field];
-            return `
-                ${Math.round(data)}
-                <small class="ml-1 font-weight-lighter">
-                    (${Math.round(tag[source].battery_level)}%)
-                </small>
-            `;
-        },
     }, {
-        title: `Tx Power`,
+        field: `battery_level`,
+    }, {
         field: `txPower`,
-        format: (tag, source, field) => {
-            const data = tag[source][field];
-            return data ? Math.round(data) : `-`;
-        },
     }, {
         title: `Movement #`,
         field: `movementCounter`,
-        format: (tag, source, field) => {
-            const data = tag[source][field];
-            return data ? Math.round(data) : `-`;
-        },
     }, {
         title: `Measurement #`,
         field: `measurementSequenceNumber`,
-        format: (tag, source, field) => {
-            const data = tag[source][field];
-            return data ? Math.round(data) : `-`;
+    }, {
+        title: `Samples`,
+        field: `samples`,
+        global: true,
+        render: (tag) => {
+            return `
+                ${tag.samples ? Math.round(tag.samples) : `-`}
+            `;
+        },
+    }, {
+        title: `Freq / min`,
+        field: `frequency`,
+        global: true,
+        render: (tag) => {;
+            return `
+                <span class="jstooltip" title="${tag.frequency}">
+                    ${tag.frequency ? tag.frequency.toFixed(1) : `N/A`}
+                </span>
+            `;
+        },
+    }, {
+        title: `Period (sec)`,
+        field: `period`,
+        global: true,
+        render: (tag) => {
+            return `
+                <span class="jstooltip" title="${tag.period}">
+                    ${tag.period ? tag.period.toFixed(0) : `N/A`}
+                </span>
+            `;
+        },
+    }, {
+        title: `Last seen (sec)`,
+        field: `ts`,
+        render: (tag, field = `last`) => {
+            const data = tag[field].ts;
+            const m = moment(data);
+            return `
+                <span class="jstooltip" title="${m.format(`YYYY-MM-DD HH:mm:ss`)}<br><em>${m.fromNow()}</em>">
+                    ${((Date.now() - data) / 1000).toFixed(0)}
+                </span>
+            `;
         },
     }
 ];
+
+app.cols.forEach((col, i) => {
+    const measure = app.config.measures.find(m => m.field === col.field);
+    if (measure) {
+        for (const key in measure) {
+            if (col[key] === undefined) {
+                app.cols[i][key] = measure[key];
+            }
+        }
+        if (col.title === undefined) {
+            col.title = col.label;
+        }
+    }
+    if (col.render === undefined) {
+        app.cols[i].render = (tag, field = `last`) => {
+            const data = tag[field][col.field];
+            let render = data;
+            if (data) {
+                if (col.accuracy !== undefined) {
+                    render = data.toFixed(col.accuracy);
+                }
+            } else {
+                render = `-`;
+            }
+            return `
+                ${render !== `-` && `${data}` !== `${render}` ? `
+                    <span class="jstooltip" title="${data}">
+                        ${render}
+                    </span>
+                ` : `
+                    ${render}
+                `}
+            `;
+        };
+    }
+});
