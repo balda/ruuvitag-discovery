@@ -38,10 +38,10 @@ app.tpl.tags = () => {
     return `
     <div class="my-1">
         <a href="#" class="btn btn-sm ${app.btn.color} refresh-tags">
-            <i class="fal fa-sync"></i> Refresh
+            <i class="fas fa-sync"></i> Refresh
         </a>
         <a href="#" class="ml-2 btn btn-sm ${app.btn.color} toggle-tags-cols">
-            <i class="fal fa-columns"></i> Select Columns
+            <i class="fas fa-columns"></i> Select Columns
         </a>
     </div>
     <div class="row py-2 mt-1 border-top" id="tags-cols" ${app.ui.col.open ? `` : `style="display: none;"`}>
@@ -94,7 +94,7 @@ app.tpl.tags = () => {
                                 <span class="jstooltip font-weight-lighter" title="${app.tagTargets[tag.id].map(target => {
                                     return `${target.name} (${target.type})`;
                                 }).join(`, `)}">
-                                    <i class="fal fa-database"></i>
+                                    <i class="fas fa-database"></i>
                                     <span class="small">
                                         <span class="badge badge-light">${app.tagTargets[tag.id].length}</span>
                                     </span>
@@ -102,8 +102,8 @@ app.tpl.tags = () => {
                             ` : ``}
                         </td>
                         <td class="text-center">
-                            <a href="#" class="text-dark show-tag-measures" data-id="${tag.id}">
-                                <i class="fal fa-info-circle"></i>
+                            <a href="#" class="show-tag-measures" data-id="${tag.id}" style="color: #45A5F0;">
+                                <i class="fas fa-info-circle"></i>
                             </a>
                         </td>
                     </tr>
@@ -127,11 +127,15 @@ $('body').ready(() => {
         app.modal.show({
             header: `
                 RuuviTag
-                <span class="font-weight-lighter">
+                <span class="font-weight-lighter ml-2">
                     ${tag.id}
-                </span>`,
+                </span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            `,
             body: `
-                <div class="container-fluid">
+                <div class="container-fluid small">
                     <div class="row">
                         <div class="col">
                             Measure
@@ -167,7 +171,7 @@ $('body').ready(() => {
             footer: `
                 ${app.cols.filter(c => c.global === true).map(col => {
                     return `
-                        <span class="mr-4 font-weight-lighter">
+                        <span class="mr-4 font-weight-lighter small">
                             ${col.title}:
                             ${col.render(tag)}
                         </span>
