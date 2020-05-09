@@ -44,7 +44,7 @@ app.tpl.targets = (targets) => {
                     <tr>
                         <td>
                             <span class="jstooltip mr-1 ${1 * target.enable ? `text-success` : `text-danger`}" title="${1 * target.enable ? `enable` : `disable`}">
-                                <i class="fas fa-scrubber fa-sm"></i>
+                                <i class="fas fa-dot-circle fa-sm"></i>
                             </span>
                             ${target.name}
                         </td>

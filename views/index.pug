@@ -13,7 +13,7 @@ head
     link(rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
     script(src="//code.jquery.com/jquery-3.4.1.min.js")
     script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js")
-    script(src=`${ingress}assets/fa/all.min-5.12.1.js`)
+    link(rel="stylesheet" href=`${ingress}assets/fa/css/all.min-5.13.0.css`)
 
 body.h-100
       
@@ -22,13 +22,13 @@ body.h-100
             .col-8.p-3.pl-4
                 span.mr-4 RuuviTags Discovery
                 a.mr-4.panel-view.text-white.text-decoration-none.jstooltip(data-target="panel-tags" title="Discover RuuviTags" href="#")
-                    i.fal.fa-sm.fa-signal-stream
+                    i.fab.fa-bluetooth.fa-sm
                     small.ml-1.font-weight-lighter Discover
                 a.mr-4.panel-view.text-white.text-decoration-none.jstooltip(data-target="panel-targets" title="Targets" href="#")
-                    i.fal.fa-sm.fa-database
+                    i.fas.fa-database.fa-sm
                     small.ml-1.font-weight-lighter Targets
                 a.mr-4.panel-view.text-white.text-decoration-none.jstooltip(data-target="panel-config" title="Configuration" href="#")
-                    i.fal.fa-sm.fa-cog
+                    i.fas.fa-cog.fa-sm
                     small.ml-1.font-weight-lighter Configuration
             .col-4.m-auto.pr-4
                 .float-right
