@@ -14,11 +14,24 @@ app.cols = [
         field: `id`,
         class: `text-left`,
         render: (tag, field = `last`) => {
-            const data = tag[field].id;
-            return `
-                <span class="jstooltip" title="${data}">
-                    ${data.substring(0,4)}
+            return `${tag.id}`;
+        },
+    }, {
+        title: `Name`,
+        field: `name`,
+        class: `text-left`,
+        render: (tag, field = `last`) => {
+            let name = `
+                <span class="jstooltip" title="${tag.id}">
+                    ${tag.id.substring(0,4)}
                 </span>
+            `;
+            if (tag.id && app.ruuvitags[tag.id]) {
+                name = `${app.ruuvitags[tag.id]}`;
+            }
+            return `
+                <a href="#" class="rename-ruuvitag mr-2" data-id="${tag.id}" style="color: #45A5F0;"><i class="fas fa-edit"></i></a>
+                ${name}
             `;
         },
     }, {
@@ -97,6 +110,9 @@ app.cols = [
         title: `Last seen (sec)`,
         field: `ts`,
         render: (tag, field = `last`) => {
+            if (!tag[field]) {
+                return ``;
+            }
             const data = tag[field].ts;
             const m = moment(data);
             return `
@@ -122,6 +138,9 @@ app.cols.forEach((col, i) => {
     }
     if (col.render === undefined) {
         app.cols[i].render = (tag, field = `last`) => {
+            if (!tag[field]) {
+                return ``;
+            }
             let data = tag[field][col.field];
             let render = data;
             if (data) {

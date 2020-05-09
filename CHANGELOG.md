@@ -1,6 +1,7 @@
 # Changelog
 
 ## [Unreleased]
+- RuuviTags can be renamed in discovery list
 - Update Font Awesome icons
 - Add a close button to modal
 

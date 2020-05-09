@@ -275,6 +275,9 @@ const store = {
             config.targets = data.targets
             await handleTargets()
         }
+        if (data.ruuvitags) {
+            config.ruuvitags = data.ruuvitags
+        }
         config.backup()
         return config
     },

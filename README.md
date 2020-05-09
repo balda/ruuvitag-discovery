@@ -213,9 +213,14 @@ Home Assistant does not provide an easy way to remove devices. For now, there's 
 ```json
 {
     "sampling": {
-        "history": 100,
-        "interval": 10000
+        "history": "100",
+        "interval": "10000"
     },
+    "battery": {
+        "min": "2500",
+        "max": "3000"
+    },
+    "ruuvitags": {},
     "targets": [
         {
             "type": "[mqtt|influxdb|graphite]",

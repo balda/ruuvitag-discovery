@@ -3,7 +3,8 @@ app.ui.col = {};
 
 app.ui.col.open = false;
 app.ui.col.data = {
-    id: true,
+    id: false,
+    name: true,
     dataFormat: true,
     rssi: true,
     temperature: true,
@@ -117,6 +118,51 @@ app.tpl.tags = () => {
 $('body').ready(() => {
 
     const $page = $(`#page`);
+
+    $page.on(`click`, `.rename-ruuvitag`, (e) => {
+        e.preventDefault();
+        const $element = $(e.currentTarget);
+        const id = $element.data(`id`);
+        const name = app.ruuvitags[id] ? app.ruuvitags[id] : id;
+        app.modal.show({
+            header: `
+                Rename RuuviTag
+                <span class="font-weight-lighter ml-2">
+                    ${id}
+                </span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            `,
+            body: `
+                <div class="container-fluid small">
+                    <label>Name</label>
+                    <input type="text" value="${name}" id="ruuvitag-name-${id}" name="ruuvitag-name" class="form-control form-control-sm">
+                </div>
+            `,
+            footer: `
+                <a href="#" class="save-ruuvitag-name btn btn-sm ${app.btn.color}" data-id="${id}">
+                    <i class="fas fa-save"></i>
+                    Save
+                </a>
+            `,
+        });
+    });
+
+    app.modal.get().on(`click`, `.save-ruuvitag-name`, (e) => {
+        e.preventDefault();
+        const $element = $(e.target);
+        const id = $element.data(`id`);
+        const name = $(`#ruuvitag-name-${id}`).val();
+        const root = $(`base`).attr(`href`);
+        app.ruuvitags[id] = name;
+        $.post(`${root}config`, {
+            ruuvitags: app.ruuvitags,
+        }, (result) => {
+            app.modal.hide();
+            app.showTags();
+        });
+    });
 
     $page.on(`click`, `.show-tag-measures`, (e) => {
         e.preventDefault();

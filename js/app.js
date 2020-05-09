@@ -3,6 +3,7 @@ $('body').ready(() => {
 
     const root = $(`base`).attr(`href`);
     const $page = $(`#page`);
+    app.ruuvitags = JSON.parse($(`#ruuvitags-json`).val());
 
     app.serializeForm = ($form) => {
         const form = {};

@@ -50,6 +50,9 @@ body.h-100
                         textarea#battery-json(style="display: none;") #{JSON.stringify(config.battery)}
                         #config
 
+    .d-none
+        textarea#ruuvitags-json(style="display: none;") #{JSON.stringify(config.ruuvitags)}
+
     #modal.modal(tabindex="-1" role="dialog")
         .modal-dialog.modal-xl.modal-dialog-scrollable.modal-dialog-centered(role="document")
             .modal-content

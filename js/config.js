@@ -126,6 +126,7 @@ $('body').ready(() => {
             <small><textarea id="json-config" class="form-control form-control-sm" rows="16" ${textarea}>${JSON.stringify({
                 sampling: app.sampling,
                 battery: app.battery,
+                ruuvitags: app.ruuvitags,
                 targets: app.targets,
             }, null, 2)}</textarea></small>
         `);
@@ -165,6 +166,7 @@ $('body').ready(() => {
         $.post(`${root}config`, data, (result) => {
             app.sampling = result.sampling;
             app.battery = result.battery;
+            app.ruuvitags = result.ruuvitags;
             app.targets = result.targets;
             $(`#sampling-json`).val(JSON.stringify(app.sampling));
             $(`#battery-json`).val(JSON.stringify(app.battery));
