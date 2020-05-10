@@ -43,18 +43,19 @@ Navigate to **Add-on store** panel and click on **Repositories** menu on the rig
 
 Copy and paste this repository url `https://github.com/balda/ruuvitag-discovery` and click on **Add**.
 
-<img src="https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/homeassistant-install-addon-repositories.png" width="424"><br>
+<img src="https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/homeassistant-install-addon-repositories.png" width="414"><br>
 
-On the bottom off the Add-on store page, click on **RuuviTag Discovery**.
+On the bottom of the Add-on store page, click on **RuuviTag Discovery**.
 
 <img src="https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/homeassistant-install-ruuvitag-discovery.png" width="347"><br>
 
 **Install** (can be long) and activate **Show in sidebar** option.
 
-Once installed, web UI is available in the sidebar and you can start to view RuuviTags measures and to configure targets.
+Once installed, web UI is available in the sidebar.
 
 <img src="https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/homeassistant-sidebar-ruuvitag-discovery.png" width="256"><br>
 
+You can start to view RuuviTags measures and to configure targets!
 
 
 ## Configuration
