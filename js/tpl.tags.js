@@ -92,18 +92,17 @@ app.tpl.tags = () => {
                         }).join(``)}
                         <td class="text-center">
                             ${app.tagTargets && app.tagTargets[tag.id] ? `
-                                <span class="jstooltip font-weight-lighter" title="${app.tagTargets[tag.id].map(target => {
-                                    return `${target.name} (${target.type})`;
-                                }).join(`, `)}">
-                                    <i class="fas fa-database"></i>
-                                    <span class="small">
-                                        <span class="badge badge-light">${app.tagTargets[tag.id].length}</span>
-                                    </span>
-                                </span>
+                                ${app.tagTargets[tag.id].map((target, index) => {
+                                    return `
+                                        <a href="#" class="mx-1 show-tag-targets jstooltip ${1 * target.enable ? `app-color` : `text-danger`}"
+                                         data-id="${tag.id}" data-index="${index}"
+                                         title="${target.name}<br><em><small>${app.target.getTypeName(target)}</small></em>"><i class="fas fa-database"></i></a>
+                                    `;
+                                }).join(``)}
                             ` : ``}
                         </td>
                         <td class="text-center">
-                            <a href="#" class="show-tag-measures" data-id="${tag.id}" style="color: #45A5F0;">
+                            <a href="#" class="show-tag-measures app-color" data-id="${tag.id}">
                                 <i class="fas fa-info-circle"></i>
                             </a>
                         </td>
@@ -114,6 +113,14 @@ app.tpl.tags = () => {
     </div>
     `;
 };
+// <span class="jstooltip font-weight-lighter" title="${app.tagTargets[tag.id].map(target => {
+//     return `${target.name} (${target.type})`;
+// }).join(`, `)}">
+//     <i class="fas fa-database"></i>
+//     <span class="small">
+//         <span class="badge badge-light">${app.tagTargets[tag.id].length}</span>
+//     </span>
+// </span>
 
 $('body').ready(() => {
 
@@ -225,6 +232,16 @@ $('body').ready(() => {
                 }).join(``)}
             `,
         });
+    });
+
+    $page.on(`click`, `.show-tag-targets`, (e) => {
+        e.preventDefault();
+        const $element = $(e.currentTarget);
+        const id = $element.data(`id`);
+        const targetIndex = $element.data(`index`);
+        const tag = app.tags.find(t => t.id === id);
+        const target = app.tagTargets[id][targetIndex];
+        app.target.openModalTag(target, tag);
     });
 
     $page.on(`change`, `.show-tags-col`, (e) => {

@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+- Add target popup detail on discovery page
+- Add tag id tooltip on `Name` column when tag is renamed
 
 ## [0.1.7] - 2020-05-09
 - RuuviTags can be renamed in discovery list

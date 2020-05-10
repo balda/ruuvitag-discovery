@@ -71,7 +71,7 @@ const targets = [
     },
     {
         type: `ha_mqtt`,
-        label: `Home Assistant (MQTT Discovery)`,
+        label: `Home Assistant (MQTT)`,
         config: [
             // {
             //     name: `protocol`,

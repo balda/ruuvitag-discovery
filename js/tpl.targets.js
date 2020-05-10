@@ -43,16 +43,12 @@ app.tpl.targets = (targets) => {
                     return `
                     <tr>
                         <td>
-                            <span class="jstooltip mr-1 ${1 * target.enable ? `text-success` : `text-danger`}" title="${1 * target.enable ? `enable` : `disable`}">
-                                <i class="fas fa-dot-circle fa-sm"></i>
-                            </span>
+                            ${app.target.iconState(target, `mr-1`)}
                             ${target.name}
                         </td>
                         <td>
                             <small class="font-weight-lighter">
-                                ${(app.config.targets.find(t => {
-                                    return `${target.type}` === `${t.type}`;
-                                })).label}
+                                ${app.target.getTypeName(target)}
                             </small>
                         </td>
                         <td>

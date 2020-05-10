@@ -25,7 +25,7 @@ app.cols = [
             let link = ``;
             if (tag.id && app.ruuvitags[tag.id]) {
                 name = `${app.ruuvitags[tag.id]}`;
-                link = `<a href="#" class="rename-ruuvitag mr-2" data-id="${tag.id}" style="color: #45A5F0;"><i class="fas fa-edit"></i></a>`;
+                link = `<a href="#" class="rename-ruuvitag mr-2 app-color" data-id="${tag.id}"><i class="fas fa-edit"></i></a>`;
             }
             return `
                 ${link}

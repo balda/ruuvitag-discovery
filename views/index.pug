@@ -14,11 +14,12 @@ head
     script(src="//code.jquery.com/jquery-3.4.1.min.js")
     script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js")
     link(rel="stylesheet" href=`${ingress}assets/fa/css/all.min-5.13.0.css`)
+    style .app-color {color: #45A5F0;} .app-bgcolor {background-color: #45A5F0; color: white;} 
 
 body.h-100
       
     .container-fluid#page
-        .row#header(style="background-color:#45A5F0; color: white;")
+        .row.app-bgcolor#header
             .col-8.p-3.pl-4
                 span.mr-4 RuuviTags Discovery
                 a.mr-4.panel-view.text-white.text-decoration-none.jstooltip(data-target="panel-tags" title="Discover RuuviTags" href="#")
