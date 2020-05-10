@@ -2,7 +2,7 @@
 
 Discover [RuuviTag Environmental Sensors](https://ruuvi.com/) using a web interface (all measures in one page).
 
-Broadcast measures to multiple targets:
+Save measures to multiple targets:
 
 - [MQTT](http://mqtt.org/)
 - [InfluxDB](https://docs.influxdata.com/influxdb/)
@@ -15,18 +15,12 @@ Other Features:
 - Additional measures: absolute humidity, acceleration, air density, battery level, dew point, equilibrium vapor pressure, vapor pressure deficit, reception frequency and reception period
 - Sampling configuration (median measures)
 - Broadcast live or sampled measures
-- [Hass.io](https://www.home-assistant.io/hassio/) add-on
-
-
-## Roadmap
-
-- [ ] Docker image
-- [ ] New target: webhook
+- [Home Assistant](https://www.home-assistant.io/hassio/) add-on
 
 
 ## Install
 
-#### From source
+### From source
 
 ```bash
 npm install
@@ -37,11 +31,30 @@ Web interface url: http://localhost:8099/
 
 Configuration is save in `/data/` directory (create on first run)
 
-#### [Hass.io](https://www.home-assistant.io/hassio/) add-on
+### [Home Assistant](https://www.home-assistant.io/hassio/) add-on
 
-On Hass.io add-ons page, add this repository url (`https://github.com/balda/ruuvitag-discovery/`). The add-on will be displayed on the end of the page.
+In the sidebar menu, click on **Supervisor** page.
 
-Activate **Show in sidebar** option.
+![supervisor](doc/homeassistant-install-supervisor.png)
+
+Navigate to **Add-on store** panel and click on **Repositories** menu on the right.
+
+![add-on store](doc/homeassistant-install-addon-store.png)
+
+Copy and paste this repository url `https://github.com/balda/ruuvitag-discovery` and click on **Add**.
+
+![add-on store](doc/homeassistant-install-addon-repositories.png)
+
+On the bottom off the Add-on store page, click on **RuuviTag Discovery**.
+
+![add-on store](doc/homeassistant-install-ruuvitag-discovery.png)
+
+**Install** (can be long) and activate **Show in sidebar** option.
+
+Once installed, web UI is available in the sidebar and you can start to view RuuviTags measures and to configure targets.
+
+![add-on store](doc/homeassistant-sidebar-ruuvitag-discovery.png)
+
 
 
 ## Configuration
