@@ -35,25 +35,25 @@ Configuration is save in `/data/` directory (create on first run)
 
 In the sidebar menu, click on **Supervisor** page.
 
-![supervisor](doc/homeassistant-install-supervisor.png)
+<img src="https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/homeassistant-install-supervisor.png" width="248"><br>
 
 Navigate to **Add-on store** panel and click on **Repositories** menu on the right.
 
-![add-on store](doc/homeassistant-install-addon-store.png)
+<img src="https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/homeassistant-install-addon-store.png" width="1170"><br>
 
 Copy and paste this repository url `https://github.com/balda/ruuvitag-discovery` and click on **Add**.
 
-![add-on store](doc/homeassistant-install-addon-repositories.png)
+<img src="https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/homeassistant-install-addon-repositories.png" width="424"><br>
 
 On the bottom off the Add-on store page, click on **RuuviTag Discovery**.
 
-![add-on store](doc/homeassistant-install-ruuvitag-discovery.png)
+<img src="https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/homeassistant-install-ruuvitag-discovery.png" width="347"><br>
 
 **Install** (can be long) and activate **Show in sidebar** option.
 
 Once installed, web UI is available in the sidebar and you can start to view RuuviTags measures and to configure targets.
 
-![add-on store](doc/homeassistant-sidebar-ruuvitag-discovery.png)
+<img src="https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/homeassistant-sidebar-ruuvitag-discovery.png" width="256"><br>
 
 
 
