@@ -20,9 +20,7 @@ Other Features:
 ![discover page](https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/page-discover.png)
 
 
-## Install
-
-### From source
+## Install from source
 
 ```bash
 npm install
@@ -33,7 +31,7 @@ Web interface url: http://localhost:8099/
 
 Configuration is save in `/data/` directory (create on first run)
 
-### [Home Assistant](https://www.home-assistant.io/hassio/) add-on
+## Install [Home Assistant](https://www.home-assistant.io/hassio/) add-on
 
 In the sidebar menu, click on **Supervisor** page.
 
