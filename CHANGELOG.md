@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+
+## [0.1.8] - 2020-05-10
 - Add target popup detail on discovery page
 - Add tag id tooltip on `Name` column when tag is renamed
 
@@ -44,7 +46,8 @@
 
 First release
 
-[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.7...HEAD
+[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.8...HEAD
+[0.1.8]: https://github.com/balda/ruuvitag-discovery/compare/0.1.7...0.1.8
 [0.1.7]: https://github.com/balda/ruuvitag-discovery/compare/0.1.6...0.1.7
 [0.1.6]: https://github.com/balda/ruuvitag-discovery/compare/0.1.5...0.1.6
 [0.1.5]: https://github.com/balda/ruuvitag-discovery/compare/0.1.4...0.1.5
