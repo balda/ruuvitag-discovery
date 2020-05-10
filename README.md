@@ -17,6 +17,8 @@ Other Features:
 - Broadcast live or sampled measures
 - [Home Assistant](https://www.home-assistant.io/hassio/) add-on
 
+![discover page](https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/page-discover.png)
+
 
 ## Install
 
