@@ -22,13 +22,11 @@ app.cols = [
         class: `text-left`,
         render: (tag, field = `last`) => {
             let name = `${tag.id.substring(0,4)}`;
-            let link = ``;
             if (tag.id && app.ruuvitags[tag.id]) {
                 name = `${app.ruuvitags[tag.id]}`;
-                link = `<a href="#" class="rename-ruuvitag mr-2 app-color" data-id="${tag.id}"><i class="fas fa-edit"></i></a>`;
             }
             return `
-                ${link}
+                <a href="#" class="rename-ruuvitag mr-2 app-color" data-id="${tag.id}"><i class="fas fa-edit"></i></a>
                 <span class="jstooltip" title="${tag.id}">
                     ${name}
                 </span>
