@@ -246,6 +246,23 @@ Home Assistant does not provide an easy way to remove devices. For now, there's 
             }
         },
         ...
-    ]
+    ],
+    "columns": {
+        "name": true,
+        "dataFormat": true,
+        "rssi": true,
+        "temperature": true,
+        "humidity": true,
+        "pressure": true,
+        "battery": true,
+        "battery_level": true,
+        "txPower": true,
+        "movementCounter": true,
+        "measurementSequenceNumber": true,
+        "samples": true,
+        "frequency": true,
+        "period": true,
+        "ts": true
+    }
 }
 ```

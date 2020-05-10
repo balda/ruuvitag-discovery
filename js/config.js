@@ -103,7 +103,6 @@ app.tpl.config = ({sampling, battery}) => {
 };
 
 $('body').ready(() => {
-    const root = $(`base`).attr(`href`);
     const $page = $(`#page`);
     const $config = $(`#config`);
     app.sampling = JSON.parse($(`#sampling-json`).val());
@@ -128,6 +127,7 @@ $('body').ready(() => {
                 battery: app.battery,
                 ruuvitags: app.ruuvitags,
                 targets: app.targets,
+                columns: app.columns,
             }, null, 2)}</textarea></small>
         `);
         if (action === `import`) {
@@ -140,7 +140,7 @@ $('body').ready(() => {
 
     $page.on(`click`, `.save-sampling`, (e) => {
         e.preventDefault();
-        $.post(`${root}config`, {
+        $.post(`${app.root}config`, {
             sampling: app.serializeForm($(`#form-sampling`)),
         }, (result) => {
             app.sampling = result.sampling;
@@ -151,7 +151,7 @@ $('body').ready(() => {
 
     $page.on(`click`, `.save-battery`, (e) => {
         e.preventDefault();
-        $.post(`${root}config`, {
+        $.post(`${app.root}config`, {
             battery: app.serializeForm($(`#form-battery`)),
         }, (result) => {
             app.battery = result.battery;
@@ -163,11 +163,12 @@ $('body').ready(() => {
     $page.on(`click`, `.save-config`, (e) => {
         e.preventDefault();
         const data = JSON.parse($(`#json-config`).val());
-        $.post(`${root}config`, data, (result) => {
+        $.post(`${app.root}config`, data, (result) => {
             app.sampling = result.sampling;
             app.battery = result.battery;
             app.ruuvitags = result.ruuvitags;
             app.targets = result.targets;
+            app.columns = result.columns;
             $(`#sampling-json`).val(JSON.stringify(app.sampling));
             $(`#battery-json`).val(JSON.stringify(app.battery));
             $(`#json-config`).val(JSON.stringify(result));

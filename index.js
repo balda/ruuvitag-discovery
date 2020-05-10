@@ -278,6 +278,9 @@ const store = {
         if (data.ruuvitags) {
             config.ruuvitags = data.ruuvitags
         }
+        if (data.columns) {
+            config.columns = data.columns
+        }
         config.backup()
         return config
     },

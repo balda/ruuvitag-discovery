@@ -1,9 +1,9 @@
 // console.log(`OK`);
 $('body').ready(() => {
 
-    const root = $(`base`).attr(`href`);
-    const $page = $(`#page`);
+    app.root = $(`base`).attr(`href`);
     app.ruuvitags = JSON.parse($(`#ruuvitags-json`).val());
+    app.columns = JSON.parse($(`#columns-json`).val());
 
     app.serializeForm = ($form) => {
         const form = {};
@@ -13,6 +13,7 @@ $('body').ready(() => {
         return form;
     };
 
+    const $page = $(`#page`);
     const $header = $(`#header`);
     const $content = $(`#content`);
     const $tags = $(`#tags`);
@@ -144,7 +145,7 @@ $('body').ready(() => {
             tags[tagId] = tagsNotFound[tagId];
         }
         target.tags = tags;
-        $.post(`${root}target`, target, (targets) => {
+        $.post(`${app.root}target`, target, (targets) => {
             tagTargets(targets);
             showTargets();
         });
@@ -171,7 +172,7 @@ $('body').ready(() => {
         const $element = $(e.currentTarget);
         const id = $element.data(`id`);
         if (confirm(`Delete target "${app.targets[1 * id].name}"?`)) {
-            $.post(`${root}target/delete`, { id }, (targets) => {
+            $.post(`${app.root}target/delete`, { id }, (targets) => {
                 tagTargets(targets);
                 showTargets();
             });
@@ -211,14 +212,14 @@ $('body').ready(() => {
     });
 
     const refreshTargets = () => {
-        return $.get(`${root}targets`, (targets) => {
+        return $.get(`${app.root}targets`, (targets) => {
             tagTargets(targets);
             showTargets();
         });
     }
 
     const refreshTags = () => {
-        return $.get(`${root}tags`, (tags) => {
+        return $.get(`${app.root}tags`, (tags) => {
             // console.log(tags);
             app.tags = tags.map(tag => {
                 tag.id = tag.id || (tag.last ? tag.last.id : null);

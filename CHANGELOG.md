@@ -1,6 +1,7 @@
 # Changelog
 
 ## [Unreleased]
+- Save in config columns displayed
 
 ## [0.1.8] - 2020-05-10
 - Add target popup detail on discovery page

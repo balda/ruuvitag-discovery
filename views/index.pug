@@ -53,6 +53,7 @@ body.h-100
 
     .d-none
         textarea#ruuvitags-json(style="display: none;") #{JSON.stringify(config.ruuvitags)}
+        textarea#columns-json(style="display: none;") #{JSON.stringify(config.columns)}
 
     #modal.modal(tabindex="-1" role="dialog")
         .modal-dialog.modal-xl.modal-dialog-scrollable.modal-dialog-centered(role="document")

@@ -2,32 +2,20 @@ app.ui = {};
 app.ui.col = {};
 
 app.ui.col.open = false;
-app.ui.col.data = {
-    id: false,
-    name: true,
-    dataFormat: true,
-    rssi: true,
-    temperature: true,
-    humidity: true,
-    pressure: true,
-    accelerationX: false,
-    accelerationY: false,
-    accelerationZ: false,
-    battery: true,
-    battery_level: true,
-    txPower: true,
-    movementCounter: true,
-    measurementSequenceNumber: true,
-    samples: true,
-    frequency: true,
-    period: true,
-    ts: true,
-};
 app.ui.col.enabled = (field) => {
-    return app.ui.col.data[field] === true;
+    return app.columns[field] !== undefined;
 };
 app.ui.col.change = (field, status) => {
-    app.ui.col.data[field] = status;
+    if (status) {
+        app.columns[field] = status;
+    } else {
+        if (app.ui.col.enabled(field)) {
+            delete app.columns[field];
+        }
+    }
+    $.post(`${app.root}config`, {
+        columns: app.columns,
+    }, (result) => {});
 };
 app.ui.col.list = () => {
     return app.cols.filter(col => {
@@ -113,14 +101,6 @@ app.tpl.tags = () => {
     </div>
     `;
 };
-// <span class="jstooltip font-weight-lighter" title="${app.tagTargets[tag.id].map(target => {
-//     return `${target.name} (${target.type})`;
-// }).join(`, `)}">
-//     <i class="fas fa-database"></i>
-//     <span class="small">
-//         <span class="badge badge-light">${app.tagTargets[tag.id].length}</span>
-//     </span>
-// </span>
 
 $('body').ready(() => {
 
@@ -161,9 +141,8 @@ $('body').ready(() => {
         const $element = $(e.target);
         const id = $element.data(`id`);
         const name = $(`#ruuvitag-name-${id}`).val();
-        const root = $(`base`).attr(`href`);
         app.ruuvitags[id] = name;
-        $.post(`${root}config`, {
+        $.post(`${app.root}config`, {
             ruuvitags: app.ruuvitags,
         }, (result) => {
             app.modal.hide();
@@ -220,7 +199,6 @@ $('body').ready(() => {
                     }).join(``)}
                 </div>
             `,
-            // <pre>${JSON.stringify(tag, null, 2)}</pre>
             footer: `
                 ${app.cols.filter(c => c.global === true).map(col => {
                     return `
