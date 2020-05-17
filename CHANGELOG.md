@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## [0.1.10] - 2020-05-17
+- Fix measures precision (#1)
+
 ## [0.1.9] - 2020-05-10
 - Add screenshots in doc
 - Selected columns are now saved in config
@@ -50,7 +53,8 @@
 
 First release
 
-[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.9...HEAD
+[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.10...HEAD
+[0.1.10]: https://github.com/balda/ruuvitag-discovery/compare/0.1.9...0.1.10
 [0.1.9]: https://github.com/balda/ruuvitag-discovery/compare/0.1.8...0.1.9
 [0.1.8]: https://github.com/balda/ruuvitag-discovery/compare/0.1.7...0.1.8
 [0.1.7]: https://github.com/balda/ruuvitag-discovery/compare/0.1.6...0.1.7
