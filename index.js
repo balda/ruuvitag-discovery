@@ -84,6 +84,7 @@ ruuvitag.on('found', tag => {
                 first: null,
                 samples: 0,
                 median: null,
+                mac: null,
             }
         }
         data.ts = Date.now()
@@ -91,6 +92,7 @@ ruuvitag.on('found', tag => {
         data.id = tag.id
         tags[tag.id].id = tag.id
         tags[tag.id].last = data
+        tags[tag.id].mac = data.mac || null
         history[tag.id].push(data)
         const del = history[tag.id].length - config.sampling.history
         if (del > 0) {

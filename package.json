@@ -25,7 +25,7 @@
     "express": "^4.17.1",
     "influx": "^5.5.1",
     "mqtt": "^3.0.0",
-    "node-ruuvitag": "^4.2.0",
+    "node-ruuvitag": "^4.5.0",
     "pug": "^2.0.4",
     "wires": "^4.1.0-rc1"
   }
