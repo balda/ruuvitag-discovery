@@ -1,8 +1,8 @@
 {
     "name": "RuuviTag Discovery",
-    "version": "0.1.10",
+    "version": "0.1.11",
     "slug": "ruuvitag-discovery",
-    "description": "Discover RuuviTag Environmental Sensors using a web interface and broadcast measures to multiple targets (MQTT, InfluxDB, Graphite, Home Assistant).",
+    "description": "Web interface to Discover RuuviTag Environmental Sensors and save measures to Home Assistant, MQTT, InfluxDB and Graphite",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
     "url": "https://github.com/balda/ruuvitag-discovery",
     "startup": "application",

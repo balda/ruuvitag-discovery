@@ -1,4 +1,5 @@
 {
     "name": "RuuviTag Discovery",
-    "url": "https://github.com/balda/ruuvitag-discovery"
+    "url": "https://github.com/balda/ruuvitag-discovery",
+    "maintainer": "Balda"
 }

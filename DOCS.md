@@ -1,39 +1,30 @@
-# RuuviTag Discovery
+# Home Assistant Add-on: RuuviTag Discovery
 
-Discover [RuuviTag Environmental Sensors](https://ruuvi.com/) using a web interface (all measures in one page).
+## Installation
 
-Save measures to multiple targets:
+In the sidebar menu, click on **Supervisor** page.
 
-- [MQTT](http://mqtt.org/)
-- [InfluxDB](https://docs.influxdata.com/influxdb/)
-- [Graphite](https://graphite.readthedocs.io/en/latest/)
-- [Home Assistant](https://www.home-assistant.io/hassio/) (using [MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/) integration)
+<img src="https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/homeassistant-install-supervisor.png" width="248"><br>
 
-Other Features:
+Navigate to **Add-on store** panel and click on **Repositories** menu on the right.
 
-- Select and configure measures sent to each target
-- Additional measures: absolute humidity, acceleration, air density, battery level, dew point, equilibrium vapor pressure, vapor pressure deficit, reception frequency and reception period
-- Sampling configuration (median measures)
-- Broadcast live or sampled measures
-- [Home Assistant](https://www.home-assistant.io/hassio/) add-on
+<img src="https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/homeassistant-install-addon-store.png" width="1170"><br>
 
-![discover page](https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/page-discover.png)
+Copy and paste this repository url `https://github.com/balda/ruuvitag-discovery` and click on **Add**.
 
+<img src="https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/homeassistant-install-addon-repositories.png" width="414"><br>
 
-## Install from source
+On the bottom of the Add-on store page, click on **RuuviTag Discovery**.
 
-```bash
-npm install
-npm start
-```
+<img src="https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/homeassistant-install-ruuvitag-discovery.png" width="347"><br>
 
-Web interface url: http://localhost:8099/
+**Install** (can be long) and activate **Show in sidebar** option.
 
-Configuration is save in `/data/` directory (create on first run)
+Once installed, web UI is available in the sidebar.
 
-## Install [Home Assistant](https://www.home-assistant.io/hassio/) add-on
+<img src="https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/homeassistant-sidebar-ruuvitag-discovery.png" width="256"><br>
 
-See [Home Assistant Documentation](https://github.com/balda/ruuvitag-discovery/blob/master/DOCS.md)
+You can start to view RuuviTags measures and to configure targets!
 
 
 ## Configuration
@@ -198,63 +189,3 @@ Home Assistant does not provide an easy way to remove devices. For now, there's 
 
 - Remove MQTT integration.
 - Remove all device entities (see "remove entity"), then edit manually `/config/.storage/core.device_registry` json file, remove RuuviTag reference in the `data.devices` array and reboot.
-
-
-### Configuration file format
-
-```json
-{
-    "sampling": {
-        "history": "100",
-        "interval": "10000"
-    },
-    "battery": {
-        "min": "2500",
-        "max": "3000"
-    },
-    "ruuvitags": {},
-    "targets": [
-        {
-            "type": "[mqtt|influxdb|graphite]",
-            "id": "[ID]",
-            "enable": "[1|0]",
-            "name": "[TARGET_NAME]",
-            "interval": "[broadcast interval (seconds)]",
-            "tags": {
-                "[TAGID]": {
-                    "id": "[TAGID]",
-                    "measures": {
-                        "[MEASURE]": {
-                            "label": "[MEASURE_LABEL]",
-                            "field": "[MEASURE_FIELD]"
-                        }
-                    },
-                    "name": "[RUUVITAG_NAME]",
-                    "field": "[RUUVITAG_FIELD]"
-                },
-                "...": {
-                    ...
-                }
-            }
-        },
-        ...
-    ],
-    "columns": {
-        "name": true,
-        "dataFormat": true,
-        "rssi": true,
-        "temperature": true,
-        "humidity": true,
-        "pressure": true,
-        "battery": true,
-        "battery_level": true,
-        "txPower": true,
-        "movementCounter": true,
-        "measurementSequenceNumber": true,
-        "samples": true,
-        "frequency": true,
-        "period": true,
-        "ts": true
-    }
-}
-```
