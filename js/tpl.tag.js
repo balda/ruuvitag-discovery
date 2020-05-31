@@ -25,6 +25,7 @@ app.tpl.tag = (tag, data) => {
                     </small>
                 </span>
             </label>
+            ${tag.mac ? `<div class="text-muted small font-italic">${tag.mac}</div>` : ``}
         </div>
         <div class="row" id="config-tag-${tag.id}" style="display: none;">
             <div class="col-5">
