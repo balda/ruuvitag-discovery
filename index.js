@@ -104,6 +104,9 @@ ruuvitag.on('found', tag => {
                 broadcast({target, tag: tags[tag.id], field: `last`})
             }
         }
+        // tags[id].first = history[id][0]
+        // tags[id].samples = history[id].length
+        server.tag(tags[tag.id])
         // console.log(`Got data from RuuviTag ${tag.id}`);
         // console.log(JSON.stringify(data, null, 2))
     })

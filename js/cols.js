@@ -18,7 +18,7 @@ app.cols = [
         },
     }, {
         title: `Mac Address`,
-        field: `lac`,
+        field: `mac`,
         class: `text-left`,
         render: (tag, field = `last`) => {
             return `${tag.mac || `-`}`;
