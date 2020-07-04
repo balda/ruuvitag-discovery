@@ -6,7 +6,7 @@
         "timeout": 5
     },
     "ha_mqtt": {
-        "present": 60
+        "present": 30000
     },
     "hassio": {
         "host": "{?>HASS_HOST}",

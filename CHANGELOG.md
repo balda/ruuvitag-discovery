@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.1.13] - 2020-07-04
+- New build (no more "[supervisor.docker.addon] Can't build ...")
+
+## [0.1.12] - 2020-07-03
+- Home Assistant MQTT: no more Ruuvitag Discovery restart needed after Home Assistant restart (#12)
+
 ## [0.1.11] - 2020-05-17
 - Add RuuviTag `mac` address (#4)
 - Home Assistant MQTT: catch error when present `undefined` tag (#5)
@@ -57,7 +63,9 @@
 
 First release
 
-[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.11...HEAD
+[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.13...HEAD
+[0.1.13]: https://github.com/balda/ruuvitag-discovery/compare/0.1.12...0.1.13
+[0.1.12]: https://github.com/balda/ruuvitag-discovery/compare/0.1.11...0.1.12
 [0.1.11]: https://github.com/balda/ruuvitag-discovery/compare/0.1.10...0.1.11
 [0.1.10]: https://github.com/balda/ruuvitag-discovery/compare/0.1.9...0.1.10
 [0.1.9]: https://github.com/balda/ruuvitag-discovery/compare/0.1.8...0.1.9
