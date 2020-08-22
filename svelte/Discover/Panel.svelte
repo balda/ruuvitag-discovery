@@ -2,10 +2,10 @@
     import { Table } from 'sveltestrap';
 	import ColumsSelect from './ColumsSelect.svelte';
     export let tags = [];
-    export let targets = [];
-    export let ruuvitags = [];
+    // export let targets = [];
+    // export let ruuvitags = [];
     export let cols = [];
-    export let config = {};
+    // export let config = {};
 </script>
 
 <strong>Discover</strong>
