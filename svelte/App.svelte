@@ -17,126 +17,51 @@
 	let tags = [];
 	let targets = [];
 	let ruuvitags = {};
-	let cols = [
-	    {
-	        title: `ID`,
-	        field: `id`,
-	        class: `text-left`,
-	        render: (tag, field = `last`) => {
-	            return `${tag.id}`;
-	        },
-	    }, {
-	        title: `Mac Address`,
-	        field: `mac`,
-	        class: `text-left`,
-	        render: (tag, field = `last`) => {
-	            return `${tag.mac || `-`}`;
-	        },
-	    }, {
-	        title: `Name`,
-	        field: `name`,
-	        class: `text-left`,
-	        render: (tag, field = `last`) => {
-	            let name = `${tag.id.substring(0,4)}`;
-	            if (tag.id && ruuvitags[tag.id]) {
-	                name = `${ruuvitags[tag.id]}`;
-	            }
-	            return `
-	                <a href="#" class="rename-ruuvitag mr-2 app-color" data-id="${tag.id}"><i class="fas fa-edit"></i></a>
-	                <span class="jstooltip" title="${tag.id}">
-	                    ${name}
-	                </span>
-	            `;
-	        },
-	    }, {
-	        title: `Data Format`,
-	        field: `dataFormat`,
-	    }, {
-	        field: `rssi`,
-	    }, {
-	        field: `temperature`,
-	    }, {
-	        field: `humidity`,
-	    }, {
-	        field: `pressure`,
-	    }, {
-	        field: `acceleration`,
-	    }, {
-	        field: `accelerationX`,
-	    }, {
-	        field: `accelerationY`,
-	    }, {
-	        field: `accelerationZ`,
-	    }, {
-	        field: `battery`,
-	    }, {
-	        field: `battery_level`,
-	    }, {
-	        field: `txPower`,
-	    }, {
-	        title: `Movement #`,
-	        field: `movementCounter`,
-	    }, {
-	        title: `Measurement #`,
-	        field: `measurementSequenceNumber`,
-	    }, {
-	        field: `equilibrium_vapor_pressure`,
-	    }, {
-	        field: `absolute_humidity`,
-	    }, {
-	        field: `air_density`,
-	    }, {
-	        field: `dew_point`,
-	    }, {
-	        field: `vapor_pressure_deficit`,
-	    }, {
-	        title: `Samples`,
-	        field: `samples`,
-	        global: true,
-	        render: (tag) => {
-	            return `
-	                ${tag.samples ? Math.round(tag.samples) : `-`}
-	            `;
-	        },
-	    }, {
-	        title: `Freq / min`,
-	        field: `frequency`,
-	        global: true,
-	        render: (tag) => {;
-	            return `
-	                <span class="jstooltip" title="${tag.frequency}">
-	                    ${tag.frequency ? tag.frequency.toFixed(1) : `N/A`}
-	                </span>
-	            `;
-	        },
-	    }, {
-	        title: `Period (sec)`,
-	        field: `period`,
-	        global: true,
-	        render: (tag) => {
-	            return `
-	                <span class="jstooltip" title="${tag.period}">
-	                    ${tag.period ? tag.period.toFixed(0) : `N/A`}
-	                </span>
-	            `;
-	        },
-	    // }, {
-	    //     title: `Last seen (sec)`,
-	    //     field: `ts`,
-	    //     render: (tag, field = `last`) => {
-	    //         if (!tag[field]) {
-	    //             return ``;
-	    //         }
-	    //         const data = tag[field].ts;
-	    //         const m = moment(data);
-	    //         return `
-	    //             <span class="jstooltip" title="${m.format(`YYYY-MM-DD HH:mm:ss`)}<br><em>${m.fromNow()}</em>">
-	    //                 ${((Date.now() - data) / 1000).toFixed(0)}
-	    //             </span>
-	    //         `;
-	    //     },
-		},
-	];
+	let cols = [];
+	// let cols = [
+	//     {
+	//         title: `Name`,
+	//         field: `name`,
+	//         class: `text-left`,
+	//         render: (tag, field = `last`) => {
+	//             let name = `${tag.id.substring(0,4)}`;
+	//             if (tag.id && ruuvitags[tag.id]) {
+	//                 name = `${ruuvitags[tag.id]}`;
+	//             }
+	//             return `
+	//                 <a href="#" class="rename-ruuvitag mr-2 app-color" data-id="${tag.id}"><i class="fas fa-edit"></i></a>
+	//                 <span class="jstooltip" title="${tag.id}">
+	//                     ${name}
+	//                 </span>
+	//             `;
+	//         },
+	//     }, {
+	//         title: `Samples`,
+	//         field: `samples`,
+	//         global: true,
+	//         render: (tag) => {
+	//             return `
+	//                 ${tag.samples ? Math.round(tag.samples) : `-`}
+	//             `;
+	//         },
+	//     }, {
+	//     // }, {
+	//     //     title: `Last seen (sec)`,
+	//     //     field: `ts`,
+	//     //     render: (tag, field = `last`) => {
+	//     //         if (!tag[field]) {
+	//     //             return ``;
+	//     //         }
+	//     //         const data = tag[field].ts;
+	//     //         const m = moment(data);
+	//     //         return `
+	//     //             <span class="jstooltip" title="${m.format(`YYYY-MM-DD HH:mm:ss`)}<br><em>${m.fromNow()}</em>">
+	//     //                 ${((Date.now() - data) / 1000).toFixed(0)}
+	//     //             </span>
+	//     //         `;
+	//     //     },
+	// 	},
+	// ];
 	let panel = `discover`;
 	ws.onopen = () => {
 		console.log(`ws connected`);
@@ -144,8 +69,8 @@
 	ws.onmessage = (message) => {
 		try {
 			const data = JSON.parse(message.data);
-			// console.log(data);
 			if (data.addon) {
+				console.log(data);
 				addon = data.addon;
 			}
 			if (data.config) {
@@ -166,6 +91,30 @@
 			}
 			if (data.measures) {
 				config.measures = data.measures;
+				cols = config.measures.map(measure => {
+					measure.render = `measure`;
+					return measure;
+				});
+				cols.splice(0, 0, {
+					label: `ID`,
+					field: `id`,
+					class: `text-left`,
+					render: `text`,
+				}, {
+					label: `Mac Address`,
+					field: `mac`,
+					class: `text-left`,
+					render: `text`,
+				}, {
+					label: `Data Format`,
+					field: `dataFormat`,
+					render: `measure`,
+				});
+				cols.push({
+					label: `Last seen`,
+					field: `ts`,
+					render: `date`,
+				});
 			}
 			if (data.targets) {
 				config.targets = data.targets;
@@ -209,15 +158,15 @@
 					<small>
 						<em>
 							<a class="text-white font-weight-lighter text-decoration-none" href="{addon.url}/blob/master/CHANGELOG.md" target="_blank">
-		                        v{addon.version}
+								v{addon.version}
 							</a>
 						</em>
 					</small>
 					<a class="ml-2 text-white" href="{addon.url}" target="_blank">
-                        <i class="fab fa-github fa-sm"></i>
+						<i class="fab fa-github fa-sm"></i>
 					</a>
 					<a class="ml-1 text-white" href="https://ruuvi.com/" target="_blank">
-                        {@html ruuvi}
+						{@html ruuvi}
 					</a>
 				</div>
 			</Col>

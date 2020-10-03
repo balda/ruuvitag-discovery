@@ -3,4 +3,4 @@
 </script>
 
 <strong>Select</strong>
-<pre>{JSON.stringify(cols)}</pre>
+<!-- <pre>{JSON.stringify(cols, null, 2)}</pre> -->
