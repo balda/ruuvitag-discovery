@@ -4,9 +4,12 @@
 	import CellMeasure from './Cell/Measure.svelte';
 	import CellText from './Cell/Text.svelte';
     import CellDate from './Cell/Date.svelte';
+    import CellDatabase from './Cell/Database.svelte';
+    import CellInfo from './Cell/Info.svelte';
     import Tooltip from './../UI/Tooltip.svelte';
     export let tags = [];
     // export let targets = [];
+    export let indexedTags = {};
     // export let ruuvitags = [];
     export let cols = [];
     // export let config = {};
@@ -35,6 +38,12 @@
                     </th>
                 {/if}
             {/each}
+            <th class="text-center">
+                Targets
+            </th>
+            <th class="text-center">
+                Infos
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -55,6 +64,16 @@
                         </td>
                     {/if}
                 {/each}
+                <td class="text-center">
+                    {#if indexedTags[tag.id]}
+                        {#each indexedTags[tag.id].targets as target (target.id)}
+                            <CellDatabase {target} {tag} />
+                        {/each}
+                    {/if}
+                </td>
+                <td class="text-center">
+                    <CellInfo {tag} {cols} />
+                </td>
             </tr>
         {/each}
     </tbody>
