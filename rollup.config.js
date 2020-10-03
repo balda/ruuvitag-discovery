@@ -21,7 +21,7 @@ export default {
 			dev: !production,
 			// we'll extract any component CSS out into a separate file - better for performance
 			css: css => {
-				css.write(production ? 'assets/app.min.css' : 'assets/app.css');
+				css.write(production ? 'app.min.css' : 'app.css');
 			}
 		}),
 

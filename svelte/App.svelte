@@ -93,6 +93,8 @@
 				config.measures = data.measures;
 				cols = config.measures.map(measure => {
 					measure.render = `measure`;
+					// measure.show = true;
+					measure.show = measure.required === undefined;
 					return measure;
 				});
 				cols.splice(0, 0, {
@@ -100,20 +102,24 @@
 					field: `id`,
 					class: `text-left`,
 					render: `text`,
+					show: true,
 				}, {
 					label: `Mac Address`,
 					field: `mac`,
 					class: `text-left`,
 					render: `text`,
+					show: true,
 				}, {
 					label: `Data Format`,
 					field: `dataFormat`,
 					render: `measure`,
+					show: true,
 				});
 				cols.push({
 					label: `Last seen`,
 					field: `ts`,
 					render: `date`,
+					show: true,
 				});
 			}
 			if (data.targets) {
