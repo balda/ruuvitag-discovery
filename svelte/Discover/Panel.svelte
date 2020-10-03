@@ -1,12 +1,13 @@
 <script>
     import { Table } from 'sveltestrap';
+    import Tooltip from './../UI/Tooltip.svelte';
 	import ColumsSelect from './ColumsSelect.svelte';
-	import CellMeasure from './Cell/Measure.svelte';
-	import CellText from './Cell/Text.svelte';
-    import CellDate from './Cell/Date.svelte';
+	// import CellMeasure from './Cell/Measure.svelte';
+	// import CellText from './Cell/Text.svelte';
+    import Cell from './Cell.svelte';
+    // import CellDate from './Cell/Date.svelte';
     import CellDatabase from './Cell/Database.svelte';
     import CellInfo from './Cell/Info.svelte';
-    import Tooltip from './../UI/Tooltip.svelte';
     export let tags = [];
     // export let targets = [];
     export let indexedTags = {};
@@ -52,15 +53,7 @@
                 {#each cols as col (col.field)}
                     {#if col.show}
                         <td class="{col.class || `text-right`}">
-                            {#if col.render === `measure`}
-                                <CellMeasure {col} {tag}/>
-                            {/if}
-                            {#if col.render === `text`}
-                                <CellText {col} {tag}/>
-                            {/if}
-                            {#if col.render === `date`}
-                                <CellDate {col} {tag}/>
-                            {/if}
+                            <Cell {col} {tag}/>
                         </td>
                     {/if}
                 {/each}

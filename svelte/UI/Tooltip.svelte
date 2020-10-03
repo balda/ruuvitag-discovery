@@ -9,6 +9,9 @@
   export let bgcolor = "black";
 
   let style = `color: ${color}; background-color: ${bgcolor};`;
+  function hide() {
+      active = false;
+  }
 </script>
 
 <style>
@@ -75,6 +78,7 @@
     <slot />
   </span>
   <div
+    on:click={hide}
     class="tooltip"
     class:active
     class:left
