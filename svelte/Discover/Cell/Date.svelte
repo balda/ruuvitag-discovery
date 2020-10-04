@@ -7,5 +7,6 @@
 </script>
 
 <Tooltip tip="{date.format(`YYYY-MM-DD HH:mm:ss`)}" left >
-	{date.format(`HH:mm:ss`)}
+	<!-- {date.format(`HH:mm:ss`)} -->
+    {Math.round((Date.now() - tag.last[col.field]) / 1000)}
 </Tooltip>

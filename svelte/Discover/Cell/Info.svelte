@@ -58,6 +58,10 @@
     </ModalBody>
     <ModalFooter>
         <span class="mr-4 font-weight-lighter">
+            Samples:
+            <Cell col={col(`samples`)} {tag}/>
+        </span>
+        <span class="mr-4 font-weight-lighter">
             Freq / min:
             <Cell col={col(`frequency`)} {tag}/>
         </span>

@@ -16,7 +16,6 @@
 	};
 	let tags = [];
 	let targets = [];
-	let indexedTags = {};
 	let ruuvitags = {};
 	let cols = [];
 	// let cols = [
@@ -78,19 +77,6 @@
 				config = data.config;
 				if (data.config.targets) {
 					targets = data.config.targets;
-					for (const target of targets) {
-						if (target.tags) {
-							for (const tag in target.tags) {
-								if (indexedTags[tag] === undefined) {
-									indexedTags[tag] = {
-										targets: [],
-									};
-								}
-								indexedTags[tag].targets.push(target);
-							}
-						}
-					}
-					console.log(indexedTags);
 				}
 				if (data.config.ruuvitags) {
 					ruuvitags = data.config.ruuvitags;
@@ -142,6 +128,7 @@
 			if (data.tag) {
 				const tagIndex = tags.findIndex(tag => tag.id === data.tag.id);
 				tags[tagIndex === -1 ? tags.length : tagIndex] = data.tag;
+				// console.log(`${data.tag.id} - ${data.tag.samples}`);
 			}
 			// console.log({config: config.targets}); // targets dict
 			// console.log({targets}); // targets config
@@ -195,7 +182,7 @@
 		</Row>
 		<div class="mb-4">
 			{#if panel === `discover`}
-				<PanelDiscover {tags} {targets} {indexedTags} {ruuvitags} {cols}/>
+				<PanelDiscover {tags} {targets} {ruuvitags} {cols}/>
 			{/if}
 			{#if panel === `targets`}
 				<PanelTargets/>
