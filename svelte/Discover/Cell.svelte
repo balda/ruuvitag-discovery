@@ -11,8 +11,8 @@
     <CellMeasure {col} {tag} {source}/>
 {/if}
 {#if col.render === `text`}
-    <CellText {col} {tag}/>
+    <CellText {col} {tag} {source}/>
 {/if}
 {#if col.render === `date`}
-    <CellDate {col} {tag}/>
+    <CellDate {col} {tag} {source}/>
 {/if}

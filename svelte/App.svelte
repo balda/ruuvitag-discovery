@@ -129,6 +129,7 @@
 				const tagIndex = tags.findIndex(tag => tag.id === data.tag.id);
 				tags[tagIndex === -1 ? tags.length : tagIndex] = data.tag;
 				// console.log(`${data.tag.id} - ${data.tag.samples}`);
+				// console.log(data.tag);
 			}
 			// console.log({config: config.targets}); // targets dict
 			// console.log({targets}); // targets config

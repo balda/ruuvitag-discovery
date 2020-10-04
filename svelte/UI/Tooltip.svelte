@@ -86,7 +86,7 @@
     class:bottom
     class:top>
     {#if tip}
-      <small class="default-tip" {style}>{tip}</small>
+      <small class="default-tip" {style}>{@html tip}</small>
     {:else}
       <slot name="custom-tip" />
     {/if}
