@@ -1,10 +1,8 @@
 <script>
-    import { Table } from 'sveltestrap';
+    import { Table, Row, Col } from 'sveltestrap';
     import Tooltip from './../UI/Tooltip.svelte';
-    // import Cell from './Cell.svelte';
-    // import CellDatabase from './Cell/Database.svelte';
-    // import CellInfo from './Cell/Info.svelte';
-    export let tags = [];
+    import TargetStateIcon from './TargetStateIcon.svelte';
+    import TargetType from './TargetType.svelte';
     export let targets = [];
     export let config = [];
 </script>
@@ -36,33 +34,44 @@
         {#each targets as target (target.id)}
             <tr>
                 <td class="text-left">
-                    {target.name} ({target.enable})
+                    <TargetStateIcon {target} />
+                    <span class="ml-2">
+                        {target.name}
+                    </span>
                 </td>
                 <td class="text-left">
-                    {target.type}
+                    <TargetType {target} {config} />
                 </td>
                 <td class="text-left">
-                    {target.measurement}
+                    {target.measurement || `n/a`}
                 </td>
                 <td class="text-left">
-                    {target.interval}
+                    {1 * target.interval === 0 ? `live` : target.interval}
                 </td>
                 <td class="text-left">
                     {#if target.tags}
                         {#each Object.keys(target.tags) as id (id)}
-                            <div class="mb-2">
-                                {target.tags[id].name}
-                                (<em>{target.tags[id].field}</em>)
-                                <br>
-                                {Object.keys(target.tags[id].measures).length} measure(s)
-                                <br>
-                                {#each Object.keys(target.tags[id].measures) as measure (measure)}
-                                    <div>
-                                        {target.tags[id].measures[measure].label}
-                                        ({target.tags[id].measures[measure].field})
+                            <Row class="mb-3">
+                                <Col>
+                                    <div class="font-weight-bolder mb-1">
+                                        {target.tags[id].name}
                                     </div>
-                                {/each}
-                            </div>
+                                    <div>
+                                        <em>{target.tags[id].field}</em>
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <div>
+                                        {Object.keys(target.tags[id].measures).length} measure{Object.keys(target.tags[id].measures).length > 1 ? `s` : ``}
+                                    </div>
+                                    {#each Object.keys(target.tags[id].measures) as measure (measure)}
+                                        <div class="pl-1">
+                                            - {target.tags[id].measures[measure].label}
+                                            (<em>{target.tags[id].measures[measure].field}</em>)
+                                        </div>
+                                    {/each}
+                                </Col>
+                            </Row>
                         {/each}
                     {:else}
                         <em>none</em>

@@ -7,6 +7,7 @@
         ModalHeader
     } from 'sveltestrap';
     import Tooltip from './../../UI/Tooltip.svelte';
+    import TargetStateIcon from './../../Targets/TargetStateIcon.svelte';
     export let target = {};
     export let tag = {};
     let open = false;
@@ -20,12 +21,15 @@
 <Modal isOpen={open} {toggle} size="lg">
     <ModalHeader {toggle}>
         RuuviTag
-        <span class="font-weight-lighter mx-2">
+        <span class="font-weight-lighter mx-1">
             {tag.id}
         </span>
         |
-        Target
-        <span class="font-weight-lighter ml-2">
+        <TargetStateIcon {target} />
+        <span class="mx-1">
+            Target
+        </span>
+        <span class="font-weight-lighter ml-1">
             {target.name}
         </span>
     </ModalHeader>

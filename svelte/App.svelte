@@ -35,31 +35,6 @@
 	//                 </span>
 	//             `;
 	//         },
-	//     }, {
-	//         title: `Samples`,
-	//         field: `samples`,
-	//         global: true,
-	//         render: (tag) => {
-	//             return `
-	//                 ${tag.samples ? Math.round(tag.samples) : `-`}
-	//             `;
-	//         },
-	//     }, {
-	//     // }, {
-	//     //     title: `Last seen (sec)`,
-	//     //     field: `ts`,
-	//     //     render: (tag, field = `last`) => {
-	//     //         if (!tag[field]) {
-	//     //             return ``;
-	//     //         }
-	//     //         const data = tag[field].ts;
-	//     //         const m = moment(data);
-	//     //         return `
-	//     //             <span class="jstooltip" title="${m.format(`YYYY-MM-DD HH:mm:ss`)}<br><em>${m.fromNow()}</em>">
-	//     //                 ${((Date.now() - data) / 1000).toFixed(0)}
-	//     //             </span>
-	//     //         `;
-	//     //     },
 	// 	},
 	// ];
 	let panel = `discover`;
@@ -135,8 +110,6 @@
 			// console.log({targets}); // targets config
 		} catch(error) {}
 	};
-	// console.log(ws);
-	// import { onMount } from 'svelte';
 </script>
 
 <main>
@@ -189,7 +162,7 @@
 				<PanelTargets {tags} {targets} config={config.targets} />
 			{/if}
 			{#if panel === `config`}
-				<PanelConfig/>
+				<PanelConfig {config} />
 			{/if}
 		</div>
 	</Container>
