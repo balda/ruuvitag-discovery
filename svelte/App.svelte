@@ -146,19 +146,19 @@
 				<span class="mr-4">{addon.name}</span>
 				<a on:click|preventDefault={() => {panel = `discover`}} class="mr-4 text-white text-decoration-none" href="/">
 					<i class="fab fa-bluetooth fa-sm"></i>
-					<small class="ml-1 font-weight-lighter">
+					<small class="ml-1 {panel === `discover` ? `font-weight-bolder` : `font-weight-lighter`}">
 						Discover
 					</small>
 				</a>
 				<a on:click|preventDefault={() => {panel = `targets`}} class="mr-4 text-white text-decoration-none" href="/">
 					<i class="fas fa-database fa-sm"></i>
-					<small class="ml-1 font-weight-lighter">
+					<small class="ml-1 {panel === `targets` ? `font-weight-bolder` : `font-weight-lighter`}">
 						Targets
 					</small>
 				</a>
 				<a on:click|preventDefault={() => {panel = `config`}} class="mr-4 text-white text-decoration-none" href="/">
 					<i class="fas fa-cog fa-sm"></i>
-					<small class="ml-1 font-weight-lighter">
+					<small class="ml-1 {panel === `config` ? `font-weight-bolder` : `font-weight-lighter`}">
 						Configuration
 					</small>
 				</a>
@@ -183,10 +183,10 @@
 		</Row>
 		<div class="mb-4">
 			{#if panel === `discover`}
-				<PanelDiscover {tags} {targets} {ruuvitags} {cols}/>
+				<PanelDiscover {tags} {targets} {ruuvitags} {cols} />
 			{/if}
 			{#if panel === `targets`}
-				<PanelTargets/>
+				<PanelTargets {tags} {targets} config={config.targets} />
 			{/if}
 			{#if panel === `config`}
 				<PanelConfig/>

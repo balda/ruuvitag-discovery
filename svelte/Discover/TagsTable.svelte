@@ -10,7 +10,6 @@
     export let targets = [];
     $: {
         tags = tags;
-        // console.log(`${tags.length} tags`);
     }
 </script>
 

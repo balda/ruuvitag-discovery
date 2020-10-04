@@ -8,13 +8,11 @@
     } from 'sveltestrap';
     import Tooltip from './../../UI/Tooltip.svelte';
 	import Cell from './../Cell.svelte';
-    // export let target = {};
     export let tag = {};
     export let cols = [];
     let open = false;
     const toggle = () => (open = !open);
     const sources = [`last`, `median`, `first`];
-    // let tagConfig = target.tags[tag.id];
     const col = (field) => {
         return cols.find(c => c.field === field);
     };
