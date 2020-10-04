@@ -1,7 +1,7 @@
 <script>
     import TargetsTable from './TargetsTable.svelte';
     import TargetEdit from  './TargetEdit.svelte';
-    // export let tags = [];
+    export let tags = [];
     export let targets = [];
     export let config = [];
     let edited = -1;
@@ -17,7 +17,7 @@
 {#if edited === -1}
     <TargetsTable {targets} {config} on:editTarget={editTarget} />
 {:else}
-    <TargetEdit target={targets[edited]} config={config.find(t => t.type === targets[edited].type)} on:cancelEdit={cancelEdit} />
+    <TargetEdit target={targets[edited]} {tags} config={config.find(t => t.type === targets[edited].type)} on:cancelEdit={cancelEdit} />
 {/if}
 
 <!-- <pre>{JSON.stringify(targets, null, 2)}</pre> -->

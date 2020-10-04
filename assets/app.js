@@ -15136,21 +15136,21 @@ var app = (function () {
 
     function get_each_context$5(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[10] = list[i];
+    	child_ctx[11] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1$3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[13] = list[i];
-    	child_ctx[14] = list;
-    	child_ctx[15] = i;
+    	child_ctx[14] = list[i];
+    	child_ctx[15] = list;
+    	child_ctx[16] = i;
     	return child_ctx;
     }
 
-    // (30:16) <Label class="col-sm-4" for="enable">
+    // (31:16) <Label class="col-sm-4" for="enable">
     function create_default_slot_14(ctx) {
-    	let t_value = /*config*/ ctx[1].label + "";
+    	let t_value = /*config*/ ctx[2].label + "";
     	let t;
 
     	const block = {
@@ -15161,7 +15161,7 @@ var app = (function () {
     			insert_dev(target, t, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*config*/ 2 && t_value !== (t_value = /*config*/ ctx[1].label + "")) set_data_dev(t, t_value);
+    			if (dirty & /*config*/ 4 && t_value !== (t_value = /*config*/ ctx[2].label + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -15172,14 +15172,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_14.name,
     		type: "slot",
-    		source: "(30:16) <Label class=\\\"col-sm-4\\\" for=\\\"enable\\\">",
+    		source: "(31:16) <Label class=\\\"col-sm-4\\\" for=\\\"enable\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (29:12) <FormGroup class="row">
+    // (30:12) <FormGroup class="row">
     function create_default_slot_13(ctx) {
     	let label;
     	let t;
@@ -15199,7 +15199,7 @@ var app = (function () {
     		});
 
     	function custominput_checked_binding(value) {
-    		/*custominput_checked_binding*/ ctx[4].call(null, value);
+    		/*custominput_checked_binding*/ ctx[5].call(null, value);
     	}
 
     	let custominput_props = {
@@ -15209,8 +15209,8 @@ var app = (function () {
     		label: "Enable"
     	};
 
-    	if (/*enable*/ ctx[2] !== void 0) {
-    		custominput_props.checked = /*enable*/ ctx[2];
+    	if (/*enable*/ ctx[3] !== void 0) {
+    		custominput_props.checked = /*enable*/ ctx[3];
     	}
 
     	custominput = new CustomInput({ props: custominput_props, $$inline: true });
@@ -15223,7 +15223,7 @@ var app = (function () {
     			div = element("div");
     			create_component(custominput.$$.fragment);
     			attr_dev(div, "class", "col-sm-8");
-    			add_location(div, file$n, 30, 16, 939);
+    			add_location(div, file$n, 31, 16, 965);
     		},
     		m: function mount(target, anchor) {
     			mount_component(label, target, anchor);
@@ -15235,16 +15235,16 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const label_changes = {};
 
-    			if (dirty & /*$$scope, config*/ 65538) {
+    			if (dirty & /*$$scope, config*/ 131076) {
     				label_changes.$$scope = { dirty, ctx };
     			}
 
     			label.$set(label_changes);
     			const custominput_changes = {};
 
-    			if (!updating_checked && dirty & /*enable*/ 4) {
+    			if (!updating_checked && dirty & /*enable*/ 8) {
     				updating_checked = true;
-    				custominput_changes.checked = /*enable*/ ctx[2];
+    				custominput_changes.checked = /*enable*/ ctx[3];
     				add_flush_callback(() => updating_checked = false);
     			}
 
@@ -15273,14 +15273,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_13.name,
     		type: "slot",
-    		source: "(29:12) <FormGroup class=\\\"row\\\">",
+    		source: "(30:12) <FormGroup class=\\\"row\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (41:16) <Label class="col-sm-4" for="name">
+    // (42:16) <Label class="col-sm-4" for="name">
     function create_default_slot_12(ctx) {
     	let t;
 
@@ -15300,14 +15300,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_12.name,
     		type: "slot",
-    		source: "(41:16) <Label class=\\\"col-sm-4\\\" for=\\\"name\\\">",
+    		source: "(42:16) <Label class=\\\"col-sm-4\\\" for=\\\"name\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (40:12) <FormGroup class="row">
+    // (41:12) <FormGroup class="row">
     function create_default_slot_11(ctx) {
     	let label;
     	let t;
@@ -15327,7 +15327,7 @@ var app = (function () {
     		});
 
     	function input_value_binding(value) {
-    		/*input_value_binding*/ ctx[5].call(null, value);
+    		/*input_value_binding*/ ctx[6].call(null, value);
     	}
 
     	let input_props = {
@@ -15352,7 +15352,7 @@ var app = (function () {
     			div = element("div");
     			create_component(input.$$.fragment);
     			attr_dev(div, "class", "col-sm-8");
-    			add_location(div, file$n, 41, 16, 1359);
+    			add_location(div, file$n, 42, 16, 1385);
     		},
     		m: function mount(target, anchor) {
     			mount_component(label, target, anchor);
@@ -15364,7 +15364,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const label_changes = {};
 
-    			if (dirty & /*$$scope*/ 65536) {
+    			if (dirty & /*$$scope*/ 131072) {
     				label_changes.$$scope = { dirty, ctx };
     			}
 
@@ -15402,14 +15402,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_11.name,
     		type: "slot",
-    		source: "(40:12) <FormGroup class=\\\"row\\\">",
+    		source: "(41:12) <FormGroup class=\\\"row\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (53:16) <Label class="col-sm-4" for="interval">
+    // (54:16) <Label class="col-sm-4" for="interval">
     function create_default_slot_10(ctx) {
     	let t;
 
@@ -15429,14 +15429,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_10.name,
     		type: "slot",
-    		source: "(53:16) <Label class=\\\"col-sm-4\\\" for=\\\"interval\\\">",
+    		source: "(54:16) <Label class=\\\"col-sm-4\\\" for=\\\"interval\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:12) <FormGroup class="row">
+    // (53:12) <FormGroup class="row">
     function create_default_slot_9(ctx) {
     	let label;
     	let t;
@@ -15456,7 +15456,7 @@ var app = (function () {
     		});
 
     	function input_value_binding_1(value) {
-    		/*input_value_binding_1*/ ctx[6].call(null, value);
+    		/*input_value_binding_1*/ ctx[7].call(null, value);
     	}
 
     	let input_props = {
@@ -15481,7 +15481,7 @@ var app = (function () {
     			div = element("div");
     			create_component(input.$$.fragment);
     			attr_dev(div, "class", "col-sm-8");
-    			add_location(div, file$n, 53, 16, 1816);
+    			add_location(div, file$n, 54, 16, 1842);
     		},
     		m: function mount(target, anchor) {
     			mount_component(label, target, anchor);
@@ -15493,7 +15493,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const label_changes = {};
 
-    			if (dirty & /*$$scope*/ 65536) {
+    			if (dirty & /*$$scope*/ 131072) {
     				label_changes.$$scope = { dirty, ctx };
     			}
 
@@ -15531,16 +15531,16 @@ var app = (function () {
     		block,
     		id: create_default_slot_9.name,
     		type: "slot",
-    		source: "(52:12) <FormGroup class=\\\"row\\\">",
+    		source: "(53:12) <FormGroup class=\\\"row\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (66:20) <Label class="col-sm-4" for="{field.name}">
+    // (67:20) <Label class="col-sm-4" for="{field.name}">
     function create_default_slot_8(ctx) {
-    	let t_value = /*field*/ ctx[13].name + "";
+    	let t_value = /*field*/ ctx[14].name + "";
     	let t;
 
     	const block = {
@@ -15551,7 +15551,7 @@ var app = (function () {
     			insert_dev(target, t, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*config*/ 2 && t_value !== (t_value = /*field*/ ctx[13].name + "")) set_data_dev(t, t_value);
+    			if (dirty & /*config*/ 4 && t_value !== (t_value = /*field*/ ctx[14].name + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -15562,27 +15562,26 @@ var app = (function () {
     		block,
     		id: create_default_slot_8.name,
     		type: "slot",
-    		source: "(66:20) <Label class=\\\"col-sm-4\\\" for=\\\"{field.name}\\\">",
+    		source: "(67:20) <Label class=\\\"col-sm-4\\\" for=\\\"{field.name}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (65:16) <FormGroup class="row">
+    // (66:16) <FormGroup class="row">
     function create_default_slot_7(ctx) {
     	let label;
-    	let t0;
+    	let t;
     	let div;
     	let input;
     	let updating_value;
-    	let t1;
     	let current;
 
     	label = new Label({
     			props: {
     				class: "col-sm-4",
-    				for: /*field*/ ctx[13].name,
+    				for: /*field*/ ctx[14].name,
     				$$slots: { default: [create_default_slot_8] },
     				$$scope: { ctx }
     			},
@@ -15590,18 +15589,18 @@ var app = (function () {
     		});
 
     	function input_value_binding_2(value) {
-    		/*input_value_binding_2*/ ctx[7].call(null, value, /*field*/ ctx[13]);
+    		/*input_value_binding_2*/ ctx[8].call(null, value, /*field*/ ctx[14]);
     	}
 
     	let input_props = {
-    		type: /*field*/ ctx[13].type || `text`,
+    		type: /*field*/ ctx[14].type || `text`,
     		size: "sm",
-    		id: /*field*/ ctx[13].name,
-    		name: /*field*/ ctx[13].name
+    		id: /*field*/ ctx[14].name,
+    		name: /*field*/ ctx[14].name
     	};
 
-    	if (/*target*/ ctx[0][/*field*/ ctx[13].name] !== void 0) {
-    		input_props.value = /*target*/ ctx[0][/*field*/ ctx[13].name];
+    	if (/*target*/ ctx[0][/*field*/ ctx[14].name] !== void 0) {
+    		input_props.value = /*target*/ ctx[0][/*field*/ ctx[14].name];
     	}
 
     	input = new Input({ props: input_props, $$inline: true });
@@ -15610,39 +15609,37 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			create_component(label.$$.fragment);
-    			t0 = space();
+    			t = space();
     			div = element("div");
     			create_component(input.$$.fragment);
-    			t1 = space();
     			attr_dev(div, "class", "col-sm-8");
-    			add_location(div, file$n, 66, 20, 2348);
+    			add_location(div, file$n, 67, 20, 2374);
     		},
     		m: function mount(target, anchor) {
     			mount_component(label, target, anchor);
-    			insert_dev(target, t0, anchor);
+    			insert_dev(target, t, anchor);
     			insert_dev(target, div, anchor);
     			mount_component(input, div, null);
-    			insert_dev(target, t1, anchor);
     			current = true;
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
     			const label_changes = {};
-    			if (dirty & /*config*/ 2) label_changes.for = /*field*/ ctx[13].name;
+    			if (dirty & /*config*/ 4) label_changes.for = /*field*/ ctx[14].name;
 
-    			if (dirty & /*$$scope, config*/ 65538) {
+    			if (dirty & /*$$scope, config*/ 131076) {
     				label_changes.$$scope = { dirty, ctx };
     			}
 
     			label.$set(label_changes);
     			const input_changes = {};
-    			if (dirty & /*config*/ 2) input_changes.type = /*field*/ ctx[13].type || `text`;
-    			if (dirty & /*config*/ 2) input_changes.id = /*field*/ ctx[13].name;
-    			if (dirty & /*config*/ 2) input_changes.name = /*field*/ ctx[13].name;
+    			if (dirty & /*config*/ 4) input_changes.type = /*field*/ ctx[14].type || `text`;
+    			if (dirty & /*config*/ 4) input_changes.id = /*field*/ ctx[14].name;
+    			if (dirty & /*config*/ 4) input_changes.name = /*field*/ ctx[14].name;
 
-    			if (!updating_value && dirty & /*target, config*/ 3) {
+    			if (!updating_value && dirty & /*target, config*/ 5) {
     				updating_value = true;
-    				input_changes.value = /*target*/ ctx[0][/*field*/ ctx[13].name];
+    				input_changes.value = /*target*/ ctx[0][/*field*/ ctx[14].name];
     				add_flush_callback(() => updating_value = false);
     			}
 
@@ -15661,10 +15658,9 @@ var app = (function () {
     		},
     		d: function destroy(detaching) {
     			destroy_component(label, detaching);
-    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(t);
     			if (detaching) detach_dev(div);
     			destroy_component(input);
-    			if (detaching) detach_dev(t1);
     		}
     	};
 
@@ -15672,14 +15668,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7.name,
     		type: "slot",
-    		source: "(65:16) <FormGroup class=\\\"row\\\">",
+    		source: "(66:16) <FormGroup class=\\\"row\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (64:12) {#each config.config as field}
+    // (65:12) {#each config.config as field}
     function create_each_block_1$3(ctx) {
     	let formgroup;
     	let current;
@@ -15704,7 +15700,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const formgroup_changes = {};
 
-    			if (dirty & /*$$scope, config, target*/ 65539) {
+    			if (dirty & /*$$scope, config, target*/ 131077) {
     				formgroup_changes.$$scope = { dirty, ctx };
     			}
 
@@ -15728,192 +15724,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1$3.name,
     		type: "each",
-    		source: "(64:12) {#each config.config as field}",
+    		source: "(65:12) {#each config.config as field}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (28:8) <Form class="small">
-    function create_default_slot_6(ctx) {
-    	let formgroup0;
-    	let t0;
-    	let formgroup1;
-    	let t1;
-    	let formgroup2;
-    	let t2;
-    	let each_1_anchor;
-    	let current;
-
-    	formgroup0 = new FormGroup({
-    			props: {
-    				class: "row",
-    				$$slots: { default: [create_default_slot_13] },
-    				$$scope: { ctx }
-    			},
-    			$$inline: true
-    		});
-
-    	formgroup1 = new FormGroup({
-    			props: {
-    				class: "row",
-    				$$slots: { default: [create_default_slot_11] },
-    				$$scope: { ctx }
-    			},
-    			$$inline: true
-    		});
-
-    	formgroup2 = new FormGroup({
-    			props: {
-    				class: "row",
-    				$$slots: { default: [create_default_slot_9] },
-    				$$scope: { ctx }
-    			},
-    			$$inline: true
-    		});
-
-    	let each_value_1 = /*config*/ ctx[1].config;
-    	validate_each_argument(each_value_1);
-    	let each_blocks = [];
-
-    	for (let i = 0; i < each_value_1.length; i += 1) {
-    		each_blocks[i] = create_each_block_1$3(get_each_context_1$3(ctx, each_value_1, i));
-    	}
-
-    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
-    		each_blocks[i] = null;
-    	});
-
-    	const block = {
-    		c: function create() {
-    			create_component(formgroup0.$$.fragment);
-    			t0 = space();
-    			create_component(formgroup1.$$.fragment);
-    			t1 = space();
-    			create_component(formgroup2.$$.fragment);
-    			t2 = space();
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].c();
-    			}
-
-    			each_1_anchor = empty();
-    		},
-    		m: function mount(target, anchor) {
-    			mount_component(formgroup0, target, anchor);
-    			insert_dev(target, t0, anchor);
-    			mount_component(formgroup1, target, anchor);
-    			insert_dev(target, t1, anchor);
-    			mount_component(formgroup2, target, anchor);
-    			insert_dev(target, t2, anchor);
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(target, anchor);
-    			}
-
-    			insert_dev(target, each_1_anchor, anchor);
-    			current = true;
-    		},
-    		p: function update(ctx, dirty) {
-    			const formgroup0_changes = {};
-
-    			if (dirty & /*$$scope, enable, config*/ 65542) {
-    				formgroup0_changes.$$scope = { dirty, ctx };
-    			}
-
-    			formgroup0.$set(formgroup0_changes);
-    			const formgroup1_changes = {};
-
-    			if (dirty & /*$$scope, target*/ 65537) {
-    				formgroup1_changes.$$scope = { dirty, ctx };
-    			}
-
-    			formgroup1.$set(formgroup1_changes);
-    			const formgroup2_changes = {};
-
-    			if (dirty & /*$$scope, target*/ 65537) {
-    				formgroup2_changes.$$scope = { dirty, ctx };
-    			}
-
-    			formgroup2.$set(formgroup2_changes);
-
-    			if (dirty & /*config, target*/ 3) {
-    				each_value_1 = /*config*/ ctx[1].config;
-    				validate_each_argument(each_value_1);
-    				let i;
-
-    				for (i = 0; i < each_value_1.length; i += 1) {
-    					const child_ctx = get_each_context_1$3(ctx, each_value_1, i);
-
-    					if (each_blocks[i]) {
-    						each_blocks[i].p(child_ctx, dirty);
-    						transition_in(each_blocks[i], 1);
-    					} else {
-    						each_blocks[i] = create_each_block_1$3(child_ctx);
-    						each_blocks[i].c();
-    						transition_in(each_blocks[i], 1);
-    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
-    					}
-    				}
-
-    				group_outros();
-
-    				for (i = each_value_1.length; i < each_blocks.length; i += 1) {
-    					out(i);
-    				}
-
-    				check_outros();
-    			}
-    		},
-    		i: function intro(local) {
-    			if (current) return;
-    			transition_in(formgroup0.$$.fragment, local);
-    			transition_in(formgroup1.$$.fragment, local);
-    			transition_in(formgroup2.$$.fragment, local);
-
-    			for (let i = 0; i < each_value_1.length; i += 1) {
-    				transition_in(each_blocks[i]);
-    			}
-
-    			current = true;
-    		},
-    		o: function outro(local) {
-    			transition_out(formgroup0.$$.fragment, local);
-    			transition_out(formgroup1.$$.fragment, local);
-    			transition_out(formgroup2.$$.fragment, local);
-    			each_blocks = each_blocks.filter(Boolean);
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				transition_out(each_blocks[i]);
-    			}
-
-    			current = false;
-    		},
-    		d: function destroy(detaching) {
-    			destroy_component(formgroup0, detaching);
-    			if (detaching) detach_dev(t0);
-    			destroy_component(formgroup1, detaching);
-    			if (detaching) detach_dev(t1);
-    			destroy_component(formgroup2, detaching);
-    			if (detaching) detach_dev(t2);
-    			destroy_each(each_blocks, detaching);
-    			if (detaching) detach_dev(each_1_anchor);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_default_slot_6.name,
-    		type: "slot",
-    		source: "(28:8) <Form class=\\\"small\\\">",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (78:8) {#if config.measurement}
+    // (78:12) {#if config.measurement}
     function create_if_block_1$8(ctx) {
     	let formgroup;
     	let current;
@@ -15921,7 +15739,7 @@ var app = (function () {
     	formgroup = new FormGroup({
     			props: {
     				class: "row",
-    				$$slots: { default: [create_default_slot_3$3] },
+    				$$slots: { default: [create_default_slot_4$2] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -15938,7 +15756,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const formgroup_changes = {};
 
-    			if (dirty & /*$$scope, target*/ 65537) {
+    			if (dirty & /*$$scope, target*/ 131073) {
     				formgroup_changes.$$scope = { dirty, ctx };
     			}
 
@@ -15962,15 +15780,15 @@ var app = (function () {
     		block,
     		id: create_if_block_1$8.name,
     		type: "if",
-    		source: "(78:8) {#if config.measurement}",
+    		source: "(78:12) {#if config.measurement}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (80:16) <Label class="col-sm-4" for="measurement">
-    function create_default_slot_5$2(ctx) {
+    // (80:20) <Label class="col-sm-4" for="measurement">
+    function create_default_slot_6(ctx) {
     	let t;
 
     	const block = {
@@ -15987,17 +15805,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_5$2.name,
+    		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(80:16) <Label class=\\\"col-sm-4\\\" for=\\\"measurement\\\">",
+    		source: "(80:20) <Label class=\\\"col-sm-4\\\" for=\\\"measurement\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (82:20) <CustomInput                         bind:value={target.measurement}                         type="select"                         class="custom-select-sm"                         id="measurement"                         name="measurement"                     >
-    function create_default_slot_4$2(ctx) {
+    // (82:24) <CustomInput                             bind:value={target.measurement}                             type="select"                             class="custom-select-sm"                             id="measurement"                             name="measurement"                         >
+    function create_default_slot_5$2(ctx) {
     	let option0;
     	let t1;
     	let option1;
@@ -16016,13 +15834,13 @@ var app = (function () {
     			option2.textContent = "Both";
     			option0.__value = "tag";
     			option0.value = option0.__value;
-    			add_location(option0, file$n, 88, 24, 3237);
+    			add_location(option0, file$n, 88, 28, 3295);
     			option1.__value = "measure";
     			option1.value = option1.__value;
-    			add_location(option1, file$n, 89, 24, 3294);
+    			add_location(option1, file$n, 89, 28, 3356);
     			option2.__value = "both";
     			option2.value = option2.__value;
-    			add_location(option2, file$n, 90, 24, 3359);
+    			add_location(option2, file$n, 90, 28, 3425);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option0, anchor);
@@ -16042,17 +15860,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_4$2.name,
+    		id: create_default_slot_5$2.name,
     		type: "slot",
-    		source: "(82:20) <CustomInput                         bind:value={target.measurement}                         type=\\\"select\\\"                         class=\\\"custom-select-sm\\\"                         id=\\\"measurement\\\"                         name=\\\"measurement\\\"                     >",
+    		source: "(82:24) <CustomInput                             bind:value={target.measurement}                             type=\\\"select\\\"                             class=\\\"custom-select-sm\\\"                             id=\\\"measurement\\\"                             name=\\\"measurement\\\"                         >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (79:12) <FormGroup class="row">
-    function create_default_slot_3$3(ctx) {
+    // (79:16) <FormGroup class="row">
+    function create_default_slot_4$2(ctx) {
     	let label;
     	let t;
     	let div;
@@ -16064,14 +15882,14 @@ var app = (function () {
     			props: {
     				class: "col-sm-4",
     				for: "measurement",
-    				$$slots: { default: [create_default_slot_5$2] },
+    				$$slots: { default: [create_default_slot_6] },
     				$$scope: { ctx }
     			},
     			$$inline: true
     		});
 
     	function custominput_value_binding(value) {
-    		/*custominput_value_binding*/ ctx[8].call(null, value);
+    		/*custominput_value_binding*/ ctx[9].call(null, value);
     	}
 
     	let custominput_props = {
@@ -16079,7 +15897,7 @@ var app = (function () {
     		class: "custom-select-sm",
     		id: "measurement",
     		name: "measurement",
-    		$$slots: { default: [create_default_slot_4$2] },
+    		$$slots: { default: [create_default_slot_5$2] },
     		$$scope: { ctx }
     	};
 
@@ -16097,7 +15915,7 @@ var app = (function () {
     			div = element("div");
     			create_component(custominput.$$.fragment);
     			attr_dev(div, "class", "col-sm-8");
-    			add_location(div, file$n, 80, 16, 2908);
+    			add_location(div, file$n, 80, 20, 2934);
     		},
     		m: function mount(target, anchor) {
     			mount_component(label, target, anchor);
@@ -16109,14 +15927,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const label_changes = {};
 
-    			if (dirty & /*$$scope*/ 65536) {
+    			if (dirty & /*$$scope*/ 131072) {
     				label_changes.$$scope = { dirty, ctx };
     			}
 
     			label.$set(label_changes);
     			const custominput_changes = {};
 
-    			if (dirty & /*$$scope*/ 65536) {
+    			if (dirty & /*$$scope*/ 131072) {
     				custominput_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16149,61 +15967,158 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_3$3.name,
+    		id: create_default_slot_4$2.name,
     		type: "slot",
-    		source: "(79:12) <FormGroup class=\\\"row\\\">",
+    		source: "(79:16) <FormGroup class=\\\"row\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (27:4) <Col xs="4" class="mt-3">
-    function create_default_slot_2$3(ctx) {
-    	let form;
-    	let t;
+    // (29:8) <Form class="small">
+    function create_default_slot_3$3(ctx) {
+    	let formgroup0;
+    	let t0;
+    	let formgroup1;
+    	let t1;
+    	let formgroup2;
+    	let t2;
+    	let t3;
     	let if_block_anchor;
     	let current;
 
-    	form = new Form({
+    	formgroup0 = new FormGroup({
     			props: {
-    				class: "small",
-    				$$slots: { default: [create_default_slot_6] },
+    				class: "row",
+    				$$slots: { default: [create_default_slot_13] },
     				$$scope: { ctx }
     			},
     			$$inline: true
     		});
 
-    	let if_block = /*config*/ ctx[1].measurement && create_if_block_1$8(ctx);
+    	formgroup1 = new FormGroup({
+    			props: {
+    				class: "row",
+    				$$slots: { default: [create_default_slot_11] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	formgroup2 = new FormGroup({
+    			props: {
+    				class: "row",
+    				$$slots: { default: [create_default_slot_9] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	let each_value_1 = /*config*/ ctx[2].config;
+    	validate_each_argument(each_value_1);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks[i] = create_each_block_1$3(get_each_context_1$3(ctx, each_value_1, i));
+    	}
+
+    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+    		each_blocks[i] = null;
+    	});
+
+    	let if_block = /*config*/ ctx[2].measurement && create_if_block_1$8(ctx);
 
     	const block = {
     		c: function create() {
-    			create_component(form.$$.fragment);
-    			t = space();
+    			create_component(formgroup0.$$.fragment);
+    			t0 = space();
+    			create_component(formgroup1.$$.fragment);
+    			t1 = space();
+    			create_component(formgroup2.$$.fragment);
+    			t2 = space();
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t3 = space();
     			if (if_block) if_block.c();
     			if_block_anchor = empty();
     		},
     		m: function mount(target, anchor) {
-    			mount_component(form, target, anchor);
-    			insert_dev(target, t, anchor);
+    			mount_component(formgroup0, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			mount_component(formgroup1, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			mount_component(formgroup2, target, anchor);
+    			insert_dev(target, t2, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, t3, anchor);
     			if (if_block) if_block.m(target, anchor);
     			insert_dev(target, if_block_anchor, anchor);
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			const form_changes = {};
+    			const formgroup0_changes = {};
 
-    			if (dirty & /*$$scope, config, target, enable*/ 65543) {
-    				form_changes.$$scope = { dirty, ctx };
+    			if (dirty & /*$$scope, enable, config*/ 131084) {
+    				formgroup0_changes.$$scope = { dirty, ctx };
     			}
 
-    			form.$set(form_changes);
+    			formgroup0.$set(formgroup0_changes);
+    			const formgroup1_changes = {};
 
-    			if (/*config*/ ctx[1].measurement) {
+    			if (dirty & /*$$scope, target*/ 131073) {
+    				formgroup1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			formgroup1.$set(formgroup1_changes);
+    			const formgroup2_changes = {};
+
+    			if (dirty & /*$$scope, target*/ 131073) {
+    				formgroup2_changes.$$scope = { dirty, ctx };
+    			}
+
+    			formgroup2.$set(formgroup2_changes);
+
+    			if (dirty & /*config, target*/ 5) {
+    				each_value_1 = /*config*/ ctx[2].config;
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1$3(ctx, each_value_1, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    						transition_in(each_blocks[i], 1);
+    					} else {
+    						each_blocks[i] = create_each_block_1$3(child_ctx);
+    						each_blocks[i].c();
+    						transition_in(each_blocks[i], 1);
+    						each_blocks[i].m(t3.parentNode, t3);
+    					}
+    				}
+
+    				group_outros();
+
+    				for (i = each_value_1.length; i < each_blocks.length; i += 1) {
+    					out(i);
+    				}
+
+    				check_outros();
+    			}
+
+    			if (/*config*/ ctx[2].measurement) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
-    					if (dirty & /*config*/ 2) {
+    					if (dirty & /*config*/ 4) {
     						transition_in(if_block, 1);
     					}
     				} else {
@@ -16224,18 +16139,39 @@ var app = (function () {
     		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(form.$$.fragment, local);
+    			transition_in(formgroup0.$$.fragment, local);
+    			transition_in(formgroup1.$$.fragment, local);
+    			transition_in(formgroup2.$$.fragment, local);
+
+    			for (let i = 0; i < each_value_1.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
     			transition_in(if_block);
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(form.$$.fragment, local);
+    			transition_out(formgroup0.$$.fragment, local);
+    			transition_out(formgroup1.$$.fragment, local);
+    			transition_out(formgroup2.$$.fragment, local);
+    			each_blocks = each_blocks.filter(Boolean);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
     			transition_out(if_block);
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			destroy_component(form, detaching);
-    			if (detaching) detach_dev(t);
+    			destroy_component(formgroup0, detaching);
+    			if (detaching) detach_dev(t0);
+    			destroy_component(formgroup1, detaching);
+    			if (detaching) detach_dev(t1);
+    			destroy_component(formgroup2, detaching);
+    			if (detaching) detach_dev(t2);
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(t3);
     			if (if_block) if_block.d(detaching);
     			if (detaching) detach_dev(if_block_anchor);
     		}
@@ -16243,16 +16179,72 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_2$3.name,
+    		id: create_default_slot_3$3.name,
     		type: "slot",
-    		source: "(27:4) <Col xs=\\\"4\\\" class=\\\"mt-3\\\">",
+    		source: "(29:8) <Form class=\\\"small\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (100:8) {#if target.tags}
+    // (28:4) <Col xs="4" class="mt-3">
+    function create_default_slot_2$3(ctx) {
+    	let form;
+    	let current;
+
+    	form = new Form({
+    			props: {
+    				class: "small",
+    				$$slots: { default: [create_default_slot_3$3] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(form.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(form, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const form_changes = {};
+
+    			if (dirty & /*$$scope, target, config, enable*/ 131085) {
+    				form_changes.$$scope = { dirty, ctx };
+    			}
+
+    			form.$set(form_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(form.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(form.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(form, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_2$3.name,
+    		type: "slot",
+    		source: "(28:4) <Col xs=\\\"4\\\" class=\\\"mt-3\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (102:8) {#if target.tags}
     function create_if_block$d(ctx) {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
@@ -16260,7 +16252,7 @@ var app = (function () {
     	let current;
     	let each_value = Object.keys(/*target*/ ctx[0].tags);
     	validate_each_argument(each_value);
-    	const get_key = ctx => /*id*/ ctx[10];
+    	const get_key = ctx => /*id*/ ctx[11];
     	validate_each_keys(ctx, each_value, get_each_context$5, get_key);
 
     	for (let i = 0; i < each_value.length; i += 1) {
@@ -16324,14 +16316,14 @@ var app = (function () {
     		block,
     		id: create_if_block$d.name,
     		type: "if",
-    		source: "(100:8) {#if target.tags}",
+    		source: "(102:8) {#if target.tags}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (101:12) {#each Object.keys(target.tags) as id (id)}
+    // (103:12) {#each Object.keys(target.tags) as id (id)}
     function create_each_block$5(key_1, ctx) {
     	let first;
     	let targettag;
@@ -16339,7 +16331,7 @@ var app = (function () {
 
     	targettag = new TargetTag({
     			props: {
-    				tag: /*target*/ ctx[0].tags[/*id*/ ctx[10]]
+    				tag: /*target*/ ctx[0].tags[/*id*/ ctx[11]]
     			},
     			$$inline: true
     		});
@@ -16359,7 +16351,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const targettag_changes = {};
-    			if (dirty & /*target*/ 1) targettag_changes.tag = /*target*/ ctx[0].tags[/*id*/ ctx[10]];
+    			if (dirty & /*target*/ 1) targettag_changes.tag = /*target*/ ctx[0].tags[/*id*/ ctx[11]];
     			targettag.$set(targettag_changes);
     		},
     		i: function intro(local) {
@@ -16381,17 +16373,21 @@ var app = (function () {
     		block,
     		id: create_each_block$5.name,
     		type: "each",
-    		source: "(101:12) {#each Object.keys(target.tags) as id (id)}",
+    		source: "(103:12) {#each Object.keys(target.tags) as id (id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (98:4) <Col xs="8" class="mt-3">
+    // (99:4) <Col xs="8" class="mt-3">
     function create_default_slot_1$5(ctx) {
     	let p;
     	let t1;
+    	let pre;
+    	let t2_value = JSON.stringify(/*tags*/ ctx[1], null, 2) + "";
+    	let t2;
+    	let t3;
     	let if_block_anchor;
     	let current;
     	let if_block = /*target*/ ctx[0].tags && create_if_block$d(ctx);
@@ -16401,18 +16397,27 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Tags";
     			t1 = space();
+    			pre = element("pre");
+    			t2 = text(t2_value);
+    			t3 = space();
     			if (if_block) if_block.c();
     			if_block_anchor = empty();
-    			add_location(p, file$n, 98, 8, 3607);
+    			add_location(p, file$n, 99, 8, 3705);
+    			add_location(pre, file$n, 100, 8, 3725);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
     			insert_dev(target, t1, anchor);
+    			insert_dev(target, pre, anchor);
+    			append_dev(pre, t2);
+    			insert_dev(target, t3, anchor);
     			if (if_block) if_block.m(target, anchor);
     			insert_dev(target, if_block_anchor, anchor);
     			current = true;
     		},
     		p: function update(ctx, dirty) {
+    			if ((!current || dirty & /*tags*/ 2) && t2_value !== (t2_value = JSON.stringify(/*tags*/ ctx[1], null, 2) + "")) set_data_dev(t2, t2_value);
+
     			if (/*target*/ ctx[0].tags) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
@@ -16448,6 +16453,8 @@ var app = (function () {
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
     			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(pre);
+    			if (detaching) detach_dev(t3);
     			if (if_block) if_block.d(detaching);
     			if (detaching) detach_dev(if_block_anchor);
     		}
@@ -16457,14 +16464,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$5.name,
     		type: "slot",
-    		source: "(98:4) <Col xs=\\\"8\\\" class=\\\"mt-3\\\">",
+    		source: "(99:4) <Col xs=\\\"8\\\" class=\\\"mt-3\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (26:0) <Row>
+    // (27:0) <Row>
     function create_default_slot$7(ctx) {
     	let col0;
     	let t;
@@ -16506,14 +16513,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope, target, config, enable*/ 65543) {
+    			if (dirty & /*$$scope, target, config, enable*/ 131085) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope, target*/ 65537) {
+    			if (dirty & /*$$scope, target, tags*/ 131075) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16541,7 +16548,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$7.name,
     		type: "slot",
-    		source: "(26:0) <Row>",
+    		source: "(27:0) <Row>",
     		ctx
     	});
 
@@ -16579,12 +16586,12 @@ var app = (function () {
     			create_component(row.$$.fragment);
     			attr_dev(a0, "href", "/");
     			attr_dev(a0, "class", "btn btn-light btn-sm");
-    			add_location(a0, file$n, 15, 4, 520);
+    			add_location(a0, file$n, 16, 4, 546);
     			attr_dev(a1, "href", "/");
     			attr_dev(a1, "class", "btn btn-light btn-sm");
-    			add_location(a1, file$n, 19, 4, 632);
+    			add_location(a1, file$n, 20, 4, 658);
     			attr_dev(div, "class", "mt-1 pt-2");
-    			add_location(div, file$n, 14, 0, 492);
+    			add_location(div, file$n, 15, 0, 518);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -16600,8 +16607,8 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(a0, "click", prevent_default(/*cancelEdit*/ ctx[3]), false, true, false),
-    					listen_dev(a1, "click", prevent_default(/*cancelEdit*/ ctx[3]), false, true, false)
+    					listen_dev(a0, "click", prevent_default(/*cancelEdit*/ ctx[4]), false, true, false),
+    					listen_dev(a1, "click", prevent_default(/*cancelEdit*/ ctx[4]), false, true, false)
     				];
 
     				mounted = true;
@@ -16610,7 +16617,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope, target, config, enable*/ 65543) {
+    			if (dirty & /*$$scope, target, tags, config, enable*/ 131087) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16648,6 +16655,7 @@ var app = (function () {
     function instance$t($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("TargetEdit", slots, []);
+    	let { tags = [] } = $$props;
     	let { target = {} } = $$props;
     	let { config = {} } = $$props;
     	const dispatch = createEventDispatcher();
@@ -16658,7 +16666,7 @@ var app = (function () {
 
     	
     	let enable = 1 * target.enable;
-    	const writable_props = ["target", "config"];
+    	const writable_props = ["tags", "target", "config"];
 
     	Object_1$3.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<TargetEdit> was created with unknown prop '${key}'`);
@@ -16666,7 +16674,7 @@ var app = (function () {
 
     	function custominput_checked_binding(value) {
     		enable = value;
-    		$$invalidate(2, enable);
+    		$$invalidate(3, enable);
     	}
 
     	function input_value_binding(value) {
@@ -16690,8 +16698,9 @@ var app = (function () {
     	}
 
     	$$self.$$set = $$props => {
+    		if ("tags" in $$props) $$invalidate(1, tags = $$props.tags);
     		if ("target" in $$props) $$invalidate(0, target = $$props.target);
-    		if ("config" in $$props) $$invalidate(1, config = $$props.config);
+    		if ("config" in $$props) $$invalidate(2, config = $$props.config);
     	};
 
     	$$self.$capture_state = () => ({
@@ -16707,6 +16716,7 @@ var app = (function () {
     		Row,
     		Col,
     		TargetTag,
+    		tags,
     		target,
     		config,
     		dispatch,
@@ -16715,9 +16725,10 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
+    		if ("tags" in $$props) $$invalidate(1, tags = $$props.tags);
     		if ("target" in $$props) $$invalidate(0, target = $$props.target);
-    		if ("config" in $$props) $$invalidate(1, config = $$props.config);
-    		if ("enable" in $$props) $$invalidate(2, enable = $$props.enable);
+    		if ("config" in $$props) $$invalidate(2, config = $$props.config);
+    		if ("enable" in $$props) $$invalidate(3, enable = $$props.enable);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -16726,6 +16737,7 @@ var app = (function () {
 
     	return [
     		target,
+    		tags,
     		config,
     		enable,
     		cancelEdit,
@@ -16740,7 +16752,7 @@ var app = (function () {
     class TargetEdit extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$t, create_fragment$t, safe_not_equal, { target: 0, config: 1 });
+    		init(this, options, instance$t, create_fragment$t, safe_not_equal, { tags: 1, target: 0, config: 2 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -16748,6 +16760,14 @@ var app = (function () {
     			options,
     			id: create_fragment$t.name
     		});
+    	}
+
+    	get tags() {
+    		throw new Error("<TargetEdit>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set tags(value) {
+    		throw new Error("<TargetEdit>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
     	get target() {
@@ -16776,13 +16796,14 @@ var app = (function () {
 
     	targetedit = new TargetEdit({
     			props: {
-    				target: /*targets*/ ctx[0][/*edited*/ ctx[2]],
-    				config: /*config*/ ctx[1].find(/*func*/ ctx[5])
+    				target: /*targets*/ ctx[1][/*edited*/ ctx[3]],
+    				tags: /*tags*/ ctx[0],
+    				config: /*config*/ ctx[2].find(/*func*/ ctx[6])
     			},
     			$$inline: true
     		});
 
-    	targetedit.$on("cancelEdit", /*cancelEdit*/ ctx[4]);
+    	targetedit.$on("cancelEdit", /*cancelEdit*/ ctx[5]);
 
     	const block = {
     		c: function create() {
@@ -16794,8 +16815,9 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const targetedit_changes = {};
-    			if (dirty & /*targets, edited*/ 5) targetedit_changes.target = /*targets*/ ctx[0][/*edited*/ ctx[2]];
-    			if (dirty & /*config, targets, edited*/ 7) targetedit_changes.config = /*config*/ ctx[1].find(/*func*/ ctx[5]);
+    			if (dirty & /*targets, edited*/ 10) targetedit_changes.target = /*targets*/ ctx[1][/*edited*/ ctx[3]];
+    			if (dirty & /*tags*/ 1) targetedit_changes.tags = /*tags*/ ctx[0];
+    			if (dirty & /*config, targets, edited*/ 14) targetedit_changes.config = /*config*/ ctx[2].find(/*func*/ ctx[6]);
     			targetedit.$set(targetedit_changes);
     		},
     		i: function intro(local) {
@@ -16830,13 +16852,13 @@ var app = (function () {
 
     	targetstable = new TargetsTable({
     			props: {
-    				targets: /*targets*/ ctx[0],
-    				config: /*config*/ ctx[1]
+    				targets: /*targets*/ ctx[1],
+    				config: /*config*/ ctx[2]
     			},
     			$$inline: true
     		});
 
-    	targetstable.$on("editTarget", /*editTarget*/ ctx[3]);
+    	targetstable.$on("editTarget", /*editTarget*/ ctx[4]);
 
     	const block = {
     		c: function create() {
@@ -16848,8 +16870,8 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const targetstable_changes = {};
-    			if (dirty & /*targets*/ 1) targetstable_changes.targets = /*targets*/ ctx[0];
-    			if (dirty & /*config*/ 2) targetstable_changes.config = /*config*/ ctx[1];
+    			if (dirty & /*targets*/ 2) targetstable_changes.targets = /*targets*/ ctx[1];
+    			if (dirty & /*config*/ 4) targetstable_changes.config = /*config*/ ctx[2];
     			targetstable.$set(targetstable_changes);
     		},
     		i: function intro(local) {
@@ -16886,7 +16908,7 @@ var app = (function () {
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
-    		if (/*edited*/ ctx[2] === -1) return 0;
+    		if (/*edited*/ ctx[3] === -1) return 0;
     		return 1;
     	}
 
@@ -16960,22 +16982,23 @@ var app = (function () {
     function instance$u($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Panel", slots, []);
+    	let { tags = [] } = $$props;
     	let { targets = [] } = $$props;
     	let { config = [] } = $$props;
     	let edited = -1;
 
     	function editTarget(target) {
     		// console.log(target.detail);
-    		$$invalidate(2, edited = target.detail.id * 1);
+    		$$invalidate(3, edited = target.detail.id * 1);
     	}
 
     	
 
     	function cancelEdit() {
-    		$$invalidate(2, edited = -1);
+    		$$invalidate(3, edited = -1);
     	}
 
-    	const writable_props = ["targets", "config"];
+    	const writable_props = ["tags", "targets", "config"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Panel> was created with unknown prop '${key}'`);
@@ -16984,13 +17007,15 @@ var app = (function () {
     	const func = t => t.type === targets[edited].type;
 
     	$$self.$$set = $$props => {
-    		if ("targets" in $$props) $$invalidate(0, targets = $$props.targets);
-    		if ("config" in $$props) $$invalidate(1, config = $$props.config);
+    		if ("tags" in $$props) $$invalidate(0, tags = $$props.tags);
+    		if ("targets" in $$props) $$invalidate(1, targets = $$props.targets);
+    		if ("config" in $$props) $$invalidate(2, config = $$props.config);
     	};
 
     	$$self.$capture_state = () => ({
     		TargetsTable,
     		TargetEdit,
+    		tags,
     		targets,
     		config,
     		edited,
@@ -16999,22 +17024,23 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("targets" in $$props) $$invalidate(0, targets = $$props.targets);
-    		if ("config" in $$props) $$invalidate(1, config = $$props.config);
-    		if ("edited" in $$props) $$invalidate(2, edited = $$props.edited);
+    		if ("tags" in $$props) $$invalidate(0, tags = $$props.tags);
+    		if ("targets" in $$props) $$invalidate(1, targets = $$props.targets);
+    		if ("config" in $$props) $$invalidate(2, config = $$props.config);
+    		if ("edited" in $$props) $$invalidate(3, edited = $$props.edited);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [targets, config, edited, editTarget, cancelEdit, func];
+    	return [tags, targets, config, edited, editTarget, cancelEdit, func];
     }
 
     class Panel$1 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$u, create_fragment$u, safe_not_equal, { targets: 0, config: 1 });
+    		init(this, options, instance$u, create_fragment$u, safe_not_equal, { tags: 0, targets: 1, config: 2 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -17022,6 +17048,14 @@ var app = (function () {
     			options,
     			id: create_fragment$u.name
     		});
+    	}
+
+    	get tags() {
+    		throw new Error("<Panel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set tags(value) {
+    		throw new Error("<Panel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
     	get targets() {

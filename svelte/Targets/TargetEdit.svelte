@@ -3,6 +3,7 @@
     import { Form, FormGroup, FormText, Input, CustomInput, Label, Button, Table, Row, Col } from 'sveltestrap';
     // import Tooltip from './../UI/Tooltip.svelte';
     import TargetTag from  './TargetTag.svelte';
+    export let tags = [];
     export let target = {};
     export let config = {};
     const dispatch = createEventDispatcher();
@@ -74,29 +75,30 @@
                     </div>
                 </FormGroup>
             {/each}
+            {#if config.measurement}
+                <FormGroup class="row">
+                    <Label class="col-sm-4" for="measurement">Measurement</Label>
+                    <div class="col-sm-8">
+                        <CustomInput
+                            bind:value={target.measurement}
+                            type="select"
+                            class="custom-select-sm"
+                            id="measurement"
+                            name="measurement"
+                        >
+                            <option value="tag">Tag</option>
+                            <option value="measure">Measure</option>
+                            <option value="both">Both</option>
+                        </CustomInput>
+                    </div>
+                </FormGroup>
+            {/if}
         </Form>
-        {#if config.measurement}
-            <FormGroup class="row">
-                <Label class="col-sm-4" for="measurement">Measurement</Label>
-                <div class="col-sm-8">
-                    <CustomInput
-                        bind:value={target.measurement}
-                        type="select"
-                        class="custom-select-sm"
-                        id="measurement"
-                        name="measurement"
-                    >
-                        <option value="tag">Tag</option>
-                        <option value="measure">Measure</option>
-                        <option value="both">Both</option>
-                    </CustomInput>
-                </div>
-            </FormGroup>
-        {/if}
         <!-- <pre>{JSON.stringify(target.tags, null, 2)}</pre> -->
     </Col>
     <Col xs="8" class="mt-3">
         <p>Tags</p>
+        <pre>{JSON.stringify(tags, null, 2)}</pre>
         {#if target.tags}
             {#each Object.keys(target.tags) as id (id)}
                 <TargetTag tag={target.tags[id]} />
