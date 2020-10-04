@@ -1,10 +1,18 @@
 <script>
-    import { Table, Row, Col } from 'sveltestrap';
+    import { createEventDispatcher } from 'svelte';
+    import { Button, Table, Row, Col } from 'sveltestrap';
     import Tooltip from './../UI/Tooltip.svelte';
     import TargetStateIcon from './TargetStateIcon.svelte';
     import TargetType from './TargetType.svelte';
     export let targets = [];
     export let config = [];
+    const dispatch = createEventDispatcher();
+    function deleteTarget(target) {
+        console.log(target);
+    };
+    function editTarget(target) {
+        dispatch(`editTarget`, target);
+    };
 </script>
 
 <Table class="table-sm font-weight-lighter small" responsive>
@@ -41,6 +49,9 @@
                 </td>
                 <td class="text-left">
                     <TargetType {target} {config} />
+                    <span class="ml-2">
+                        {target.type}
+                    </span>
                 </td>
                 <td class="text-left">
                     {target.measurement || `n/a`}
@@ -78,7 +89,14 @@
                     {/if}
                 </td>
                 <td class="text-center">
-                    Delete | Edit
+                    <a href="/" on:click|preventDefault={e => deleteTarget(target)}
+                     class="btn btn-link text-danger btn-sm mr-2">
+                        Delete
+                    </a>
+                    <a href="/" on:click|preventDefault={e => editTarget(target)}
+                     class="btn btn-light btn-sm">
+                        Edit
+                    </a>
                 </td>
             </tr>
         {/each}

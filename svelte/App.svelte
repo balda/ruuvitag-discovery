@@ -162,7 +162,7 @@
 				<PanelTargets {tags} {targets} config={config.targets} />
 			{/if}
 			{#if panel === `config`}
-				<PanelConfig {config} />
+				<PanelConfig {config} {targets} {cols} />
 			{/if}
 		</div>
 	</Container>
