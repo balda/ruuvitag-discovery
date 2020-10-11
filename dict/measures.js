@@ -1,6 +1,11 @@
 'use strict'
 
 const measures = [{
+    field: `dataFormat`,
+    label: `Data Format`,
+    unit: ``,
+    accuracy: 0,
+}, {
     field: `temperature`,
     label: `Temperature`,
     type: `temperature`,

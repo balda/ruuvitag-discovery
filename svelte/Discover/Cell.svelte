@@ -5,14 +5,15 @@
     export let col = {};
     export let tag = {};
     export let source = `last`;
+    export let showUnit = false;
 </script>
 
 {#if col.render === `measure`}
-    <CellMeasure {col} {tag} {source}/>
+    <CellMeasure {col} {tag} {source} {showUnit} />
 {/if}
 {#if col.render === `text`}
-    <CellText {col} {tag} {source}/>
+    <CellText {col} {tag} {source} />
 {/if}
 {#if col.render === `date`}
-    <CellDate {col} {tag} {source}/>
+    <CellDate {col} {tag} {source} />
 {/if}

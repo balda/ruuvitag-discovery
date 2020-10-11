@@ -47,7 +47,7 @@
                     </div>
                     {#each sources as source}
                         <div class="col text-right">
-                            <Cell col={col(field)} {tag} {source}/>
+                            <Cell col={col(field)} {tag} {source} showUnit="true" />
                         </div>
                     {/each}
                 </div>

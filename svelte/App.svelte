@@ -84,11 +84,6 @@
 					class: `text-left`,
 					render: `text`,
 					show: true,
-				}, {
-					label: `Data Format`,
-					field: `dataFormat`,
-					render: `measure`,
-					show: true,
 				});
 				cols.push({
 					label: `Last seen`,
@@ -159,7 +154,7 @@
 				<PanelDiscover {tags} {targets} {ruuvitags} {cols} />
 			{/if}
 			{#if panel === `targets`}
-				<PanelTargets {tags} {targets} config={config.targets} />
+				<PanelTargets {tags} {targets} config={config.targets} measures={config.measures} />
 			{/if}
 			{#if panel === `config`}
 				<PanelConfig {config} {targets} {cols} />
@@ -167,6 +162,3 @@
 		</div>
 	</Container>
 </main>
-
-<style>
-</style>
