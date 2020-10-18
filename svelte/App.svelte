@@ -1,4 +1,5 @@
 <script>
+	import store from './store.js';
 	import { Container, Row, Col } from "sveltestrap";
 	import PanelDiscover from './Discover/Panel.svelte';
 	import PanelTargets from './Targets/Panel.svelte';
@@ -14,7 +15,8 @@
 		measures: [],
 		targets: [],
 	};
-	let tags = [];
+	// let tags = [];
+	let tags = store.tags(ws);
 	let targets = [];
 	let ruuvitags = {};
 	let cols = [];
@@ -38,10 +40,10 @@
 	// 	},
 	// ];
 	let panel = `discover`;
-	ws.onopen = () => {
+	ws.addEventListener(`open`, () => {
 		console.log(`ws connected`);
-	};
-	ws.onmessage = (message) => {
+	});
+	ws.addEventListener(`message`, (message) => {
 		try {
 			const data = JSON.parse(message.data);
 			if (data.addon) {
@@ -96,15 +98,16 @@
 				config.targets = data.targets;
 			}
 			if (data.tag) {
-				const tagIndex = tags.findIndex(tag => tag.id === data.tag.id);
-				tags[tagIndex === -1 ? tags.length : tagIndex] = data.tag;
-				// console.log(`${data.tag.id} - ${data.tag.samples}`);
 				// console.log(data.tag);
+				// const tagIndex = tags.findIndex(tag => tag.id === data.tag.id);
+				// tags[tagIndex === -1 ? tags.length : tagIndex] = data.tag;
+				// // console.log(`${data.tag.id} - ${data.tag.samples}`);
+				// // console.log(data.tag);
 			}
 			// console.log({config: config.targets}); // targets dict
 			// console.log({targets}); // targets config
 		} catch(error) {}
-	};
+	});
 </script>
 
 <main>
@@ -151,10 +154,10 @@
 		</Row>
 		<div class="mb-4">
 			{#if panel === `discover`}
-				<PanelDiscover {tags} {targets} {ruuvitags} {cols} />
+				<PanelDiscover tags={$tags} {targets} {ruuvitags} {cols} />
 			{/if}
 			{#if panel === `targets`}
-				<PanelTargets {tags} {targets} config={config.targets} measures={config.measures} />
+				<PanelTargets tags={$tags} {targets} config={config.targets} measures={config.measures} />
 			{/if}
 			{#if panel === `config`}
 				<PanelConfig {config} {targets} {cols} />

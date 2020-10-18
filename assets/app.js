@@ -32,6 +32,21 @@ var app = (function () {
     function is_empty(obj) {
         return Object.keys(obj).length === 0;
     }
+    function validate_store(store, name) {
+        if (store != null && typeof store.subscribe !== 'function') {
+            throw new Error(`'${name}' is not a store with a 'subscribe' method`);
+        }
+    }
+    function subscribe(store, ...callbacks) {
+        if (store == null) {
+            return noop;
+        }
+        const unsub = store.subscribe(...callbacks);
+        return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+    }
+    function component_subscribe(component, store, callback) {
+        component.$$.on_destroy.push(subscribe(store, callback));
+    }
     function create_slot(definition, ctx, $$scope, fn) {
         if (definition) {
             const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
@@ -893,6 +908,36 @@ var app = (function () {
         $capture_state() { }
         $inject_state() { }
     }
+
+    // import { writable } from 'svelte/store';
+
+    const store = {};
+
+    store.tags = (ws, tags = []) => {
+        return {
+            subscribe(subscription) {
+            	ws.addEventListener(`message`, (message) => {
+                    try {
+                        const data = JSON.parse(message.data);
+                        if (data.tag) {
+                            // console.log(data.tag)
+                            const tagIndex = tags.findIndex(tag => tag.id === data.tag.id);
+                            tags[tagIndex === -1 ? tags.length : tagIndex] = data.tag;
+                            // console.log(`${data.tag.id} - ${data.tag.samples}`);
+                            // console.log(data.tag);
+                            subscription(tags);
+                        }
+                    } catch(error) {
+                        console.log(`STORE: message error`);
+                        console.log(error);
+                    }
+            	});
+                return () => {
+                    console.log(`STORE: unsubscribe`);
+                };
+            },
+        };
+    };
 
     function fade(node, { delay = 0, duration = 400, easing = identity }) {
         const o = +getComputedStyle(node).opacity;
@@ -12790,29 +12835,29 @@ var app = (function () {
 
     function get_each_context_1$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[6] = list[i];
+    	child_ctx[7] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_2$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[9] = list[i];
+    	child_ctx[10] = list[i];
     	return child_ctx;
     }
 
     function get_each_context$3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[3] = list[i];
+    	child_ctx[4] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[9] = list[i];
+    	child_ctx[10] = list[i];
     	return child_ctx;
     }
 
-    // (21:16) {#if col.show}
+    // (22:16) {#if col.show}
     function create_if_block_2$5(ctx) {
     	let th;
     	let current_block_type_index;
@@ -12823,7 +12868,7 @@ var app = (function () {
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
-    		if (/*col*/ ctx[9].unit) return 0;
+    		if (/*col*/ ctx[10].unit) return 0;
     		return 1;
     	}
 
@@ -12834,8 +12879,8 @@ var app = (function () {
     		c: function create() {
     			th = element("th");
     			if_block.c();
-    			attr_dev(th, "class", th_class_value = /*col*/ ctx[9].class || `text-right`);
-    			add_location(th, file$k, 21, 20, 637);
+    			attr_dev(th, "class", th_class_value = /*col*/ ctx[10].class || `text-right`);
+    			add_location(th, file$k, 22, 20, 668);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, th, anchor);
@@ -12867,7 +12912,7 @@ var app = (function () {
     				if_block.m(th, null);
     			}
 
-    			if (!current || dirty & /*cols*/ 2 && th_class_value !== (th_class_value = /*col*/ ctx[9].class || `text-right`)) {
+    			if (!current || dirty & /*cols*/ 2 && th_class_value !== (th_class_value = /*col*/ ctx[10].class || `text-right`)) {
     				attr_dev(th, "class", th_class_value);
     			}
     		},
@@ -12890,16 +12935,16 @@ var app = (function () {
     		block,
     		id: create_if_block_2$5.name,
     		type: "if",
-    		source: "(21:16) {#if col.show}",
+    		source: "(22:16) {#if col.show}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (27:24) {:else}
+    // (28:24) {:else}
     function create_else_block$8(ctx) {
-    	let t_value = /*col*/ ctx[9].label + "";
+    	let t_value = /*col*/ ctx[10].label + "";
     	let t;
 
     	const block = {
@@ -12910,7 +12955,7 @@ var app = (function () {
     			insert_dev(target, t, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*cols*/ 2 && t_value !== (t_value = /*col*/ ctx[9].label + "")) set_data_dev(t, t_value);
+    			if (dirty & /*cols*/ 2 && t_value !== (t_value = /*col*/ ctx[10].label + "")) set_data_dev(t, t_value);
     		},
     		i: noop,
     		o: noop,
@@ -12923,21 +12968,21 @@ var app = (function () {
     		block,
     		id: create_else_block$8.name,
     		type: "else",
-    		source: "(27:24) {:else}",
+    		source: "(28:24) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:24) {#if col.unit}
+    // (24:24) {#if col.unit}
     function create_if_block_3$3(ctx) {
     	let tooltip;
     	let current;
 
     	tooltip = new Tooltip({
     			props: {
-    				tip: /*col*/ ctx[9].unit,
+    				tip: /*col*/ ctx[10].unit,
     				bottom: true,
     				$$slots: { default: [create_default_slot_1$3] },
     				$$scope: { ctx }
@@ -12955,9 +13000,9 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const tooltip_changes = {};
-    			if (dirty & /*cols*/ 2) tooltip_changes.tip = /*col*/ ctx[9].unit;
+    			if (dirty & /*cols*/ 2) tooltip_changes.tip = /*col*/ ctx[10].unit;
 
-    			if (dirty & /*$$scope, cols*/ 16386) {
+    			if (dirty & /*$$scope, cols*/ 32770) {
     				tooltip_changes.$$scope = { dirty, ctx };
     			}
 
@@ -12981,16 +13026,16 @@ var app = (function () {
     		block,
     		id: create_if_block_3$3.name,
     		type: "if",
-    		source: "(23:24) {#if col.unit}",
+    		source: "(24:24) {#if col.unit}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (24:28) <Tooltip tip="{col.unit}" bottom >
+    // (25:28) <Tooltip tip="{col.unit}" bottom >
     function create_default_slot_1$3(ctx) {
-    	let t_value = /*col*/ ctx[9].label + "";
+    	let t_value = /*col*/ ctx[10].label + "";
     	let t;
 
     	const block = {
@@ -13001,7 +13046,7 @@ var app = (function () {
     			insert_dev(target, t, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*cols*/ 2 && t_value !== (t_value = /*col*/ ctx[9].label + "")) set_data_dev(t, t_value);
+    			if (dirty & /*cols*/ 2 && t_value !== (t_value = /*col*/ ctx[10].label + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -13012,19 +13057,19 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$3.name,
     		type: "slot",
-    		source: "(24:28) <Tooltip tip=\\\"{col.unit}\\\" bottom >",
+    		source: "(25:28) <Tooltip tip=\\\"{col.unit}\\\" bottom >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (20:12) {#each cols as col (col.field)}
+    // (21:12) {#each cols as col (col.field)}
     function create_each_block_3(key_1, ctx) {
     	let first;
     	let if_block_anchor;
     	let current;
-    	let if_block = /*col*/ ctx[9].show && create_if_block_2$5(ctx);
+    	let if_block = /*col*/ ctx[10].show && create_if_block_2$5(ctx);
 
     	const block = {
     		key: key_1,
@@ -13042,7 +13087,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (/*col*/ ctx[9].show) {
+    			if (/*col*/ ctx[10].show) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
@@ -13085,14 +13130,14 @@ var app = (function () {
     		block,
     		id: create_each_block_3.name,
     		type: "each",
-    		source: "(20:12) {#each cols as col (col.field)}",
+    		source: "(21:12) {#each cols as col (col.field)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (50:20) {#if col.show}
+    // (51:20) {#if col.show}
     function create_if_block_1$7(ctx) {
     	let td;
     	let cell;
@@ -13100,7 +13145,10 @@ var app = (function () {
     	let current;
 
     	cell = new Cell({
-    			props: { col: /*col*/ ctx[9], tag: /*tag*/ ctx[3] },
+    			props: {
+    				col: /*col*/ ctx[10],
+    				tag: /*tag*/ ctx[4]
+    			},
     			$$inline: true
     		});
 
@@ -13108,8 +13156,8 @@ var app = (function () {
     		c: function create() {
     			td = element("td");
     			create_component(cell.$$.fragment);
-    			attr_dev(td, "class", td_class_value = /*col*/ ctx[9].class || `text-right`);
-    			add_location(td, file$k, 50, 24, 1536);
+    			attr_dev(td, "class", td_class_value = /*col*/ ctx[10].class || `text-right`);
+    			add_location(td, file$k, 51, 24, 1567);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, td, anchor);
@@ -13118,11 +13166,11 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const cell_changes = {};
-    			if (dirty & /*cols*/ 2) cell_changes.col = /*col*/ ctx[9];
-    			if (dirty & /*tags*/ 1) cell_changes.tag = /*tag*/ ctx[3];
+    			if (dirty & /*cols*/ 2) cell_changes.col = /*col*/ ctx[10];
+    			if (dirty & /*tags*/ 1) cell_changes.tag = /*tag*/ ctx[4];
     			cell.$set(cell_changes);
 
-    			if (!current || dirty & /*cols*/ 2 && td_class_value !== (td_class_value = /*col*/ ctx[9].class || `text-right`)) {
+    			if (!current || dirty & /*cols*/ 2 && td_class_value !== (td_class_value = /*col*/ ctx[10].class || `text-right`)) {
     				attr_dev(td, "class", td_class_value);
     			}
     		},
@@ -13145,19 +13193,19 @@ var app = (function () {
     		block,
     		id: create_if_block_1$7.name,
     		type: "if",
-    		source: "(50:20) {#if col.show}",
+    		source: "(51:20) {#if col.show}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (49:16) {#each cols as col (col.field)}
+    // (50:16) {#each cols as col (col.field)}
     function create_each_block_2$1(key_1, ctx) {
     	let first;
     	let if_block_anchor;
     	let current;
-    	let if_block = /*col*/ ctx[9].show && create_if_block_1$7(ctx);
+    	let if_block = /*col*/ ctx[10].show && create_if_block_1$7(ctx);
 
     	const block = {
     		key: key_1,
@@ -13175,7 +13223,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (/*col*/ ctx[9].show) {
+    			if (/*col*/ ctx[10].show) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
@@ -13218,22 +13266,22 @@ var app = (function () {
     		block,
     		id: create_each_block_2$1.name,
     		type: "each",
-    		source: "(49:16) {#each cols as col (col.field)}",
+    		source: "(50:16) {#each cols as col (col.field)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (58:24) {#if target.tags && target.tags[tag.id]}
+    // (59:24) {#if target.tags && target.tags[tag.id]}
     function create_if_block$b(ctx) {
     	let celldatabase;
     	let current;
 
     	celldatabase = new Database({
     			props: {
-    				target: /*target*/ ctx[6],
-    				tag: /*tag*/ ctx[3]
+    				target: /*target*/ ctx[7],
+    				tag: /*tag*/ ctx[4]
     			},
     			$$inline: true
     		});
@@ -13248,8 +13296,8 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const celldatabase_changes = {};
-    			if (dirty & /*targets*/ 4) celldatabase_changes.target = /*target*/ ctx[6];
-    			if (dirty & /*tags*/ 1) celldatabase_changes.tag = /*tag*/ ctx[3];
+    			if (dirty & /*targets*/ 4) celldatabase_changes.target = /*target*/ ctx[7];
+    			if (dirty & /*tags*/ 1) celldatabase_changes.tag = /*tag*/ ctx[4];
     			celldatabase.$set(celldatabase_changes);
     		},
     		i: function intro(local) {
@@ -13270,19 +13318,19 @@ var app = (function () {
     		block,
     		id: create_if_block$b.name,
     		type: "if",
-    		source: "(58:24) {#if target.tags && target.tags[tag.id]}",
+    		source: "(59:24) {#if target.tags && target.tags[tag.id]}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:20) {#each targets as target (target.id)}
+    // (58:20) {#each targets as target (target.id)}
     function create_each_block_1$1(key_1, ctx) {
     	let first;
     	let if_block_anchor;
     	let current;
-    	let if_block = /*target*/ ctx[6].tags && /*target*/ ctx[6].tags[/*tag*/ ctx[3].id] && create_if_block$b(ctx);
+    	let if_block = /*target*/ ctx[7].tags && /*target*/ ctx[7].tags[/*tag*/ ctx[4].id] && create_if_block$b(ctx);
 
     	const block = {
     		key: key_1,
@@ -13300,7 +13348,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (/*target*/ ctx[6].tags && /*target*/ ctx[6].tags[/*tag*/ ctx[3].id]) {
+    			if (/*target*/ ctx[7].tags && /*target*/ ctx[7].tags[/*tag*/ ctx[4].id]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
@@ -13343,14 +13391,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1$1.name,
     		type: "each",
-    		source: "(57:20) {#each targets as target (target.id)}",
+    		source: "(58:20) {#each targets as target (target.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (42:8) {#each tags as tag (tag.id)}
+    // (43:8) {#each tags as tag (tag.id)}
     function create_each_block$3(key_1, ctx) {
     	let tr;
     	let each_blocks_1 = [];
@@ -13366,7 +13414,7 @@ var app = (function () {
     	let current;
     	let each_value_2 = /*cols*/ ctx[1];
     	validate_each_argument(each_value_2);
-    	const get_key = ctx => /*col*/ ctx[9].field;
+    	const get_key = ctx => /*col*/ ctx[10].field;
     	validate_each_keys(ctx, each_value_2, get_each_context_2$1, get_key);
 
     	for (let i = 0; i < each_value_2.length; i += 1) {
@@ -13377,7 +13425,7 @@ var app = (function () {
 
     	let each_value_1 = /*targets*/ ctx[2];
     	validate_each_argument(each_value_1);
-    	const get_key_1 = ctx => /*target*/ ctx[6].id;
+    	const get_key_1 = ctx => /*target*/ ctx[7].id;
     	validate_each_keys(ctx, each_value_1, get_each_context_1$1, get_key_1);
 
     	for (let i = 0; i < each_value_1.length; i += 1) {
@@ -13388,7 +13436,7 @@ var app = (function () {
 
     	cellinfo = new Info({
     			props: {
-    				tag: /*tag*/ ctx[3],
+    				tag: /*tag*/ ctx[4],
     				cols: /*cols*/ ctx[1]
     			},
     			$$inline: true
@@ -13416,10 +13464,10 @@ var app = (function () {
     			create_component(cellinfo.$$.fragment);
     			t2 = space();
     			attr_dev(td0, "class", "text-center");
-    			add_location(td0, file$k, 55, 16, 1721);
+    			add_location(td0, file$k, 56, 16, 1752);
     			attr_dev(td1, "class", "text-center");
-    			add_location(td1, file$k, 62, 16, 2025);
-    			add_location(tr, file$k, 42, 12, 1274);
+    			add_location(td1, file$k, 63, 16, 2056);
+    			add_location(tr, file$k, 43, 12, 1305);
     			this.first = tr;
     		},
     		m: function mount(target, anchor) {
@@ -13462,7 +13510,7 @@ var app = (function () {
     			}
 
     			const cellinfo_changes = {};
-    			if (dirty & /*tags*/ 1) cellinfo_changes.tag = /*tag*/ ctx[3];
+    			if (dirty & /*tags*/ 1) cellinfo_changes.tag = /*tag*/ ctx[4];
     			if (dirty & /*cols*/ 2) cellinfo_changes.cols = /*cols*/ ctx[1];
     			cellinfo.$set(cellinfo_changes);
     		},
@@ -13511,14 +13559,14 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(42:8) {#each tags as tag (tag.id)}",
+    		source: "(43:8) {#each tags as tag (tag.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (16:0) <Table class="table-sm font-weight-lighter small" responsive>
+    // (17:0) <Table class="table-sm font-weight-lighter small" responsive>
     function create_default_slot$5(ctx) {
     	let thead;
     	let tr;
@@ -13535,7 +13583,7 @@ var app = (function () {
     	let current;
     	let each_value_3 = /*cols*/ ctx[1];
     	validate_each_argument(each_value_3);
-    	const get_key = ctx => /*col*/ ctx[9].field;
+    	const get_key = ctx => /*col*/ ctx[10].field;
     	validate_each_keys(ctx, each_value_3, get_each_context_3, get_key);
 
     	for (let i = 0; i < each_value_3.length; i += 1) {
@@ -13546,7 +13594,7 @@ var app = (function () {
 
     	let each_value = /*tags*/ ctx[0];
     	validate_each_argument(each_value);
-    	const get_key_1 = ctx => /*tag*/ ctx[3].id;
+    	const get_key_1 = ctx => /*tag*/ ctx[4].id;
     	validate_each_keys(ctx, each_value, get_each_context$3, get_key_1);
 
     	for (let i = 0; i < each_value.length; i += 1) {
@@ -13578,12 +13626,12 @@ var app = (function () {
     			}
 
     			attr_dev(th0, "class", "text-center");
-    			add_location(th0, file$k, 32, 12, 1042);
+    			add_location(th0, file$k, 33, 12, 1073);
     			attr_dev(th1, "class", "text-center");
-    			add_location(th1, file$k, 35, 12, 1121);
-    			add_location(tr, file$k, 17, 8, 506);
-    			add_location(thead, file$k, 16, 4, 490);
-    			add_location(tbody, file$k, 40, 4, 1217);
+    			add_location(th1, file$k, 36, 12, 1152);
+    			add_location(tr, file$k, 18, 8, 537);
+    			add_location(thead, file$k, 17, 4, 521);
+    			add_location(tbody, file$k, 41, 4, 1248);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -13669,7 +13717,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$5.name,
     		type: "slot",
-    		source: "(16:0) <Table class=\\\"table-sm font-weight-lighter small\\\" responsive>",
+    		source: "(17:0) <Table class=\\\"table-sm font-weight-lighter small\\\" responsive>",
     		ctx
     	});
 
@@ -13704,7 +13752,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const table_changes = {};
 
-    			if (dirty & /*$$scope, tags, cols, targets*/ 16391) {
+    			if (dirty & /*$$scope, tags, cols, targets*/ 32775) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
@@ -13741,7 +13789,8 @@ var app = (function () {
     	let { cols = [] } = $$props;
     	let { tags = [] } = $$props;
     	let { targets = [] } = $$props;
-    	const writable_props = ["cols", "tags", "targets"];
+    	let { ruuvitags = {} } = $$props;
+    	const writable_props = ["cols", "tags", "targets", "ruuvitags"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<TagsTable> was created with unknown prop '${key}'`);
@@ -13751,6 +13800,7 @@ var app = (function () {
     		if ("cols" in $$props) $$invalidate(1, cols = $$props.cols);
     		if ("tags" in $$props) $$invalidate(0, tags = $$props.tags);
     		if ("targets" in $$props) $$invalidate(2, targets = $$props.targets);
+    		if ("ruuvitags" in $$props) $$invalidate(3, ruuvitags = $$props.ruuvitags);
     	};
 
     	$$self.$capture_state = () => ({
@@ -13761,13 +13811,15 @@ var app = (function () {
     		CellInfo: Info,
     		cols,
     		tags,
-    		targets
+    		targets,
+    		ruuvitags
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("cols" in $$props) $$invalidate(1, cols = $$props.cols);
     		if ("tags" in $$props) $$invalidate(0, tags = $$props.tags);
     		if ("targets" in $$props) $$invalidate(2, targets = $$props.targets);
+    		if ("ruuvitags" in $$props) $$invalidate(3, ruuvitags = $$props.ruuvitags);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -13782,13 +13834,19 @@ var app = (function () {
     		}
     	};
 
-    	return [tags, cols, targets];
+    	return [tags, cols, targets, ruuvitags];
     }
 
     class TagsTable extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$o, create_fragment$o, safe_not_equal, { cols: 1, tags: 0, targets: 2 });
+
+    		init(this, options, instance$o, create_fragment$o, safe_not_equal, {
+    			cols: 1,
+    			tags: 0,
+    			targets: 2,
+    			ruuvitags: 3
+    		});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -13821,6 +13879,14 @@ var app = (function () {
     	set targets(value) {
     		throw new Error("<TagsTable>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
+
+    	get ruuvitags() {
+    		throw new Error("<TagsTable>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ruuvitags(value) {
+    		throw new Error("<TagsTable>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
     }
 
     /* svelte/Discover/Panel.svelte generated by Svelte v3.29.0 */
@@ -13836,13 +13902,14 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	columsselect.$on("changed", /*columnChange*/ ctx[3]);
+    	columsselect.$on("changed", /*columnChange*/ ctx[4]);
 
     	tagstable = new TagsTable({
     			props: {
     				cols: /*cols*/ ctx[0],
     				tags: /*tags*/ ctx[1],
-    				targets: /*targets*/ ctx[2]
+    				targets: /*targets*/ ctx[2],
+    				ruuvitags: /*ruuvitags*/ ctx[3]
     			},
     			$$inline: true
     		});
@@ -13870,6 +13937,7 @@ var app = (function () {
     			if (dirty & /*cols*/ 1) tagstable_changes.cols = /*cols*/ ctx[0];
     			if (dirty & /*tags*/ 2) tagstable_changes.tags = /*tags*/ ctx[1];
     			if (dirty & /*targets*/ 4) tagstable_changes.targets = /*targets*/ ctx[2];
+    			if (dirty & /*ruuvitags*/ 8) tagstable_changes.ruuvitags = /*ruuvitags*/ ctx[3];
     			tagstable.$set(tagstable_changes);
     		},
     		i: function intro(local) {
@@ -13907,6 +13975,7 @@ var app = (function () {
     	let { cols = [] } = $$props;
     	let { tags = [] } = $$props;
     	let { targets = [] } = $$props;
+    	let { ruuvitags = {} } = $$props;
 
     	function columnChange(event) {
     		const name = event.detail.name;
@@ -13914,7 +13983,7 @@ var app = (function () {
     		$$invalidate(0, cols);
     	}
 
-    	const writable_props = ["cols", "tags", "targets"];
+    	const writable_props = ["cols", "tags", "targets", "ruuvitags"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Panel> was created with unknown prop '${key}'`);
@@ -13924,6 +13993,7 @@ var app = (function () {
     		if ("cols" in $$props) $$invalidate(0, cols = $$props.cols);
     		if ("tags" in $$props) $$invalidate(1, tags = $$props.tags);
     		if ("targets" in $$props) $$invalidate(2, targets = $$props.targets);
+    		if ("ruuvitags" in $$props) $$invalidate(3, ruuvitags = $$props.ruuvitags);
     	};
 
     	$$self.$capture_state = () => ({
@@ -13932,6 +14002,7 @@ var app = (function () {
     		cols,
     		tags,
     		targets,
+    		ruuvitags,
     		columnChange
     	});
 
@@ -13939,19 +14010,26 @@ var app = (function () {
     		if ("cols" in $$props) $$invalidate(0, cols = $$props.cols);
     		if ("tags" in $$props) $$invalidate(1, tags = $$props.tags);
     		if ("targets" in $$props) $$invalidate(2, targets = $$props.targets);
+    		if ("ruuvitags" in $$props) $$invalidate(3, ruuvitags = $$props.ruuvitags);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [cols, tags, targets, columnChange];
+    	return [cols, tags, targets, ruuvitags, columnChange];
     }
 
     class Panel extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$p, create_fragment$p, safe_not_equal, { cols: 0, tags: 1, targets: 2 });
+
+    		init(this, options, instance$p, create_fragment$p, safe_not_equal, {
+    			cols: 0,
+    			tags: 1,
+    			targets: 2,
+    			ruuvitags: 3
+    		});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -13982,6 +14060,14 @@ var app = (function () {
     	}
 
     	set targets(value) {
+    		throw new Error("<Panel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get ruuvitags() {
+    		throw new Error("<Panel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set ruuvitags(value) {
     		throw new Error("<Panel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -18798,7 +18884,7 @@ var app = (function () {
     const { console: console_1$2 } = globals;
     const file$q = "svelte/App.svelte";
 
-    // (113:3) <Col xs="8" class="p-3 pl-4">
+    // (116:3) <Col xs="8" class="p-3 pl-4">
     function create_default_slot_3$5(ctx) {
     	let span;
     	let t0_value = /*addon*/ ctx[1].name + "";
@@ -18850,40 +18936,40 @@ var app = (function () {
     			small2 = element("small");
     			t9 = text("Configuration");
     			attr_dev(span, "class", "mr-4");
-    			add_location(span, file$q, 113, 4, 2930);
+    			add_location(span, file$q, 116, 4, 3070);
     			attr_dev(i0, "class", "fab fa-bluetooth fa-sm");
-    			add_location(i0, file$q, 115, 5, 3089);
+    			add_location(i0, file$q, 118, 5, 3229);
 
-    			attr_dev(small0, "class", small0_class_value = "ml-1 " + (/*panel*/ ctx[7] === `discover`
+    			attr_dev(small0, "class", small0_class_value = "ml-1 " + (/*panel*/ ctx[6] === `discover`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small0, file$q, 116, 5, 3133);
+    			add_location(small0, file$q, 119, 5, 3273);
     			attr_dev(a0, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a0, "href", "/");
-    			add_location(a0, file$q, 114, 4, 2973);
+    			add_location(a0, file$q, 117, 4, 3113);
     			attr_dev(i1, "class", "fas fa-database fa-sm");
-    			add_location(i1, file$q, 121, 5, 3381);
+    			add_location(i1, file$q, 124, 5, 3521);
 
-    			attr_dev(small1, "class", small1_class_value = "ml-1 " + (/*panel*/ ctx[7] === `targets`
+    			attr_dev(small1, "class", small1_class_value = "ml-1 " + (/*panel*/ ctx[6] === `targets`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small1, file$q, 122, 5, 3424);
+    			add_location(small1, file$q, 125, 5, 3564);
     			attr_dev(a1, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a1, "href", "/");
-    			add_location(a1, file$q, 120, 4, 3266);
+    			add_location(a1, file$q, 123, 4, 3406);
     			attr_dev(i2, "class", "fas fa-cog fa-sm");
-    			add_location(i2, file$q, 127, 5, 3669);
+    			add_location(i2, file$q, 130, 5, 3809);
 
-    			attr_dev(small2, "class", small2_class_value = "ml-1 " + (/*panel*/ ctx[7] === `config`
+    			attr_dev(small2, "class", small2_class_value = "ml-1 " + (/*panel*/ ctx[6] === `config`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small2, file$q, 128, 5, 3707);
+    			add_location(small2, file$q, 131, 5, 3847);
     			attr_dev(a2, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a2, "href", "/");
-    			add_location(a2, file$q, 126, 4, 3555);
+    			add_location(a2, file$q, 129, 4, 3695);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -18909,9 +18995,9 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(a0, "click", prevent_default(/*click_handler*/ ctx[9]), false, true, false),
-    					listen_dev(a1, "click", prevent_default(/*click_handler_1*/ ctx[10]), false, true, false),
-    					listen_dev(a2, "click", prevent_default(/*click_handler_2*/ ctx[11]), false, true, false)
+    					listen_dev(a0, "click", prevent_default(/*click_handler*/ ctx[10]), false, true, false),
+    					listen_dev(a1, "click", prevent_default(/*click_handler_1*/ ctx[11]), false, true, false),
+    					listen_dev(a2, "click", prevent_default(/*click_handler_2*/ ctx[12]), false, true, false)
     				];
 
     				mounted = true;
@@ -18920,19 +19006,19 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			if (dirty & /*addon*/ 2 && t0_value !== (t0_value = /*addon*/ ctx[1].name + "")) set_data_dev(t0, t0_value);
 
-    			if (dirty & /*panel*/ 128 && small0_class_value !== (small0_class_value = "ml-1 " + (/*panel*/ ctx[7] === `discover`
+    			if (dirty & /*panel*/ 64 && small0_class_value !== (small0_class_value = "ml-1 " + (/*panel*/ ctx[6] === `discover`
     			? `font-weight-bolder`
     			: `font-weight-lighter`))) {
     				attr_dev(small0, "class", small0_class_value);
     			}
 
-    			if (dirty & /*panel*/ 128 && small1_class_value !== (small1_class_value = "ml-1 " + (/*panel*/ ctx[7] === `targets`
+    			if (dirty & /*panel*/ 64 && small1_class_value !== (small1_class_value = "ml-1 " + (/*panel*/ ctx[6] === `targets`
     			? `font-weight-bolder`
     			: `font-weight-lighter`))) {
     				attr_dev(small1, "class", small1_class_value);
     			}
 
-    			if (dirty & /*panel*/ 128 && small2_class_value !== (small2_class_value = "ml-1 " + (/*panel*/ ctx[7] === `config`
+    			if (dirty & /*panel*/ 64 && small2_class_value !== (small2_class_value = "ml-1 " + (/*panel*/ ctx[6] === `config`
     			? `font-weight-bolder`
     			: `font-weight-lighter`))) {
     				attr_dev(small2, "class", small2_class_value);
@@ -18955,14 +19041,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$5.name,
     		type: "slot",
-    		source: "(113:3) <Col xs=\\\"8\\\" class=\\\"p-3 pl-4\\\">",
+    		source: "(116:3) <Col xs=\\\"8\\\" class=\\\"p-3 pl-4\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (134:3) <Col xs="4" class="m-auto pr-4">
+    // (137:3) <Col xs="4" class="m-auto pr-4">
     function create_default_slot_2$6(ctx) {
     	let div;
     	let small;
@@ -18995,21 +19081,21 @@ var app = (function () {
     			attr_dev(a0, "class", "text-white font-weight-lighter text-decoration-none");
     			attr_dev(a0, "href", a0_href_value = "" + (/*addon*/ ctx[1].url + "/blob/master/CHANGELOG.md"));
     			attr_dev(a0, "target", "_blank");
-    			add_location(a0, file$q, 137, 7, 3946);
-    			add_location(em, file$q, 136, 6, 3934);
-    			add_location(small, file$q, 135, 5, 3920);
+    			add_location(a0, file$q, 140, 7, 4086);
+    			add_location(em, file$q, 139, 6, 4074);
+    			add_location(small, file$q, 138, 5, 4060);
     			attr_dev(i, "class", "fab fa-github fa-sm");
-    			add_location(i, file$q, 143, 6, 4207);
+    			add_location(i, file$q, 146, 6, 4347);
     			attr_dev(a1, "class", "ml-2 text-white");
     			attr_dev(a1, "href", a1_href_value = /*addon*/ ctx[1].url);
     			attr_dev(a1, "target", "_blank");
-    			add_location(a1, file$q, 142, 5, 4138);
+    			add_location(a1, file$q, 145, 5, 4278);
     			attr_dev(a2, "class", "ml-1 text-white");
     			attr_dev(a2, "href", "https://ruuvi.com/");
     			attr_dev(a2, "target", "_blank");
-    			add_location(a2, file$q, 145, 5, 4258);
+    			add_location(a2, file$q, 148, 5, 4398);
     			attr_dev(div, "class", "float-right");
-    			add_location(div, file$q, 134, 4, 3889);
+    			add_location(div, file$q, 137, 4, 4029);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -19046,14 +19132,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$6.name,
     		type: "slot",
-    		source: "(134:3) <Col xs=\\\"4\\\" class=\\\"m-auto pr-4\\\">",
+    		source: "(137:3) <Col xs=\\\"4\\\" class=\\\"m-auto pr-4\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (112:2) <Row class="app-bgcolor" id="header">
+    // (115:2) <Row class="app-bgcolor" id="header">
     function create_default_slot_1$8(ctx) {
     	let col0;
     	let t;
@@ -19095,14 +19181,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope, panel, addon*/ 4226) {
+    			if (dirty & /*$$scope, panel, addon*/ 8258) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope, ruuvi, addon*/ 4099) {
+    			if (dirty & /*$$scope, ruuvi, addon*/ 8195) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -19130,24 +19216,24 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$8.name,
     		type: "slot",
-    		source: "(112:2) <Row class=\\\"app-bgcolor\\\" id=\\\"header\\\">",
+    		source: "(115:2) <Row class=\\\"app-bgcolor\\\" id=\\\"header\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (153:3) {#if panel === `discover`}
+    // (156:3) {#if panel === `discover`}
     function create_if_block_2$7(ctx) {
     	let paneldiscover;
     	let current;
 
     	paneldiscover = new Panel({
     			props: {
-    				tags: /*tags*/ ctx[3],
-    				targets: /*targets*/ ctx[4],
-    				ruuvitags: /*ruuvitags*/ ctx[5],
-    				cols: /*cols*/ ctx[6]
+    				tags: /*$tags*/ ctx[7],
+    				targets: /*targets*/ ctx[3],
+    				ruuvitags: /*ruuvitags*/ ctx[4],
+    				cols: /*cols*/ ctx[5]
     			},
     			$$inline: true
     		});
@@ -19162,10 +19248,10 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const paneldiscover_changes = {};
-    			if (dirty & /*tags*/ 8) paneldiscover_changes.tags = /*tags*/ ctx[3];
-    			if (dirty & /*targets*/ 16) paneldiscover_changes.targets = /*targets*/ ctx[4];
-    			if (dirty & /*ruuvitags*/ 32) paneldiscover_changes.ruuvitags = /*ruuvitags*/ ctx[5];
-    			if (dirty & /*cols*/ 64) paneldiscover_changes.cols = /*cols*/ ctx[6];
+    			if (dirty & /*$tags*/ 128) paneldiscover_changes.tags = /*$tags*/ ctx[7];
+    			if (dirty & /*targets*/ 8) paneldiscover_changes.targets = /*targets*/ ctx[3];
+    			if (dirty & /*ruuvitags*/ 16) paneldiscover_changes.ruuvitags = /*ruuvitags*/ ctx[4];
+    			if (dirty & /*cols*/ 32) paneldiscover_changes.cols = /*cols*/ ctx[5];
     			paneldiscover.$set(paneldiscover_changes);
     		},
     		i: function intro(local) {
@@ -19186,22 +19272,22 @@ var app = (function () {
     		block,
     		id: create_if_block_2$7.name,
     		type: "if",
-    		source: "(153:3) {#if panel === `discover`}",
+    		source: "(156:3) {#if panel === `discover`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (156:3) {#if panel === `targets`}
+    // (159:3) {#if panel === `targets`}
     function create_if_block_1$9(ctx) {
     	let paneltargets;
     	let current;
 
     	paneltargets = new Panel$1({
     			props: {
-    				tags: /*tags*/ ctx[3],
-    				targets: /*targets*/ ctx[4],
+    				tags: /*$tags*/ ctx[7],
+    				targets: /*targets*/ ctx[3],
     				config: /*config*/ ctx[2].targets,
     				measures: /*config*/ ctx[2].measures
     			},
@@ -19218,8 +19304,8 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const paneltargets_changes = {};
-    			if (dirty & /*tags*/ 8) paneltargets_changes.tags = /*tags*/ ctx[3];
-    			if (dirty & /*targets*/ 16) paneltargets_changes.targets = /*targets*/ ctx[4];
+    			if (dirty & /*$tags*/ 128) paneltargets_changes.tags = /*$tags*/ ctx[7];
+    			if (dirty & /*targets*/ 8) paneltargets_changes.targets = /*targets*/ ctx[3];
     			if (dirty & /*config*/ 4) paneltargets_changes.config = /*config*/ ctx[2].targets;
     			if (dirty & /*config*/ 4) paneltargets_changes.measures = /*config*/ ctx[2].measures;
     			paneltargets.$set(paneltargets_changes);
@@ -19242,14 +19328,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$9.name,
     		type: "if",
-    		source: "(156:3) {#if panel === `targets`}",
+    		source: "(159:3) {#if panel === `targets`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (159:3) {#if panel === `config`}
+    // (162:3) {#if panel === `config`}
     function create_if_block$h(ctx) {
     	let panelconfig;
     	let current;
@@ -19257,8 +19343,8 @@ var app = (function () {
     	panelconfig = new Panel$2({
     			props: {
     				config: /*config*/ ctx[2],
-    				targets: /*targets*/ ctx[4],
-    				cols: /*cols*/ ctx[6]
+    				targets: /*targets*/ ctx[3],
+    				cols: /*cols*/ ctx[5]
     			},
     			$$inline: true
     		});
@@ -19274,8 +19360,8 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const panelconfig_changes = {};
     			if (dirty & /*config*/ 4) panelconfig_changes.config = /*config*/ ctx[2];
-    			if (dirty & /*targets*/ 16) panelconfig_changes.targets = /*targets*/ ctx[4];
-    			if (dirty & /*cols*/ 64) panelconfig_changes.cols = /*cols*/ ctx[6];
+    			if (dirty & /*targets*/ 8) panelconfig_changes.targets = /*targets*/ ctx[3];
+    			if (dirty & /*cols*/ 32) panelconfig_changes.cols = /*cols*/ ctx[5];
     			panelconfig.$set(panelconfig_changes);
     		},
     		i: function intro(local) {
@@ -19296,14 +19382,14 @@ var app = (function () {
     		block,
     		id: create_if_block$h.name,
     		type: "if",
-    		source: "(159:3) {#if panel === `config`}",
+    		source: "(162:3) {#if panel === `config`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (111:1) <Container fluid id="page">
+    // (114:1) <Container fluid id="page">
     function create_default_slot$a(ctx) {
     	let row;
     	let t0;
@@ -19322,9 +19408,9 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	let if_block0 = /*panel*/ ctx[7] === `discover` && create_if_block_2$7(ctx);
-    	let if_block1 = /*panel*/ ctx[7] === `targets` && create_if_block_1$9(ctx);
-    	let if_block2 = /*panel*/ ctx[7] === `config` && create_if_block$h(ctx);
+    	let if_block0 = /*panel*/ ctx[6] === `discover` && create_if_block_2$7(ctx);
+    	let if_block1 = /*panel*/ ctx[6] === `targets` && create_if_block_1$9(ctx);
+    	let if_block2 = /*panel*/ ctx[6] === `config` && create_if_block$h(ctx);
 
     	const block = {
     		c: function create() {
@@ -19337,7 +19423,7 @@ var app = (function () {
     			t2 = space();
     			if (if_block2) if_block2.c();
     			attr_dev(div, "class", "mb-4");
-    			add_location(div, file$q, 151, 2, 4390);
+    			add_location(div, file$q, 154, 2, 4530);
     		},
     		m: function mount(target, anchor) {
     			mount_component(row, target, anchor);
@@ -19353,17 +19439,17 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope, ruuvi, addon, panel*/ 4227) {
+    			if (dirty & /*$$scope, ruuvi, addon, panel*/ 8259) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
     			row.$set(row_changes);
 
-    			if (/*panel*/ ctx[7] === `discover`) {
+    			if (/*panel*/ ctx[6] === `discover`) {
     				if (if_block0) {
     					if_block0.p(ctx, dirty);
 
-    					if (dirty & /*panel*/ 128) {
+    					if (dirty & /*panel*/ 64) {
     						transition_in(if_block0, 1);
     					}
     				} else {
@@ -19382,11 +19468,11 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (/*panel*/ ctx[7] === `targets`) {
+    			if (/*panel*/ ctx[6] === `targets`) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
 
-    					if (dirty & /*panel*/ 128) {
+    					if (dirty & /*panel*/ 64) {
     						transition_in(if_block1, 1);
     					}
     				} else {
@@ -19405,11 +19491,11 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (/*panel*/ ctx[7] === `config`) {
+    			if (/*panel*/ ctx[6] === `config`) {
     				if (if_block2) {
     					if_block2.p(ctx, dirty);
 
-    					if (dirty & /*panel*/ 128) {
+    					if (dirty & /*panel*/ 64) {
     						transition_in(if_block2, 1);
     					}
     				} else {
@@ -19457,7 +19543,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$a.name,
     		type: "slot",
-    		source: "(111:1) <Container fluid id=\\\"page\\\">",
+    		source: "(114:1) <Container fluid id=\\\"page\\\">",
     		ctx
     	});
 
@@ -19483,7 +19569,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			create_component(container.$$.fragment);
-    			add_location(main, file$q, 109, 0, 2817);
+    			add_location(main, file$q, 112, 0, 2957);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -19496,7 +19582,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const container_changes = {};
 
-    			if (dirty & /*$$scope, config, targets, cols, panel, tags, ruuvitags, ruuvi, addon*/ 4351) {
+    			if (dirty & /*$$scope, config, targets, cols, panel, $tags, ruuvitags, ruuvi, addon*/ 8447) {
     				container_changes.$$scope = { dirty, ctx };
     			}
 
@@ -19529,6 +19615,7 @@ var app = (function () {
     }
 
     function instance$x($$self, $$props, $$invalidate) {
+    	let $tags;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("App", slots, []);
     	let { ws } = $$props;
@@ -19541,7 +19628,12 @@ var app = (function () {
     	};
 
     	let config = { measures: [], targets: [] };
-    	let tags = [];
+
+    	// let tags = [];
+    	let tags = store.tags(ws);
+
+    	validate_store(tags, "tags");
+    	component_subscribe($$self, tags, value => $$invalidate(7, $tags = value));
     	let targets = [];
     	let ruuvitags = {};
     	let cols = [];
@@ -19567,11 +19659,11 @@ var app = (function () {
     	// ];
     	let panel = `discover`;
 
-    	ws.onopen = () => {
+    	ws.addEventListener(`open`, () => {
     		console.log(`ws connected`);
-    	};
+    	});
 
-    	ws.onmessage = message => {
+    	ws.addEventListener(`message`, message => {
     		try {
     			const data = JSON.parse(message.data);
 
@@ -19584,11 +19676,11 @@ var app = (function () {
     				$$invalidate(2, config = data.config);
 
     				if (data.config.targets) {
-    					$$invalidate(4, targets = data.config.targets);
+    					$$invalidate(3, targets = data.config.targets);
     				}
 
     				if (data.config.ruuvitags) {
-    					$$invalidate(5, ruuvitags = data.config.ruuvitags);
+    					$$invalidate(4, ruuvitags = data.config.ruuvitags);
     				}
     			} // if (data.config.columns) {
     			// 	cols = Object.keys(data.config.columns).map(field => {
@@ -19601,7 +19693,7 @@ var app = (function () {
     			if (data.measures) {
     				$$invalidate(2, config.measures = data.measures, config);
 
-    				$$invalidate(6, cols = config.measures.map(measure => {
+    				$$invalidate(5, cols = config.measures.map(measure => {
     					measure.render = `measure`;
 
     					// measure.show = true;
@@ -19642,14 +19734,13 @@ var app = (function () {
     			}
 
     			if (data.tag) {
-    				const tagIndex = tags.findIndex(tag => tag.id === data.tag.id);
-    				$$invalidate(3, tags[tagIndex === -1 ? tags.length : tagIndex] = data.tag, tags);
-    			} // console.log(`${data.tag.id} - ${data.tag.samples}`);
-    			// console.log(data.tag);
+    				
+    			} // console.log(data.tag);
+    			// const tagIndex = tags.findIndex(tag => tag.id === data.tag.id);
     		} catch(error) {
     			
-    		} // console.log({config: config.targets}); // targets dict
-    	};
+    		} // tags[tagIndex === -1 ? tags.length : tagIndex] = data.tag;
+    	});
 
     	const writable_props = ["ws", "ruuvi"];
 
@@ -19658,23 +19749,24 @@ var app = (function () {
     	});
 
     	const click_handler = () => {
-    		$$invalidate(7, panel = `discover`);
+    		$$invalidate(6, panel = `discover`);
     	};
 
     	const click_handler_1 = () => {
-    		$$invalidate(7, panel = `targets`);
+    		$$invalidate(6, panel = `targets`);
     	};
 
     	const click_handler_2 = () => {
-    		$$invalidate(7, panel = `config`);
+    		$$invalidate(6, panel = `config`);
     	};
 
     	$$self.$$set = $$props => {
-    		if ("ws" in $$props) $$invalidate(8, ws = $$props.ws);
+    		if ("ws" in $$props) $$invalidate(9, ws = $$props.ws);
     		if ("ruuvi" in $$props) $$invalidate(0, ruuvi = $$props.ruuvi);
     	};
 
     	$$self.$capture_state = () => ({
+    		store,
     		Container,
     		Row,
     		Col,
@@ -19689,19 +19781,20 @@ var app = (function () {
     		targets,
     		ruuvitags,
     		cols,
-    		panel
+    		panel,
+    		$tags
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("ws" in $$props) $$invalidate(8, ws = $$props.ws);
+    		if ("ws" in $$props) $$invalidate(9, ws = $$props.ws);
     		if ("ruuvi" in $$props) $$invalidate(0, ruuvi = $$props.ruuvi);
     		if ("addon" in $$props) $$invalidate(1, addon = $$props.addon);
     		if ("config" in $$props) $$invalidate(2, config = $$props.config);
-    		if ("tags" in $$props) $$invalidate(3, tags = $$props.tags);
-    		if ("targets" in $$props) $$invalidate(4, targets = $$props.targets);
-    		if ("ruuvitags" in $$props) $$invalidate(5, ruuvitags = $$props.ruuvitags);
-    		if ("cols" in $$props) $$invalidate(6, cols = $$props.cols);
-    		if ("panel" in $$props) $$invalidate(7, panel = $$props.panel);
+    		if ("tags" in $$props) $$invalidate(8, tags = $$props.tags);
+    		if ("targets" in $$props) $$invalidate(3, targets = $$props.targets);
+    		if ("ruuvitags" in $$props) $$invalidate(4, ruuvitags = $$props.ruuvitags);
+    		if ("cols" in $$props) $$invalidate(5, cols = $$props.cols);
+    		if ("panel" in $$props) $$invalidate(6, panel = $$props.panel);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -19712,11 +19805,12 @@ var app = (function () {
     		ruuvi,
     		addon,
     		config,
-    		tags,
     		targets,
     		ruuvitags,
     		cols,
     		panel,
+    		$tags,
+    		tags,
     		ws,
     		click_handler,
     		click_handler_1,
@@ -19727,7 +19821,7 @@ var app = (function () {
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$x, create_fragment$x, safe_not_equal, { ws: 8, ruuvi: 0 });
+    		init(this, options, instance$x, create_fragment$x, safe_not_equal, { ws: 9, ruuvi: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -19739,7 +19833,7 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*ws*/ ctx[8] === undefined && !("ws" in props)) {
+    		if (/*ws*/ ctx[9] === undefined && !("ws" in props)) {
     			console_1$2.warn("<App> was created without expected prop 'ws'");
     		}
 

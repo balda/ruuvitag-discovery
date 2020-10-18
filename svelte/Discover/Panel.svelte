@@ -4,6 +4,7 @@
     export let cols = [];
     export let tags = [];
     export let targets = [];
+    export let ruuvitags = {};
     function columnChange(event) {
         const name = event.detail.name;
         const index = cols.findIndex(c => c.field === name);
@@ -11,6 +12,6 @@
     }
 </script>
 
-<ColumsSelect {cols} on:changed={columnChange}/>
+<ColumsSelect {cols} on:changed={columnChange} />
 
-<TagsTable {cols} {tags} {targets}/>
+<TagsTable {cols} {tags} {targets} {ruuvitags} />

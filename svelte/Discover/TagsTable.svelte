@@ -8,6 +8,7 @@
     export let cols = [];
     export let tags = [];
     export let targets = [];
+    export let ruuvitags = {};
     $: {
         tags = tags;
     }
