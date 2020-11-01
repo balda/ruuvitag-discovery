@@ -5,7 +5,18 @@
     export let cols = [];
     let col_left = 5;
     let col_right = 6;
-    let stateConfig = `hidden`;
+    let stateSampling = `view`; // `view` | `edit` | `save`
+    let stateConfig = `hidden`; // `hidden` | `export` | `export`
+    config.sampling.history = 1 * config.sampling.history
+    config.sampling.interval = 1 * config.sampling.interval
+    function saveSampling() {
+        console.log(config.sampling);
+        stateConfig = `hidden`;
+        stateSampling = `save`;
+        setTimeout(() => {
+            stateSampling = `view`;
+        }, 2000);
+    }
 </script>
 
 <Row class="pt-2">
@@ -13,13 +24,13 @@
         <small class="px-2 py-1 bg-light">
             Sampling Configuration
         </small>
-        <form id="form-sampling" class="mt-4">
+        <form id="form-sampling" class="mt-4" disabled>
             <div class="form-group row">
                 <label class="col-sm-{col_left} col-form-label-sm">
                     History
                 </label>
                 <div class="col-sm-{col_right}">
-                    <input type="number" name="history" value="{config.sampling.history}" class="form-control form-control-sm">
+                    <input type="number" name="history" bind:value="{config.sampling.history}" class="form-control form-control-sm" disabled={stateSampling === `save` ? `disabled` : null}>
                     <small id="passwordHelpBlock" class="form-text text-muted">
                         <em>Max samples in history</em>
                     </small>
@@ -30,15 +41,14 @@
                     Sampling interval
                 </label>
                 <div class="col-sm-{col_right}">
-                    <input type="number" name="history" value="{config.sampling.interval}" class="form-control form-control-sm">
+                    <input type="number" name="history" bind:value="{config.sampling.interval}" class="form-control form-control-sm" disabled={stateSampling === `save` ? `disabled` : null}>
                     <small id="passwordHelpBlock" class="form-text text-muted">
                         <em>Sampling interval (in ms)</em>
                     </small>
                 </div>
             </div>
         </form>
-        <a href="/" on:click|preventDefault={() => {stateConfig = `hidden`}}
-         class="btn btn-light btn-sm">
+        <a href="/" on:click|preventDefault={saveSampling} class="btn btn-light btn-sm {stateSampling === `save` ? `disabled` : ``}">
             Save
         </a>
     </Col>

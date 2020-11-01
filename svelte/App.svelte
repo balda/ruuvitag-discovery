@@ -15,8 +15,7 @@
 		measures: [],
 		targets: [],
 	};
-	// let tags = [];
-	let tags = store.tags(ws);
+	let tags = store(ws);
 	let targets = [];
 	let ruuvitags = {};
 	let cols = [];
@@ -70,7 +69,6 @@
 				config.measures = data.measures;
 				cols = config.measures.map(measure => {
 					measure.render = `measure`;
-					// measure.show = true;
 					measure.show = measure.required === undefined;
 					return measure;
 				});
@@ -96,13 +94,6 @@
 			}
 			if (data.targets) {
 				config.targets = data.targets;
-			}
-			if (data.tag) {
-				// console.log(data.tag);
-				// const tagIndex = tags.findIndex(tag => tag.id === data.tag.id);
-				// tags[tagIndex === -1 ? tags.length : tagIndex] = data.tag;
-				// // console.log(`${data.tag.id} - ${data.tag.samples}`);
-				// // console.log(data.tag);
 			}
 			// console.log({config: config.targets}); // targets dict
 			// console.log({targets}); // targets config
