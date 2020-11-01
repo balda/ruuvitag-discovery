@@ -6,6 +6,7 @@
 	import PanelConfig from './Config/Panel.svelte';
 	export let ws;
 	export let ruuvi;
+	export let root;
 	let addon = {
 		name: `RuuviTags Discovery`,
 		version: `0.0.1`,
@@ -16,6 +17,7 @@
 		targets: [],
 	};
 	let tags = store(ws);
+	// let tags = store(root);
 	let targets = [];
 	let ruuvitags = {};
 	let cols = [];
@@ -50,6 +52,14 @@
 				addon = data.addon;
 			}
 			if (data.config) {
+				if (data.config.sampling) {
+					data.config.sampling.history = 1 * data.config.sampling.history;
+					data.config.sampling.interval = 1 * data.config.sampling.interval;
+				}
+				if (data.config.battery) {
+					data.config.battery.min = 1 * data.config.battery.min;
+					data.config.battery.max = 1 * data.config.battery.max;
+				}
 				config = data.config;
 				if (data.config.targets) {
 					targets = data.config.targets;
