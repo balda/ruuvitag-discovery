@@ -1,33 +1,27 @@
 <script>
+    import post from './../store/rest.js';
     import { FormGroup, CustomInput, Label, Row, Col } from 'sveltestrap';
     export let config = {};
     export let targets = [];
     export let cols = [];
+    export let root;
     let col_left = 5;
     let col_right = 6;
     let state = `view`; // `view` | `saving` | `editSampling`
     let saving = `none`; // `none` | `sampling` | `battery`
     let stateSampling = `view`; // `view` | `edit` | `save`
     let stateConfig = `hidden`; // `hidden` | `export` | `export`
-    // function saveSampling() {
-    //     console.log(config.sampling);
-    //     stateConfig = `hidden`;
-    //     stateSampling = `save`;
-    //     setTimeout(() => {
-    //         stateSampling = `view`;
-    //     }, 2000);
-    // }
     function save(target) {
-        return function() {
-            console.log(config[target]);
+        return async function() {
             state = `saving`;
             saving = target;
             stateConfig = `hidden`;
             stateSampling = `save`;
-            setTimeout(() => {
-                // stateSampling = `view`;
-                state = `view`;
-            }, 2000);
+            const data = {};
+            data[`${target}`] = config[target];
+            await post(`${root}config`, data);
+            state = `view`;
+            stateSampling = `view`;
         }
     }
 </script>
@@ -37,60 +31,64 @@
         <small class="px-2 py-1 bg-light">
             Sampling Configuration
         </small>
-        {#if state === `view`}
-            <div class="small pl-2 py-1">
-                <div class="mt-2 mb-2">
-                    History: {config.sampling.history}
-                    <div class="font-italic font-weight-lighter">
-                        Max samples in history
+        <div class="pl-2">
+            {#if state === `view`}
+                <div class="small py-1">
+                    <div class="mt-2 mb-2">
+                        History: {config.sampling.history}
+                        <div class="font-italic font-weight-lighter">
+                            Max samples in history
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        Sampling interval: {config.sampling.interval}
+                        <div class="font-italic font-weight-lighter">
+                            Sampling interval (in ms)
+                        </div>
                     </div>
                 </div>
-                <div class="mb-4">
-                    Sampling interval: {config.sampling.interval}
-                    <div class="font-italic font-weight-lighter">
-                        Sampling interval (in ms)
-                    </div>
+                <div>
+                    <a href="/" on:click|preventDefault={() => {state = `editSampling`}} class="btn btn-light btn-sm">
+                        Edit
+                    </a>
                 </div>
-            </div>
-            <div>
-                <a href="/" on:click|preventDefault={() => {state = `editSampling`}} class="btn btn-light btn-sm">
-                    Edit
+            {:else if state === `editSampling`}
+                <form id="form-sampling" class="mt-4" disabled>
+                    <div class="form-group row">
+                        <label class="col-sm-{col_left} col-form-label-sm">
+                            History
+                        </label>
+                        <div class="col-sm-{col_right}">
+                            <input type="number" name="history" bind:value="{config.sampling.history}" class="form-control form-control-sm" disabled={stateSampling === `save` ? `disabled` : null}>
+                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                <em>Max samples in history</em>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-{col_left} col-form-label-sm">
+                            Sampling interval
+                        </label>
+                        <div class="col-sm-{col_right}">
+                            <input type="number" name="history" bind:value="{config.sampling.interval}" class="form-control form-control-sm" disabled={stateSampling === `save` ? `disabled` : null}>
+                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                <em>Sampling interval (in ms)</em>
+                            </small>
+                        </div>
+                    </div>
+                </form>
+                <a href="/" on:click|preventDefault={() => {state = `view`}} class="btn btn-light btn-sm mr-4">
+                    Cancel
                 </a>
-            </div>
-        {:else if state === `editSampling`}
-            <form id="form-sampling" class="mt-4" disabled>
-                <div class="form-group row">
-                    <label class="col-sm-{col_left} col-form-label-sm">
-                        History
-                    </label>
-                    <div class="col-sm-{col_right}">
-                        <input type="number" name="history" bind:value="{config.sampling.history}" class="form-control form-control-sm" disabled={stateSampling === `save` ? `disabled` : null}>
-                        <small id="passwordHelpBlock" class="form-text text-muted">
-                            <em>Max samples in history</em>
-                        </small>
-                    </div>
+                <a href="/" on:click|preventDefault={save(`sampling`)} class="btn btn-light btn-sm">
+                    Save
+                </a>
+            {:else if saving === `sampling`}
+                <div>
+                    Saving ...
                 </div>
-                <div class="form-group row">
-                    <label class="col-sm-{col_left} col-form-label-sm">
-                        Sampling interval
-                    </label>
-                    <div class="col-sm-{col_right}">
-                        <input type="number" name="history" bind:value="{config.sampling.interval}" class="form-control form-control-sm" disabled={stateSampling === `save` ? `disabled` : null}>
-                        <small id="passwordHelpBlock" class="form-text text-muted">
-                            <em>Sampling interval (in ms)</em>
-                        </small>
-                    </div>
-                </div>
-            </form>
-            <a href="/" on:click|preventDefault={() => {state = `view`}} class="btn btn-light btn-sm mr-4">
-                Cancel
-            </a>
-            <a href="/" on:click|preventDefault={save(`sampling`)} class="btn btn-light btn-sm">
-                Save
-            </a>
-        {:else if saving === `sampling`}
-            Saving ...
-        {/if}
+            {/if}
+        </div>
     </Col>
     <Col xs="4">
         <small class="px-2 py-1 bg-light">

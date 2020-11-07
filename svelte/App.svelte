@@ -1,5 +1,5 @@
 <script>
-	import store from './store.js';
+	import store from './store/tags.js';
 	import { Container, Row, Col } from "sveltestrap";
 	import PanelDiscover from './Discover/Panel.svelte';
 	import PanelTargets from './Targets/Panel.svelte';
@@ -161,7 +161,7 @@
 				<PanelTargets tags={$tags} {targets} config={config.targets} measures={config.measures} />
 			{/if}
 			{#if panel === `config`}
-				<PanelConfig {config} {targets} {cols} />
+				<PanelConfig {config} {targets} {cols} {root} />
 			{/if}
 		</div>
 	</Container>
