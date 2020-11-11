@@ -9121,13 +9121,13 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[6] = list[i];
-    	child_ctx[7] = list;
-    	child_ctx[8] = i;
+    	child_ctx[4] = list[i];
+    	child_ctx[5] = list;
+    	child_ctx[6] = i;
     	return child_ctx;
     }
 
-    // (28:4) {#if showSelectColumns}
+    // (21:4) {#if showSelectColumns}
     function create_if_block$7(ctx) {
     	let row;
     	let current;
@@ -9151,7 +9151,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope, cols*/ 513) {
+    			if (dirty & /*$$scope, cols*/ 129) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -9175,14 +9175,14 @@ var app = (function () {
     		block,
     		id: create_if_block$7.name,
     		type: "if",
-    		source: "(28:4) {#if showSelectColumns}",
+    		source: "(21:4) {#if showSelectColumns}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (31:16) <Col sm="6" md="4" lg="3" xl="2" class="font-weight-lighter small parent">
+    // (24:16) <Col sm="6" md="4" lg="3" xl="2" class="font-weight-lighter small parent">
     function create_default_slot_1(ctx) {
     	let custominput;
     	let updating_checked;
@@ -9190,25 +9190,24 @@ var app = (function () {
     	let current;
 
     	function custominput_checked_binding_1(value) {
-    		/*custominput_checked_binding_1*/ ctx[4].call(null, value, /*col*/ ctx[6]);
+    		/*custominput_checked_binding_1*/ ctx[3].call(null, value, /*col*/ ctx[4]);
     	}
 
     	let custominput_props = {
     		type: "switch",
     		bsSize: "sm",
     		inline: "true",
-    		id: "show_" + /*col*/ ctx[6].field,
-    		name: /*col*/ ctx[6].field,
-    		label: /*col*/ ctx[6].label || /*col*/ ctx[6].field
+    		id: "show_" + /*col*/ ctx[4].field,
+    		name: /*col*/ ctx[4].field,
+    		label: /*col*/ ctx[4].label || /*col*/ ctx[4].field
     	};
 
-    	if (/*col*/ ctx[6].show !== void 0) {
-    		custominput_props.checked = /*col*/ ctx[6].show;
+    	if (/*col*/ ctx[4].show !== void 0) {
+    		custominput_props.checked = /*col*/ ctx[4].show;
     	}
 
     	custominput = new CustomInput({ props: custominput_props, $$inline: true });
     	binding_callbacks.push(() => bind(custominput, "checked", custominput_checked_binding_1));
-    	custominput.$on("change", /*changeColumn*/ ctx[2]);
 
     	const block = {
     		c: function create() {
@@ -9223,13 +9222,13 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
     			const custominput_changes = {};
-    			if (dirty & /*cols*/ 1) custominput_changes.id = "show_" + /*col*/ ctx[6].field;
-    			if (dirty & /*cols*/ 1) custominput_changes.name = /*col*/ ctx[6].field;
-    			if (dirty & /*cols*/ 1) custominput_changes.label = /*col*/ ctx[6].label || /*col*/ ctx[6].field;
+    			if (dirty & /*cols*/ 1) custominput_changes.id = "show_" + /*col*/ ctx[4].field;
+    			if (dirty & /*cols*/ 1) custominput_changes.name = /*col*/ ctx[4].field;
+    			if (dirty & /*cols*/ 1) custominput_changes.label = /*col*/ ctx[4].label || /*col*/ ctx[4].field;
 
     			if (!updating_checked && dirty & /*cols*/ 1) {
     				updating_checked = true;
-    				custominput_changes.checked = /*col*/ ctx[6].show;
+    				custominput_changes.checked = /*col*/ ctx[4].show;
     				add_flush_callback(() => updating_checked = false);
     			}
 
@@ -9254,14 +9253,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(31:16) <Col sm=\\\"6\\\" md=\\\"4\\\" lg=\\\"3\\\" xl=\\\"2\\\" class=\\\"font-weight-lighter small parent\\\">",
+    		source: "(24:16) <Col sm=\\\"6\\\" md=\\\"4\\\" lg=\\\"3\\\" xl=\\\"2\\\" class=\\\"font-weight-lighter small parent\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (30:12) {#each cols as col (col.field)}
+    // (23:12) {#each cols as col (col.field)}
     function create_each_block(key_1, ctx) {
     	let first;
     	let col;
@@ -9296,7 +9295,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col_changes = {};
 
-    			if (dirty & /*$$scope, cols*/ 513) {
+    			if (dirty & /*$$scope, cols*/ 129) {
     				col_changes.$$scope = { dirty, ctx };
     			}
 
@@ -9321,14 +9320,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(30:12) {#each cols as col (col.field)}",
+    		source: "(23:12) {#each cols as col (col.field)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (29:8) <Row>
+    // (22:8) <Row>
     function create_default_slot(ctx) {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
@@ -9336,7 +9335,7 @@ var app = (function () {
     	let current;
     	let each_value = /*cols*/ ctx[0];
     	validate_each_argument(each_value);
-    	const get_key = ctx => /*col*/ ctx[6].field;
+    	const get_key = ctx => /*col*/ ctx[4].field;
     	validate_each_keys(ctx, each_value, get_each_context, get_key);
 
     	for (let i = 0; i < each_value.length; i += 1) {
@@ -9362,7 +9361,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*cols, changeColumn*/ 5) {
+    			if (dirty & /*cols*/ 1) {
     				const each_value = /*cols*/ ctx[0];
     				validate_each_argument(each_value);
     				group_outros();
@@ -9400,7 +9399,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(29:8) <Row>",
+    		source: "(22:8) <Row>",
     		ctx
     	});
 
@@ -9415,7 +9414,7 @@ var app = (function () {
     	let current;
 
     	function custominput_checked_binding(value) {
-    		/*custominput_checked_binding*/ ctx[3].call(null, value);
+    		/*custominput_checked_binding*/ ctx[2].call(null, value);
     	}
 
     	let custominput_props = {
@@ -9440,7 +9439,7 @@ var app = (function () {
     			div = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "select-columns svelte-1rwwhtj");
-    			add_location(div, file$f, 26, 0, 624);
+    			add_location(div, file$f, 19, 0, 406);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9520,14 +9519,7 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("ColumsSelect", slots, []);
     	let { cols = [] } = $$props;
-    	const dispatch = createEventDispatcher();
     	let showSelectColumns = false;
-
-    	function changeColumn(event) {
-    		dispatch(`changed`, { col: event.target.name });
-    	}
-
-    	
     	const writable_props = ["cols"];
 
     	Object.keys($$props).forEach(key => {
@@ -9549,16 +9541,13 @@ var app = (function () {
     	};
 
     	$$self.$capture_state = () => ({
-    		createEventDispatcher,
     		FormGroup,
     		CustomInput,
     		Label,
     		Row,
     		Col,
     		cols,
-    		dispatch,
-    		showSelectColumns,
-    		changeColumn
+    		showSelectColumns
     	});
 
     	$$self.$inject_state = $$props => {
@@ -9573,7 +9562,6 @@ var app = (function () {
     	return [
     		cols,
     		showSelectColumns,
-    		changeColumn,
     		custominput_checked_binding,
     		custominput_checked_binding_1
     	];
@@ -13891,16 +13879,27 @@ var app = (function () {
 
     function create_fragment$p(ctx) {
     	let columsselect;
+    	let updating_cols;
     	let t;
     	let tagstable;
     	let current;
 
+    	function columsselect_cols_binding(value) {
+    		/*columsselect_cols_binding*/ ctx[4].call(null, value);
+    	}
+
+    	let columsselect_props = {};
+
+    	if (/*cols*/ ctx[0] !== void 0) {
+    		columsselect_props.cols = /*cols*/ ctx[0];
+    	}
+
     	columsselect = new ColumsSelect({
-    			props: { cols: /*cols*/ ctx[0] },
+    			props: columsselect_props,
     			$$inline: true
     		});
 
-    	columsselect.$on("changed", /*columnChange*/ ctx[4]);
+    	binding_callbacks.push(() => bind(columsselect, "cols", columsselect_cols_binding));
 
     	tagstable = new TagsTable({
     			props: {
@@ -13929,7 +13928,13 @@ var app = (function () {
     		},
     		p: function update(ctx, [dirty]) {
     			const columsselect_changes = {};
-    			if (dirty & /*cols*/ 1) columsselect_changes.cols = /*cols*/ ctx[0];
+
+    			if (!updating_cols && dirty & /*cols*/ 1) {
+    				updating_cols = true;
+    				columsselect_changes.cols = /*cols*/ ctx[0];
+    				add_flush_callback(() => updating_cols = false);
+    			}
+
     			columsselect.$set(columsselect_changes);
     			const tagstable_changes = {};
     			if (dirty & /*cols*/ 1) tagstable_changes.cols = /*cols*/ ctx[0];
@@ -13974,18 +13979,16 @@ var app = (function () {
     	let { tags = [] } = $$props;
     	let { targets = [] } = $$props;
     	let { ruuvitags = {} } = $$props;
-
-    	function columnChange(event) {
-    		const name = event.detail.name;
-    		const index = cols.findIndex(c => c.field === name);
-    		$$invalidate(0, cols);
-    	} // console.log(cols);
-
     	const writable_props = ["cols", "tags", "targets", "ruuvitags"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Panel> was created with unknown prop '${key}'`);
     	});
+
+    	function columsselect_cols_binding(value) {
+    		cols = value;
+    		$$invalidate(0, cols);
+    	}
 
     	$$self.$$set = $$props => {
     		if ("cols" in $$props) $$invalidate(0, cols = $$props.cols);
@@ -14000,8 +14003,7 @@ var app = (function () {
     		cols,
     		tags,
     		targets,
-    		ruuvitags,
-    		columnChange
+    		ruuvitags
     	});
 
     	$$self.$inject_state = $$props => {
@@ -14015,7 +14017,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [cols, tags, targets, ruuvitags, columnChange];
+    	return [cols, tags, targets, ruuvitags, columsselect_cols_binding];
     }
 
     class Panel extends SvelteComponentDev {
@@ -18036,7 +18038,7 @@ var app = (function () {
     	let dispose;
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*state*/ ctx[3] === `saving` && /*saving*/ ctx[4] === `sampling`) return create_if_block_6$1;
+    		if (/*state*/ ctx[3] === `saving` && /*saving*/ ctx[6] === `sampling`) return create_if_block_6$1;
     		return create_else_block_2$1;
     	}
 
@@ -18290,7 +18292,7 @@ var app = (function () {
     	let div;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*editSampling*/ ctx[6]) return create_if_block_5$1;
+    		if (/*editSampling*/ ctx[4]) return create_if_block_5$1;
     		return create_else_block_3;
     	}
 
@@ -18484,7 +18486,7 @@ var app = (function () {
     	let dispose;
 
     	function select_block_type_3(ctx, dirty) {
-    		if (/*state*/ ctx[3] === `saving` && /*saving*/ ctx[4] === `battery`) return create_if_block_4$1;
+    		if (/*state*/ ctx[3] === `saving` && /*saving*/ ctx[6] === `battery`) return create_if_block_4$1;
     		return create_else_block$b;
     	}
 
@@ -18738,7 +18740,7 @@ var app = (function () {
     	let div;
 
     	function select_block_type_2(ctx, dirty) {
-    		if (/*editBattery*/ ctx[7]) return create_if_block_3$4;
+    		if (/*editBattery*/ ctx[5]) return create_if_block_3$4;
     		return create_else_block_1$1;
     	}
 
@@ -18842,7 +18844,7 @@ var app = (function () {
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope, state, saving, editBattery, config*/ 16777369) {
+    			if (dirty & /*$$scope, state, saving, editBattery, config*/ 16777321) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18973,7 +18975,7 @@ var app = (function () {
     			small = element("small");
     			textarea = element("textarea");
     			attr_dev(textarea, "class", "form-control form-control-sm");
-    			textarea.readOnly = textarea_readonly_value = /*stateConfig*/ ctx[5] === `export`;
+    			textarea.readOnly = textarea_readonly_value = /*stateConfig*/ ctx[7] === `export`;
     			attr_dev(textarea, "rows", "16");
 
     			textarea.value = textarea_value_value = JSON.stringify(
@@ -18999,7 +19001,7 @@ var app = (function () {
     			append_dev(small, textarea);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*stateConfig*/ 32 && textarea_readonly_value !== (textarea_readonly_value = /*stateConfig*/ ctx[5] === `export`)) {
+    			if (dirty & /*stateConfig*/ 128 && textarea_readonly_value !== (textarea_readonly_value = /*stateConfig*/ ctx[7] === `export`)) {
     				prop_dev(textarea, "readOnly", textarea_readonly_value);
     			}
 
@@ -19044,9 +19046,9 @@ var app = (function () {
     	let if_block2_anchor;
     	let mounted;
     	let dispose;
-    	let if_block0 = /*stateConfig*/ ctx[5] === `import` && create_if_block_2$6(ctx);
-    	let if_block1 = /*stateConfig*/ ctx[5] !== `hidden` && create_if_block_1$8(ctx);
-    	let if_block2 = /*stateConfig*/ ctx[5] !== `hidden` && create_if_block$g(ctx);
+    	let if_block0 = /*stateConfig*/ ctx[7] === `import` && create_if_block_2$6(ctx);
+    	let if_block1 = /*stateConfig*/ ctx[7] !== `hidden` && create_if_block_1$8(ctx);
+    	let if_block2 = /*stateConfig*/ ctx[7] !== `hidden` && create_if_block$g(ctx);
 
     	const block = {
     		c: function create() {
@@ -19091,7 +19093,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (/*stateConfig*/ ctx[5] === `import`) {
+    			if (/*stateConfig*/ ctx[7] === `import`) {
     				if (if_block0) {
     					if_block0.p(ctx, dirty);
     				} else {
@@ -19104,7 +19106,7 @@ var app = (function () {
     				if_block0 = null;
     			}
 
-    			if (/*stateConfig*/ ctx[5] !== `hidden`) {
+    			if (/*stateConfig*/ ctx[7] !== `hidden`) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
@@ -19117,7 +19119,7 @@ var app = (function () {
     				if_block1 = null;
     			}
 
-    			if (/*stateConfig*/ ctx[5] !== `hidden`) {
+    			if (/*stateConfig*/ ctx[7] !== `hidden`) {
     				if (if_block2) {
     					if_block2.p(ctx, dirty);
     				} else {
@@ -19182,7 +19184,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col_changes = {};
 
-    			if (dirty & /*$$scope, stateConfig, config, targets, cols*/ 16777255) {
+    			if (dirty & /*$$scope, stateConfig, config, targets, cols*/ 16777351) {
     				col_changes.$$scope = { dirty, ctx };
     			}
 
@@ -19255,14 +19257,14 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const row0_changes = {};
 
-    			if (dirty & /*$$scope, state, saving, editBattery, config, editSampling*/ 16777433) {
+    			if (dirty & /*$$scope, state, saving, editBattery, config, editSampling*/ 16777337) {
     				row0_changes.$$scope = { dirty, ctx };
     			}
 
     			row0.$set(row0_changes);
     			const row1_changes = {};
 
-    			if (dirty & /*$$scope, stateConfig, config, targets, cols*/ 16777255) {
+    			if (dirty & /*$$scope, stateConfig, config, targets, cols*/ 16777351) {
     				row1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -19307,16 +19309,16 @@ var app = (function () {
     	let col_left = 5;
     	let col_right = 6;
     	let state = `view`; // `view` | `saving`
-    	let saving = ``;
-    	let stateConfig = `hidden`; // `hidden` | `export` | `export`
     	let editSampling = false;
     	let editBattery = false;
+    	let saving = ``;
+    	let stateConfig = `hidden`; // `hidden` | `export` | `export`
 
     	function save(target) {
     		return async function () {
     			$$invalidate(3, state = `saving`);
-    			$$invalidate(4, saving = target);
-    			$$invalidate(5, stateConfig = `hidden`);
+    			$$invalidate(6, saving = target);
+    			$$invalidate(7, stateConfig = `hidden`);
     			const data = {};
     			data[`${target}`] = config[target];
     			await post(`${root}config`, data);
@@ -19341,11 +19343,11 @@ var app = (function () {
     	}
 
     	const click_handler = () => {
-    		$$invalidate(6, editSampling = false);
+    		$$invalidate(4, editSampling = false);
     	};
 
     	const click_handler_1 = () => {
-    		$$invalidate(6, editSampling = true);
+    		$$invalidate(4, editSampling = true);
     	};
 
     	function input0_input_handler_1() {
@@ -19359,27 +19361,27 @@ var app = (function () {
     	}
 
     	const click_handler_2 = () => {
-    		$$invalidate(7, editBattery = false);
+    		$$invalidate(5, editBattery = false);
     	};
 
     	const click_handler_3 = () => {
-    		$$invalidate(7, editBattery = true);
+    		$$invalidate(5, editBattery = true);
     	};
 
     	const click_handler_4 = () => {
-    		$$invalidate(5, stateConfig = `export`);
+    		$$invalidate(7, stateConfig = `export`);
     	};
 
     	const click_handler_5 = () => {
-    		$$invalidate(5, stateConfig = `import`);
+    		$$invalidate(7, stateConfig = `import`);
     	};
 
     	const click_handler_6 = () => {
-    		$$invalidate(5, stateConfig = `hidden`);
+    		$$invalidate(7, stateConfig = `hidden`);
     	};
 
     	const click_handler_7 = () => {
-    		$$invalidate(5, stateConfig = `hidden`);
+    		$$invalidate(7, stateConfig = `hidden`);
     	};
 
     	$$self.$$set = $$props => {
@@ -19403,10 +19405,10 @@ var app = (function () {
     		col_left,
     		col_right,
     		state,
-    		saving,
-    		stateConfig,
     		editSampling,
     		editBattery,
+    		saving,
+    		stateConfig,
     		save
     	});
 
@@ -19418,10 +19420,10 @@ var app = (function () {
     		if ("col_left" in $$props) $$invalidate(8, col_left = $$props.col_left);
     		if ("col_right" in $$props) $$invalidate(9, col_right = $$props.col_right);
     		if ("state" in $$props) $$invalidate(3, state = $$props.state);
-    		if ("saving" in $$props) $$invalidate(4, saving = $$props.saving);
-    		if ("stateConfig" in $$props) $$invalidate(5, stateConfig = $$props.stateConfig);
-    		if ("editSampling" in $$props) $$invalidate(6, editSampling = $$props.editSampling);
-    		if ("editBattery" in $$props) $$invalidate(7, editBattery = $$props.editBattery);
+    		if ("editSampling" in $$props) $$invalidate(4, editSampling = $$props.editSampling);
+    		if ("editBattery" in $$props) $$invalidate(5, editBattery = $$props.editBattery);
+    		if ("saving" in $$props) $$invalidate(6, saving = $$props.saving);
+    		if ("stateConfig" in $$props) $$invalidate(7, stateConfig = $$props.stateConfig);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -19433,10 +19435,10 @@ var app = (function () {
     		targets,
     		cols,
     		state,
-    		saving,
-    		stateConfig,
     		editSampling,
     		editBattery,
+    		saving,
+    		stateConfig,
     		col_left,
     		col_right,
     		save,
@@ -19811,14 +19813,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope, panel, addon*/ 16516) {
+    			if (dirty & /*$$scope, panel, addon*/ 32900) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope, ruuvi, addon*/ 16389) {
+    			if (dirty & /*$$scope, ruuvi, addon*/ 32773) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -19856,17 +19858,29 @@ var app = (function () {
     // (157:3) {#if panel === `discover`}
     function create_if_block_2$7(ctx) {
     	let paneldiscover;
+    	let updating_cols;
     	let current;
 
+    	function paneldiscover_cols_binding(value) {
+    		/*paneldiscover_cols_binding*/ ctx[14].call(null, value);
+    	}
+
+    	let paneldiscover_props = {
+    		tags: /*$tags*/ ctx[8],
+    		targets: /*targets*/ ctx[4],
+    		ruuvitags: /*ruuvitags*/ ctx[5]
+    	};
+
+    	if (/*cols*/ ctx[6] !== void 0) {
+    		paneldiscover_props.cols = /*cols*/ ctx[6];
+    	}
+
     	paneldiscover = new Panel({
-    			props: {
-    				tags: /*$tags*/ ctx[8],
-    				targets: /*targets*/ ctx[4],
-    				ruuvitags: /*ruuvitags*/ ctx[5],
-    				cols: /*cols*/ ctx[6]
-    			},
+    			props: paneldiscover_props,
     			$$inline: true
     		});
+
+    	binding_callbacks.push(() => bind(paneldiscover, "cols", paneldiscover_cols_binding));
 
     	const block = {
     		c: function create() {
@@ -19881,7 +19895,13 @@ var app = (function () {
     			if (dirty & /*$tags*/ 256) paneldiscover_changes.tags = /*$tags*/ ctx[8];
     			if (dirty & /*targets*/ 16) paneldiscover_changes.targets = /*targets*/ ctx[4];
     			if (dirty & /*ruuvitags*/ 32) paneldiscover_changes.ruuvitags = /*ruuvitags*/ ctx[5];
-    			if (dirty & /*cols*/ 64) paneldiscover_changes.cols = /*cols*/ ctx[6];
+
+    			if (!updating_cols && dirty & /*cols*/ 64) {
+    				updating_cols = true;
+    				paneldiscover_changes.cols = /*cols*/ ctx[6];
+    				add_flush_callback(() => updating_cols = false);
+    			}
+
     			paneldiscover.$set(paneldiscover_changes);
     		},
     		i: function intro(local) {
@@ -20071,7 +20091,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope, ruuvi, addon, panel*/ 16517) {
+    			if (dirty & /*$$scope, ruuvi, addon, panel*/ 32901) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20214,7 +20234,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const container_changes = {};
 
-    			if (dirty & /*$$scope, config, targets, cols, root, panel, $tags, ruuvitags, ruuvi, addon*/ 16895) {
+    			if (dirty & /*$$scope, config, targets, cols, root, panel, $tags, ruuvitags, ruuvi, addon*/ 33279) {
     				container_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20395,6 +20415,11 @@ var app = (function () {
     		$$invalidate(7, panel = `config`);
     	};
 
+    	function paneldiscover_cols_binding(value) {
+    		cols = value;
+    		$$invalidate(6, cols);
+    	}
+
     	$$self.$$set = $$props => {
     		if ("ws" in $$props) $$invalidate(10, ws = $$props.ws);
     		if ("ruuvi" in $$props) $$invalidate(0, ruuvi = $$props.ruuvi);
@@ -20453,7 +20478,8 @@ var app = (function () {
     		ws,
     		click_handler,
     		click_handler_1,
-    		click_handler_2
+    		click_handler_2,
+    		paneldiscover_cols_binding
     	];
     }
 
@@ -20511,8 +20537,6 @@ var app = (function () {
     }
 
     const root = document.getElementsByTagName(`base`)[0].getAttribute(`href`);
-    // const ws = new WebSocket(`ws://localhost:8099${root}`);
-    // document.URL => http://localhost:8099/
     const ws = new WebSocket(`ws://${document.URL.split(`//`).splice(1).join(`//`)}`);
 
     const ruuvi = `<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 999.56 1200"><defs><style>.a{fill:#fff;}</style></defs><path class="a" d="M499.59,2C223.56,2-.22,225.81-.25,501.95S223.46,1002,499.48,1002,999.23,778.26,999.32,502.16C999.78,226.42,776.72,2.51,501.1,2.05h-1.51M603,829.42c-174.61,0-316.64-140.69-318.36-315.37a216.85,216.85,0,0,0,70.71,11.63c121.74,0,220.43-98.72,220.44-220.51A220.6,220.6,0,0,0,547.46,197,328.75,328.75,0,0,1,603,191.8c175.87,0,318.44,142.63,318.44,318.58S778.86,829,603,829"/></svg>`; //  width="16" height="16"

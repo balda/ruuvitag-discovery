@@ -8,10 +8,10 @@
     let col_left = 5;
     let col_right = 6;
     let state = `view`; // `view` | `saving`
-    let saving = ``;
-    let stateConfig = `hidden`; // `hidden` | `export` | `export`
     let editSampling = false;
     let editBattery = false;
+    let saving = ``;
+    let stateConfig = `hidden`; // `hidden` | `export` | `export`
     function save(target) {
         return async function() {
             state = `saving`;

@@ -1,14 +1,7 @@
 <script>
-    import { createEventDispatcher } from 'svelte';
     import { FormGroup, CustomInput, Label, Row, Col } from 'sveltestrap';
     export let cols = [];
-    const dispatch = createEventDispatcher();
     let showSelectColumns = false;
-    function changeColumn(event) {
-        dispatch(`changed`, {
-            col: event.target.name,
-        });
-    };
 </script>
 
 <style>
@@ -31,7 +24,6 @@
                 <Col sm="6" md="4" lg="3" xl="2" class="font-weight-lighter small parent">
                     <CustomInput
                         bind:checked={col.show}
-                        on:change={changeColumn}
                         type="switch"
                         bsSize="sm"
                         inline=true

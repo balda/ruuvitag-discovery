@@ -155,7 +155,7 @@
 		</Row>
 		<div class="mb-4">
 			{#if panel === `discover`}
-				<PanelDiscover tags={$tags} {targets} {ruuvitags} {cols} />
+				<PanelDiscover tags={$tags} {targets} {ruuvitags} bind:cols={cols} />
 			{/if}
 			{#if panel === `targets`}
 				<PanelTargets tags={$tags} {targets} config={config.targets} measures={config.measures} />

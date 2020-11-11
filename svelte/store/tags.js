@@ -26,6 +26,4 @@ const store = (ws, tags = []) => {
     };
 };
 
-// export default storeTags;
-// export const tags = storeTags;
 export default store;
