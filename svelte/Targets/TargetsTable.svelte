@@ -6,12 +6,9 @@
     import TargetType from './TargetType.svelte';
     export let targets = [];
     export let config = [];
-    const dispatch = createEventDispatcher();
+    export let edited;
     function deleteTarget(target) {
         console.log(target);
-    };
-    function editTarget(target) {
-        dispatch(`editTarget`, target);
     };
 </script>
 
@@ -93,7 +90,7 @@
                      class="btn btn-link text-danger btn-sm mr-2">
                         Delete
                     </a>
-                    <a href="/" on:click|preventDefault={e => editTarget(target)}
+                    <a href="/" on:click|preventDefault={() => edited = target.id * 1}
                      class="btn btn-light btn-sm">
                         Edit
                     </a>

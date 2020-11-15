@@ -6,18 +6,11 @@
     // import Tooltip from './../UI/Tooltip.svelte';
     export let measure = {};
     export let tag = {};
-    export let target = {};
+    export let targetTag = {};
     let selected;
-    if (target.measures && target.measures[measure.field]) {
+    if (targetTag.measures && targetTag.measures[measure.field]) {
         selected = true;
     }
-    // $: selected = !!target;
-    // export let config = {};
-    // const dispatch = createEventDispatcher();
-    // function cancelEdit() {
-    //     dispatch(`cancelEdit`);
-    // };
-    // let enable = 1 * target.enable;
 </script>
 
 <div>

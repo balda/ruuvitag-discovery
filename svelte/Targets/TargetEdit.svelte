@@ -1,4 +1,5 @@
 <script>
+    // import post from './../store/rest.js';
     import { createEventDispatcher } from 'svelte';
     import { Form, FormGroup, FormText, Input, CustomInput, Label, Button, Table, Row, Col } from 'sveltestrap';
     // import Tooltip from './../UI/Tooltip.svelte';
@@ -7,12 +8,22 @@
     export let target = {};
     export let config = {};
     export let measures = [];
-    $: targetTags = target.tags || [];
-    const dispatch = createEventDispatcher();
-    function cancelEdit() {
-        dispatch(`cancelEdit`);
-    };
-    let enable = 1 * target.enable;
+    export let edited;
+    // $: targetTags = target.tags || [];
+    let targetEdited = JSON.parse(JSON.stringify(target));
+    targetEdited.enable = 1 * targetEdited.enable;
+    targetEdited.tags = targetEdited.tags || [];
+    let state = `view`; // `view` | `saving`
+    async function save() {
+        state = `saving`;
+        console.log(targetEdited);
+        // saving = target;
+        // stateConfig = `hidden`;
+        // const data = {};
+        // data[`${target}`] = config[target];
+        // await post(`${root}config`, data);
+        state = `view`;
+    }
 </script>
 
 <style>
@@ -23,11 +34,11 @@
 
 <div class="targets">
     <div class="mt-1 pt-2">
-        <a href="/" on:click|preventDefault={cancelEdit}
+        <a href="/" on:click|preventDefault={() => edited = -1}
          class="btn btn-light btn-sm">
             Cancel
         </a>
-        <a href="/" on:click|preventDefault={cancelEdit}
+        <a href="/" on:click|preventDefault={e => save()}
          class="btn btn-light btn-sm">
             Save
         </a>
@@ -40,7 +51,7 @@
                     <Label class="col-sm-4" for="enable">{config.label}</Label>
                     <div class="col-sm-8">
                         <CustomInput
-                            bind:checked={enable}
+                            bind:checked={targetEdited.enable}
                             type="switch"
                             id="enable"
                             name="enable"
@@ -51,7 +62,7 @@
                     <Label class="col-sm-4" for="name">Name</Label>
                     <div class="col-sm-8">
                         <Input
-                            bind:value={target.name}
+                            bind:value={targetEdited.name}
                             type="text"
                             size="sm"
                             id="name"
@@ -63,7 +74,7 @@
                     <Label class="col-sm-4" for="interval">Interval</Label>
                     <div class="col-sm-8">
                         <Input
-                            bind:value={target.interval}
+                            bind:value={targetEdited.interval}
                             type="number"
                             size="sm"
                             id="interval"
@@ -77,7 +88,7 @@
                         <Label class="col-sm-4" for="{field.name}">{field.name}</Label>
                         <div class="col-sm-8">
                             <Input
-                                bind:value={target[field.name]}
+                                bind:value={targetEdited[field.name]}
                                 type={field.type || `text`}
                                 size="sm"
                                 id="{field.name}"
@@ -91,7 +102,7 @@
                         <Label class="col-sm-4" for="measurement">Measurement</Label>
                         <div class="col-sm-8">
                             <CustomInput
-                                bind:value={target.measurement}
+                                bind:value={targetEdited.measurement}
                                 type="select"
                                 class="custom-select-sm"
                                 id="measurement"
@@ -110,7 +121,7 @@
         <Col xs="8" class="mt-3">
             <p>Tags</p>
             {#each tags as tag (tag.id)}
-                <TargetTag {tag} target={targetTags[tag.id]} {measures} />
+                <TargetTag {tag} bind:targetTag={targetEdited.tags[tag.id]} {measures} />
             {/each}
         </Col>
     </Row>
@@ -118,3 +129,4 @@
 
 <!-- <pre>{JSON.stringify(config, null, 2)}</pre> -->
 <!-- <pre>{JSON.stringify(target.tags, null, 2)}</pre> -->
+<!-- <pre>{JSON.stringify(targetEdited, null, 2)}</pre> -->

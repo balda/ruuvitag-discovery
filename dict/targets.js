@@ -24,6 +24,7 @@ const targets = [
             },
             {
                 name: `password`,
+                type: `password`,
             },
         ],
     },
@@ -66,6 +67,7 @@ const targets = [
             },
             {
                 name: `password`,
+                type: `password`,
             },
         ],
     },
@@ -91,6 +93,7 @@ const targets = [
             },
             {
                 name: `password`,
+                type: `password`,
             },
             // {
             //     name: `expire_after`,

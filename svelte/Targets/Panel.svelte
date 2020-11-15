@@ -6,23 +6,22 @@
     export let config = [];
     export let measures = [];
     let edited = -1;
-    function editTarget(target) {
-        // console.log(target.detail);
-        edited = target.detail.id * 1;
-    };
-    function cancelEdit() {
-        edited = -1;
-    }
 </script>
 
 {#if edited === -1}
-    <TargetsTable {targets} {config} on:editTarget={editTarget} />
+    <TargetsTable
+     {targets}
+     {config}
+     bind:edited={edited}
+    />
 {:else}
     <TargetEdit
-     target={targets[edited]} {tags}
+     target={targets[edited]}
+     {tags}
      {measures}
      config={config.find(t => t.type === targets[edited].type)}
-     on:cancelEdit={cancelEdit} />
+     bind:edited={edited}
+    />
 {/if}
 
 <!-- <pre>{JSON.stringify(measures, null, 2)}</pre> -->

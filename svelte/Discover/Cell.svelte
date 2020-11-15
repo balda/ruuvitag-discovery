@@ -6,6 +6,7 @@
     export let tag = {};
     export let source = `last`;
     export let showUnit = false;
+	// TODO: use https://svelte.dev/tutorial/svelte-component
 </script>
 
 {#if col.render === `measure`}
