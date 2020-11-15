@@ -71,6 +71,7 @@
                             placeholder="60" />
                     </div>
                 </FormGroup>
+                <hr>
                 {#each config.config as field}
                     <FormGroup class="row">
                         <Label class="col-sm-4" for="{field.name}">{field.name}</Label>
@@ -84,6 +85,7 @@
                         </div>
                     </FormGroup>
                 {/each}
+                <hr>
                 {#if config.measurement}
                     <FormGroup class="row">
                         <Label class="col-sm-4" for="measurement">Measurement</Label>
