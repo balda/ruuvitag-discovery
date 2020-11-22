@@ -9,14 +9,36 @@
     export let config = {};
     export let measures = [];
     export let edited;
-    // $: targetTags = target.tags || [];
     let targetEdited = JSON.parse(JSON.stringify(target));
     targetEdited.enable = 1 * targetEdited.enable;
-    targetEdited.tags = targetEdited.tags || [];
+    targetEdited.tags = {};
+    for (const tag of tags) {
+        const selected = target.tags && !!target.tags[tag.id];
+        const tagEdited = selected ? target.tags[tag.id] : {
+            id: null,
+        };
+        targetEdited.tags[tag.id] = {
+            ...tagEdited,
+            selected,
+            // TODO: add filter
+            // $: tagMeasures = measures.filter(measure => {
+            //     return tag.last[measure.field] !== undefined || tag[measure.field] !== undefined;
+            // });
+            measures: measures.map(measure => {
+                return {
+                    measure,
+                    selected: selected && tagEdited.measures[measure.field] !== undefined,
+                    field: selected && tagEdited.measures[measure.field] ? tagEdited.measures[measure.field].field : measure.field,
+                    label: selected && tagEdited.measures[measure.field] ? tagEdited.measures[measure.field].label : measure.label,
+                };
+            }),
+        };
+    }
     let state = `view`; // `view` | `saving`
     async function save() {
         state = `saving`;
         console.log(targetEdited);
+        // TODO: filter `tags` where `id` exist
         // saving = target;
         // stateConfig = `hidden`;
         // const data = {};
@@ -41,6 +63,10 @@
         <a href="/" on:click|preventDefault={e => save()}
          class="btn btn-light btn-sm">
             Save
+        </a>
+        <a href="/" on:click|preventDefault={e => console.log(targetEdited)}
+         class="btn btn-light btn-sm">
+            Log
         </a>
     </div>
 
@@ -123,6 +149,7 @@
             {#each tags as tag (tag.id)}
                 <TargetTag {tag} bind:targetTag={targetEdited.tags[tag.id]} {measures} />
             {/each}
+            <!-- <pre class="small">{JSON.stringify(targetEdited, null, 2)}</pre> -->
         </Col>
     </Row>
 </div>

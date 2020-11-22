@@ -7,13 +7,11 @@
     export let tag = {};
     export let targetTag = {};
     export let measures = [];
-    let targetTagEdited = JSON.parse(JSON.stringify(targetTag));
     let state = `view`; // `view` | `edit`
-    let selected = !!targetTag.id;
     $: tagMeasures = measures.filter(measure => {
         return tag.last[measure.field] !== undefined || tag[measure.field] !== undefined;
     });
-    $: if (!targetTag.name) {
+    $: if (targetTag && !targetTag.name) {
         targetTag.name = `RuuviTag ${tag.id}`;
     }
     $: if (!targetTag.field) {
@@ -24,7 +22,7 @@
 <div class="small">
     <div class="clearfix">
         <CustomInput
-            bind:checked={selected}
+            bind:checked={targetTag.selected}
             type="switch"
             id="tag_{tag.id}"
             name="tag_{tag.id}"
@@ -34,7 +32,7 @@
         <div class="ml-2 float-left font-italic font-weight-lighter">
             {targetTag.field}
         </div>
-        {#if selected}
+        {#if targetTag.selected}
             {#if state === `view`}
                 <a href="/" on:click|preventDefault={() => state = `edit`}
                  class="ml-2 text-dark">
@@ -43,7 +41,7 @@
             {/if}
         {/if}
     </div>
-    {#if selected}
+    {#if targetTag.selected}
         {#if state === `edit`}
             <div class="my-2">
                 <form class="form-inline">
@@ -67,18 +65,18 @@
         </div>
         <Container>
             <Row>
-                {#each tagMeasures as measure (measure.field)}
+                {#each targetTag.measures as measure (measure.measure.field)}
                     <Col xs="12" sm="6">
-                        <TargetTagMeasure {measure} {tag} {targetTag} />
+                        <TargetTagMeasure {measure} {tag} bind:targetTag={targetTag} />
                     </Col>
                 {/each}
             </Row>
         </Container>
+        <!-- <pre class="small">{JSON.stringify(targetTag, null, 2)}</pre> -->
     {/if}
 </div>
 <!-- <pre>{JSON.stringify(tag, null, 2)}</pre> -->
-<pre class="small">{JSON.stringify(targetTag, null, 2)}</pre>
-<pre class="small">{JSON.stringify(targetTagEdited, null, 2)}</pre>
+<!-- <pre class="small">{JSON.stringify(targetTag, null, 2)}</pre> -->
 <!-- <pre>{JSON.stringify(measures, null, 2)}</pre> -->
 <!-- <pre>{JSON.stringify(tagMeasures, null, 2)}</pre> -->
 
