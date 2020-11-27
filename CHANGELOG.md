@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.1.14] - 2020-11-27
+- Update hassioaddons base image to version `8.0.6`
+- Fix python alpine install (no more `python` package, only `python3`) (#19)
+
 ## [0.1.13] - 2020-07-04
 - New build (no more "[supervisor.docker.addon] Can't build ...")
 
@@ -63,7 +67,8 @@
 
 First release
 
-[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.13...HEAD
+[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.1.14...HEAD
+[0.1.14]: https://github.com/balda/ruuvitag-discovery/compare/0.1.13...0.1.14
 [0.1.13]: https://github.com/balda/ruuvitag-discovery/compare/0.1.12...0.1.13
 [0.1.12]: https://github.com/balda/ruuvitag-discovery/compare/0.1.11...0.1.12
 [0.1.11]: https://github.com/balda/ruuvitag-discovery/compare/0.1.10...0.1.11

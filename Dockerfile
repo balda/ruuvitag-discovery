@@ -3,7 +3,7 @@ FROM ${BUILD_FROM}
 
 ENV LANG C.UTF-8
 
-RUN apk add --no-cache npm libusb-dev bluez-dev linux-headers eudev-dev build-base python git
+RUN apk add --no-cache npm libusb-dev bluez-dev linux-headers eudev-dev build-base python3 git
 
 RUN mkdir -p /app
 WORKDIR /app
