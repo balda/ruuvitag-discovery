@@ -1,12 +1,20 @@
 <script>
+    import post from './../store/rest.js';
+    import { root } from './../store/root.js';
     import { targets } from './../store/targets.js';
     import { Button, Table, Row, Col } from 'sveltestrap';
     import Tooltip from './../UI/Tooltip.svelte';
     import TargetStateIcon from './TargetStateIcon.svelte';
     import TargetType from './TargetType.svelte';
     export let edited;
-    function deleteTarget(target) {
-        console.log(target);
+    async function deleteTarget(target) {
+        // state = `saving`;
+        if (confirm(`Confirm Delete`)) {
+            targets.set(await (await post(`${$root}target/delete`, {
+                id: target.id
+            })).json());
+        }
+        // state = `view`;
     };
 </script>
 
