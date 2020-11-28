@@ -1,4 +1,5 @@
 <script>
+    import { targets } from './../store/targets.js';
     import { Table } from 'sveltestrap';
     import Tooltip from './../UI/Tooltip.svelte';
     // import CellUpdated from './Cell/Updated.svelte';
@@ -7,7 +8,6 @@
     import CellInfo from './Cell/Info.svelte';
     export let cols = [];
     export let tags = [];
-    export let targets = [];
     export let ruuvitags = {};
     $: {
         tags = tags;
@@ -55,7 +55,7 @@
                     {/if}
                 {/each}
                 <td class="text-center">
-                    {#each targets as target (target.id)}
+                    {#each $targets as target (target.id)}
                         {#if target.tags && target.tags[tag.id]}
                             <CellDatabase {target} {tag} />
                         {/if}
@@ -68,4 +68,4 @@
         {/each}
     </tbody>
 </Table>
-<!-- <pre>{JSON.stringify(targets, null, 2)}</pre> -->
+<!-- <pre>{JSON.stringify($targets, null, 2)}</pre> -->

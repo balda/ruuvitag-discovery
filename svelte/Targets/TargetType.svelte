@@ -1,7 +1,7 @@
 <script>
+    import { dictTargets } from './../store/dict.js';
     export let target = {};
-    export let config = [];
-    $: type = config.find(t => {
+    $: type = $dictTargets.find(t => {
         return `${target.type}` === `${t.type}`;
     });
     $: title = type ? type.label : ``;

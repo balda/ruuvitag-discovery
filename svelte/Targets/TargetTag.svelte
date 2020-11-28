@@ -1,14 +1,13 @@
 <script>
-    // import { createEventDispatcher } from 'svelte';
     // import { Form, FormGroup, FormText, Input, CustomInput, Label, Button, Table, Row, Col } from 'sveltestrap';
+    import { dictMeasures } from './../store/dict.js';
     import { Container, Row, Col, CustomInput } from 'sveltestrap';
     import TargetTagMeasure from  './TargetTagMeasure.svelte';
     // import Tooltip from './../UI/Tooltip.svelte';
     export let tag = {};
     export let targetTag = {};
-    export let measures = [];
     let state = `view`; // `view` | `edit`
-    $: tagMeasures = measures.filter(measure => {
+    $: tagMeasures = $dictMeasures.filter(measure => {
         return tag.last[measure.field] !== undefined || tag[measure.field] !== undefined;
     });
     $: if (targetTag && !targetTag.name) {
@@ -77,7 +76,7 @@
 </div>
 <!-- <pre>{JSON.stringify(tag, null, 2)}</pre> -->
 <!-- <pre class="small">{JSON.stringify(targetTag, null, 2)}</pre> -->
-<!-- <pre>{JSON.stringify(measures, null, 2)}</pre> -->
+<!-- <pre>{JSON.stringify($dictMeasures, null, 2)}</pre> -->
 <!-- <pre>{JSON.stringify(tagMeasures, null, 2)}</pre> -->
 
 <hr>

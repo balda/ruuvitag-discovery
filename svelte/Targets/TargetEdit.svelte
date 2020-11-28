@@ -1,14 +1,16 @@
 <script>
-    // import post from './../store/rest.js';
+    import post from './../store/rest.js';
+    import { root } from './../store/root.js';
+    import { targets } from './../store/targets.js';
+    import { dictTargets, dictMeasures } from './../store/dict.js';
     import { createEventDispatcher } from 'svelte';
     import { Form, FormGroup, FormText, Input, CustomInput, Label, Button, Table, Row, Col } from 'sveltestrap';
     // import Tooltip from './../UI/Tooltip.svelte';
     import TargetTag from  './TargetTag.svelte';
     export let tags = [];
-    export let target = {};
-    export let config = {};
-    export let measures = [];
     export let edited;
+    const target = $targets[edited];
+    const config = $dictTargets.find(t => t.type === target.type);
     let targetEdited = JSON.parse(JSON.stringify(target));
     targetEdited.enable = 1 * targetEdited.enable;
     targetEdited.tags = {};
@@ -24,7 +26,7 @@
             // $: tagMeasures = measures.filter(measure => {
             //     return tag.last[measure.field] !== undefined || tag[measure.field] !== undefined;
             // });
-            measures: measures.map(measure => {
+            measures: $dictMeasures.map(measure => {
                 return {
                     measure,
                     selected: selected && tagEdited.measures[measure.field] !== undefined,
@@ -37,13 +39,23 @@
     let state = `view`; // `view` | `saving`
     async function save() {
         state = `saving`;
-        console.log(targetEdited);
-        // TODO: filter `tags` where `id` exist
-        // saving = target;
-        // stateConfig = `hidden`;
-        // const data = {};
-        // data[`${target}`] = config[target];
-        // await post(`${root}config`, data);
+        const data = JSON.parse(JSON.stringify(targetEdited));
+        data.tags = {};
+        for (const id in targetEdited.tags) {
+            if (targetEdited.tags[id].selected) {
+                data.tags[id] = JSON.parse(JSON.stringify(targetEdited.tags[id]));
+                data.tags[id].measures = {};
+                for (const measure of targetEdited.tags[id].measures) {
+                    if (measure.selected) {
+                        data.tags[id].measures[measure.measure.field] = {
+                            label: measure.label,
+                            field: measure.field,
+                        };
+                    }
+                }
+            }
+        }
+        targets.set(await (await post(`${$root}target`, data)).json());
         state = `view`;
     }
 </script>
@@ -147,7 +159,7 @@
         <Col xs="8" class="mt-3">
             <p>Tags</p>
             {#each tags as tag (tag.id)}
-                <TargetTag {tag} bind:targetTag={targetEdited.tags[tag.id]} {measures} />
+                <TargetTag {tag} bind:targetTag={targetEdited.tags[tag.id]} />
             {/each}
             <!-- <pre class="small">{JSON.stringify(targetEdited, null, 2)}</pre> -->
         </Col>

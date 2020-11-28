@@ -1,10 +1,10 @@
 <script>
     import post from './../store/rest.js';
+    import { root } from './../store/root.js';
+	import { targets } from './../store/targets.js';
     import { FormGroup, CustomInput, Label, Row, Col } from 'sveltestrap';
     export let config = {};
-    export let targets = [];
     export let cols = [];
-    export let root;
     let col_left = 5;
     let col_right = 6;
     let state = `view`; // `view` | `saving`
@@ -19,7 +19,7 @@
             stateConfig = `hidden`;
             const data = {};
             data[`${target}`] = config[target];
-            await post(`${root}config`, data);
+            await post(`${$root}config`, data);
             state = `view`;
         }
     }
@@ -205,7 +205,7 @@
                     sampling: config.sampling,
                     battery: config.battery,
                     ruuvitags: config.ruuvitags,
-                    targets: targets,
+                    targets: $targets,
                     cols: cols,
                     // columns: app.columns,
                 }, null, 2)}</textarea></small>

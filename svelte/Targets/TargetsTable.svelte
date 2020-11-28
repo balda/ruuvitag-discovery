@@ -1,11 +1,9 @@
 <script>
-    import { createEventDispatcher } from 'svelte';
+    import { targets } from './../store/targets.js';
     import { Button, Table, Row, Col } from 'sveltestrap';
     import Tooltip from './../UI/Tooltip.svelte';
     import TargetStateIcon from './TargetStateIcon.svelte';
     import TargetType from './TargetType.svelte';
-    export let targets = [];
-    export let config = [];
     export let edited;
     function deleteTarget(target) {
         console.log(target);
@@ -36,7 +34,7 @@
         </tr>
     </thead>
     <tbody>
-        {#each targets as target (target.id)}
+        {#each $targets as target (target.id)}
             <tr>
                 <td class="text-left">
                     <TargetStateIcon {target} />
@@ -45,7 +43,7 @@
                     </span>
                 </td>
                 <td class="text-left">
-                    <TargetType {target} {config} />
+                    <TargetType {target} />
                     <span class="ml-2">
                         {target.type}
                     </span>
@@ -100,4 +98,4 @@
     </tbody>
 </Table>
 
-<!-- <pre>{JSON.stringify(targets, null, 2)}</pre> -->
+<!-- <pre>{JSON.stringify($targets, null, 2)}</pre> -->

@@ -2,7 +2,7 @@
 
 // https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_stores
 
-const store = (ws, tags = []) => {
+const wsTags = (ws, tags = []) => {
     // const ws = new WebSocket(`ws://localhost:8099${root}`);
     return {
         subscribe(subscription) {
@@ -26,4 +26,4 @@ const store = (ws, tags = []) => {
     };
 };
 
-export default store;
+export default wsTags;

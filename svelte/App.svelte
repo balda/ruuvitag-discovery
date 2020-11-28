@@ -1,24 +1,23 @@
 <script>
-	import store from './store/tags.js';
+	import wsTags from './store/tags.js';
+	import { root } from './store/root.js';
+	import { targets } from './store/targets.js';
+	import { dictTargets, dictMeasures } from './store/dict.js';
 	import { Container, Row, Col } from "sveltestrap";
 	import PanelDiscover from './Discover/Panel.svelte';
 	import PanelTargets from './Targets/Panel.svelte';
 	import PanelConfig from './Config/Panel.svelte';
 	export let ws;
 	export let ruuvi;
-	export let root;
+	export let _root;
+	root.set(_root);
 	let addon = {
 		name: `RuuviTags Discovery`,
 		version: `0.0.1`,
 		url: `https://github.com/balda/ruuvitag-discovery`,
 	};
-	let config = {
-		measures: [],
-		targets: [],
-	};
-	let tags = store(ws);
-	// let tags = store(root);
-	let targets = [];
+	let config = {};
+	let tags = wsTags(ws);
 	let ruuvitags = {};
 	let cols = [];
 	// let cols = [
@@ -62,7 +61,7 @@
 				}
 				config = data.config;
 				if (data.config.targets) {
-					targets = data.config.targets;
+					$targets = data.config.targets;
 				}
 				if (data.config.ruuvitags) {
 					ruuvitags = data.config.ruuvitags;
@@ -76,8 +75,8 @@
 				// }
 			}
 			if (data.measures) {
-				config.measures = data.measures;
-				cols = config.measures.map(measure => {
+				$dictMeasures = data.measures;
+				cols = data.measures.map(measure => {
 					measure.render = `measure`;
 					measure.show = measure.required === undefined;
 					return measure;
@@ -103,10 +102,8 @@
 				});
 			}
 			if (data.targets) {
-				config.targets = data.targets;
+				$dictTargets = data.targets;
 			}
-			// console.log({config: config.targets}); // targets dict
-			// console.log({targets}); // targets config
 		} catch(error) {}
 	});
 </script>
@@ -155,13 +152,13 @@
 		</Row>
 		<div class="mb-4">
 			{#if panel === `discover`}
-				<PanelDiscover tags={$tags} {targets} {ruuvitags} bind:cols={cols} />
+				<PanelDiscover tags={$tags} {ruuvitags} bind:cols={cols} />
 			{/if}
 			{#if panel === `targets`}
-				<PanelTargets tags={$tags} {targets} config={config.targets} measures={config.measures} />
+				<PanelTargets tags={$tags} />
 			{/if}
 			{#if panel === `config`}
-				<PanelConfig {config} {targets} {cols} {root} />
+				<PanelConfig {config} {cols} />
 			{/if}
 		</div>
 	</Container>
