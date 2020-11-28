@@ -9,8 +9,19 @@
     import TargetTag from  './TargetTag.svelte';
     export let tags = [];
     export let edited;
-    const target = $targets[edited];
+    const cancel = () => {
+        edited = -1;
+    };
+    const target = typeof edited === `string` ? {
+        type: edited,
+        enable: 0,
+        name: ``,
+        interval: 60,
+    } : $targets[edited];
     const config = $dictTargets.find(t => t.type === target.type);
+    if (!target.id && config.measurement) {
+        target.measurement = `tag`;
+    }
     let targetEdited = JSON.parse(JSON.stringify(target));
     targetEdited.enable = 1 * targetEdited.enable;
     targetEdited.tags = {};
@@ -57,6 +68,7 @@
         }
         targets.set(await (await post(`${$root}target`, data)).json());
         state = `view`;
+        edited = -1;
     }
 </script>
 
@@ -68,7 +80,7 @@
 
 <div class="targets">
     <div class="mt-1 pt-2">
-        <a href="/" on:click|preventDefault={() => edited = -1}
+        <a href="/" on:click|preventDefault={cancel}
          class="btn btn-light btn-sm">
             Cancel
         </a>
@@ -77,8 +89,8 @@
             Save
         </a>
         <a href="/" on:click|preventDefault={e => console.log(targetEdited)}
-         class="btn btn-light btn-sm">
-            Log
+         class="btn btn-link btn-sm text-muted float-right">
+            log
         </a>
     </div>
 
@@ -154,14 +166,12 @@
                     </FormGroup>
                 {/if}
             </Form>
-            <!-- <pre>{JSON.stringify(target.tags, null, 2)}</pre> -->
         </Col>
         <Col xs="8" class="mt-3">
             <p>Tags</p>
             {#each tags as tag (tag.id)}
                 <TargetTag {tag} bind:targetTag={targetEdited.tags[tag.id]} />
             {/each}
-            <!-- <pre class="small">{JSON.stringify(targetEdited, null, 2)}</pre> -->
         </Col>
     </Row>
 </div>
