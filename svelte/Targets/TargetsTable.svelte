@@ -1,6 +1,5 @@
 <script>
-    import post from './../store/rest.js';
-    import { root } from './../store/root.js';
+    import { api, root } from './../store/api.js';
     import { targets } from './../store/targets.js';
     import { Button, Table, Row, Col } from 'sveltestrap';
     import Tooltip from './../UI/Tooltip.svelte';
@@ -10,9 +9,13 @@
     async function deleteTarget(target) {
         // state = `saving`;
         if (confirm(`Confirm Delete`)) {
-            targets.set(await (await post(`${$root}target/delete`, {
-                id: target.id
-            })).json());
+            try {
+                targets.set(await api.post(`${$root}target/delete`, {
+                    id: target.id
+                }));
+            } catch(error) {
+                console.log(error);
+            }
         }
         // state = `view`;
     };

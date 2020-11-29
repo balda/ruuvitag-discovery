@@ -1,6 +1,5 @@
 <script>
-    import post from './../store/rest.js';
-    import { root } from './../store/root.js';
+    import { api, root } from './../store/api.js';
     import { targets } from './../store/targets.js';
     import { dictTargets, dictMeasures } from './../store/dict.js';
     import { createEventDispatcher } from 'svelte';
@@ -66,7 +65,11 @@
                 }
             }
         }
-        targets.set(await (await post(`${$root}target`, data)).json());
+        try {
+            targets.set(await api.post(`${$root}target`, data));
+        } catch(error) {
+            console.log(error);
+        }
         state = `view`;
         edited = -1;
     }

@@ -1,9 +1,9 @@
 <script>
-    import post from './../store/rest.js';
-    import { root } from './../store/root.js';
+    import { api, root } from './../store/api.js';
+	import { config } from './../store/config.js';
 	import { targets } from './../store/targets.js';
     import { FormGroup, CustomInput, Label, Row, Col } from 'sveltestrap';
-    export let config = {};
+    let configEdited = JSON.parse(JSON.stringify($config));
     export let cols = [];
     let col_left = 5;
     let col_right = 6;
@@ -18,9 +18,16 @@
             saving = target;
             stateConfig = `hidden`;
             const data = {};
-            data[`${target}`] = config[target];
-            await post(`${$root}config`, data);
+            data[`${target}`] = configEdited[target];
+            try {
+                await api.post(`${$root}config`, data);
+                $config[target] = configEdited[target];
+            } catch(error) {
+                console.log(error);
+            }
             state = `view`;
+            editSampling = false;
+            editBattery = false;
         }
     }
 </script>
@@ -39,7 +46,7 @@
                         </label>
                         <div class="col-sm-{col_right}">
                             <input type="number" name="history"
-                             bind:value="{config.sampling.history}"
+                             bind:value="{configEdited.sampling.history}"
                              class="form-control form-control-sm"
                              disabled={state === `saving` ? `disabled` : null}
                             >
@@ -54,7 +61,7 @@
                         </label>
                         <div class="col-sm-{col_right}">
                             <input type="number" name="interval"
-                             bind:value="{config.sampling.interval}"
+                             bind:value="{configEdited.sampling.interval}"
                              class="form-control form-control-sm"
                              disabled={state === `saving` ? `disabled` : null}
                             >
@@ -81,13 +88,13 @@
             {:else}
                 <div class="small py-1">
                     <div class="mt-2 mb-2">
-                        History: {config.sampling.history}
+                        History: {$config.sampling.history}
                         <div class="font-italic font-weight-lighter">
                             Max samples in history
                         </div>
                     </div>
                     <div class="mb-4">
-                        Sampling interval: {config.sampling.interval}
+                        Sampling interval: {$config.sampling.interval}
                         <div class="font-italic font-weight-lighter">
                             Sampling interval (in ms)
                         </div>
@@ -114,7 +121,7 @@
                         </label>
                         <div class="col-sm-{col_right}">
                             <input type="number" name="min"
-                             bind:value="{config.battery.min}"
+                             bind:value="{configEdited.battery.min}"
                              class="form-control form-control-sm"
                              disabled={state === `saving` ? `disabled` : null}
                             >
@@ -129,7 +136,7 @@
                         </label>
                         <div class="col-sm-{col_right}">
                             <input type="number" name="max"
-                             bind:value="{config.battery.max}"
+                             bind:value="{configEdited.battery.max}"
                              class="form-control form-control-sm"
                              disabled={state === `saving` ? `disabled` : null}
                             >
@@ -156,13 +163,13 @@
             {:else}
                 <div class="small py-1">
                     <div class="mt-2 mb-2">
-                        Min (1%): {config.battery.min}
+                        Min (1%): {$config.battery.min}
                         <div class="font-italic font-weight-lighter">
                             Min mV for 1% battery level
                         </div>
                     </div>
                     <div class="mb-4">
-                        Max (100%): {config.battery.max}
+                        Max (100%): {$config.battery.max}
                         <div class="font-italic font-weight-lighter">
                             Max mV for 100% battery level
                         </div>
@@ -202,9 +209,9 @@
         {#if stateConfig !== `hidden`}
             <div class="mt-3">
                 <small><textarea class="form-control form-control-sm" readonly={stateConfig === `export`} rows="16">{JSON.stringify({
-                    sampling: config.sampling,
-                    battery: config.battery,
-                    ruuvitags: config.ruuvitags,
+                    sampling: $config.sampling,
+                    battery: $config.battery,
+                    ruuvitags: $config.ruuvitags,
                     targets: $targets,
                     cols: cols,
                     // columns: app.columns,

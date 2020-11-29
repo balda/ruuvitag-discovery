@@ -1,6 +1,7 @@
 <script>
+    import { root } from './store/api.js';
 	import wsTags from './store/tags.js';
-	import { root } from './store/root.js';
+	import { config } from './store/config.js';
 	import { targets } from './store/targets.js';
 	import { dictTargets, dictMeasures } from './store/dict.js';
 	import { Container, Row, Col } from "sveltestrap";
@@ -16,7 +17,7 @@
 		version: `0.0.1`,
 		url: `https://github.com/balda/ruuvitag-discovery`,
 	};
-	let config = {};
+	// let config = {};
 	let tags = wsTags(ws);
 	let ruuvitags = {};
 	let cols = [];
@@ -54,12 +55,14 @@
 				if (data.config.sampling) {
 					data.config.sampling.history = 1 * data.config.sampling.history;
 					data.config.sampling.interval = 1 * data.config.sampling.interval;
+                    $config.sampling = data.config.sampling;
 				}
 				if (data.config.battery) {
 					data.config.battery.min = 1 * data.config.battery.min;
 					data.config.battery.max = 1 * data.config.battery.max;
+                    $config.battery = data.config.battery;
 				}
-				config = data.config;
+				// config = data.config;
 				if (data.config.targets) {
 					$targets = data.config.targets;
 				}
@@ -158,7 +161,7 @@
 				<PanelTargets tags={$tags} />
 			{/if}
 			{#if panel === `config`}
-				<PanelConfig {config} {cols} />
+				<PanelConfig {cols} />
 			{/if}
 		</div>
 	</Container>

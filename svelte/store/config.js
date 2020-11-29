@@ -1,3 +1,3 @@
 import { writable } from 'svelte/store';
 
-export const root = writable(``);
+export const config = writable({});
