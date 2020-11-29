@@ -27,4 +27,3 @@
 {/if}
 
 <!-- <pre>{JSON.stringify($targets, null, 2)}</pre> -->
-<!-- <pre>{JSON.stringify(config, null, 2)}</pre> -->

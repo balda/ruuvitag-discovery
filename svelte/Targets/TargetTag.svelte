@@ -1,5 +1,4 @@
 <script>
-    // import { Form, FormGroup, FormText, Input, CustomInput, Label, Button, Table, Row, Col } from 'sveltestrap';
     import { dictMeasures } from './../store/dict.js';
     import { Container, Row, Col, CustomInput } from 'sveltestrap';
     import TargetTagMeasure from  './TargetTagMeasure.svelte';
@@ -66,17 +65,13 @@
             <Row>
                 {#each targetTag.measures as measure (measure.measure.field)}
                     <Col xs="12" sm="6">
-                        <TargetTagMeasure {measure} {tag} bind:targetTag={targetTag} />
+                        <TargetTagMeasure {measure} {tag} />
                     </Col>
                 {/each}
             </Row>
         </Container>
-        <!-- <pre class="small">{JSON.stringify(targetTag, null, 2)}</pre> -->
     {/if}
 </div>
-<!-- <pre>{JSON.stringify(tag, null, 2)}</pre> -->
 <!-- <pre class="small">{JSON.stringify(targetTag, null, 2)}</pre> -->
-<!-- <pre>{JSON.stringify($dictMeasures, null, 2)}</pre> -->
-<!-- <pre>{JSON.stringify(tagMeasures, null, 2)}</pre> -->
 
 <hr>

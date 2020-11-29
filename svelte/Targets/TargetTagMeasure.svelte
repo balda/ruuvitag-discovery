@@ -1,12 +1,9 @@
 <script>
-    // import { createEventDispatcher } from 'svelte';
-    // import { Form, FormGroup, FormText, Input, CustomInput, Label, Button, Table, Row, Col } from 'sveltestrap';
     import { CustomInput } from 'sveltestrap';
 	import Cell from './../Discover/Cell.svelte';
     // import Tooltip from './../UI/Tooltip.svelte';
     export let measure = {};
     export let tag = {};
-    export let targetTag = {};
     let state = `view`; // `view` | `edit`
 </script>
 
@@ -58,6 +55,3 @@
 </div>
 <!-- <pre>{JSON.stringify(tag, null, 2)}</pre> -->
 <!-- <pre>{JSON.stringify(measure, null, 2)}</pre> -->
-<!-- <pre>{JSON.stringify(targetTag, null, 2)}</pre> -->
-<!-- <pre>{JSON.stringify(tagMeasure, null, 2)}</pre> -->
-<!-- <pre>{JSON.stringify(targetTag.measures[measure.field], null, 2)}</pre> -->

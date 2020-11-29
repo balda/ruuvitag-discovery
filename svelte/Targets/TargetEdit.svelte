@@ -176,6 +176,4 @@
     </Row>
 </div>
 
-<!-- <pre>{JSON.stringify(config, null, 2)}</pre> -->
-<!-- <pre>{JSON.stringify(target.tags, null, 2)}</pre> -->
 <!-- <pre>{JSON.stringify(targetEdited, null, 2)}</pre> -->
