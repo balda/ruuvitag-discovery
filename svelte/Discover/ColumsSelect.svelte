@@ -35,5 +35,3 @@
         </Row>
     {/if}
 </div>
-
-<!-- <pre>{JSON.stringify(cols, null, 2)}</pre> -->

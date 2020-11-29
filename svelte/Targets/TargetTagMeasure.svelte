@@ -1,7 +1,6 @@
 <script>
     import { CustomInput } from 'sveltestrap';
 	import Cell from './../Discover/Cell.svelte';
-    // import Tooltip from './../UI/Tooltip.svelte';
     export let measure = {};
     export let tag = {};
     let state = `view`; // `view` | `edit`
@@ -53,5 +52,3 @@
         {/if}
     {/if}
 </div>
-<!-- <pre>{JSON.stringify(tag, null, 2)}</pre> -->
-<!-- <pre>{JSON.stringify(measure, null, 2)}</pre> -->

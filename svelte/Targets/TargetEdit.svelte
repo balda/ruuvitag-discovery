@@ -4,7 +4,6 @@
     import { dictTargets, dictMeasures } from './../store/dict.js';
     import { createEventDispatcher } from 'svelte';
     import { Form, FormGroup, FormText, Input, CustomInput, Label, Button, Table, Row, Col } from 'sveltestrap';
-    // import Tooltip from './../UI/Tooltip.svelte';
     import TargetTag from  './TargetTag.svelte';
     export let tags = [];
     export let edited;
@@ -178,5 +177,3 @@
         </Col>
     </Row>
 </div>
-
-<!-- <pre>{JSON.stringify(targetEdited, null, 2)}</pre> -->

@@ -108,5 +108,3 @@
         {/each}
     </tbody>
 </Table>
-
-<!-- <pre>{JSON.stringify($targets, null, 2)}</pre> -->

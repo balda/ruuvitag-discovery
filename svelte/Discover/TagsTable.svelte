@@ -2,7 +2,6 @@
     import { targets } from './../store/targets.js';
     import { Table } from 'sveltestrap';
     import Tooltip from './../UI/Tooltip.svelte';
-    // import CellUpdated from './Cell/Updated.svelte';
     import Cell from './Cell.svelte';
     import CellDatabase from './Cell/Database.svelte';
     import CellInfo from './Cell/Info.svelte';
@@ -42,11 +41,6 @@
     <tbody>
         {#each tags as tag (tag.id)}
             <tr>
-                <!-- <td>
-                    <div>
-                        <CellUpdated {tag}/>
-                    </div>
-                </td> -->
                 {#each cols as col (col.field)}
                     {#if col.show}
                         <td class="{col.class || `text-right`}">
@@ -68,4 +62,3 @@
         {/each}
     </tbody>
 </Table>
-<!-- <pre>{JSON.stringify($targets, null, 2)}</pre> -->

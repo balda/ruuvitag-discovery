@@ -13069,7 +13069,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (22:16) {#if col.show}
+    // (21:16) {#if col.show}
     function create_if_block_2$5(ctx) {
     	let th;
     	let current_block_type_index;
@@ -13092,7 +13092,7 @@ var app = (function () {
     			th = element("th");
     			if_block.c();
     			attr_dev(th, "class", th_class_value = /*col*/ ctx[10].class || `text-right`);
-    			add_location(th, file$k, 22, 20, 692);
+    			add_location(th, file$k, 21, 20, 636);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, th, anchor);
@@ -13149,14 +13149,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$5.name,
     		type: "if",
-    		source: "(22:16) {#if col.show}",
+    		source: "(21:16) {#if col.show}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (28:24) {:else}
+    // (27:24) {:else}
     function create_else_block$9(ctx) {
     	let t_value = /*col*/ ctx[10].label + "";
     	let t;
@@ -13182,14 +13182,14 @@ var app = (function () {
     		block,
     		id: create_else_block$9.name,
     		type: "else",
-    		source: "(28:24) {:else}",
+    		source: "(27:24) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (24:24) {#if col.unit}
+    // (23:24) {#if col.unit}
     function create_if_block_3$3(ctx) {
     	let tooltip;
     	let current;
@@ -13240,14 +13240,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3$3.name,
     		type: "if",
-    		source: "(24:24) {#if col.unit}",
+    		source: "(23:24) {#if col.unit}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (25:28) <Tooltip tip="{col.unit}" bottom >
+    // (24:28) <Tooltip tip="{col.unit}" bottom >
     function create_default_slot_1$3(ctx) {
     	let t_value = /*col*/ ctx[10].label + "";
     	let t;
@@ -13271,14 +13271,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$3.name,
     		type: "slot",
-    		source: "(25:28) <Tooltip tip=\\\"{col.unit}\\\" bottom >",
+    		source: "(24:28) <Tooltip tip=\\\"{col.unit}\\\" bottom >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (21:12) {#each cols as col (col.field)}
+    // (20:12) {#each cols as col (col.field)}
     function create_each_block_3(key_1, ctx) {
     	let first;
     	let if_block_anchor;
@@ -13344,14 +13344,14 @@ var app = (function () {
     		block,
     		id: create_each_block_3.name,
     		type: "each",
-    		source: "(21:12) {#each cols as col (col.field)}",
+    		source: "(20:12) {#each cols as col (col.field)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:20) {#if col.show}
+    // (45:20) {#if col.show}
     function create_if_block_1$7(ctx) {
     	let td;
     	let cell;
@@ -13371,7 +13371,7 @@ var app = (function () {
     			td = element("td");
     			create_component(cell.$$.fragment);
     			attr_dev(td, "class", td_class_value = /*col*/ ctx[10].class || `text-right`);
-    			add_location(td, file$k, 51, 24, 1591);
+    			add_location(td, file$k, 45, 24, 1385);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, td, anchor);
@@ -13407,14 +13407,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$7.name,
     		type: "if",
-    		source: "(51:20) {#if col.show}",
+    		source: "(45:20) {#if col.show}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (50:16) {#each cols as col (col.field)}
+    // (44:16) {#each cols as col (col.field)}
     function create_each_block_2$1(key_1, ctx) {
     	let first;
     	let if_block_anchor;
@@ -13480,14 +13480,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2$1.name,
     		type: "each",
-    		source: "(50:16) {#each cols as col (col.field)}",
+    		source: "(44:16) {#each cols as col (col.field)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (59:24) {#if target.tags && target.tags[tag.id]}
+    // (53:24) {#if target.tags && target.tags[tag.id]}
     function create_if_block$c(ctx) {
     	let celldatabase;
     	let current;
@@ -13532,14 +13532,14 @@ var app = (function () {
     		block,
     		id: create_if_block$c.name,
     		type: "if",
-    		source: "(59:24) {#if target.tags && target.tags[tag.id]}",
+    		source: "(53:24) {#if target.tags && target.tags[tag.id]}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (58:20) {#each $targets as target (target.id)}
+    // (52:20) {#each $targets as target (target.id)}
     function create_each_block_1$1(key_1, ctx) {
     	let first;
     	let if_block_anchor;
@@ -13605,14 +13605,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1$1.name,
     		type: "each",
-    		source: "(58:20) {#each $targets as target (target.id)}",
+    		source: "(52:20) {#each $targets as target (target.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (43:8) {#each tags as tag (tag.id)}
+    // (42:8) {#each tags as tag (tag.id)}
     function create_each_block$3(key_1, ctx) {
     	let tr;
     	let each_blocks_1 = [];
@@ -13678,10 +13678,10 @@ var app = (function () {
     			create_component(cellinfo.$$.fragment);
     			t2 = space();
     			attr_dev(td0, "class", "text-center");
-    			add_location(td0, file$k, 56, 16, 1776);
+    			add_location(td0, file$k, 50, 16, 1570);
     			attr_dev(td1, "class", "text-center");
-    			add_location(td1, file$k, 63, 16, 2081);
-    			add_location(tr, file$k, 43, 12, 1329);
+    			add_location(td1, file$k, 57, 16, 1875);
+    			add_location(tr, file$k, 42, 12, 1273);
     			this.first = tr;
     		},
     		m: function mount(target, anchor) {
@@ -13773,14 +13773,14 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(43:8) {#each tags as tag (tag.id)}",
+    		source: "(42:8) {#each tags as tag (tag.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:0) <Table class="table-sm font-weight-lighter small" responsive>
+    // (16:0) <Table class="table-sm font-weight-lighter small" responsive>
     function create_default_slot$5(ctx) {
     	let thead;
     	let tr;
@@ -13840,12 +13840,12 @@ var app = (function () {
     			}
 
     			attr_dev(th0, "class", "text-center");
-    			add_location(th0, file$k, 33, 12, 1097);
+    			add_location(th0, file$k, 32, 12, 1041);
     			attr_dev(th1, "class", "text-center");
-    			add_location(th1, file$k, 36, 12, 1176);
-    			add_location(tr, file$k, 18, 8, 561);
-    			add_location(thead, file$k, 17, 4, 545);
-    			add_location(tbody, file$k, 41, 4, 1272);
+    			add_location(th1, file$k, 35, 12, 1120);
+    			add_location(tr, file$k, 17, 8, 505);
+    			add_location(thead, file$k, 16, 4, 489);
+    			add_location(tbody, file$k, 40, 4, 1216);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -13931,7 +13931,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$5.name,
     		type: "slot",
-    		source: "(17:0) <Table class=\\\"table-sm font-weight-lighter small\\\" responsive>",
+    		source: "(16:0) <Table class=\\\"table-sm font-weight-lighter small\\\" responsive>",
     		ctx
     	});
 
@@ -15407,7 +15407,7 @@ var app = (function () {
     /* svelte/Targets/TargetTagMeasure.svelte generated by Svelte v3.29.7 */
     const file$m = "svelte/Targets/TargetTagMeasure.svelte";
 
-    // (26:8) {#if measure.selected}
+    // (25:8) {#if measure.selected}
     function create_if_block_2$6(ctx) {
     	let if_block_anchor;
     	let if_block = /*state*/ ctx[2] === `view` && create_if_block_3$4(ctx);
@@ -15445,14 +15445,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$6.name,
     		type: "if",
-    		source: "(26:8) {#if measure.selected}",
+    		source: "(25:8) {#if measure.selected}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (27:12) {#if state === `view`}
+    // (26:12) {#if state === `view`}
     function create_if_block_3$4(ctx) {
     	let a;
     	let i;
@@ -15464,10 +15464,10 @@ var app = (function () {
     			a = element("a");
     			i = element("i");
     			attr_dev(i, "class", "fas fa-cog fa-sm-");
-    			add_location(i, file$m, 29, 20, 1019);
+    			add_location(i, file$m, 28, 20, 966);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "class", "ml-2 text-dark");
-    			add_location(a, file$m, 27, 16, 899);
+    			add_location(a, file$m, 26, 16, 846);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -15490,14 +15490,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3$4.name,
     		type: "if",
-    		source: "(27:12) {#if state === `view`}",
+    		source: "(26:12) {#if state === `view`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (35:4) {#if measure.selected}
+    // (34:4) {#if measure.selected}
     function create_if_block$e(ctx) {
     	let if_block_anchor;
     	let if_block = /*state*/ ctx[2] === `edit` && create_if_block_1$8(ctx);
@@ -15535,14 +15535,14 @@ var app = (function () {
     		block,
     		id: create_if_block$e.name,
     		type: "if",
-    		source: "(35:4) {#if measure.selected}",
+    		source: "(34:4) {#if measure.selected}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (36:8) {#if state === `edit`}
+    // (35:8) {#if state === `edit`}
     function create_if_block_1$8(ctx) {
     	let div;
     	let form;
@@ -15568,20 +15568,20 @@ var app = (function () {
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "name", "label");
     			attr_dev(input0, "class", "form-control form-control-sm mr-2");
-    			add_location(input0, file$m, 38, 20, 1269);
+    			add_location(input0, file$m, 37, 20, 1216);
     			attr_dev(input1, "type", "text");
     			attr_dev(input1, "name", "field");
     			attr_dev(input1, "class", "form-control form-control-sm mr-2");
-    			add_location(input1, file$m, 42, 20, 1456);
+    			add_location(input1, file$m, 41, 20, 1403);
     			attr_dev(i, "class", "fas fa-check-circle fa-sm");
-    			add_location(i, file$m, 48, 24, 1771);
+    			add_location(i, file$m, 47, 24, 1718);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "class", "ml-2 text-dark");
-    			add_location(a, file$m, 46, 20, 1643);
+    			add_location(a, file$m, 45, 20, 1590);
     			attr_dev(form, "class", "form-inline");
-    			add_location(form, file$m, 37, 16, 1222);
+    			add_location(form, file$m, 36, 16, 1169);
     			attr_dev(div, "class", "my-2");
-    			add_location(div, file$m, 36, 12, 1187);
+    			add_location(div, file$m, 35, 12, 1134);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -15625,7 +15625,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1$8.name,
     		type: "if",
-    		source: "(36:8) {#if state === `edit`}",
+    		source: "(35:8) {#if state === `edit`}",
     		ctx
     	});
 
@@ -15695,12 +15695,12 @@ var app = (function () {
     			t4 = space();
     			if (if_block1) if_block1.c();
     			attr_dev(div0, "class", "float-right");
-    			add_location(div0, file$m, 11, 8, 305);
+    			add_location(div0, file$m, 10, 8, 252);
     			attr_dev(div1, "class", "ml-2 float-left font-italic font-weight-lighter");
-    			add_location(div1, file$m, 22, 8, 712);
+    			add_location(div1, file$m, 21, 8, 659);
     			attr_dev(div2, "class", "clearfix");
-    			add_location(div2, file$m, 10, 4, 274);
-    			add_location(div3, file$m, 9, 0, 264);
+    			add_location(div2, file$m, 9, 4, 221);
+    			add_location(div3, file$m, 8, 0, 211);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -15896,7 +15896,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (33:8) {#if targetTag.selected}
+    // (32:8) {#if targetTag.selected}
     function create_if_block_2$7(ctx) {
     	let if_block_anchor;
     	let if_block = /*state*/ ctx[2] === `view` && create_if_block_3$5(ctx);
@@ -15934,14 +15934,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$7.name,
     		type: "if",
-    		source: "(33:8) {#if targetTag.selected}",
+    		source: "(32:8) {#if targetTag.selected}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (34:12) {#if state === `view`}
+    // (33:12) {#if state === `view`}
     function create_if_block_3$5(ctx) {
     	let a;
     	let i;
@@ -15953,10 +15953,10 @@ var app = (function () {
     			a = element("a");
     			i = element("i");
     			attr_dev(i, "class", "fas fa-cog fa-sm-");
-    			add_location(i, file$n, 36, 20, 1292);
+    			add_location(i, file$n, 35, 20, 1239);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "class", "ml-2 text-dark");
-    			add_location(a, file$n, 34, 16, 1172);
+    			add_location(a, file$n, 33, 16, 1119);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -15979,14 +15979,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3$5.name,
     		type: "if",
-    		source: "(34:12) {#if state === `view`}",
+    		source: "(33:12) {#if state === `view`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (42:4) {#if targetTag.selected}
+    // (41:4) {#if targetTag.selected}
     function create_if_block$f(ctx) {
     	let t0;
     	let div;
@@ -16012,7 +16012,7 @@ var app = (function () {
     			t2 = space();
     			create_component(container.$$.fragment);
     			attr_dev(div, "class", "my-2");
-    			add_location(div, file$n, 60, 8, 2180);
+    			add_location(div, file$n, 59, 8, 2127);
     		},
     		m: function mount(target, anchor) {
     			if (if_block) if_block.m(target, anchor);
@@ -16066,14 +16066,14 @@ var app = (function () {
     		block,
     		id: create_if_block$f.name,
     		type: "if",
-    		source: "(42:4) {#if targetTag.selected}",
+    		source: "(41:4) {#if targetTag.selected}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (43:8) {#if state === `edit`}
+    // (42:8) {#if state === `edit`}
     function create_if_block_1$9(ctx) {
     	let div;
     	let form;
@@ -16099,20 +16099,20 @@ var app = (function () {
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "name", "name");
     			attr_dev(input0, "class", "form-control form-control-sm mr-2");
-    			add_location(input0, file$n, 45, 20, 1544);
+    			add_location(input0, file$n, 44, 20, 1491);
     			attr_dev(input1, "type", "text");
     			attr_dev(input1, "name", "field");
     			attr_dev(input1, "class", "form-control form-control-sm mr-2");
-    			add_location(input1, file$n, 49, 20, 1731);
+    			add_location(input1, file$n, 48, 20, 1678);
     			attr_dev(i, "class", "fas fa-check-circle fa-sm");
-    			add_location(i, file$n, 55, 24, 2048);
+    			add_location(i, file$n, 54, 24, 1995);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "class", "ml-2 text-dark");
-    			add_location(a, file$n, 53, 20, 1920);
+    			add_location(a, file$n, 52, 20, 1867);
     			attr_dev(form, "class", "form-inline");
-    			add_location(form, file$n, 44, 16, 1497);
+    			add_location(form, file$n, 43, 16, 1444);
     			attr_dev(div, "class", "my-2");
-    			add_location(div, file$n, 43, 12, 1462);
+    			add_location(div, file$n, 42, 12, 1409);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -16156,14 +16156,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$9.name,
     		type: "if",
-    		source: "(43:8) {#if state === `edit`}",
+    		source: "(42:8) {#if state === `edit`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (67:20) <Col xs="12" sm="6">
+    // (66:20) <Col xs="12" sm="6">
     function create_default_slot_2$3(ctx) {
     	let targettagmeasure;
     	let t;
@@ -16212,14 +16212,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$3.name,
     		type: "slot",
-    		source: "(67:20) <Col xs=\\\"12\\\" sm=\\\"6\\\">",
+    		source: "(66:20) <Col xs=\\\"12\\\" sm=\\\"6\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (66:16) {#each targetTag.measures as measure (measure.measure.field)}
+    // (65:16) {#each targetTag.measures as measure (measure.measure.field)}
     function create_each_block$5(key_1, ctx) {
     	let first;
     	let col;
@@ -16276,14 +16276,14 @@ var app = (function () {
     		block,
     		id: create_each_block$5.name,
     		type: "each",
-    		source: "(66:16) {#each targetTag.measures as measure (measure.measure.field)}",
+    		source: "(65:16) {#each targetTag.measures as measure (measure.measure.field)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (65:12) <Row>
+    // (64:12) <Row>
     function create_default_slot_1$5(ctx) {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
@@ -16355,14 +16355,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$5.name,
     		type: "slot",
-    		source: "(65:12) <Row>",
+    		source: "(64:12) <Row>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (64:8) <Container>
+    // (63:8) <Container>
     function create_default_slot$7(ctx) {
     	let row;
     	let current;
@@ -16410,7 +16410,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$7.name,
     		type: "slot",
-    		source: "(64:8) <Container>",
+    		source: "(63:8) <Container>",
     		ctx
     	});
 
@@ -16468,12 +16468,12 @@ var app = (function () {
     			t4 = space();
     			hr = element("hr");
     			attr_dev(div0, "class", "ml-2 float-left font-italic font-weight-lighter");
-    			add_location(div0, file$n, 29, 8, 981);
+    			add_location(div0, file$n, 28, 8, 928);
     			attr_dev(div1, "class", "clearfix");
-    			add_location(div1, file$n, 20, 4, 716);
+    			add_location(div1, file$n, 19, 4, 663);
     			attr_dev(div2, "class", "small");
-    			add_location(div2, file$n, 19, 0, 692);
-    			add_location(hr, file$n, 76, 0, 2633);
+    			add_location(div2, file$n, 18, 0, 639);
+    			add_location(hr, file$n, 74, 0, 2509);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -16707,7 +16707,6 @@ var app = (function () {
     /* svelte/Targets/TargetEdit.svelte generated by Svelte v3.29.7 */
 
     const { console: console_1$1 } = globals;
-
     const file$o = "svelte/Targets/TargetEdit.svelte";
 
     function get_each_context$6(ctx, list, i) {
@@ -16726,7 +16725,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (104:20) <Label class="col-sm-4" for="enable">
+    // (103:20) <Label class="col-sm-4" for="enable">
     function create_default_slot_14(ctx) {
     	let t_value = /*config*/ ctx[3].label + "";
     	let t;
@@ -16748,14 +16747,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_14.name,
     		type: "slot",
-    		source: "(104:20) <Label class=\\\"col-sm-4\\\" for=\\\"enable\\\">",
+    		source: "(103:20) <Label class=\\\"col-sm-4\\\" for=\\\"enable\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (103:16) <FormGroup class="row">
+    // (102:16) <FormGroup class="row">
     function create_default_slot_13(ctx) {
     	let label;
     	let t;
@@ -16799,7 +16798,7 @@ var app = (function () {
     			div = element("div");
     			create_component(custominput.$$.fragment);
     			attr_dev(div, "class", "col-sm-8");
-    			add_location(div, file$o, 104, 20, 3792);
+    			add_location(div, file$o, 103, 20, 3739);
     		},
     		m: function mount(target, anchor) {
     			mount_component(label, target, anchor);
@@ -16849,14 +16848,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_13.name,
     		type: "slot",
-    		source: "(103:16) <FormGroup class=\\\"row\\\">",
+    		source: "(102:16) <FormGroup class=\\\"row\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (115:20) <Label class="col-sm-4" for="name">
+    // (114:20) <Label class="col-sm-4" for="name">
     function create_default_slot_12(ctx) {
     	let t;
 
@@ -16876,14 +16875,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_12.name,
     		type: "slot",
-    		source: "(115:20) <Label class=\\\"col-sm-4\\\" for=\\\"name\\\">",
+    		source: "(114:20) <Label class=\\\"col-sm-4\\\" for=\\\"name\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (114:16) <FormGroup class="row">
+    // (113:16) <FormGroup class="row">
     function create_default_slot_11(ctx) {
     	let label;
     	let t;
@@ -16928,7 +16927,7 @@ var app = (function () {
     			div = element("div");
     			create_component(input.$$.fragment);
     			attr_dev(div, "class", "col-sm-8");
-    			add_location(div, file$o, 115, 20, 4269);
+    			add_location(div, file$o, 114, 20, 4216);
     		},
     		m: function mount(target, anchor) {
     			mount_component(label, target, anchor);
@@ -16978,14 +16977,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_11.name,
     		type: "slot",
-    		source: "(114:16) <FormGroup class=\\\"row\\\">",
+    		source: "(113:16) <FormGroup class=\\\"row\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (127:20) <Label class="col-sm-4" for="interval">
+    // (126:20) <Label class="col-sm-4" for="interval">
     function create_default_slot_10(ctx) {
     	let t;
 
@@ -17005,14 +17004,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_10.name,
     		type: "slot",
-    		source: "(127:20) <Label class=\\\"col-sm-4\\\" for=\\\"interval\\\">",
+    		source: "(126:20) <Label class=\\\"col-sm-4\\\" for=\\\"interval\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (126:16) <FormGroup class="row">
+    // (125:16) <FormGroup class="row">
     function create_default_slot_9(ctx) {
     	let label;
     	let t;
@@ -17057,7 +17056,7 @@ var app = (function () {
     			div = element("div");
     			create_component(input.$$.fragment);
     			attr_dev(div, "class", "col-sm-8");
-    			add_location(div, file$o, 127, 20, 4780);
+    			add_location(div, file$o, 126, 20, 4727);
     		},
     		m: function mount(target, anchor) {
     			mount_component(label, target, anchor);
@@ -17107,14 +17106,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_9.name,
     		type: "slot",
-    		source: "(126:16) <FormGroup class=\\\"row\\\">",
+    		source: "(125:16) <FormGroup class=\\\"row\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (141:24) <Label class="col-sm-4" for="{field.name}">
+    // (140:24) <Label class="col-sm-4" for="{field.name}">
     function create_default_slot_8(ctx) {
     	let t_value = /*field*/ ctx[23].name + "";
     	let t;
@@ -17136,14 +17135,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_8.name,
     		type: "slot",
-    		source: "(141:24) <Label class=\\\"col-sm-4\\\" for=\\\"{field.name}\\\">",
+    		source: "(140:24) <Label class=\\\"col-sm-4\\\" for=\\\"{field.name}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (140:20) <FormGroup class="row">
+    // (139:20) <FormGroup class="row">
     function create_default_slot_7(ctx) {
     	let label;
     	let t;
@@ -17187,7 +17186,7 @@ var app = (function () {
     			div = element("div");
     			create_component(input.$$.fragment);
     			attr_dev(div, "class", "col-sm-8");
-    			add_location(div, file$o, 141, 24, 5391);
+    			add_location(div, file$o, 140, 24, 5338);
     		},
     		m: function mount(target, anchor) {
     			mount_component(label, target, anchor);
@@ -17238,14 +17237,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7.name,
     		type: "slot",
-    		source: "(140:20) <FormGroup class=\\\"row\\\">",
+    		source: "(139:20) <FormGroup class=\\\"row\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (139:16) {#each config.config as field}
+    // (138:16) {#each config.config as field}
     function create_each_block_1$3(ctx) {
     	let formgroup;
     	let current;
@@ -17294,14 +17293,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1$3.name,
     		type: "each",
-    		source: "(139:16) {#each config.config as field}",
+    		source: "(138:16) {#each config.config as field}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (153:16) {#if config.measurement}
+    // (152:16) {#if config.measurement}
     function create_if_block$g(ctx) {
     	let formgroup;
     	let current;
@@ -17350,14 +17349,14 @@ var app = (function () {
     		block,
     		id: create_if_block$g.name,
     		type: "if",
-    		source: "(153:16) {#if config.measurement}",
+    		source: "(152:16) {#if config.measurement}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (155:24) <Label class="col-sm-4" for="measurement">
+    // (154:24) <Label class="col-sm-4" for="measurement">
     function create_default_slot_6(ctx) {
     	let t;
 
@@ -17377,14 +17376,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(155:24) <Label class=\\\"col-sm-4\\\" for=\\\"measurement\\\">",
+    		source: "(154:24) <Label class=\\\"col-sm-4\\\" for=\\\"measurement\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (157:28) <CustomInput                                 bind:value={targetEdited.measurement}                                 type="select"                                 class="custom-select-sm"                                 id="measurement"                                 name="measurement"                             >
+    // (156:28) <CustomInput                                 bind:value={targetEdited.measurement}                                 type="select"                                 class="custom-select-sm"                                 id="measurement"                                 name="measurement"                             >
     function create_default_slot_5$2(ctx) {
     	let option0;
     	let t1;
@@ -17404,13 +17403,13 @@ var app = (function () {
     			option2.textContent = "Both";
     			option0.__value = "tag";
     			option0.value = option0.__value;
-    			add_location(option0, file$o, 163, 32, 6429);
+    			add_location(option0, file$o, 162, 32, 6376);
     			option1.__value = "measure";
     			option1.value = option1.__value;
-    			add_location(option1, file$o, 164, 32, 6494);
+    			add_location(option1, file$o, 163, 32, 6441);
     			option2.__value = "both";
     			option2.value = option2.__value;
-    			add_location(option2, file$o, 165, 32, 6567);
+    			add_location(option2, file$o, 164, 32, 6514);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option0, anchor);
@@ -17432,14 +17431,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5$2.name,
     		type: "slot",
-    		source: "(157:28) <CustomInput                                 bind:value={targetEdited.measurement}                                 type=\\\"select\\\"                                 class=\\\"custom-select-sm\\\"                                 id=\\\"measurement\\\"                                 name=\\\"measurement\\\"                             >",
+    		source: "(156:28) <CustomInput                                 bind:value={targetEdited.measurement}                                 type=\\\"select\\\"                                 class=\\\"custom-select-sm\\\"                                 id=\\\"measurement\\\"                                 name=\\\"measurement\\\"                             >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (154:20) <FormGroup class="row">
+    // (153:20) <FormGroup class="row">
     function create_default_slot_4$2(ctx) {
     	let label;
     	let t;
@@ -17485,7 +17484,7 @@ var app = (function () {
     			div = element("div");
     			create_component(custominput.$$.fragment);
     			attr_dev(div, "class", "col-sm-8");
-    			add_location(div, file$o, 155, 24, 6030);
+    			add_location(div, file$o, 154, 24, 5977);
     		},
     		m: function mount(target, anchor) {
     			mount_component(label, target, anchor);
@@ -17539,14 +17538,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$2.name,
     		type: "slot",
-    		source: "(154:20) <FormGroup class=\\\"row\\\">",
+    		source: "(153:20) <FormGroup class=\\\"row\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (102:12) <Form class="small">
+    // (101:12) <Form class="small">
     function create_default_slot_3$3(ctx) {
     	let formgroup0;
     	let t0;
@@ -17623,8 +17622,8 @@ var app = (function () {
     			t5 = space();
     			if (if_block) if_block.c();
     			if_block_anchor = empty();
-    			add_location(hr0, file$o, 137, 16, 5183);
-    			add_location(hr1, file$o, 151, 16, 5830);
+    			add_location(hr0, file$o, 136, 16, 5130);
+    			add_location(hr1, file$o, 150, 16, 5777);
     		},
     		m: function mount(target, anchor) {
     			mount_component(formgroup0, target, anchor);
@@ -17748,14 +17747,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$3.name,
     		type: "slot",
-    		source: "(102:12) <Form class=\\\"small\\\">",
+    		source: "(101:12) <Form class=\\\"small\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (101:8) <Col xs="4" class="mt-3">
+    // (100:8) <Col xs="4" class="mt-3">
     function create_default_slot_2$4(ctx) {
     	let form;
     	let current;
@@ -17804,14 +17803,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$4.name,
     		type: "slot",
-    		source: "(101:8) <Col xs=\\\"4\\\" class=\\\"mt-3\\\">",
+    		source: "(100:8) <Col xs=\\\"4\\\" class=\\\"mt-3\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (175:12) {#each tags as tag (tag.id)}
+    // (174:12) {#each tags as tag (tag.id)}
     function create_each_block$6(key_1, ctx) {
     	let first;
     	let targettag;
@@ -17876,14 +17875,14 @@ var app = (function () {
     		block,
     		id: create_each_block$6.name,
     		type: "each",
-    		source: "(175:12) {#each tags as tag (tag.id)}",
+    		source: "(174:12) {#each tags as tag (tag.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (173:8) <Col xs="8" class="mt-3">
+    // (172:8) <Col xs="8" class="mt-3">
     function create_default_slot_1$6(ctx) {
     	let p;
     	let t1;
@@ -17913,7 +17912,7 @@ var app = (function () {
     			}
 
     			each_1_anchor = empty();
-    			add_location(p, file$o, 173, 12, 6812);
+    			add_location(p, file$o, 172, 12, 6759);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -17968,14 +17967,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$6.name,
     		type: "slot",
-    		source: "(173:8) <Col xs=\\\"8\\\" class=\\\"mt-3\\\">",
+    		source: "(172:8) <Col xs=\\\"8\\\" class=\\\"mt-3\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (100:4) <Row>
+    // (99:4) <Row>
     function create_default_slot$8(ctx) {
     	let col0;
     	let t;
@@ -18052,7 +18051,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$8.name,
     		type: "slot",
-    		source: "(100:4) <Row>",
+    		source: "(99:4) <Row>",
     		ctx
     	});
 
@@ -18097,17 +18096,17 @@ var app = (function () {
     			create_component(row.$$.fragment);
     			attr_dev(a0, "href", "/");
     			attr_dev(a0, "class", "btn btn-light btn-sm");
-    			add_location(a0, file$o, 85, 8, 3153);
+    			add_location(a0, file$o, 84, 8, 3100);
     			attr_dev(a1, "href", "/");
     			attr_dev(a1, "class", "btn btn-light btn-sm");
-    			add_location(a1, file$o, 89, 8, 3277);
+    			add_location(a1, file$o, 88, 8, 3224);
     			attr_dev(a2, "href", "/");
     			attr_dev(a2, "class", "btn btn-link btn-sm text-muted float-right");
-    			add_location(a2, file$o, 93, 8, 3404);
+    			add_location(a2, file$o, 92, 8, 3351);
     			attr_dev(div0, "class", "mt-1 pt-2");
-    			add_location(div0, file$o, 84, 4, 3121);
+    			add_location(div0, file$o, 83, 4, 3068);
     			attr_dev(div1, "class", "targets svelte-1jw2ze9");
-    			add_location(div1, file$o, 83, 0, 3095);
+    			add_location(div1, file$o, 82, 0, 3042);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -20434,7 +20433,7 @@ var app = (function () {
     const { console: console_1$3 } = globals;
     const file$r = "svelte/App.svelte";
 
-    // (117:3) <Col xs="8" class="p-3 pl-4">
+    // (116:12) <Col xs="8" class="p-3 pl-4">
     function create_default_slot_3$5(ctx) {
     	let span;
     	let t0_value = /*addon*/ ctx[1].name + "";
@@ -20486,40 +20485,40 @@ var app = (function () {
     			small2 = element("small");
     			t9 = text("Configuration");
     			attr_dev(span, "class", "mr-4");
-    			add_location(span, file$r, 117, 4, 3268);
+    			add_location(span, file$r, 116, 16, 4216);
     			attr_dev(i0, "class", "fab fa-bluetooth fa-sm");
-    			add_location(i0, file$r, 119, 5, 3427);
+    			add_location(i0, file$r, 118, 20, 4402);
 
     			attr_dev(small0, "class", small0_class_value = "ml-1 " + (/*panel*/ ctx[4] === `discover`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small0, file$r, 120, 5, 3471);
+    			add_location(small0, file$r, 119, 20, 4461);
     			attr_dev(a0, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a0, "href", "/");
-    			add_location(a0, file$r, 118, 4, 3311);
+    			add_location(a0, file$r, 117, 16, 4271);
     			attr_dev(i1, "class", "fas fa-database fa-sm");
-    			add_location(i1, file$r, 125, 5, 3719);
+    			add_location(i1, file$r, 124, 20, 4781);
 
     			attr_dev(small1, "class", small1_class_value = "ml-1 " + (/*panel*/ ctx[4] === `targets`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small1, file$r, 126, 5, 3762);
+    			add_location(small1, file$r, 125, 20, 4839);
     			attr_dev(a1, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a1, "href", "/");
-    			add_location(a1, file$r, 124, 4, 3604);
+    			add_location(a1, file$r, 123, 16, 4651);
     			attr_dev(i2, "class", "fas fa-cog fa-sm");
-    			add_location(i2, file$r, 131, 5, 4007);
+    			add_location(i2, file$r, 130, 20, 5156);
 
     			attr_dev(small2, "class", small2_class_value = "ml-1 " + (/*panel*/ ctx[4] === `config`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small2, file$r, 132, 5, 4045);
+    			add_location(small2, file$r, 131, 20, 5209);
     			attr_dev(a2, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a2, "href", "/");
-    			add_location(a2, file$r, 130, 4, 3893);
+    			add_location(a2, file$r, 129, 16, 5027);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -20591,14 +20590,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$5.name,
     		type: "slot",
-    		source: "(117:3) <Col xs=\\\"8\\\" class=\\\"p-3 pl-4\\\">",
+    		source: "(116:12) <Col xs=\\\"8\\\" class=\\\"p-3 pl-4\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (138:3) <Col xs="4" class="m-auto pr-4">
+    // (137:12) <Col xs="4" class="m-auto pr-4">
     function create_default_slot_2$6(ctx) {
     	let div;
     	let small;
@@ -20631,21 +20630,21 @@ var app = (function () {
     			attr_dev(a0, "class", "text-white font-weight-lighter text-decoration-none");
     			attr_dev(a0, "href", a0_href_value = "" + (/*addon*/ ctx[1].url + "/blob/master/CHANGELOG.md"));
     			attr_dev(a0, "target", "_blank");
-    			add_location(a0, file$r, 141, 7, 4284);
-    			add_location(em, file$r, 140, 6, 4272);
-    			add_location(small, file$r, 139, 5, 4258);
+    			add_location(a0, file$r, 140, 28, 5577);
+    			add_location(em, file$r, 139, 24, 5544);
+    			add_location(small, file$r, 138, 20, 5512);
     			attr_dev(i, "class", "fab fa-github fa-sm");
-    			add_location(i, file$r, 147, 6, 4545);
+    			add_location(i, file$r, 146, 24, 5949);
     			attr_dev(a1, "class", "ml-2 text-white");
     			attr_dev(a1, "href", a1_href_value = /*addon*/ ctx[1].url);
     			attr_dev(a1, "target", "_blank");
-    			add_location(a1, file$r, 146, 5, 4476);
+    			add_location(a1, file$r, 145, 20, 5862);
     			attr_dev(a2, "class", "ml-1 text-white");
     			attr_dev(a2, "href", "https://ruuvi.com/");
     			attr_dev(a2, "target", "_blank");
-    			add_location(a2, file$r, 149, 5, 4596);
+    			add_location(a2, file$r, 148, 20, 6030);
     			attr_dev(div, "class", "float-right");
-    			add_location(div, file$r, 138, 4, 4227);
+    			add_location(div, file$r, 137, 16, 5466);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -20682,14 +20681,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$6.name,
     		type: "slot",
-    		source: "(138:3) <Col xs=\\\"4\\\" class=\\\"m-auto pr-4\\\">",
+    		source: "(137:12) <Col xs=\\\"4\\\" class=\\\"m-auto pr-4\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (116:2) <Row class="app-bgcolor" id="header">
+    // (115:8) <Row class="app-bgcolor" id="header">
     function create_default_slot_1$8(ctx) {
     	let col0;
     	let t;
@@ -20766,14 +20765,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$8.name,
     		type: "slot",
-    		source: "(116:2) <Row class=\\\"app-bgcolor\\\" id=\\\"header\\\">",
+    		source: "(115:8) <Row class=\\\"app-bgcolor\\\" id=\\\"header\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (157:3) {#if panel === `discover`}
+    // (156:12) {#if panel === `discover`}
     function create_if_block_2$9(ctx) {
     	let paneldiscover;
     	let updating_cols;
@@ -20838,14 +20837,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$9.name,
     		type: "if",
-    		source: "(157:3) {#if panel === `discover`}",
+    		source: "(156:12) {#if panel === `discover`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (160:3) {#if panel === `targets`}
+    // (159:12) {#if panel === `targets`}
     function create_if_block_1$b(ctx) {
     	let paneltargets;
     	let current;
@@ -20886,14 +20885,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$b.name,
     		type: "if",
-    		source: "(160:3) {#if panel === `targets`}",
+    		source: "(159:12) {#if panel === `targets`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (163:3) {#if panel === `config`}
+    // (162:12) {#if panel === `config`}
     function create_if_block$j(ctx) {
     	let panelconfig;
     	let current;
@@ -20934,14 +20933,14 @@ var app = (function () {
     		block,
     		id: create_if_block$j.name,
     		type: "if",
-    		source: "(163:3) {#if panel === `config`}",
+    		source: "(162:12) {#if panel === `config`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (115:1) <Container fluid id="page">
+    // (114:4) <Container fluid id="page">
     function create_default_slot$a(ctx) {
     	let row;
     	let t0;
@@ -20975,7 +20974,7 @@ var app = (function () {
     			t2 = space();
     			if (if_block2) if_block2.c();
     			attr_dev(div, "class", "mb-4");
-    			add_location(div, file$r, 155, 2, 4728);
+    			add_location(div, file$r, 154, 8, 6228);
     		},
     		m: function mount(target, anchor) {
     			mount_component(row, target, anchor);
@@ -21095,7 +21094,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$a.name,
     		type: "slot",
-    		source: "(115:1) <Container fluid id=\\\"page\\\">",
+    		source: "(114:4) <Container fluid id=\\\"page\\\">",
     		ctx
     	});
 
@@ -21121,7 +21120,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			create_component(container.$$.fragment);
-    			add_location(main, file$r, 113, 0, 3155);
+    			add_location(main, file$r, 112, 0, 4073);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -21193,9 +21192,7 @@ var app = (function () {
     		url: `https://github.com/balda/ruuvitag-discovery`
     	};
 
-    	// let config = {};
     	let tags = wsTags(ws);
-
     	validate_store(tags, "tags");
     	component_subscribe($$self, tags, value => $$invalidate(5, $tags = value));
     	let ruuvitags = {};
@@ -21218,7 +21215,7 @@ var app = (function () {
     	//                 </span>
     	//             `;
     	//         },
-    	// 	},
+    	//     },
     	// ];
     	let panel = `discover`;
 
@@ -21257,12 +21254,12 @@ var app = (function () {
     					$$invalidate(2, ruuvitags = data.config.ruuvitags);
     				}
     			} // if (data.config.columns) {
-    			// 	cols = Object.keys(data.config.columns).map(field => {
+    			//     cols = Object.keys(data.config.columns).map(field => {
 
-    			// 		return {
-    			// 			field,
-    			// 		}
-    			// 	});
+    			//         return {
+    			//             field,
+    			//         }
+    			//     });
     			// }
     			if (data.measures) {
     				set_store_value(dictMeasures, $dictMeasures = data.measures, $dictMeasures);
@@ -21456,12 +21453,12 @@ var app = (function () {
     const ruuvi = `<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 999.56 1200"><defs><style>.a{fill:#fff;}</style></defs><path class="a" d="M499.59,2C223.56,2-.22,225.81-.25,501.95S223.46,1002,499.48,1002,999.23,778.26,999.32,502.16C999.78,226.42,776.72,2.51,501.1,2.05h-1.51M603,829.42c-174.61,0-316.64-140.69-318.36-315.37a216.85,216.85,0,0,0,70.71,11.63c121.74,0,220.43-98.72,220.44-220.51A220.6,220.6,0,0,0,547.46,197,328.75,328.75,0,0,1,603,191.8c175.87,0,318.44,142.63,318.44,318.58S778.86,829,603,829"/></svg>`; //  width="16" height="16"
 
     const app = new App({
-    	target: document.body,
-    	props: {
-    		ruuvi,
-    		_root,
-    		ws,
-    	}
+        target: document.body,
+        props: {
+            ruuvi,
+            _root,
+            ws,
+        }
     });
 
     return app;

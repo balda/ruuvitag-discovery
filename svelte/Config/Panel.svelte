@@ -220,5 +220,3 @@
         {/if}
     </Col>
 </Row>
-
-<!-- <pre>{JSON.stringify(config, null, 2)}</pre> -->

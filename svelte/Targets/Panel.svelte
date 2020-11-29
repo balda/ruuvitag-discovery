@@ -25,5 +25,3 @@
      bind:edited={edited}
     />
 {/if}
-
-<!-- <pre>{JSON.stringify($targets, null, 2)}</pre> -->

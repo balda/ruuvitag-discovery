@@ -2,7 +2,6 @@
     import { dictMeasures } from './../store/dict.js';
     import { Container, Row, Col, CustomInput } from 'sveltestrap';
     import TargetTagMeasure from  './TargetTagMeasure.svelte';
-    // import Tooltip from './../UI/Tooltip.svelte';
     export let tag = {};
     export let targetTag = {};
     let state = `view`; // `view` | `edit`
@@ -72,6 +71,5 @@
         </Container>
     {/if}
 </div>
-<!-- <pre class="small">{JSON.stringify(targetTag, null, 2)}</pre> -->
 
 <hr>
