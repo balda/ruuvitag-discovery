@@ -1,5 +1,5 @@
 <script>
-    import { api, root, tags } from './../store/api.js';
+    import { api, tags } from './../store/api.js';
     import { targets } from './../store/targets.js';
     import { dictTargets, dictMeasures } from './../store/dict.js';
     import { createEventDispatcher } from 'svelte';
@@ -64,7 +64,7 @@
             }
         }
         try {
-            targets.set(await api.post(`${$root}target`, data));
+            targets.set(await api.post(`target`, data));
         } catch(error) {
             console.log(error);
         }

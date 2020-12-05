@@ -264,6 +264,10 @@ const store = {
             config.targets[targetIndex].enable = 0
             await handleTarget(config.targets[targetIndex])
             config.targets.splice(targetIndex, 1)
+            config.targets.map((target, index) => {
+                target.id = 1 * index
+                return target
+            })
             config.backup()
             return config.targets
         }

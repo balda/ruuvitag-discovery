@@ -1,5 +1,5 @@
 <script>
-    import { api, root, cols } from './../store/api.js';
+    import { api, cols } from './../store/api.js';
 	import { config } from './../store/config.js';
 	import { targets } from './../store/targets.js';
     import { FormGroup, CustomInput, Label, Row, Col } from 'sveltestrap';
@@ -19,7 +19,7 @@
             const data = {};
             data[`${target}`] = configEdited[target];
             try {
-                await api.post(`${$root}config`, data);
+                await api.post(`config`, data);
                 $config[target] = configEdited[target];
             } catch(error) {
                 console.log(error);

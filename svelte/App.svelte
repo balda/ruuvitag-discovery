@@ -50,9 +50,9 @@
             console.log(error);
         }
     });
-    ws.addEventListener(`open`, () => {
-        console.log(`ws connected`);
-    });
+    // ws.addEventListener(`open`, () => {
+    //     console.log(`ws connected`);
+    // });
     ws.addEventListener(`message`, (message) => {
         try {
             const data = JSON.parse(message.data);

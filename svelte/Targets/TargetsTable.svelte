@@ -1,5 +1,5 @@
 <script>
-    import { api, root } from './../store/api.js';
+    import { api } from './../store/api.js';
     import { targets } from './../store/targets.js';
     import { Button, Table, Row, Col } from 'sveltestrap';
     import Tooltip from './../UI/Tooltip.svelte';
@@ -10,7 +10,7 @@
         // state = `saving`;
         if (confirm(`Confirm Delete`)) {
             try {
-                targets.set(await api.post(`${$root}target/delete`, {
+                targets.set(await api.post(`target/delete`, {
                     id: target.id
                 }));
             } catch(error) {

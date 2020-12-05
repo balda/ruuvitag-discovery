@@ -3,9 +3,11 @@
 
 import { writable } from 'svelte/store';
 
-const request = method => async (url, data) => {
+const root = `${document.getElementsByTagName(`base`)[0].getAttribute(`href`)}`;
+
+const request = method => async (path, data) => {
     try {
-        const response = await fetch(url, {
+        const response = await fetch(`${root}${path}`, {
             method,
             headers: {
                 'Content-Type': `application/json`,
@@ -13,10 +15,10 @@ const request = method => async (url, data) => {
             body: JSON.stringify(data),
         });
         if (response.ok) {
-            if (response.statusText === `OK`) {
-                return await response.text();
-            } else {
+            if (response.headers.get(`Content-Type`).startsWith(`application/json`)) {
                 return await response.json();
+            } else {
+                return await response.text();
             }
         } else {
             throw new Error(response.statusText);
@@ -33,7 +35,13 @@ export const api = {
     delete: request(`DELETE`),
 };
 
-export const root = writable(`${document.getElementsByTagName(`base`)[0].getAttribute(`href`)}`);
+export const syncColumns = (colStore) => {
+    const columns = {};
+    for (const col of colStore.filter(col => col.show).map(col => col.field)) {
+        columns[col] = true;
+    }
+    // console.log(columns);
+};
 
 export const tags = writable([]);
 

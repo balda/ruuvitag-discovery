@@ -1,7 +1,8 @@
 <script>
-    import { cols } from './../store/api.js';
+    import { cols, syncColumns } from './../store/api.js';
     import { FormGroup, CustomInput, Label, Row, Col } from 'sveltestrap';
     let showSelectColumns = false;
+    $: syncColumns($cols);
 </script>
 
 <style>
