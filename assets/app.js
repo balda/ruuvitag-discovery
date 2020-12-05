@@ -18784,7 +18784,7 @@ var app = (function () {
     			append_dev(div5, a);
 
     			if (!mounted) {
-    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_1*/ ctx[15]), false, true, false);
+    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_1*/ ctx[14]), false, true, false);
     				mounted = true;
     			}
     		},
@@ -18880,7 +18880,7 @@ var app = (function () {
     			t9 = space();
     			if_block.c();
     			if_block_anchor = empty();
-    			attr_dev(label0, "class", label0_class_value = "col-sm-" + /*col_left*/ ctx[9] + " col-form-label-sm");
+    			attr_dev(label0, "class", label0_class_value = "col-sm-" + /*col_left*/ ctx[8] + " col-form-label-sm");
     			add_location(label0, file$q, 42, 24, 1418);
     			attr_dev(input0, "type", "number");
     			attr_dev(input0, "name", "history");
@@ -18890,11 +18890,11 @@ var app = (function () {
     			add_location(em0, file$q, 52, 32, 2006);
     			attr_dev(small0, "class", "form-text text-muted");
     			add_location(small0, file$q, 51, 28, 1937);
-    			attr_dev(div0, "class", div0_class_value = "col-sm-" + /*col_right*/ ctx[10]);
+    			attr_dev(div0, "class", div0_class_value = "col-sm-" + /*col_right*/ ctx[9]);
     			add_location(div0, file$q, 45, 24, 1563);
     			attr_dev(div1, "class", "form-group row");
     			add_location(div1, file$q, 41, 20, 1365);
-    			attr_dev(label1, "class", label1_class_value = "col-sm-" + /*col_left*/ ctx[9] + " col-form-label-sm");
+    			attr_dev(label1, "class", label1_class_value = "col-sm-" + /*col_left*/ ctx[8] + " col-form-label-sm");
     			add_location(label1, file$q, 57, 24, 2206);
     			attr_dev(input1, "type", "number");
     			attr_dev(input1, "name", "interval");
@@ -18904,7 +18904,7 @@ var app = (function () {
     			add_location(em1, file$q, 67, 32, 2806);
     			attr_dev(small1, "class", "form-text text-muted");
     			add_location(small1, file$q, 66, 28, 2737);
-    			attr_dev(div2, "class", div2_class_value = "col-sm-" + /*col_right*/ ctx[10]);
+    			attr_dev(div2, "class", div2_class_value = "col-sm-" + /*col_right*/ ctx[9]);
     			add_location(div2, file$q, 60, 24, 2361);
     			attr_dev(div3, "class", "form-group row");
     			add_location(div3, file$q, 56, 20, 2153);
@@ -18942,8 +18942,8 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[12]),
-    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[13])
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[11]),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[12])
     				];
 
     				mounted = true;
@@ -19031,8 +19031,8 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(a0, "click", prevent_default(/*click_handler*/ ctx[14]), false, true, false),
-    					listen_dev(a1, "click", prevent_default(/*save*/ ctx[11](`sampling`)), false, true, false)
+    					listen_dev(a0, "click", prevent_default(/*click_handler*/ ctx[13]), false, true, false),
+    					listen_dev(a1, "click", prevent_default(/*save*/ ctx[10](`sampling`)), false, true, false)
     				];
 
     				mounted = true;
@@ -19232,7 +19232,7 @@ var app = (function () {
     			append_dev(div5, a);
 
     			if (!mounted) {
-    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_3*/ ctx[19]), false, true, false);
+    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_3*/ ctx[18]), false, true, false);
     				mounted = true;
     			}
     		},
@@ -19328,7 +19328,7 @@ var app = (function () {
     			t9 = space();
     			if_block.c();
     			if_block_anchor = empty();
-    			attr_dev(label0, "class", label0_class_value = "col-sm-" + /*col_left*/ ctx[9] + " col-form-label-sm");
+    			attr_dev(label0, "class", label0_class_value = "col-sm-" + /*col_left*/ ctx[8] + " col-form-label-sm");
     			add_location(label0, file$q, 117, 24, 4808);
     			attr_dev(input0, "type", "number");
     			attr_dev(input0, "name", "min");
@@ -19338,11 +19338,11 @@ var app = (function () {
     			add_location(em0, file$q, 127, 32, 5388);
     			attr_dev(small0, "class", "form-text text-muted");
     			add_location(small0, file$q, 126, 28, 5319);
-    			attr_dev(div0, "class", div0_class_value = "col-sm-" + /*col_right*/ ctx[10]);
+    			attr_dev(div0, "class", div0_class_value = "col-sm-" + /*col_right*/ ctx[9]);
     			add_location(div0, file$q, 120, 24, 4954);
     			attr_dev(div1, "class", "form-group row");
     			add_location(div1, file$q, 116, 20, 4755);
-    			attr_dev(label1, "class", label1_class_value = "col-sm-" + /*col_left*/ ctx[9] + " col-form-label-sm");
+    			attr_dev(label1, "class", label1_class_value = "col-sm-" + /*col_left*/ ctx[8] + " col-form-label-sm");
     			add_location(label1, file$q, 132, 24, 5593);
     			attr_dev(input1, "type", "number");
     			attr_dev(input1, "name", "max");
@@ -19352,7 +19352,7 @@ var app = (function () {
     			add_location(em1, file$q, 142, 32, 6175);
     			attr_dev(small1, "class", "form-text text-muted");
     			add_location(small1, file$q, 141, 28, 6106);
-    			attr_dev(div2, "class", div2_class_value = "col-sm-" + /*col_right*/ ctx[10]);
+    			attr_dev(div2, "class", div2_class_value = "col-sm-" + /*col_right*/ ctx[9]);
     			add_location(div2, file$q, 135, 24, 5741);
     			attr_dev(div3, "class", "form-group row");
     			add_location(div3, file$q, 131, 20, 5540);
@@ -19390,8 +19390,8 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input0, "input", /*input0_input_handler_1*/ ctx[16]),
-    					listen_dev(input1, "input", /*input1_input_handler_1*/ ctx[17])
+    					listen_dev(input0, "input", /*input0_input_handler_1*/ ctx[15]),
+    					listen_dev(input1, "input", /*input1_input_handler_1*/ ctx[16])
     				];
 
     				mounted = true;
@@ -19479,8 +19479,8 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(a0, "click", prevent_default(/*click_handler_2*/ ctx[18]), false, true, false),
-    					listen_dev(a1, "click", prevent_default(/*save*/ ctx[11](`battery`)), false, true, false)
+    					listen_dev(a0, "click", prevent_default(/*click_handler_2*/ ctx[17]), false, true, false),
+    					listen_dev(a1, "click", prevent_default(/*save*/ ctx[10](`battery`)), false, true, false)
     				];
 
     				mounted = true;
@@ -19645,14 +19645,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope, state, saving, editSampling, configEdited, $config*/ 16777303) {
+    			if (dirty & /*$$scope, state, saving, editSampling, configEdited, $config*/ 8388695) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope, state, saving, editBattery, configEdited, $config*/ 16777307) {
+    			if (dirty & /*$$scope, state, saving, editBattery, configEdited, $config*/ 8388699) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -19705,7 +19705,7 @@ var app = (function () {
     			insert_dev(target, a, anchor);
 
     			if (!mounted) {
-    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_6*/ ctx[22]), false, true, false);
+    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_6*/ ctx[21]), false, true, false);
     				mounted = true;
     			}
     		},
@@ -19746,7 +19746,7 @@ var app = (function () {
     			insert_dev(target, a, anchor);
 
     			if (!mounted) {
-    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_7*/ ctx[23]), false, true, false);
+    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_7*/ ctx[22]), false, true, false);
     				mounted = true;
     			}
     		},
@@ -19788,15 +19788,15 @@ var app = (function () {
 
     			textarea.value = textarea_value_value = JSON.stringify(
     				{
-    					sampling: /*$config*/ ctx[6].sampling, // columns: app.columns,
+    					sampling: /*$config*/ ctx[6].sampling,
     					battery: /*$config*/ ctx[6].battery,
     					ruuvitags: /*$config*/ ctx[6].ruuvitags,
     					targets: /*$targets*/ ctx[7],
-    					cols: /*$cols*/ ctx[8]
+    					columns: /*$config*/ ctx[6].columns
     				},
     				null,
     				2
-    			); // columns: app.columns,
+    			);
 
     			add_location(textarea, file$q, 209, 23, 8853);
     			add_location(small, file$q, 209, 16, 8846);
@@ -19813,18 +19813,18 @@ var app = (function () {
     				prop_dev(textarea, "readOnly", textarea_readonly_value);
     			}
 
-    			if (dirty & /*$config, $targets, $cols*/ 448 && textarea_value_value !== (textarea_value_value = JSON.stringify(
+    			if (dirty & /*$config, $targets*/ 192 && textarea_value_value !== (textarea_value_value = JSON.stringify(
     				{
-    					sampling: /*$config*/ ctx[6].sampling, // columns: app.columns,
+    					sampling: /*$config*/ ctx[6].sampling,
     					battery: /*$config*/ ctx[6].battery,
     					ruuvitags: /*$config*/ ctx[6].ruuvitags,
     					targets: /*$targets*/ ctx[7],
-    					cols: /*$cols*/ ctx[8]
+    					columns: /*$config*/ ctx[6].columns
     				},
     				null,
     				2
     			))) {
-    				prop_dev(textarea, "value", textarea_value_value); // columns: app.columns,
+    				prop_dev(textarea, "value", textarea_value_value);
     			}
     		},
     		d: function destroy(detaching) {
@@ -19893,8 +19893,8 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(a0, "click", prevent_default(/*click_handler_4*/ ctx[20]), false, true, false),
-    					listen_dev(a1, "click", prevent_default(/*click_handler_5*/ ctx[21]), false, true, false)
+    					listen_dev(a0, "click", prevent_default(/*click_handler_4*/ ctx[19]), false, true, false),
+    					listen_dev(a1, "click", prevent_default(/*click_handler_5*/ ctx[20]), false, true, false)
     				];
 
     				mounted = true;
@@ -19992,7 +19992,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col_changes = {};
 
-    			if (dirty & /*$$scope, stateConfig, $config, $targets, $cols*/ 16777696) {
+    			if (dirty & /*$$scope, stateConfig, $config, $targets*/ 8388832) {
     				col_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20065,14 +20065,14 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const row0_changes = {};
 
-    			if (dirty & /*$$scope, state, saving, editBattery, configEdited, $config, editSampling*/ 16777311) {
+    			if (dirty & /*$$scope, state, saving, editBattery, configEdited, $config, editSampling*/ 8388703) {
     				row0_changes.$$scope = { dirty, ctx };
     			}
 
     			row0.$set(row0_changes);
     			const row1_changes = {};
 
-    			if (dirty & /*$$scope, stateConfig, $config, $targets, $cols*/ 16777696) {
+    			if (dirty & /*$$scope, stateConfig, $config, $targets*/ 8388832) {
     				row1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20110,13 +20110,10 @@ var app = (function () {
     function instance$w($$self, $$props, $$invalidate) {
     	let $config;
     	let $targets;
-    	let $cols;
     	validate_store(config, "config");
     	component_subscribe($$self, config, $$value => $$invalidate(6, $config = $$value));
     	validate_store(targets, "targets");
     	component_subscribe($$self, targets, $$value => $$invalidate(7, $targets = $$value));
-    	validate_store(cols, "cols");
-    	component_subscribe($$self, cols, $$value => $$invalidate(8, $cols = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Panel", slots, []);
     	let configEdited = JSON.parse(JSON.stringify($config));
@@ -20227,14 +20224,13 @@ var app = (function () {
     		stateConfig,
     		save,
     		$config,
-    		$targets,
-    		$cols
+    		$targets
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("configEdited" in $$props) $$invalidate(0, configEdited = $$props.configEdited);
-    		if ("col_left" in $$props) $$invalidate(9, col_left = $$props.col_left);
-    		if ("col_right" in $$props) $$invalidate(10, col_right = $$props.col_right);
+    		if ("col_left" in $$props) $$invalidate(8, col_left = $$props.col_left);
+    		if ("col_right" in $$props) $$invalidate(9, col_right = $$props.col_right);
     		if ("state" in $$props) $$invalidate(1, state = $$props.state);
     		if ("editSampling" in $$props) $$invalidate(2, editSampling = $$props.editSampling);
     		if ("editBattery" in $$props) $$invalidate(3, editBattery = $$props.editBattery);
@@ -20255,7 +20251,6 @@ var app = (function () {
     		stateConfig,
     		$config,
     		$targets,
-    		$cols,
     		col_left,
     		col_right,
     		save,

@@ -212,8 +212,7 @@
                     battery: $config.battery,
                     ruuvitags: $config.ruuvitags,
                     targets: $targets,
-                    cols: $cols,
-                    // columns: app.columns,
+                    columns: $config.columns,
                 }, null, 2)}</textarea></small>
             </div>
         {/if}
