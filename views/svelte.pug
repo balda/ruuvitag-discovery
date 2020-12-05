@@ -9,11 +9,11 @@ head
     meta(name="robots" content="noindex")
     meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
     //- link(rel="icon" type="image/png" href="${ingress}assets/favicon.png")
-    link(rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css")
+    link(rel="stylesheet" href=`${ingress}assets/css/bootstrap.4.5.0.min.css`)
     link(rel="stylesheet" href=`${ingress}assets/app${version}.css`)
     link(rel="stylesheet" href=`${ingress}assets/fa/css/all.min-5.13.0.css`)
     script(defer src=`${ingress}assets/app${version}.js`)
-    script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js")
+    script(src=`${ingress}assets/moment-with-locales.2.24.0.min.js`)
     style .app-color {color: #45A5F0;} .app-bgcolor {background-color: #45A5F0; color: white;} 
 
 body.h-100
