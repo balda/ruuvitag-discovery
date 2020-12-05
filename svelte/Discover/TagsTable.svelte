@@ -1,4 +1,5 @@
 <script>
+    import { tags } from './../store/api.js';
     import { targets } from './../store/targets.js';
     import { Table } from 'sveltestrap';
     import Tooltip from './../UI/Tooltip.svelte';
@@ -6,11 +7,7 @@
     import CellDatabase from './Cell/Database.svelte';
     import CellInfo from './Cell/Info.svelte';
     export let cols = [];
-    export let tags = [];
     export let ruuvitags = {};
-    $: {
-        tags = tags;
-    }
 </script>
 
 <Table class="table-sm font-weight-lighter small" responsive>
@@ -39,7 +36,7 @@
         </tr>
     </thead>
     <tbody>
-        {#each tags as tag (tag.id)}
+        {#each $tags as tag (tag.id)}
             <tr>
                 {#each cols as col (col.field)}
                     {#if col.show}

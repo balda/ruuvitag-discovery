@@ -3,7 +3,6 @@
     import { dictTargets } from './../store/dict.js';
     import TargetsTable from './TargetsTable.svelte';
     import TargetEdit from  './TargetEdit.svelte';
-    export let tags = [];
     let edited = -1;
 </script>
 
@@ -16,12 +15,7 @@
             </a>
         {/each}
     </div>
-    <TargetsTable
-     bind:edited={edited}
-    />
+    <TargetsTable bind:edited={edited} />
 {:else}
-    <TargetEdit
-     {tags}
-     bind:edited={edited}
-    />
+    <TargetEdit bind:edited={edited} />
 {/if}

@@ -1,6 +1,5 @@
 <script>
-    import { root } from './store/api.js';
-    import wsTags from './store/tags.js';
+    import { root, tags } from './store/api.js';
     import { config } from './store/config.js';
     import { targets } from './store/targets.js';
     import { dictTargets, dictMeasures } from './store/dict.js';
@@ -8,16 +7,14 @@
     import PanelDiscover from './Discover/Panel.svelte';
     import PanelTargets from './Targets/Panel.svelte';
     import PanelConfig from './Config/Panel.svelte';
-    export let ws;
-    export let ruuvi;
-    export let _root;
-    root.set(_root);
+
+    const ruuvi = `<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 999.56 1200"><defs><style>.a{fill:#fff;}</style></defs><path class="a" d="M499.59,2C223.56,2-.22,225.81-.25,501.95S223.46,1002,499.48,1002,999.23,778.26,999.32,502.16C999.78,226.42,776.72,2.51,501.1,2.05h-1.51M603,829.42c-174.61,0-316.64-140.69-318.36-315.37a216.85,216.85,0,0,0,70.71,11.63c121.74,0,220.43-98.72,220.44-220.51A220.6,220.6,0,0,0,547.46,197,328.75,328.75,0,0,1,603,191.8c175.87,0,318.44,142.63,318.44,318.58S778.86,829,603,829"/></svg>`; //  width="16" height="16"
     let addon = {
         name: `RuuviTags Discovery`,
         version: `0.0.1`,
         url: `https://github.com/balda/ruuvitag-discovery`,
     };
-    let tags = wsTags(ws);
+
     let ruuvitags = {};
     let cols = [];
     // let cols = [
@@ -40,6 +37,19 @@
     //     },
     // ];
     let panel = `discover`;
+
+    const ws = new WebSocket(`ws://${document.URL.split(`//`).splice(1).join(`//`)}`);
+    ws.addEventListener(`message`, (message) => {
+        try {
+            const data = JSON.parse(message.data);
+            if (data.tag) {
+                const tagIndex = $tags.findIndex(tag => tag.id === data.tag.id);
+                $tags[tagIndex === -1 ? $tags.length : tagIndex] = data.tag;
+            }
+        } catch(error) {
+            console.log(error);
+        }
+    });
     ws.addEventListener(`open`, () => {
         console.log(`ws connected`);
     });
@@ -61,7 +71,6 @@
                     data.config.battery.max = 1 * data.config.battery.max;
                     $config.battery = data.config.battery;
                 }
-                // config = data.config;
                 if (data.config.targets) {
                     $targets = data.config.targets;
                 }
@@ -154,10 +163,10 @@
         </Row>
         <div class="mb-4">
             {#if panel === `discover`}
-                <PanelDiscover tags={$tags} {ruuvitags} bind:cols={cols} />
+                <PanelDiscover {ruuvitags} bind:cols={cols} />
             {/if}
             {#if panel === `targets`}
-                <PanelTargets tags={$tags} />
+                <PanelTargets />
             {/if}
             {#if panel === `config`}
                 <PanelConfig {cols} />

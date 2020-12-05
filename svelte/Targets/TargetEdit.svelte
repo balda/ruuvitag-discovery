@@ -1,11 +1,10 @@
 <script>
-    import { api, root } from './../store/api.js';
+    import { api, root, tags } from './../store/api.js';
     import { targets } from './../store/targets.js';
     import { dictTargets, dictMeasures } from './../store/dict.js';
     import { createEventDispatcher } from 'svelte';
     import { Form, FormGroup, FormText, Input, CustomInput, Label, Button, Table, Row, Col } from 'sveltestrap';
     import TargetTag from  './TargetTag.svelte';
-    export let tags = [];
     export let edited;
     const cancel = () => {
         edited = -1;
@@ -23,7 +22,7 @@
     let targetEdited = JSON.parse(JSON.stringify(target));
     targetEdited.enable = 1 * targetEdited.enable;
     targetEdited.tags = {};
-    for (const tag of tags) {
+    for (const tag of $tags) {
         const selected = target.tags && !!target.tags[tag.id];
         const tagEdited = selected ? target.tags[tag.id] : {
             id: null,
@@ -171,7 +170,7 @@
         </Col>
         <Col xs="8" class="mt-3">
             <p>Tags</p>
-            {#each tags as tag (tag.id)}
+            {#each $tags as tag (tag.id)}
                 <TargetTag {tag} bind:targetTag={targetEdited.tags[tag.id]} />
             {/each}
         </Col>

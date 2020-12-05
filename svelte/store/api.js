@@ -1,4 +1,5 @@
 // https://github.com/will-wow/contacts/blob/master/app/javascript/src/api.js
+// https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_stores
 
 import { writable } from 'svelte/store';
 
@@ -32,4 +33,6 @@ export const api = {
     delete: request(`DELETE`),
 };
 
-export const root = writable(``);
+export const root = writable(`${document.getElementsByTagName(`base`)[0].getAttribute(`href`)}`);
+
+export const tags = writable([]);
