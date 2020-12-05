@@ -1,5 +1,5 @@
 <script>
-    import { root, tags } from './store/api.js';
+    import { tags, cols } from './store/api.js';
     import { config } from './store/config.js';
     import { targets } from './store/targets.js';
     import { dictTargets, dictMeasures } from './store/dict.js';
@@ -16,7 +16,7 @@
     };
 
     let ruuvitags = {};
-    let cols = [];
+    // let cols = [];
     // let cols = [
     //     {
     //         title: `Name`,
@@ -87,12 +87,12 @@
             }
             if (data.measures) {
                 $dictMeasures = data.measures;
-                cols = data.measures.map(measure => {
+                $cols = data.measures.map(measure => {
                     measure.render = `measure`;
                     measure.show = measure.required === undefined;
                     return measure;
                 });
-                cols.splice(0, 0, {
+                $cols.splice(0, 0, {
                     label: `ID`,
                     field: `id`,
                     class: `text-left`,
@@ -105,7 +105,7 @@
                     render: `text`,
                     show: true,
                 });
-                cols.push({
+                $cols.push({
                     label: `Last seen`,
                     field: `ts`,
                     render: `date`,
@@ -163,13 +163,13 @@
         </Row>
         <div class="mb-4">
             {#if panel === `discover`}
-                <PanelDiscover {ruuvitags} bind:cols={cols} />
+                <PanelDiscover {ruuvitags} />
             {/if}
             {#if panel === `targets`}
                 <PanelTargets />
             {/if}
             {#if panel === `config`}
-                <PanelConfig {cols} />
+                <PanelConfig />
             {/if}
         </div>
     </Container>

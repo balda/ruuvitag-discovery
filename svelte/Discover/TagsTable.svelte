@@ -1,20 +1,18 @@
 <script>
-    import { tags } from './../store/api.js';
+    import { tags, cols } from './../store/api.js';
     import { targets } from './../store/targets.js';
     import { Table } from 'sveltestrap';
     import Tooltip from './../UI/Tooltip.svelte';
     import Cell from './Cell.svelte';
     import CellDatabase from './Cell/Database.svelte';
     import CellInfo from './Cell/Info.svelte';
-    export let cols = [];
     export let ruuvitags = {};
 </script>
 
 <Table class="table-sm font-weight-lighter small" responsive>
     <thead>
         <tr>
-            <!-- <th></th> -->
-            {#each cols as col (col.field)}
+            {#each $cols as col (col.field)}
                 {#if col.show}
                     <th class="{col.class || `text-right`}">
                         {#if col.unit}
@@ -38,7 +36,7 @@
     <tbody>
         {#each $tags as tag (tag.id)}
             <tr>
-                {#each cols as col (col.field)}
+                {#each $cols as col (col.field)}
                     {#if col.show}
                         <td class="{col.class || `text-right`}">
                             <Cell {col} {tag}/>
@@ -53,7 +51,7 @@
                     {/each}
                 </td>
                 <td class="text-center">
-                    <CellInfo {tag} {cols} />
+                    <CellInfo {tag} />
                 </td>
             </tr>
         {/each}

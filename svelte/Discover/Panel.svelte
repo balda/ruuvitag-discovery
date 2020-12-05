@@ -1,10 +1,9 @@
 <script>
     import ColumsSelect from './ColumsSelect.svelte';
     import TagsTable from './TagsTable.svelte';
-    export let cols = [];
     export let ruuvitags = {};
 </script>
 
-<ColumsSelect bind:cols={cols} />
+<ColumsSelect />
 
-<TagsTable {cols} {ruuvitags} />
+<TagsTable {ruuvitags} />

@@ -1,4 +1,5 @@
 <script>
+    import { cols } from './../../store/api.js';
     import {
         Button,
         Modal,
@@ -9,12 +10,11 @@
     import Tooltip from './../../UI/Tooltip.svelte';
 	import Cell from './../Cell.svelte';
     export let tag = {};
-    export let cols = [];
     let open = false;
     const toggle = () => (open = !open);
     const sources = [`last`, `median`, `first`];
     const col = (field) => {
-        return cols.find(c => c.field === field);
+        return $cols.find(c => c.field === field);
     };
 </script>
 

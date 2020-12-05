@@ -1,10 +1,9 @@
 <script>
-    import { api, root } from './../store/api.js';
+    import { api, root, cols } from './../store/api.js';
 	import { config } from './../store/config.js';
 	import { targets } from './../store/targets.js';
     import { FormGroup, CustomInput, Label, Row, Col } from 'sveltestrap';
     let configEdited = JSON.parse(JSON.stringify($config));
-    export let cols = [];
     let col_left = 5;
     let col_right = 6;
     let state = `view`; // `view` | `saving`
@@ -213,7 +212,7 @@
                     battery: $config.battery,
                     ruuvitags: $config.ruuvitags,
                     targets: $targets,
-                    cols: cols,
+                    cols: $cols,
                     // columns: app.columns,
                 }, null, 2)}</textarea></small>
             </div>

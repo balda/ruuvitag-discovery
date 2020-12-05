@@ -1,6 +1,6 @@
 <script>
+    import { cols } from './../store/api.js';
     import { FormGroup, CustomInput, Label, Row, Col } from 'sveltestrap';
-    export let cols = [];
     let showSelectColumns = false;
 </script>
 
@@ -20,7 +20,7 @@
 <div class="select-columns">
     {#if showSelectColumns}
         <Row>
-            {#each cols as col (col.field)}
+            {#each $cols as col (col.field)}
                 <Col sm="6" md="4" lg="3" xl="2" class="font-weight-lighter small parent">
                     <CustomInput
                         bind:checked={col.show}

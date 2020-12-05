@@ -36,3 +36,5 @@ export const api = {
 export const root = writable(`${document.getElementsByTagName(`base`)[0].getAttribute(`href`)}`);
 
 export const tags = writable([]);
+
+export const cols = writable([]);
