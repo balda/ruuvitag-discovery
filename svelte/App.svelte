@@ -77,19 +77,15 @@
                 if (data.config.ruuvitags) {
                     ruuvitags = data.config.ruuvitags;
                 }
-                // if (data.config.columns) {
-                //     cols = Object.keys(data.config.columns).map(field => {
-                //         return {
-                //             field,
-                //         }
-                //     });
-                // }
+                if (data.config.columns) {
+                    $config.columns = data.config.columns;
+                }
             }
             if (data.measures) {
                 $dictMeasures = data.measures;
                 $cols = data.measures.map(measure => {
                     measure.render = `measure`;
-                    measure.show = measure.required === undefined;
+                    measure.show = $config.columns ? $config.columns[measure.field] : measure.required === undefined;
                     return measure;
                 });
                 $cols.splice(0, 0, {
@@ -97,13 +93,13 @@
                     field: `id`,
                     class: `text-left`,
                     render: `text`,
-                    show: true,
+                    show: $config.columns ? $config.columns.id : true,
                 }, {
                     label: `Mac Address`,
                     field: `mac`,
                     class: `text-left`,
                     render: `text`,
-                    show: true,
+                    show: $config.columns ? $config.columns.mac : true,
                 });
                 $cols.push({
                     label: `Last seen`,

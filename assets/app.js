@@ -999,10 +999,38 @@ var app = (function () {
         delete: request(`DELETE`),
     };
 
+    let previousColumns = `{}`;
+    let savingColumns = false;
+
     const syncColumns = (colStore) => {
-        for (const col of colStore.filter(col => col.show).map(col => col.field)) {
+        const apiColumns = () => {
+            const columns = {};
+            for (const col of colStore.filter(col => col.show).map(col => col.field)) {
+                columns[col] = true;
+            }
+            return columns;
+        };
+        if (previousColumns === `{}`) {
+            previousColumns = JSON.stringify(apiColumns());
+        } else {
+            if (!savingColumns) {
+                savingColumns = true;
+                setTimeout(async () => {
+                    const columns = apiColumns();
+                    if (JSON.stringify(columns) !== previousColumns) {
+                        try {
+                            await api.post(`config`, {
+                                columns,
+                            });
+                            previousColumns = JSON.stringify(columns);
+                        } catch(error) {
+                            console.log(error);
+                        }
+                    }
+                    savingColumns = false;
+                }, 500);
+            }
         }
-        // console.log(columns);
     };
 
     const tags = writable([]);
@@ -20265,7 +20293,7 @@ var app = (function () {
     const { console: console_1$3 } = globals;
     const file$r = "svelte/App.svelte";
 
-    // (125:12) <Col xs="8" class="p-3 pl-4">
+    // (121:12) <Col xs="8" class="p-3 pl-4">
     function create_default_slot_3$5(ctx) {
     	let span;
     	let t0_value = /*addon*/ ctx[0].name + "";
@@ -20317,40 +20345,40 @@ var app = (function () {
     			small2 = element("small");
     			t9 = text("Configuration");
     			attr_dev(span, "class", "mr-4");
-    			add_location(span, file$r, 125, 16, 5098);
+    			add_location(span, file$r, 121, 16, 5073);
     			attr_dev(i0, "class", "fab fa-bluetooth fa-sm");
-    			add_location(i0, file$r, 127, 20, 5284);
+    			add_location(i0, file$r, 123, 20, 5259);
 
     			attr_dev(small0, "class", small0_class_value = "ml-1 " + (/*panel*/ ctx[2] === `discover`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small0, file$r, 128, 20, 5343);
+    			add_location(small0, file$r, 124, 20, 5318);
     			attr_dev(a0, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a0, "href", "/");
-    			add_location(a0, file$r, 126, 16, 5153);
+    			add_location(a0, file$r, 122, 16, 5128);
     			attr_dev(i1, "class", "fas fa-database fa-sm");
-    			add_location(i1, file$r, 133, 20, 5663);
+    			add_location(i1, file$r, 129, 20, 5638);
 
     			attr_dev(small1, "class", small1_class_value = "ml-1 " + (/*panel*/ ctx[2] === `targets`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small1, file$r, 134, 20, 5721);
+    			add_location(small1, file$r, 130, 20, 5696);
     			attr_dev(a1, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a1, "href", "/");
-    			add_location(a1, file$r, 132, 16, 5533);
+    			add_location(a1, file$r, 128, 16, 5508);
     			attr_dev(i2, "class", "fas fa-cog fa-sm");
-    			add_location(i2, file$r, 139, 20, 6038);
+    			add_location(i2, file$r, 135, 20, 6013);
 
     			attr_dev(small2, "class", small2_class_value = "ml-1 " + (/*panel*/ ctx[2] === `config`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small2, file$r, 140, 20, 6091);
+    			add_location(small2, file$r, 136, 20, 6066);
     			attr_dev(a2, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a2, "href", "/");
-    			add_location(a2, file$r, 138, 16, 5909);
+    			add_location(a2, file$r, 134, 16, 5884);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -20422,14 +20450,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$5.name,
     		type: "slot",
-    		source: "(125:12) <Col xs=\\\"8\\\" class=\\\"p-3 pl-4\\\">",
+    		source: "(121:12) <Col xs=\\\"8\\\" class=\\\"p-3 pl-4\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (146:12) <Col xs="4" class="m-auto pr-4">
+    // (142:12) <Col xs="4" class="m-auto pr-4">
     function create_default_slot_2$6(ctx) {
     	let div;
     	let small;
@@ -20462,21 +20490,21 @@ var app = (function () {
     			attr_dev(a0, "class", "text-white font-weight-lighter text-decoration-none");
     			attr_dev(a0, "href", a0_href_value = "" + (/*addon*/ ctx[0].url + "/blob/master/CHANGELOG.md"));
     			attr_dev(a0, "target", "_blank");
-    			add_location(a0, file$r, 149, 28, 6459);
-    			add_location(em, file$r, 148, 24, 6426);
-    			add_location(small, file$r, 147, 20, 6394);
+    			add_location(a0, file$r, 145, 28, 6434);
+    			add_location(em, file$r, 144, 24, 6401);
+    			add_location(small, file$r, 143, 20, 6369);
     			attr_dev(i, "class", "fab fa-github fa-sm");
-    			add_location(i, file$r, 155, 24, 6831);
+    			add_location(i, file$r, 151, 24, 6806);
     			attr_dev(a1, "class", "ml-2 text-white");
     			attr_dev(a1, "href", a1_href_value = /*addon*/ ctx[0].url);
     			attr_dev(a1, "target", "_blank");
-    			add_location(a1, file$r, 154, 20, 6744);
+    			add_location(a1, file$r, 150, 20, 6719);
     			attr_dev(a2, "class", "ml-1 text-white");
     			attr_dev(a2, "href", "https://ruuvi.com/");
     			attr_dev(a2, "target", "_blank");
-    			add_location(a2, file$r, 157, 20, 6912);
+    			add_location(a2, file$r, 153, 20, 6887);
     			attr_dev(div, "class", "float-right");
-    			add_location(div, file$r, 146, 16, 6348);
+    			add_location(div, file$r, 142, 16, 6323);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -20512,14 +20540,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$6.name,
     		type: "slot",
-    		source: "(146:12) <Col xs=\\\"4\\\" class=\\\"m-auto pr-4\\\">",
+    		source: "(142:12) <Col xs=\\\"4\\\" class=\\\"m-auto pr-4\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (124:8) <Row class="app-bgcolor" id="header">
+    // (120:8) <Row class="app-bgcolor" id="header">
     function create_default_slot_1$8(ctx) {
     	let col0;
     	let t;
@@ -20596,14 +20624,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$8.name,
     		type: "slot",
-    		source: "(124:8) <Row class=\\\"app-bgcolor\\\" id=\\\"header\\\">",
+    		source: "(120:8) <Row class=\\\"app-bgcolor\\\" id=\\\"header\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (165:12) {#if panel === `discover`}
+    // (161:12) {#if panel === `discover`}
     function create_if_block_2$9(ctx) {
     	let paneldiscover;
     	let current;
@@ -20644,14 +20672,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$9.name,
     		type: "if",
-    		source: "(165:12) {#if panel === `discover`}",
+    		source: "(161:12) {#if panel === `discover`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (168:12) {#if panel === `targets`}
+    // (164:12) {#if panel === `targets`}
     function create_if_block_1$b(ctx) {
     	let paneltargets;
     	let current;
@@ -20683,14 +20711,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$b.name,
     		type: "if",
-    		source: "(168:12) {#if panel === `targets`}",
+    		source: "(164:12) {#if panel === `targets`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (171:12) {#if panel === `config`}
+    // (167:12) {#if panel === `config`}
     function create_if_block$j(ctx) {
     	let panelconfig;
     	let current;
@@ -20722,14 +20750,14 @@ var app = (function () {
     		block,
     		id: create_if_block$j.name,
     		type: "if",
-    		source: "(171:12) {#if panel === `config`}",
+    		source: "(167:12) {#if panel === `config`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (123:4) <Container fluid id="page">
+    // (119:4) <Container fluid id="page">
     function create_default_slot$a(ctx) {
     	let row;
     	let t0;
@@ -20763,7 +20791,7 @@ var app = (function () {
     			t2 = space();
     			if (if_block2) if_block2.c();
     			attr_dev(div, "class", "mb-4");
-    			add_location(div, file$r, 163, 8, 7110);
+    			add_location(div, file$r, 159, 8, 7085);
     		},
     		m: function mount(target, anchor) {
     			mount_component(row, target, anchor);
@@ -20879,7 +20907,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$a.name,
     		type: "slot",
-    		source: "(123:4) <Container fluid id=\\\"page\\\">",
+    		source: "(119:4) <Container fluid id=\\\"page\\\">",
     		ctx
     	});
 
@@ -20905,7 +20933,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			create_component(container.$$.fragment);
-    			add_location(main, file$r, 121, 0, 4955);
+    			add_location(main, file$r, 117, 0, 4930);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -21050,14 +21078,12 @@ var app = (function () {
     				if (data.config.ruuvitags) {
     					$$invalidate(1, ruuvitags = data.config.ruuvitags);
     				}
-    			} // if (data.config.columns) {
-    			//     cols = Object.keys(data.config.columns).map(field => {
 
-    			//         return {
-    			//             field,
-    			//         }
-    			//     });
-    			// }
+    				if (data.config.columns) {
+    					set_store_value(config, $config.columns = data.config.columns, $config);
+    				}
+    			}
+
     			if (data.measures) {
     				set_store_value(dictMeasures, $dictMeasures = data.measures, $dictMeasures);
 
@@ -21065,7 +21091,11 @@ var app = (function () {
     					cols,
     					$cols = data.measures.map(measure => {
     						measure.render = `measure`;
-    						measure.show = measure.required === undefined;
+
+    						measure.show = $config.columns
+    						? $config.columns[measure.field]
+    						: measure.required === undefined;
+
     						return measure;
     					}),
     					$cols
@@ -21079,14 +21109,14 @@ var app = (function () {
     						field: `id`,
     						class: `text-left`,
     						render: `text`,
-    						show: true
+    						show: $config.columns ? $config.columns.id : true
     					},
     					{
     						label: `Mac Address`,
     						field: `mac`,
     						class: `text-left`,
     						render: `text`,
-    						show: true
+    						show: $config.columns ? $config.columns.mac : true
     					}
     				);
 

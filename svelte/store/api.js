@@ -35,12 +35,38 @@ export const api = {
     delete: request(`DELETE`),
 };
 
+let previousColumns = `{}`;
+let savingColumns = false;
+
 export const syncColumns = (colStore) => {
-    const columns = {};
-    for (const col of colStore.filter(col => col.show).map(col => col.field)) {
-        columns[col] = true;
+    const apiColumns = () => {
+        const columns = {};
+        for (const col of colStore.filter(col => col.show).map(col => col.field)) {
+            columns[col] = true;
+        }
+        return columns;
+    };
+    if (previousColumns === `{}`) {
+        previousColumns = JSON.stringify(apiColumns());
+    } else {
+        if (!savingColumns) {
+            savingColumns = true;
+            setTimeout(async () => {
+                const columns = apiColumns();
+                if (JSON.stringify(columns) !== previousColumns) {
+                    try {
+                        await api.post(`config`, {
+                            columns,
+                        });
+                        previousColumns = JSON.stringify(columns);
+                    } catch(error) {
+                        console.log(error);
+                    }
+                }
+                savingColumns = false;
+            }, 500);
+        }
     }
-    // console.log(columns);
 };
 
 export const tags = writable([]);
