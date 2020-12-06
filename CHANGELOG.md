@@ -78,7 +78,7 @@
 First release
 
 [Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.2.1...HEAD
-[0.2.0]: https://github.com/balda/ruuvitag-discovery/compare/0.2.0...0.2.1
+[0.2.1]: https://github.com/balda/ruuvitag-discovery/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/balda/ruuvitag-discovery/compare/0.1.14...0.2.0
 [0.1.14]: https://github.com/balda/ruuvitag-discovery/compare/0.1.13...0.1.14
 [0.1.13]: https://github.com/balda/ruuvitag-discovery/compare/0.1.12...0.1.13
