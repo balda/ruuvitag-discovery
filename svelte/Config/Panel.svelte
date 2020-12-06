@@ -3,7 +3,19 @@
 	import { config } from './../store/config.js';
 	import { targets } from './../store/targets.js';
     import { FormGroup, CustomInput, Label, Row, Col } from 'sveltestrap';
-    let configEdited = JSON.parse(JSON.stringify($config));
+    let configEdited;
+    let configJSON;
+    const updateConfig = () => {
+        configEdited = JSON.parse(JSON.stringify($config));
+        configJSON = JSON.stringify({
+            sampling: $config.sampling,
+            battery: $config.battery,
+            ruuvitags: $config.ruuvitags,
+            targets: $targets,
+            columns: $config.columns,
+        }, null, 2);
+    };
+    updateConfig();
     let col_left = 5;
     let col_right = 6;
     let state = `view`; // `view` | `saving`
@@ -15,18 +27,35 @@
         return async function() {
             state = `saving`;
             saving = target;
-            stateConfig = `hidden`;
-            const data = {};
-            data[`${target}`] = configEdited[target];
-            try {
-                await api.post(`config`, data);
-                $config[target] = configEdited[target];
-            } catch(error) {
-                console.log(error);
+            if (target === `config`) {
+                try {
+                    const configSaved = JSON.parse(configJSON);
+                    await api.post(`config`, configSaved);
+                    $config.sampling = configSaved.sampling;
+                    $config.battery = configSaved.battery;
+                    $config.ruuvitags = configSaved.ruuvitags;
+                    $config.columns = configSaved.columns;
+                    $targets = configSaved.targets;
+                    updateConfig();
+                    state = `view`;
+                } catch(error) {
+                    console.log(error);
+                }
+            } else {
+                stateConfig = `hidden`;
+                const data = {};
+                data[`${target}`] = configEdited[target];
+                try {
+                    await api.post(`config`, data);
+                    $config[target] = configEdited[target];
+                    updateConfig();
+                } catch(error) {
+                    console.log(error);
+                }
+                state = `view`;
+                editSampling = false;
+                editBattery = false;
             }
-            state = `view`;
-            editSampling = false;
-            editBattery = false;
         }
     }
 </script>
@@ -71,7 +100,7 @@
                     </div>
                 </form>
                 {#if state === `saving` && saving === `sampling`}
-                    <div>
+                    <div class="small">
                         Saving ...
                     </div>
                 {:else}
@@ -146,7 +175,7 @@
                     </div>
                 </form>
                 {#if state === `saving` && saving === `battery`}
-                    <div>
+                    <div class="small">
                         Saving ...
                     </div>
                 {:else}
@@ -193,27 +222,27 @@
          class="btn btn-sm mr-2 btn-light btn-sm">
             Import Configuration
         </a>
-        {#if stateConfig === `import`}
-            <a href="/" on:click|preventDefault={() => {stateConfig = `hidden`}}
-             class="float-right ml-2 btn btn-sm btn-light btn-sm">
-                Save Configuration
-            </a>
-        {/if}
-        {#if stateConfig !== `hidden`}
-            <a href="/" on:click|preventDefault={() => {stateConfig = `hidden`}}
-             class="float-right ml-2 btn btn-sm btn-light btn-sm">
-                Cancel
-            </a>
+        {#if state === `saving` && saving === `config`}
+            <div class="float-right ml-2 small">
+                Saving ...
+            </div>
+        {:else}
+            {#if stateConfig === `import`}
+                <a href="/" on:click|preventDefault={save(`config`)}
+                 class="float-right ml-2 btn btn-sm btn-light btn-sm {state === `saving` ? `disabled` : null}">
+                    Save Configuration
+                </a>
+            {/if}
+            {#if stateConfig !== `hidden`}
+                <a href="/" on:click|preventDefault={() => {stateConfig = `hidden`}}
+                 class="float-right ml-2 btn btn-sm btn-light btn-sm">
+                    Cancel
+                </a>
+            {/if}
         {/if}
         {#if stateConfig !== `hidden`}
             <div class="mt-3">
-                <small><textarea class="form-control form-control-sm" readonly={stateConfig === `export`} rows="16">{JSON.stringify({
-                    sampling: $config.sampling,
-                    battery: $config.battery,
-                    ruuvitags: $config.ruuvitags,
-                    targets: $targets,
-                    columns: $config.columns,
-                }, null, 2)}</textarea></small>
+                <textarea class="form-control form-control-sm small" bind:value={configJSON} readonly={stateConfig === `export`} rows="16"></textarea>
             </div>
         {/if}
     </Col>
