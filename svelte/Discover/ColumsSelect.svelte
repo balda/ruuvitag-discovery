@@ -11,18 +11,22 @@
     }
 </style>
 
-<CustomInput
-    bind:checked={showSelectColumns}
-    type="switch"
-    id="selectColumns"
-    name="selectColumns"
-    label="Select Columns" />
-
+<div class="mt-2 mb-2 select-columns small">
+    <CustomInput
+        bind:checked={showSelectColumns}
+        type="switch"
+        bsSize="sm"
+        inline=true
+        class="bg-light mt-1 pr-2 pl-5 pt-1 pb-2 border rounded"
+        id="selectColumns"
+        name="selectColumns"
+        label="Select Columns" />
+</div>
 <div class="select-columns">
     {#if showSelectColumns}
         <Row>
             {#each $cols as col (col.field)}
-                <Col sm="6" md="4" lg="3" xl="2" class="font-weight-lighter small parent">
+                <Col sm="6" md="4" lg="3" xl="2" class="font-weight-lighter small">
                     <CustomInput
                         bind:checked={col.show}
                         type="switch"

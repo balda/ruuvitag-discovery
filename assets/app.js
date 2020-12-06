@@ -9255,7 +9255,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (22:4) {#if showSelectColumns}
+    // (26:4) {#if showSelectColumns}
     function create_if_block$7(ctx) {
     	let row;
     	let current;
@@ -9303,14 +9303,14 @@ var app = (function () {
     		block,
     		id: create_if_block$7.name,
     		type: "if",
-    		source: "(22:4) {#if showSelectColumns}",
+    		source: "(26:4) {#if showSelectColumns}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (25:16) <Col sm="6" md="4" lg="3" xl="2" class="font-weight-lighter small parent">
+    // (29:16) <Col sm="6" md="4" lg="3" xl="2" class="font-weight-lighter small">
     function create_default_slot_1(ctx) {
     	let custominput;
     	let updating_checked;
@@ -9381,14 +9381,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(25:16) <Col sm=\\\"6\\\" md=\\\"4\\\" lg=\\\"3\\\" xl=\\\"2\\\" class=\\\"font-weight-lighter small parent\\\">",
+    		source: "(29:16) <Col sm=\\\"6\\\" md=\\\"4\\\" lg=\\\"3\\\" xl=\\\"2\\\" class=\\\"font-weight-lighter small\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (24:12) {#each $cols as col (col.field)}
+    // (28:12) {#each $cols as col (col.field)}
     function create_each_block(key_1, ctx) {
     	let first;
     	let col;
@@ -9400,7 +9400,7 @@ var app = (function () {
     				md: "4",
     				lg: "3",
     				xl: "2",
-    				class: "font-weight-lighter small parent",
+    				class: "font-weight-lighter small",
     				$$slots: { default: [create_default_slot_1] },
     				$$scope: { ctx }
     			},
@@ -9448,14 +9448,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(24:12) {#each $cols as col (col.field)}",
+    		source: "(28:12) {#each $cols as col (col.field)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:8) <Row>
+    // (27:8) <Row>
     function create_default_slot(ctx) {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
@@ -9527,7 +9527,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(23:8) <Row>",
+    		source: "(27:8) <Row>",
     		ctx
     	});
 
@@ -9535,10 +9535,11 @@ var app = (function () {
     }
 
     function create_fragment$f(ctx) {
+    	let div0;
     	let custominput;
     	let updating_checked;
     	let t;
-    	let div;
+    	let div1;
     	let current;
 
     	function custominput_checked_binding(value) {
@@ -9547,6 +9548,9 @@ var app = (function () {
 
     	let custominput_props = {
     		type: "switch",
+    		bsSize: "sm",
+    		inline: "true",
+    		class: "bg-light mt-1 pr-2 pl-5 pt-1 pb-2 border rounded",
     		id: "selectColumns",
     		name: "selectColumns",
     		label: "Select Columns"
@@ -9562,21 +9566,25 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
+    			div0 = element("div");
     			create_component(custominput.$$.fragment);
     			t = space();
-    			div = element("div");
+    			div1 = element("div");
     			if (if_block) if_block.c();
-    			attr_dev(div, "class", "select-columns svelte-1rwwhtj");
-    			add_location(div, file$f, 20, 0, 466);
+    			attr_dev(div0, "class", "mt-2 mb-2 select-columns small svelte-1rwwhtj");
+    			add_location(div0, file$f, 13, 0, 319);
+    			attr_dev(div1, "class", "select-columns svelte-1rwwhtj");
+    			add_location(div1, file$f, 24, 0, 646);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			mount_component(custominput, target, anchor);
+    			insert_dev(target, div0, anchor);
+    			mount_component(custominput, div0, null);
     			insert_dev(target, t, anchor);
-    			insert_dev(target, div, anchor);
-    			if (if_block) if_block.m(div, null);
+    			insert_dev(target, div1, anchor);
+    			if (if_block) if_block.m(div1, null);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
@@ -9601,7 +9609,7 @@ var app = (function () {
     					if_block = create_if_block$7(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
-    					if_block.m(div, null);
+    					if_block.m(div1, null);
     				}
     			} else if (if_block) {
     				group_outros();
@@ -9625,9 +9633,10 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			destroy_component(custominput, detaching);
+    			if (detaching) detach_dev(div0);
+    			destroy_component(custominput);
     			if (detaching) detach_dev(t);
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(div1);
     			if (if_block) if_block.d();
     		}
     	};
@@ -19125,8 +19134,8 @@ var app = (function () {
     			t1 = text(t1_value);
     			t2 = space();
     			attr_dev(i, "class", "fas fa-plus");
-    			add_location(i, file$q, 12, 16, 468);
-    			attr_dev(a, "class", "btn btn-light btn-sm");
+    			add_location(i, file$q, 12, 16, 473);
+    			attr_dev(a, "class", "btn btn-light btn-sm mr-2");
     			attr_dev(a, "href", "/");
     			add_location(a, file$q, 11, 12, 357);
     		},

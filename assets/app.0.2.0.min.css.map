@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "file": "app.css",
+  "file": "app.0.2.0.min.css",
   "sources": [
     "ColumsSelect.svelte",
     "TargetEdit.svelte",
