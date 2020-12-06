@@ -3,7 +3,8 @@
     ":utils/": "./utils/",
     ":dict/": "./dict/",
     "server": {
-        "timeout": 5
+        "timeout": 5,
+        "ssl": false
     },
     "ha_mqtt": {
         "present": 30000

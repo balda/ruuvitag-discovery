@@ -10,12 +10,23 @@
     "privileged": [
         "SYS_RAWIO"
     ],
+    "map": [
+        "ssl"
+    ],
     "hassio_api": true,
     "homeassistant_api": true,
     "host_network": true,
     "ingress": true,
     "ingress_port": 8099,
     "panel_icon": "mdi:access-point",
-    "options": {},
-    "schema": false
+    "options": {
+        "ssl": false,
+        "certfile": "/ssl/fullchain.pem",
+        "keyfile": "/ssl/privkey.pem"
+    },
+    "schema": {
+        "ssl": "bool",
+        "certfile": "str",
+        "keyfile": "str"
+    }
 }
