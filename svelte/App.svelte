@@ -10,7 +10,7 @@
 
     let panel = `discover`;
 
-    const ws = new WebSocket(`ws://${document.URL.split(`//`).splice(1).join(`//`)}`);
+    const ws = new WebSocket(`ws${document.URL.substring(4,5) === `s` ? `s` : ``}://${document.URL.split(`//`).splice(1).join(`//`)}`);
     // ws.addEventListener(`open`, () => { console.log(`ws connected`); });
     ws.addEventListener(`message`, (message) => {
         try {

@@ -21070,40 +21070,40 @@ var app = (function () {
     			small2 = element("small");
     			t9 = text("Configuration");
     			attr_dev(span, "class", "mr-4");
-    			add_location(span, file$s, 93, 16, 3729);
+    			add_location(span, file$s, 93, 16, 3778);
     			attr_dev(i0, "class", "fab fa-bluetooth fa-sm");
-    			add_location(i0, file$s, 95, 20, 3916);
+    			add_location(i0, file$s, 95, 20, 3965);
 
     			attr_dev(small0, "class", small0_class_value = "ml-1 " + (/*panel*/ ctx[0] === `discover`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small0, file$s, 96, 20, 3975);
+    			add_location(small0, file$s, 96, 20, 4024);
     			attr_dev(a0, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a0, "href", "/");
-    			add_location(a0, file$s, 94, 16, 3785);
+    			add_location(a0, file$s, 94, 16, 3834);
     			attr_dev(i1, "class", "fas fa-database fa-sm");
-    			add_location(i1, file$s, 101, 20, 4295);
+    			add_location(i1, file$s, 101, 20, 4344);
 
     			attr_dev(small1, "class", small1_class_value = "ml-1 " + (/*panel*/ ctx[0] === `targets`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small1, file$s, 102, 20, 4353);
+    			add_location(small1, file$s, 102, 20, 4402);
     			attr_dev(a1, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a1, "href", "/");
-    			add_location(a1, file$s, 100, 16, 4165);
+    			add_location(a1, file$s, 100, 16, 4214);
     			attr_dev(i2, "class", "fas fa-cog fa-sm");
-    			add_location(i2, file$s, 107, 20, 4670);
+    			add_location(i2, file$s, 107, 20, 4719);
 
     			attr_dev(small2, "class", small2_class_value = "ml-1 " + (/*panel*/ ctx[0] === `config`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small2, file$s, 108, 20, 4723);
+    			add_location(small2, file$s, 108, 20, 4772);
     			attr_dev(a2, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a2, "href", "/");
-    			add_location(a2, file$s, 106, 16, 4541);
+    			add_location(a2, file$s, 106, 16, 4590);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -21215,21 +21215,21 @@ var app = (function () {
     			attr_dev(a0, "class", "text-white font-weight-lighter text-decoration-none");
     			attr_dev(a0, "href", a0_href_value = "" + (/*$addon*/ ctx[1].url + "/blob/master/CHANGELOG.md"));
     			attr_dev(a0, "target", "_blank");
-    			add_location(a0, file$s, 117, 28, 5091);
-    			add_location(em, file$s, 116, 24, 5058);
-    			add_location(small, file$s, 115, 20, 5026);
+    			add_location(a0, file$s, 117, 28, 5140);
+    			add_location(em, file$s, 116, 24, 5107);
+    			add_location(small, file$s, 115, 20, 5075);
     			attr_dev(i, "class", "fab fa-github fa-sm");
-    			add_location(i, file$s, 123, 24, 5466);
+    			add_location(i, file$s, 123, 24, 5515);
     			attr_dev(a1, "class", "ml-2 text-white");
     			attr_dev(a1, "href", a1_href_value = /*$addon*/ ctx[1].url);
     			attr_dev(a1, "target", "_blank");
-    			add_location(a1, file$s, 122, 20, 5378);
+    			add_location(a1, file$s, 122, 20, 5427);
     			attr_dev(a2, "class", "ml-1 text-white");
     			attr_dev(a2, "href", "https://ruuvi.com/");
     			attr_dev(a2, "target", "_blank");
-    			add_location(a2, file$s, 125, 20, 5547);
+    			add_location(a2, file$s, 125, 20, 5596);
     			attr_dev(div, "class", "float-right");
-    			add_location(div, file$s, 114, 16, 4980);
+    			add_location(div, file$s, 114, 16, 5029);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -21507,7 +21507,7 @@ var app = (function () {
     			t2 = space();
     			if (if_block2) if_block2.c();
     			attr_dev(div, "class", "mb-4");
-    			add_location(div, file$s, 131, 8, 5745);
+    			add_location(div, file$s, 131, 8, 5794);
     		},
     		m: function mount(target, anchor) {
     			mount_component(row, target, anchor);
@@ -21647,7 +21647,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			create_component(container.$$.fragment);
-    			add_location(main, file$s, 89, 0, 3586);
+    			add_location(main, file$s, 89, 0, 3635);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -21717,7 +21717,7 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("App", slots, []);
     	let panel = `discover`;
-    	const ws = new WebSocket(`ws://${document.URL.split(`//`).splice(1).join(`//`)}`);
+    	const ws = new WebSocket(`ws${document.URL.substring(4, 5) === `s` ? `s` : ``}://${document.URL.split(`//`).splice(1).join(`//`)}`);
 
     	// ws.addEventListener(`open`, () => { console.log(`ws connected`); });
     	ws.addEventListener(`message`, message => {
