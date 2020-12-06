@@ -18709,19 +18709,19 @@ var app = (function () {
     const { console: console_1$2 } = globals;
     const file$q = "svelte/Config/Panel.svelte";
 
-    // (87:12) {:else}
-    function create_else_block_3(ctx) {
+    // (116:12) {:else}
+    function create_else_block_4(ctx) {
     	let div4;
     	let div1;
     	let t0;
-    	let t1_value = /*$config*/ ctx[6].sampling.history + "";
+    	let t1_value = /*$config*/ ctx[7].sampling.history + "";
     	let t1;
     	let t2;
     	let div0;
     	let t4;
     	let div3;
     	let t5;
-    	let t6_value = /*$config*/ ctx[6].sampling.interval + "";
+    	let t6_value = /*$config*/ ctx[7].sampling.interval + "";
     	let t6;
     	let t7;
     	let div2;
@@ -18752,19 +18752,19 @@ var app = (function () {
     			a = element("a");
     			a.textContent = "Edit";
     			attr_dev(div0, "class", "font-italic font-weight-lighter");
-    			add_location(div0, file$q, 90, 24, 3769);
+    			add_location(div0, file$q, 119, 24, 4893);
     			attr_dev(div1, "class", "mt-2 mb-2");
-    			add_location(div1, file$q, 88, 20, 3661);
+    			add_location(div1, file$q, 117, 20, 4785);
     			attr_dev(div2, "class", "font-italic font-weight-lighter");
-    			add_location(div2, file$q, 96, 24, 4058);
+    			add_location(div2, file$q, 125, 24, 5182);
     			attr_dev(div3, "class", "mb-4");
-    			add_location(div3, file$q, 94, 20, 3944);
+    			add_location(div3, file$q, 123, 20, 5068);
     			attr_dev(div4, "class", "small py-1");
-    			add_location(div4, file$q, 87, 16, 3616);
+    			add_location(div4, file$q, 116, 16, 4740);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "class", "btn btn-light btn-sm");
-    			add_location(a, file$q, 102, 20, 4281);
-    			add_location(div5, file$q, 101, 16, 4255);
+    			add_location(a, file$q, 131, 20, 5405);
+    			add_location(div5, file$q, 130, 16, 5379);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div4, anchor);
@@ -18789,8 +18789,8 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$config*/ 64 && t1_value !== (t1_value = /*$config*/ ctx[6].sampling.history + "")) set_data_dev(t1, t1_value);
-    			if (dirty & /*$config*/ 64 && t6_value !== (t6_value = /*$config*/ ctx[6].sampling.interval + "")) set_data_dev(t6, t6_value);
+    			if (dirty & /*$config*/ 128 && t1_value !== (t1_value = /*$config*/ ctx[7].sampling.history + "")) set_data_dev(t1, t1_value);
+    			if (dirty & /*$config*/ 128 && t6_value !== (t6_value = /*$config*/ ctx[7].sampling.interval + "")) set_data_dev(t6, t6_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div4);
@@ -18803,17 +18803,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block_3.name,
+    		id: create_else_block_4.name,
     		type: "else",
-    		source: "(87:12) {:else}",
+    		source: "(116:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (40:12) {#if editSampling}
-    function create_if_block_5$1(ctx) {
+    // (69:12) {#if editSampling}
+    function create_if_block_6$1(ctx) {
     	let form;
     	let div1;
     	let label0;
@@ -18846,8 +18846,8 @@ var app = (function () {
     	let dispose;
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*state*/ ctx[1] === `saving` && /*saving*/ ctx[4] === `sampling`) return create_if_block_6$1;
-    		return create_else_block_2$1;
+    		if (/*state*/ ctx[2] === `saving` && /*saving*/ ctx[5] === `sampling`) return create_if_block_7$1;
+    		return create_else_block_3;
     	}
 
     	let current_block_type = select_block_type_1(ctx);
@@ -18881,37 +18881,37 @@ var app = (function () {
     			if_block.c();
     			if_block_anchor = empty();
     			attr_dev(label0, "class", label0_class_value = "col-sm-" + /*col_left*/ ctx[8] + " col-form-label-sm");
-    			add_location(label0, file$q, 42, 24, 1418);
+    			add_location(label0, file$q, 71, 24, 2528);
     			attr_dev(input0, "type", "number");
     			attr_dev(input0, "name", "history");
     			attr_dev(input0, "class", "form-control form-control-sm");
-    			input0.disabled = input0_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null;
-    			add_location(input0, file$q, 46, 28, 1624);
-    			add_location(em0, file$q, 52, 32, 2006);
+    			input0.disabled = input0_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null;
+    			add_location(input0, file$q, 75, 28, 2734);
+    			add_location(em0, file$q, 81, 32, 3116);
     			attr_dev(small0, "class", "form-text text-muted");
-    			add_location(small0, file$q, 51, 28, 1937);
+    			add_location(small0, file$q, 80, 28, 3047);
     			attr_dev(div0, "class", div0_class_value = "col-sm-" + /*col_right*/ ctx[9]);
-    			add_location(div0, file$q, 45, 24, 1563);
+    			add_location(div0, file$q, 74, 24, 2673);
     			attr_dev(div1, "class", "form-group row");
-    			add_location(div1, file$q, 41, 20, 1365);
+    			add_location(div1, file$q, 70, 20, 2475);
     			attr_dev(label1, "class", label1_class_value = "col-sm-" + /*col_left*/ ctx[8] + " col-form-label-sm");
-    			add_location(label1, file$q, 57, 24, 2206);
+    			add_location(label1, file$q, 86, 24, 3316);
     			attr_dev(input1, "type", "number");
     			attr_dev(input1, "name", "interval");
     			attr_dev(input1, "class", "form-control form-control-sm");
-    			input1.disabled = input1_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null;
-    			add_location(input1, file$q, 61, 28, 2422);
-    			add_location(em1, file$q, 67, 32, 2806);
+    			input1.disabled = input1_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null;
+    			add_location(input1, file$q, 90, 28, 3532);
+    			add_location(em1, file$q, 96, 32, 3916);
     			attr_dev(small1, "class", "form-text text-muted");
-    			add_location(small1, file$q, 66, 28, 2737);
+    			add_location(small1, file$q, 95, 28, 3847);
     			attr_dev(div2, "class", div2_class_value = "col-sm-" + /*col_right*/ ctx[9]);
-    			add_location(div2, file$q, 60, 24, 2361);
+    			add_location(div2, file$q, 89, 24, 3471);
     			attr_dev(div3, "class", "form-group row");
-    			add_location(div3, file$q, 56, 20, 2153);
+    			add_location(div3, file$q, 85, 20, 3263);
     			attr_dev(form, "id", "form-sampling");
     			attr_dev(form, "class", "mt-4");
     			attr_dev(form, "disabled", "");
-    			add_location(form, file$q, 40, 16, 1297);
+    			add_location(form, file$q, 69, 16, 2407);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, form, anchor);
@@ -18950,7 +18950,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*state*/ 2 && input0_disabled_value !== (input0_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null)) {
+    			if (dirty & /*state*/ 4 && input0_disabled_value !== (input0_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null)) {
     				prop_dev(input0, "disabled", input0_disabled_value);
     			}
 
@@ -18958,7 +18958,7 @@ var app = (function () {
     				set_input_value(input0, /*configEdited*/ ctx[0].sampling.history);
     			}
 
-    			if (dirty & /*state*/ 2 && input1_disabled_value !== (input1_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null)) {
+    			if (dirty & /*state*/ 4 && input1_disabled_value !== (input1_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null)) {
     				prop_dev(input1, "disabled", input1_disabled_value);
     			}
 
@@ -18990,17 +18990,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_5$1.name,
+    		id: create_if_block_6$1.name,
     		type: "if",
-    		source: "(40:12) {#if editSampling}",
+    		source: "(69:12) {#if editSampling}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (77:16) {:else}
-    function create_else_block_2$1(ctx) {
+    // (106:16) {:else}
+    function create_else_block_3(ctx) {
     	let a0;
     	let t1;
     	let a1;
@@ -19018,10 +19018,10 @@ var app = (function () {
     			t2 = text("Save");
     			attr_dev(a0, "href", "/");
     			attr_dev(a0, "class", "btn btn-light btn-sm mr-4");
-    			add_location(a0, file$q, 77, 20, 3158);
+    			add_location(a0, file$q, 106, 20, 4282);
     			attr_dev(a1, "href", "/");
-    			attr_dev(a1, "class", a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[1] === `saving` ? `disabled` : null));
-    			add_location(a1, file$q, 80, 20, 3336);
+    			attr_dev(a1, "class", a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null));
+    			add_location(a1, file$q, 109, 20, 4460);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a0, anchor);
@@ -19039,7 +19039,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*state*/ 2 && a1_class_value !== (a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[1] === `saving` ? `disabled` : null))) {
+    			if (dirty & /*state*/ 4 && a1_class_value !== (a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null))) {
     				attr_dev(a1, "class", a1_class_value);
     			}
     		},
@@ -19054,24 +19054,25 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block_2$1.name,
+    		id: create_else_block_3.name,
     		type: "else",
-    		source: "(77:16) {:else}",
+    		source: "(106:16) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (73:16) {#if state === `saving` && saving === `sampling`}
-    function create_if_block_6$1(ctx) {
+    // (102:16) {#if state === `saving` && saving === `sampling`}
+    function create_if_block_7$1(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
     			div.textContent = "Saving ...";
-    			add_location(div, file$q, 73, 20, 3046);
+    			attr_dev(div, "class", "small");
+    			add_location(div, file$q, 102, 20, 4156);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -19084,24 +19085,24 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_6$1.name,
+    		id: create_if_block_7$1.name,
     		type: "if",
-    		source: "(73:16) {#if state === `saving` && saving === `sampling`}",
+    		source: "(102:16) {#if state === `saving` && saving === `sampling`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (35:4) <Col xs="4">
+    // (64:4) <Col xs="4">
     function create_default_slot_4$3(ctx) {
     	let small;
     	let t1;
     	let div;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*editSampling*/ ctx[2]) return create_if_block_5$1;
-    		return create_else_block_3;
+    		if (/*editSampling*/ ctx[3]) return create_if_block_6$1;
+    		return create_else_block_4;
     	}
 
     	let current_block_type = select_block_type(ctx);
@@ -19115,9 +19116,9 @@ var app = (function () {
     			div = element("div");
     			if_block.c();
     			attr_dev(small, "class", "px-2 py-1 bg-light");
-    			add_location(small, file$q, 35, 8, 1136);
+    			add_location(small, file$q, 64, 8, 2246);
     			attr_dev(div, "class", "pl-2");
-    			add_location(div, file$q, 38, 8, 1231);
+    			add_location(div, file$q, 67, 8, 2341);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, small, anchor);
@@ -19150,26 +19151,26 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$3.name,
     		type: "slot",
-    		source: "(35:4) <Col xs=\\\"4\\\">",
+    		source: "(64:4) <Col xs=\\\"4\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (162:12) {:else}
-    function create_else_block_1$1(ctx) {
+    // (191:12) {:else}
+    function create_else_block_2$1(ctx) {
     	let div4;
     	let div1;
     	let t0;
-    	let t1_value = /*$config*/ ctx[6].battery.min + "";
+    	let t1_value = /*$config*/ ctx[7].battery.min + "";
     	let t1;
     	let t2;
     	let div0;
     	let t4;
     	let div3;
     	let t5;
-    	let t6_value = /*$config*/ ctx[6].battery.max + "";
+    	let t6_value = /*$config*/ ctx[7].battery.max + "";
     	let t6;
     	let t7;
     	let div2;
@@ -19200,19 +19201,19 @@ var app = (function () {
     			a = element("a");
     			a.textContent = "Edit";
     			attr_dev(div0, "class", "font-italic font-weight-lighter");
-    			add_location(div0, file$q, 165, 24, 7135);
+    			add_location(div0, file$q, 194, 24, 8273);
     			attr_dev(div1, "class", "mt-2 mb-2");
-    			add_location(div1, file$q, 163, 20, 7031);
+    			add_location(div1, file$q, 192, 20, 8169);
     			attr_dev(div2, "class", "font-italic font-weight-lighter");
-    			add_location(div2, file$q, 171, 24, 7416);
+    			add_location(div2, file$q, 200, 24, 8554);
     			attr_dev(div3, "class", "mb-4");
-    			add_location(div3, file$q, 169, 20, 7315);
+    			add_location(div3, file$q, 198, 20, 8453);
     			attr_dev(div4, "class", "small py-1");
-    			add_location(div4, file$q, 162, 16, 6986);
+    			add_location(div4, file$q, 191, 16, 8124);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "class", "btn btn-light btn-sm");
-    			add_location(a, file$q, 177, 20, 7643);
-    			add_location(div5, file$q, 176, 16, 7617);
+    			add_location(a, file$q, 206, 20, 8781);
+    			add_location(div5, file$q, 205, 16, 8755);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div4, anchor);
@@ -19237,8 +19238,8 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$config*/ 64 && t1_value !== (t1_value = /*$config*/ ctx[6].battery.min + "")) set_data_dev(t1, t1_value);
-    			if (dirty & /*$config*/ 64 && t6_value !== (t6_value = /*$config*/ ctx[6].battery.max + "")) set_data_dev(t6, t6_value);
+    			if (dirty & /*$config*/ 128 && t1_value !== (t1_value = /*$config*/ ctx[7].battery.min + "")) set_data_dev(t1, t1_value);
+    			if (dirty & /*$config*/ 128 && t6_value !== (t6_value = /*$config*/ ctx[7].battery.max + "")) set_data_dev(t6, t6_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div4);
@@ -19251,17 +19252,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block_1$1.name,
+    		id: create_else_block_2$1.name,
     		type: "else",
-    		source: "(162:12) {:else}",
+    		source: "(191:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (115:12) {#if editBattery}
-    function create_if_block_3$6(ctx) {
+    // (144:12) {#if editBattery}
+    function create_if_block_4$1(ctx) {
     	let form;
     	let div1;
     	let label0;
@@ -19294,8 +19295,8 @@ var app = (function () {
     	let dispose;
 
     	function select_block_type_3(ctx, dirty) {
-    		if (/*state*/ ctx[1] === `saving` && /*saving*/ ctx[4] === `battery`) return create_if_block_4$1;
-    		return create_else_block$c;
+    		if (/*state*/ ctx[2] === `saving` && /*saving*/ ctx[5] === `battery`) return create_if_block_5$1;
+    		return create_else_block_1$1;
     	}
 
     	let current_block_type = select_block_type_3(ctx);
@@ -19329,37 +19330,37 @@ var app = (function () {
     			if_block.c();
     			if_block_anchor = empty();
     			attr_dev(label0, "class", label0_class_value = "col-sm-" + /*col_left*/ ctx[8] + " col-form-label-sm");
-    			add_location(label0, file$q, 117, 24, 4808);
+    			add_location(label0, file$q, 146, 24, 5932);
     			attr_dev(input0, "type", "number");
     			attr_dev(input0, "name", "min");
     			attr_dev(input0, "class", "form-control form-control-sm");
-    			input0.disabled = input0_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null;
-    			add_location(input0, file$q, 121, 28, 5015);
-    			add_location(em0, file$q, 127, 32, 5388);
+    			input0.disabled = input0_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null;
+    			add_location(input0, file$q, 150, 28, 6139);
+    			add_location(em0, file$q, 156, 32, 6512);
     			attr_dev(small0, "class", "form-text text-muted");
-    			add_location(small0, file$q, 126, 28, 5319);
+    			add_location(small0, file$q, 155, 28, 6443);
     			attr_dev(div0, "class", div0_class_value = "col-sm-" + /*col_right*/ ctx[9]);
-    			add_location(div0, file$q, 120, 24, 4954);
+    			add_location(div0, file$q, 149, 24, 6078);
     			attr_dev(div1, "class", "form-group row");
-    			add_location(div1, file$q, 116, 20, 4755);
+    			add_location(div1, file$q, 145, 20, 5879);
     			attr_dev(label1, "class", label1_class_value = "col-sm-" + /*col_left*/ ctx[8] + " col-form-label-sm");
-    			add_location(label1, file$q, 132, 24, 5593);
+    			add_location(label1, file$q, 161, 24, 6717);
     			attr_dev(input1, "type", "number");
     			attr_dev(input1, "name", "max");
     			attr_dev(input1, "class", "form-control form-control-sm");
-    			input1.disabled = input1_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null;
-    			add_location(input1, file$q, 136, 28, 5802);
-    			add_location(em1, file$q, 142, 32, 6175);
+    			input1.disabled = input1_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null;
+    			add_location(input1, file$q, 165, 28, 6926);
+    			add_location(em1, file$q, 171, 32, 7299);
     			attr_dev(small1, "class", "form-text text-muted");
-    			add_location(small1, file$q, 141, 28, 6106);
+    			add_location(small1, file$q, 170, 28, 7230);
     			attr_dev(div2, "class", div2_class_value = "col-sm-" + /*col_right*/ ctx[9]);
-    			add_location(div2, file$q, 135, 24, 5741);
+    			add_location(div2, file$q, 164, 24, 6865);
     			attr_dev(div3, "class", "form-group row");
-    			add_location(div3, file$q, 131, 20, 5540);
+    			add_location(div3, file$q, 160, 20, 6664);
     			attr_dev(form, "id", "form-battery");
     			attr_dev(form, "class", "mt-4");
     			attr_dev(form, "disabled", "");
-    			add_location(form, file$q, 115, 16, 4688);
+    			add_location(form, file$q, 144, 16, 5812);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, form, anchor);
@@ -19398,7 +19399,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*state*/ 2 && input0_disabled_value !== (input0_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null)) {
+    			if (dirty & /*state*/ 4 && input0_disabled_value !== (input0_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null)) {
     				prop_dev(input0, "disabled", input0_disabled_value);
     			}
 
@@ -19406,7 +19407,7 @@ var app = (function () {
     				set_input_value(input0, /*configEdited*/ ctx[0].battery.min);
     			}
 
-    			if (dirty & /*state*/ 2 && input1_disabled_value !== (input1_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null)) {
+    			if (dirty & /*state*/ 4 && input1_disabled_value !== (input1_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null)) {
     				prop_dev(input1, "disabled", input1_disabled_value);
     			}
 
@@ -19438,17 +19439,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3$6.name,
+    		id: create_if_block_4$1.name,
     		type: "if",
-    		source: "(115:12) {#if editBattery}",
+    		source: "(144:12) {#if editBattery}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (152:16) {:else}
-    function create_else_block$c(ctx) {
+    // (181:16) {:else}
+    function create_else_block_1$1(ctx) {
     	let a0;
     	let t1;
     	let a1;
@@ -19466,10 +19467,10 @@ var app = (function () {
     			t2 = text("Save");
     			attr_dev(a0, "href", "/");
     			attr_dev(a0, "class", "btn btn-light btn-sm mr-4");
-    			add_location(a0, file$q, 152, 20, 6530);
+    			add_location(a0, file$q, 181, 20, 7668);
     			attr_dev(a1, "href", "/");
-    			attr_dev(a1, "class", a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[1] === `saving` ? `disabled` : null));
-    			add_location(a1, file$q, 155, 20, 6707);
+    			attr_dev(a1, "class", a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null));
+    			add_location(a1, file$q, 184, 20, 7845);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a0, anchor);
@@ -19487,7 +19488,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*state*/ 2 && a1_class_value !== (a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[1] === `saving` ? `disabled` : null))) {
+    			if (dirty & /*state*/ 4 && a1_class_value !== (a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null))) {
     				attr_dev(a1, "class", a1_class_value);
     			}
     		},
@@ -19502,24 +19503,25 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block$c.name,
+    		id: create_else_block_1$1.name,
     		type: "else",
-    		source: "(152:16) {:else}",
+    		source: "(181:16) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (148:16) {#if state === `saving` && saving === `battery`}
-    function create_if_block_4$1(ctx) {
+    // (177:16) {#if state === `saving` && saving === `battery`}
+    function create_if_block_5$1(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
     			div.textContent = "Saving ...";
-    			add_location(div, file$q, 148, 20, 6418);
+    			attr_dev(div, "class", "small");
+    			add_location(div, file$q, 177, 20, 7542);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -19532,24 +19534,24 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_4$1.name,
+    		id: create_if_block_5$1.name,
     		type: "if",
-    		source: "(148:16) {#if state === `saving` && saving === `battery`}",
+    		source: "(177:16) {#if state === `saving` && saving === `battery`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (110:4) <Col xs="4">
+    // (139:4) <Col xs="4">
     function create_default_slot_3$4(ctx) {
     	let small;
     	let t1;
     	let div;
 
     	function select_block_type_2(ctx, dirty) {
-    		if (/*editBattery*/ ctx[3]) return create_if_block_3$6;
-    		return create_else_block_1$1;
+    		if (/*editBattery*/ ctx[4]) return create_if_block_4$1;
+    		return create_else_block_2$1;
     	}
 
     	let current_block_type = select_block_type_2(ctx);
@@ -19563,9 +19565,9 @@ var app = (function () {
     			div = element("div");
     			if_block.c();
     			attr_dev(small, "class", "px-2 py-1 bg-light");
-    			add_location(small, file$q, 110, 8, 4523);
+    			add_location(small, file$q, 139, 8, 5647);
     			attr_dev(div, "class", "pl-2");
-    			add_location(div, file$q, 113, 8, 4623);
+    			add_location(div, file$q, 142, 8, 5747);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, small, anchor);
@@ -19598,14 +19600,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$4.name,
     		type: "slot",
-    		source: "(110:4) <Col xs=\\\"4\\\">",
+    		source: "(139:4) <Col xs=\\\"4\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (34:0) <Row class="pt-2">
+    // (63:0) <Row class="pt-2">
     function create_default_slot_2$5(ctx) {
     	let col0;
     	let t;
@@ -19645,14 +19647,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope, state, saving, editSampling, configEdited, $config*/ 8388695) {
+    			if (dirty & /*$$scope, state, saving, editSampling, configEdited, $config*/ 33554605) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope, state, saving, editBattery, configEdited, $config*/ 8388699) {
+    			if (dirty & /*$$scope, state, saving, editBattery, configEdited, $config*/ 33554613) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -19680,14 +19682,159 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$5.name,
     		type: "slot",
-    		source: "(34:0) <Row class=\\\"pt-2\\\">",
+    		source: "(63:0) <Row class=\\\"pt-2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (196:8) {#if stateConfig === `import`}
+    // (229:8) {:else}
+    function create_else_block$c(ctx) {
+    	let t;
+    	let if_block1_anchor;
+    	let if_block0 = /*stateConfig*/ ctx[6] === `import` && create_if_block_3$6(ctx);
+    	let if_block1 = /*stateConfig*/ ctx[6] !== `hidden` && create_if_block_2$8(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block0) if_block0.c();
+    			t = space();
+    			if (if_block1) if_block1.c();
+    			if_block1_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block0) if_block0.m(target, anchor);
+    			insert_dev(target, t, anchor);
+    			if (if_block1) if_block1.m(target, anchor);
+    			insert_dev(target, if_block1_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (/*stateConfig*/ ctx[6] === `import`) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
+    				} else {
+    					if_block0 = create_if_block_3$6(ctx);
+    					if_block0.c();
+    					if_block0.m(t.parentNode, t);
+    				}
+    			} else if (if_block0) {
+    				if_block0.d(1);
+    				if_block0 = null;
+    			}
+
+    			if (/*stateConfig*/ ctx[6] !== `hidden`) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+    				} else {
+    					if_block1 = create_if_block_2$8(ctx);
+    					if_block1.c();
+    					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block0) if_block0.d(detaching);
+    			if (detaching) detach_dev(t);
+    			if (if_block1) if_block1.d(detaching);
+    			if (detaching) detach_dev(if_block1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$c.name,
+    		type: "else",
+    		source: "(229:8) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (225:8) {#if state === `saving` && saving === `config`}
+    function create_if_block_1$a(ctx) {
+    	let div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			div.textContent = "Saving ...";
+    			attr_dev(div, "class", "float-right ml-2 small");
+    			add_location(div, file$q, 225, 12, 9472);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$a.name,
+    		type: "if",
+    		source: "(225:8) {#if state === `saving` && saving === `config`}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (230:12) {#if stateConfig === `import`}
+    function create_if_block_3$6(ctx) {
+    	let a;
+    	let t;
+    	let a_class_value;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			a = element("a");
+    			t = text("Save Configuration");
+    			attr_dev(a, "href", "/");
+    			attr_dev(a, "class", a_class_value = "float-right ml-2 btn btn-sm btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null));
+    			add_location(a, file$q, 230, 16, 9630);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, a, anchor);
+    			append_dev(a, t);
+
+    			if (!mounted) {
+    				dispose = listen_dev(a, "click", prevent_default(/*save*/ ctx[10](`config`)), false, true, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*state*/ 4 && a_class_value !== (a_class_value = "float-right ml-2 btn btn-sm btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null))) {
+    				attr_dev(a, "class", a_class_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(a);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_3$6.name,
+    		type: "if",
+    		source: "(230:12) {#if stateConfig === `import`}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (236:12) {#if stateConfig !== `hidden`}
     function create_if_block_2$8(ctx) {
     	let a;
     	let mounted;
@@ -19696,10 +19843,10 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			a = element("a");
-    			a.textContent = "Save Configuration";
+    			a.textContent = "Cancel";
     			attr_dev(a, "href", "/");
     			attr_dev(a, "class", "float-right ml-2 btn btn-sm btn-light btn-sm");
-    			add_location(a, file$q, 196, 12, 8317);
+    			add_location(a, file$q, 236, 16, 9932);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -19721,38 +19868,53 @@ var app = (function () {
     		block,
     		id: create_if_block_2$8.name,
     		type: "if",
-    		source: "(196:8) {#if stateConfig === `import`}",
+    		source: "(236:12) {#if stateConfig !== `hidden`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (202:8) {#if stateConfig !== `hidden`}
-    function create_if_block_1$a(ctx) {
-    	let a;
+    // (243:8) {#if stateConfig !== `hidden`}
+    function create_if_block$i(ctx) {
+    	let div;
+    	let textarea;
+    	let textarea_readonly_value;
     	let mounted;
     	let dispose;
 
     	const block = {
     		c: function create() {
-    			a = element("a");
-    			a.textContent = "Cancel";
-    			attr_dev(a, "href", "/");
-    			attr_dev(a, "class", "float-right ml-2 btn btn-sm btn-light btn-sm");
-    			add_location(a, file$q, 202, 12, 8570);
+    			div = element("div");
+    			textarea = element("textarea");
+    			attr_dev(textarea, "class", "form-control form-control-sm small");
+    			textarea.readOnly = textarea_readonly_value = /*stateConfig*/ ctx[6] === `export`;
+    			attr_dev(textarea, "rows", "16");
+    			add_location(textarea, file$q, 244, 16, 10238);
+    			attr_dev(div, "class", "mt-3");
+    			add_location(div, file$q, 243, 12, 10203);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, a, anchor);
+    			insert_dev(target, div, anchor);
+    			append_dev(div, textarea);
+    			set_input_value(textarea, /*configJSON*/ ctx[1]);
 
     			if (!mounted) {
-    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_7*/ ctx[22]), false, true, false);
+    				dispose = listen_dev(textarea, "input", /*textarea_input_handler*/ ctx[22]);
     				mounted = true;
     			}
     		},
-    		p: noop,
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*stateConfig*/ 64 && textarea_readonly_value !== (textarea_readonly_value = /*stateConfig*/ ctx[6] === `export`)) {
+    				prop_dev(textarea, "readOnly", textarea_readonly_value);
+    			}
+
+    			if (dirty & /*configJSON*/ 2) {
+    				set_input_value(textarea, /*configJSON*/ ctx[1]);
+    			}
+    		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(a);
+    			if (detaching) detach_dev(div);
     			mounted = false;
     			dispose();
     		}
@@ -19760,103 +19922,34 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$a.name,
-    		type: "if",
-    		source: "(202:8) {#if stateConfig !== `hidden`}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (208:8) {#if stateConfig !== `hidden`}
-    function create_if_block$i(ctx) {
-    	let div;
-    	let small;
-    	let textarea;
-    	let textarea_readonly_value;
-    	let textarea_value_value;
-
-    	const block = {
-    		c: function create() {
-    			div = element("div");
-    			small = element("small");
-    			textarea = element("textarea");
-    			attr_dev(textarea, "class", "form-control form-control-sm");
-    			textarea.readOnly = textarea_readonly_value = /*stateConfig*/ ctx[5] === `export`;
-    			attr_dev(textarea, "rows", "16");
-
-    			textarea.value = textarea_value_value = JSON.stringify(
-    				{
-    					sampling: /*$config*/ ctx[6].sampling,
-    					battery: /*$config*/ ctx[6].battery,
-    					ruuvitags: /*$config*/ ctx[6].ruuvitags,
-    					targets: /*$targets*/ ctx[7],
-    					columns: /*$config*/ ctx[6].columns
-    				},
-    				null,
-    				2
-    			);
-
-    			add_location(textarea, file$q, 209, 23, 8853);
-    			add_location(small, file$q, 209, 16, 8846);
-    			attr_dev(div, "class", "mt-3");
-    			add_location(div, file$q, 208, 12, 8811);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
-    			append_dev(div, small);
-    			append_dev(small, textarea);
-    		},
-    		p: function update(ctx, dirty) {
-    			if (dirty & /*stateConfig*/ 32 && textarea_readonly_value !== (textarea_readonly_value = /*stateConfig*/ ctx[5] === `export`)) {
-    				prop_dev(textarea, "readOnly", textarea_readonly_value);
-    			}
-
-    			if (dirty & /*$config, $targets*/ 192 && textarea_value_value !== (textarea_value_value = JSON.stringify(
-    				{
-    					sampling: /*$config*/ ctx[6].sampling,
-    					battery: /*$config*/ ctx[6].battery,
-    					ruuvitags: /*$config*/ ctx[6].ruuvitags,
-    					targets: /*$targets*/ ctx[7],
-    					columns: /*$config*/ ctx[6].columns
-    				},
-    				null,
-    				2
-    			))) {
-    				prop_dev(textarea, "value", textarea_value_value);
-    			}
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
     		id: create_if_block$i.name,
     		type: "if",
-    		source: "(208:8) {#if stateConfig !== `hidden`}",
+    		source: "(243:8) {#if stateConfig !== `hidden`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (187:4) <Col xs="8">
+    // (216:4) <Col xs="8">
     function create_default_slot_1$7(ctx) {
     	let a0;
     	let t1;
     	let a1;
     	let t3;
     	let t4;
-    	let t5;
-    	let if_block2_anchor;
+    	let if_block1_anchor;
     	let mounted;
     	let dispose;
-    	let if_block0 = /*stateConfig*/ ctx[5] === `import` && create_if_block_2$8(ctx);
-    	let if_block1 = /*stateConfig*/ ctx[5] !== `hidden` && create_if_block_1$a(ctx);
-    	let if_block2 = /*stateConfig*/ ctx[5] !== `hidden` && create_if_block$i(ctx);
+
+    	function select_block_type_4(ctx, dirty) {
+    		if (/*state*/ ctx[2] === `saving` && /*saving*/ ctx[5] === `config`) return create_if_block_1$a;
+    		return create_else_block$c;
+    	}
+
+    	let current_block_type = select_block_type_4(ctx);
+    	let if_block0 = current_block_type(ctx);
+    	let if_block1 = /*stateConfig*/ ctx[6] !== `hidden` && create_if_block$i(ctx);
 
     	const block = {
     		c: function create() {
@@ -19866,30 +19959,26 @@ var app = (function () {
     			a1 = element("a");
     			a1.textContent = "Import Configuration";
     			t3 = space();
-    			if (if_block0) if_block0.c();
+    			if_block0.c();
     			t4 = space();
     			if (if_block1) if_block1.c();
-    			t5 = space();
-    			if (if_block2) if_block2.c();
-    			if_block2_anchor = empty();
+    			if_block1_anchor = empty();
     			attr_dev(a0, "href", "/");
     			attr_dev(a0, "class", "btn btn-sm mr-2 btn-light btn-sm");
-    			add_location(a0, file$q, 187, 8, 7926);
+    			add_location(a0, file$q, 216, 8, 9064);
     			attr_dev(a1, "href", "/");
     			attr_dev(a1, "class", "btn btn-sm mr-2 btn-light btn-sm");
-    			add_location(a1, file$q, 191, 8, 8100);
+    			add_location(a1, file$q, 220, 8, 9238);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a0, anchor);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, a1, anchor);
     			insert_dev(target, t3, anchor);
-    			if (if_block0) if_block0.m(target, anchor);
+    			if_block0.m(target, anchor);
     			insert_dev(target, t4, anchor);
     			if (if_block1) if_block1.m(target, anchor);
-    			insert_dev(target, t5, anchor);
-    			if (if_block2) if_block2.m(target, anchor);
-    			insert_dev(target, if_block2_anchor, anchor);
+    			insert_dev(target, if_block1_anchor, anchor);
 
     			if (!mounted) {
     				dispose = [
@@ -19901,43 +19990,29 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (/*stateConfig*/ ctx[5] === `import`) {
+    			if (current_block_type === (current_block_type = select_block_type_4(ctx)) && if_block0) {
+    				if_block0.p(ctx, dirty);
+    			} else {
+    				if_block0.d(1);
+    				if_block0 = current_block_type(ctx);
+
     				if (if_block0) {
-    					if_block0.p(ctx, dirty);
-    				} else {
-    					if_block0 = create_if_block_2$8(ctx);
     					if_block0.c();
     					if_block0.m(t4.parentNode, t4);
     				}
-    			} else if (if_block0) {
-    				if_block0.d(1);
-    				if_block0 = null;
     			}
 
-    			if (/*stateConfig*/ ctx[5] !== `hidden`) {
+    			if (/*stateConfig*/ ctx[6] !== `hidden`) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
-    					if_block1 = create_if_block_1$a(ctx);
+    					if_block1 = create_if_block$i(ctx);
     					if_block1.c();
-    					if_block1.m(t5.parentNode, t5);
+    					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
     				}
     			} else if (if_block1) {
     				if_block1.d(1);
     				if_block1 = null;
-    			}
-
-    			if (/*stateConfig*/ ctx[5] !== `hidden`) {
-    				if (if_block2) {
-    					if_block2.p(ctx, dirty);
-    				} else {
-    					if_block2 = create_if_block$i(ctx);
-    					if_block2.c();
-    					if_block2.m(if_block2_anchor.parentNode, if_block2_anchor);
-    				}
-    			} else if (if_block2) {
-    				if_block2.d(1);
-    				if_block2 = null;
     			}
     		},
     		d: function destroy(detaching) {
@@ -19945,12 +20020,10 @@ var app = (function () {
     			if (detaching) detach_dev(t1);
     			if (detaching) detach_dev(a1);
     			if (detaching) detach_dev(t3);
-    			if (if_block0) if_block0.d(detaching);
+    			if_block0.d(detaching);
     			if (detaching) detach_dev(t4);
     			if (if_block1) if_block1.d(detaching);
-    			if (detaching) detach_dev(t5);
-    			if (if_block2) if_block2.d(detaching);
-    			if (detaching) detach_dev(if_block2_anchor);
+    			if (detaching) detach_dev(if_block1_anchor);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -19960,14 +20033,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$7.name,
     		type: "slot",
-    		source: "(187:4) <Col xs=\\\"8\\\">",
+    		source: "(216:4) <Col xs=\\\"8\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (186:0) <Row class="border-top pt-3 mt-3">
+    // (215:0) <Row class="border-top pt-3 mt-3">
     function create_default_slot$9(ctx) {
     	let col;
     	let current;
@@ -19992,7 +20065,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col_changes = {};
 
-    			if (dirty & /*$$scope, stateConfig, $config, $targets*/ 8388832) {
+    			if (dirty & /*$$scope, stateConfig, configJSON, state, saving*/ 33554534) {
     				col_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20016,7 +20089,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$9.name,
     		type: "slot",
-    		source: "(186:0) <Row class=\\\"border-top pt-3 mt-3\\\">",
+    		source: "(215:0) <Row class=\\\"border-top pt-3 mt-3\\\">",
     		ctx
     	});
 
@@ -20065,14 +20138,14 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const row0_changes = {};
 
-    			if (dirty & /*$$scope, state, saving, editBattery, configEdited, $config, editSampling*/ 8388703) {
+    			if (dirty & /*$$scope, state, saving, editBattery, configEdited, $config, editSampling*/ 33554621) {
     				row0_changes.$$scope = { dirty, ctx };
     			}
 
     			row0.$set(row0_changes);
     			const row1_changes = {};
 
-    			if (dirty & /*$$scope, stateConfig, $config, $targets*/ 8388832) {
+    			if (dirty & /*$$scope, stateConfig, configJSON, state, saving*/ 33554534) {
     				row1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -20111,12 +20184,31 @@ var app = (function () {
     	let $config;
     	let $targets;
     	validate_store(config, "config");
-    	component_subscribe($$self, config, $$value => $$invalidate(6, $config = $$value));
+    	component_subscribe($$self, config, $$value => $$invalidate(7, $config = $$value));
     	validate_store(targets, "targets");
-    	component_subscribe($$self, targets, $$value => $$invalidate(7, $targets = $$value));
+    	component_subscribe($$self, targets, $$value => $$invalidate(23, $targets = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Panel", slots, []);
-    	let configEdited = JSON.parse(JSON.stringify($config));
+    	let configEdited;
+    	let configJSON;
+
+    	const updateConfig = () => {
+    		$$invalidate(0, configEdited = JSON.parse(JSON.stringify($config)));
+
+    		$$invalidate(1, configJSON = JSON.stringify(
+    			{
+    				sampling: $config.sampling,
+    				battery: $config.battery,
+    				ruuvitags: $config.ruuvitags,
+    				targets: $targets,
+    				columns: $config.columns
+    			},
+    			null,
+    			2
+    		));
+    	};
+
+    	updateConfig();
     	let col_left = 5;
     	let col_right = 6;
     	let state = `view`; // `view` | `saving`
@@ -20127,22 +20219,40 @@ var app = (function () {
 
     	function save(target) {
     		return async function () {
-    			$$invalidate(1, state = `saving`);
-    			$$invalidate(4, saving = target);
-    			$$invalidate(5, stateConfig = `hidden`);
-    			const data = {};
-    			data[`${target}`] = configEdited[target];
+    			$$invalidate(2, state = `saving`);
+    			$$invalidate(5, saving = target);
 
-    			try {
-    				await api.post(`config`, data);
-    				set_store_value(config, $config[target] = configEdited[target], $config);
-    			} catch(error) {
-    				console.log(error);
+    			if (target === `config`) {
+    				try {
+    					const configSaved = JSON.parse(configJSON);
+    					await api.post(`config`, configSaved);
+    					set_store_value(config, $config.sampling = configSaved.sampling, $config);
+    					set_store_value(config, $config.battery = configSaved.battery, $config);
+    					set_store_value(config, $config.ruuvitags = configSaved.ruuvitags, $config);
+    					set_store_value(config, $config.columns = configSaved.columns, $config);
+    					set_store_value(targets, $targets = configSaved.targets, $targets);
+    					updateConfig();
+    					$$invalidate(2, state = `view`);
+    				} catch(error) {
+    					console.log(error);
+    				}
+    			} else {
+    				$$invalidate(6, stateConfig = `hidden`);
+    				const data = {};
+    				data[`${target}`] = configEdited[target];
+
+    				try {
+    					await api.post(`config`, data);
+    					set_store_value(config, $config[target] = configEdited[target], $config);
+    					updateConfig();
+    				} catch(error) {
+    					console.log(error);
+    				}
+
+    				$$invalidate(2, state = `view`);
+    				$$invalidate(3, editSampling = false);
+    				$$invalidate(4, editBattery = false);
     			}
-
-    			$$invalidate(1, state = `view`);
-    			$$invalidate(2, editSampling = false);
-    			$$invalidate(3, editBattery = false);
     		};
     	}
 
@@ -20163,11 +20273,11 @@ var app = (function () {
     	}
 
     	const click_handler = () => {
-    		$$invalidate(2, editSampling = false);
+    		$$invalidate(3, editSampling = false);
     	};
 
     	const click_handler_1 = () => {
-    		$$invalidate(2, editSampling = true);
+    		$$invalidate(3, editSampling = true);
     	};
 
     	function input0_input_handler_1() {
@@ -20181,28 +20291,29 @@ var app = (function () {
     	}
 
     	const click_handler_2 = () => {
-    		$$invalidate(3, editBattery = false);
+    		$$invalidate(4, editBattery = false);
     	};
 
     	const click_handler_3 = () => {
-    		$$invalidate(3, editBattery = true);
+    		$$invalidate(4, editBattery = true);
     	};
 
     	const click_handler_4 = () => {
-    		$$invalidate(5, stateConfig = `export`);
+    		$$invalidate(6, stateConfig = `export`);
     	};
 
     	const click_handler_5 = () => {
-    		$$invalidate(5, stateConfig = `import`);
+    		$$invalidate(6, stateConfig = `import`);
     	};
 
     	const click_handler_6 = () => {
-    		$$invalidate(5, stateConfig = `hidden`);
+    		$$invalidate(6, stateConfig = `hidden`);
     	};
 
-    	const click_handler_7 = () => {
-    		$$invalidate(5, stateConfig = `hidden`);
-    	};
+    	function textarea_input_handler() {
+    		configJSON = this.value;
+    		$$invalidate(1, configJSON);
+    	}
 
     	$$self.$capture_state = () => ({
     		api,
@@ -20215,6 +20326,8 @@ var app = (function () {
     		Row,
     		Col,
     		configEdited,
+    		configJSON,
+    		updateConfig,
     		col_left,
     		col_right,
     		state,
@@ -20229,13 +20342,14 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ("configEdited" in $$props) $$invalidate(0, configEdited = $$props.configEdited);
+    		if ("configJSON" in $$props) $$invalidate(1, configJSON = $$props.configJSON);
     		if ("col_left" in $$props) $$invalidate(8, col_left = $$props.col_left);
     		if ("col_right" in $$props) $$invalidate(9, col_right = $$props.col_right);
-    		if ("state" in $$props) $$invalidate(1, state = $$props.state);
-    		if ("editSampling" in $$props) $$invalidate(2, editSampling = $$props.editSampling);
-    		if ("editBattery" in $$props) $$invalidate(3, editBattery = $$props.editBattery);
-    		if ("saving" in $$props) $$invalidate(4, saving = $$props.saving);
-    		if ("stateConfig" in $$props) $$invalidate(5, stateConfig = $$props.stateConfig);
+    		if ("state" in $$props) $$invalidate(2, state = $$props.state);
+    		if ("editSampling" in $$props) $$invalidate(3, editSampling = $$props.editSampling);
+    		if ("editBattery" in $$props) $$invalidate(4, editBattery = $$props.editBattery);
+    		if ("saving" in $$props) $$invalidate(5, saving = $$props.saving);
+    		if ("stateConfig" in $$props) $$invalidate(6, stateConfig = $$props.stateConfig);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -20244,13 +20358,13 @@ var app = (function () {
 
     	return [
     		configEdited,
+    		configJSON,
     		state,
     		editSampling,
     		editBattery,
     		saving,
     		stateConfig,
     		$config,
-    		$targets,
     		col_left,
     		col_right,
     		save,
@@ -20265,7 +20379,7 @@ var app = (function () {
     		click_handler_4,
     		click_handler_5,
     		click_handler_6,
-    		click_handler_7
+    		textarea_input_handler
     	];
     }
 
