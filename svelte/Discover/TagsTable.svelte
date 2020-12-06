@@ -6,7 +6,6 @@
     import Cell from './Cell.svelte';
     import CellDatabase from './Cell/Database.svelte';
     import CellInfo from './Cell/Info.svelte';
-    export let ruuvitags = {};
 </script>
 
 <Table class="table-sm font-weight-lighter small" responsive>

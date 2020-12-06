@@ -2,6 +2,7 @@
 	import CellMeasure from './Cell/Measure.svelte';
 	import CellText from './Cell/Text.svelte';
     import CellDate from './Cell/Date.svelte';
+    import CellTagName from './Cell/TagName.svelte';
     export let col = {};
     export let tag = {};
     export let source = `last`;
@@ -17,4 +18,7 @@
 {/if}
 {#if col.render === `date`}
     <CellDate {col} {tag} {source} />
+{/if}
+{#if col.render === `name`}
+    <CellTagName {tag} />
 {/if}
