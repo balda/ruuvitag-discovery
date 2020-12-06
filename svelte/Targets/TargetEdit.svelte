@@ -89,10 +89,10 @@
          class="btn btn-light btn-sm">
             Save
         </a>
-        <a href="/" on:click|preventDefault={e => console.log(targetEdited)}
+        <!-- <a href="/" on:click|preventDefault={e => console.log(targetEdited)}
          class="btn btn-link btn-sm text-muted float-right">
             log
-        </a>
+        </a> -->
     </div>
 
     <Row>

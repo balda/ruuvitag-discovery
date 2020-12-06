@@ -78,6 +78,9 @@
             if (data.targets) {
                 $dictTargets = data.targets;
             }
+            // if (data.error) {
+            //     console.log(data.error);
+            // }
         } catch(error) {
             console.log(error);
         }

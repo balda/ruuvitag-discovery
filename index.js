@@ -14,6 +14,8 @@ const tags = {}
 const history = {}
 let processStopped = false
 
+const server = require(':lib/server')
+
 const broadcast = ({target, tag, field = `last`}) => {
     // process stopped
     if (processStopped) {
@@ -209,7 +211,7 @@ const handleTarget = async (target) => {
         await broadcaster.reset(target)
     } else {
         await broadcaster.reset(target)
-        broadcaster(target).start()
+        broadcaster(target).start(server)
         if (1 * target.interval === 0) {
             clearTargetInterval(target)
         } else {
@@ -294,8 +296,6 @@ const store = {
         return config
     },
 }
-
-const server = require(':lib/server')
 
 const end = async (signal) => {
     console.log(`Stop RuuviTag Discovery`)

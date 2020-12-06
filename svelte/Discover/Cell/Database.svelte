@@ -16,7 +16,9 @@
 </script>
 
 <Tooltip tip="{target.name}" left >
-    <a on:click|preventDefault={toggle} href="/" class="mx-1 {1 * target.enable ? `text-success` : `text-danger`}"><i class="fas fa-database"></i></a>
+    <a on:click|preventDefault={toggle} href="/" class="mx-1 {1 * target.enable ? `text-success` : `text-muted`}">
+        <i class="fas fa-database"></i>
+    </a>
 </Tooltip>
 <Modal isOpen={open} {toggle} size="lg">
     <ModalHeader {toggle}>

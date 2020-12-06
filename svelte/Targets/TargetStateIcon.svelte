@@ -2,7 +2,7 @@
     import Tooltip from './../UI/Tooltip.svelte';
     export let target = {};
     $: title = `Target ${1 * target.enable ? `enable` : `disable`}`;
-    $: color = 1 * target.enable ? `text-success` : `text-danger`;
+    $: color = 1 * target.enable ? `text-success` : `text-muted`;
 </script>
 
 <Tooltip tip="{title}" right >
