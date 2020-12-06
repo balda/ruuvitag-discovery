@@ -2,8 +2,7 @@ import svelte from 'rollup-plugin-svelte';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
-// import pkg from './../package.json';
-// console.log(pkg);
+import pkg from './package.json';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -13,7 +12,7 @@ export default {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: production ? 'assets/app.min.js' : 'assets/app.js',
+		file: production ? `assets/app.${pkg.version}.min.js` : `assets/app.js`,
 	},
 	plugins: [
 		svelte({
@@ -21,7 +20,7 @@ export default {
 			dev: !production,
 			// we'll extract any component CSS out into a separate file - better for performance
 			css: css => {
-				css.write(production ? 'app.min.css' : 'app.css');
+				css.write(production ? `app.${pkg.version}.min.css` : `app.css`);
 			}
 		}),
 

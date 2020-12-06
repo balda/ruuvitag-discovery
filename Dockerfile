@@ -16,7 +16,7 @@ WORKDIR /app
 
 ENV RUUVI_DISCOVERY_ENV homeassistant
 
-CMD [ "node", "index.js" ]
+CMD [ "npm", "start" ]
 
 # Build arguments
 ARG BUILD_ARCH
