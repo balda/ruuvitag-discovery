@@ -1,6 +1,6 @@
 # RuuviTag Discovery
 
-Discover [RuuviTag Environmental Sensors](https://ruuvi.com/) using a web interface (all measures in one page).
+Discover [RuuviTag Environmental Sensors](https://ruuvi.com/) using a web interface (all measures in one page, in real time).
 
 Save measures to multiple targets:
 
@@ -11,6 +11,7 @@ Save measures to multiple targets:
 
 Other Features:
 
+- RuuviTag measurements displayed in real time
 - Select and configure measures sent to each target
 - Additional measures: absolute humidity, acceleration, air density, battery level, dew point, equilibrium vapor pressure, vapor pressure deficit, reception frequency and reception period
 - Sampling configuration (median measures)
@@ -20,18 +21,57 @@ Other Features:
 ![discover page](https://raw.githubusercontent.com/balda/ruuvitag-discovery/master/doc/page-discover.png)
 
 
-## Install from source
+## Install
+
+### From source
+
+##### Install Node.js
+
+You can [download pre-built installer](https://nodejs.org/en/download/) for your platform or see [instructions for your favorite package manager](https://nodejs.org/en/download/package-manager/) (developpers should install Node.js with a [Node version manager](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)).
+
+##### Get the projet code
+
+[Download](https://github.com/balda/ruuvitag-discovery/archive/master.zip) and unzip the code or use [git](https://git-scm.com/) (prefered method)
 
 ```bash
+git clone https://github.com/balda/ruuvitag-discovery
+```
+
+
+
+##### Install / upgrade dependencies
+
+```bash
+cd ruuvitag-discovery/
 npm install
+```
+
+##### Run
+
+To start the application, run the command
+
+```bash
 npm start
 ```
 
-Web interface url: http://localhost:8099/
+In a browser, go to http://localhost:8099/ url to see the web interface.
 
-Configuration is save in `/data/` directory (create on first run)
+By default, server port is `8099`. It can be changed using `SERVER_PORT` environment variable
 
-## Install [Home Assistant](https://www.home-assistant.io/hassio/) add-on
+```bash
+SERVER_PORT=8100 npm start
+```
+
+##### Stop
+
+To stop the application, use `^c`.
+
+##### Configuration file
+
+Configuration is saved in `/data/` directory (created on first run).
+
+
+### Install [Home Assistant](https://www.home-assistant.io/hassio/) add-on
 
 See [Home Assistant Documentation](https://github.com/balda/ruuvitag-discovery/blob/master/DOCS.md)
 
