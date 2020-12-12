@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.2.3] - 2020-12-12
+- Bugfixes
+- More server log options (configurable in the UI)
+
 ## [0.2.2] - 2020-12-12
 - Server: port can be changed and add error handler (#27)
 - Tag detail popup: add name if defined (#22)
@@ -83,7 +87,8 @@
 
 First release
 
-[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.2.2...HEAD
+[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.2.3...HEAD
+[0.2.3]: https://github.com/balda/ruuvitag-discovery/compare/0.2.2...0.2.3
 [0.2.2]: https://github.com/balda/ruuvitag-discovery/compare/0.2.1...0.2.2
 [0.2.1]: https://github.com/balda/ruuvitag-discovery/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/balda/ruuvitag-discovery/compare/0.1.14...0.2.0
