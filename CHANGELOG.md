@@ -3,6 +3,7 @@
 ## [Unreleased]
 - Server: port can be changed and add error handler (#27)
 - Tag detail popup: add name if defined (#22)
+- Rename tag: add a button to empty name
 
 ## [0.2.1] - 2020-12-06
 - Fix WebSocket with ssl
