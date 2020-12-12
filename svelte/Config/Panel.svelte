@@ -13,6 +13,7 @@
             ruuvitags: $config.ruuvitags,
             targets: $targets,
             columns: $config.columns,
+            log: $config.log,
         }, null, 2);
     };
     updateConfig();
@@ -21,8 +22,39 @@
     let state = `view`; // `view` | `saving`
     let editSampling = false;
     let editBattery = false;
+    let editLog = false;
     let saving = ``;
     let stateConfig = `hidden`; // `hidden` | `export` | `export`
+    const logsHelp = [
+        {
+            log: `timestamp`,
+            help: `Prefix logs with timestamp`,
+        },
+        {
+            log: `error`,
+            help: `Display error logs`,
+        },
+        {
+            log: `info`,
+            help: `Display info logs`,
+        },
+        {
+            log: `tags`,
+            help: `Display measures received by tags`,
+        },
+        {
+            log: `send`,
+            help: `Display measures sent to targets`,
+        },
+        {
+            log: `debug`,
+            help: `Display debug logs`,
+        },
+        {
+            log: `ws`,
+            help: `Display web socket logs`,
+        },
+    ];
     function save(target) {
         return async function() {
             state = `saving`;
@@ -35,6 +67,7 @@
                     $config.battery = configSaved.battery;
                     $config.ruuvitags = configSaved.ruuvitags;
                     $config.columns = configSaved.columns;
+                    $config.log = configSaved.log;
                     $targets = configSaved.targets;
                     updateConfig();
                     state = `view`;
@@ -55,10 +88,17 @@
                 state = `view`;
                 editSampling = false;
                 editBattery = false;
+                editLog = false;
             }
         }
     }
 </script>
+
+<style>
+    .select-log :global(.custom-control-label) {
+        padding-top: 2px;
+    }
+</style>
 
 <Row class="pt-2">
     <Col xs="4">
@@ -205,6 +245,62 @@
                 </div>
                 <div>
                     <a href="/" on:click|preventDefault={() => {editBattery = true}} class="btn btn-light btn-sm">
+                        Edit
+                    </a>
+                </div>
+            {/if}
+        </div>
+    </Col>
+    <Col xs="4">
+        <small class="px-2 py-1 bg-light">
+            Server Logs
+        </small>
+        <div class="pl-2">
+            {#if editLog}
+                <form id="form-log" class="mt-4 select-log" disabled>
+                    {#each logsHelp as log (log.log)}
+                        <div class="form-group row">
+                            <Col class="font-weight-lighter small">
+                                <CustomInput
+                                    bind:checked={configEdited.log[log.log]}
+                                    type="switch"
+                                    bsSize="sm"
+                                    inline=true
+                                    id="show_{log.log}"
+                                    name="{log.log}"
+                                    label="{log.help}" />
+                            </Col>
+                        </div>
+                    {/each}
+                </form>
+                {#if state === `saving` && saving === `log`}
+                    <div class="small">
+                        Saving ...
+                    </div>
+                {:else}
+                    <a href="/" on:click|preventDefault={() => {editLog = false}} class="btn btn-light btn-sm mr-4">
+                        Cancel
+                    </a>
+                    <a href="/" on:click|preventDefault={save(`log`)}
+                     class="btn btn-light btn-sm {state === `saving` ? `disabled` : null}"
+                    >
+                        Save
+                    </a>
+                {/if}
+            {:else}
+                <div class="small py-1">
+                    {#each logsHelp as log (log.log)}
+                        {#if $config.log[log.log]}
+                            <div class="mt-2 mb-2">
+                                <span class="font-italic font-weight-lighter">
+                                    {log.help}
+                                </span>
+                            </div>
+                        {/if}
+                    {/each}
+                </div>
+                <div>
+                    <a href="/" on:click|preventDefault={() => {editLog = true}} class="btn btn-light btn-sm">
                         Edit
                     </a>
                 </div>

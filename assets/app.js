@@ -15664,7 +15664,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (93:20) {:else}
+    // (90:20) {:else}
     function create_else_block$a(ctx) {
     	let em;
 
@@ -15672,7 +15672,7 @@ var app = (function () {
     		c: function create() {
     			em = element("em");
     			em.textContent = "none";
-    			add_location(em, file$p, 93, 24, 3536);
+    			add_location(em, file$p, 90, 24, 3430);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, em, anchor);
@@ -15689,14 +15689,14 @@ var app = (function () {
     		block,
     		id: create_else_block$a.name,
     		type: "else",
-    		source: "(93:20) {:else}",
+    		source: "(90:20) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (69:20) {#if target.tags}
+    // (66:20) {#if target.tags}
     function create_if_block$e(ctx) {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
@@ -15768,14 +15768,14 @@ var app = (function () {
     		block,
     		id: create_if_block$e.name,
     		type: "if",
-    		source: "(69:20) {#if target.tags}",
+    		source: "(66:20) {#if target.tags}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (72:32) <Col>
+    // (69:32) <Col>
     function create_default_slot_3$3(ctx) {
     	let div0;
     	let t0_value = /*target*/ ctx[5].tags[/*id*/ ctx[8]].name + "";
@@ -15795,9 +15795,9 @@ var app = (function () {
     			em = element("em");
     			t2 = text(t2_value);
     			attr_dev(div0, "class", "font-weight-bolder mb-1");
-    			add_location(div0, file$p, 72, 36, 2320);
-    			add_location(em, file$p, 76, 40, 2546);
-    			add_location(div1, file$p, 75, 36, 2500);
+    			add_location(div0, file$p, 69, 36, 2214);
+    			add_location(em, file$p, 73, 40, 2440);
+    			add_location(div1, file$p, 72, 36, 2394);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -15822,14 +15822,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$3.name,
     		type: "slot",
-    		source: "(72:32) <Col>",
+    		source: "(69:32) <Col>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (84:36) {#each Object.keys(target.tags[id].measures) as measure (measure)}
+    // (81:36) {#each Object.keys(target.tags[id].measures) as measure (measure)}
     function create_each_block_2$2(key_1, ctx) {
     	let div;
     	let t0;
@@ -15852,9 +15852,9 @@ var app = (function () {
     			em = element("em");
     			t3 = text(t3_value);
     			t4 = text(")\n                                        ");
-    			add_location(em, file$p, 86, 45, 3235);
+    			add_location(em, file$p, 83, 45, 3129);
     			attr_dev(div, "class", "pl-1");
-    			add_location(div, file$p, 84, 40, 3083);
+    			add_location(div, file$p, 81, 40, 2977);
     			this.first = div;
     		},
     		m: function mount(target, anchor) {
@@ -15879,14 +15879,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2$2.name,
     		type: "each",
-    		source: "(84:36) {#each Object.keys(target.tags[id].measures) as measure (measure)}",
+    		source: "(81:36) {#each Object.keys(target.tags[id].measures) as measure (measure)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (80:32) <Col>
+    // (77:32) <Col>
     function create_default_slot_2$3(ctx) {
     	let div;
     	let t0_value = Object.keys(/*target*/ ctx[5].tags[/*id*/ ctx[8]].measures).length + "";
@@ -15926,7 +15926,7 @@ var app = (function () {
     			}
 
     			each_1_anchor = empty();
-    			add_location(div, file$p, 80, 36, 2735);
+    			add_location(div, file$p, 77, 36, 2629);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -15971,14 +15971,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$3.name,
     		type: "slot",
-    		source: "(80:32) <Col>",
+    		source: "(77:32) <Col>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (71:28) <Row class="mb-3">
+    // (68:28) <Row class="mb-3">
     function create_default_slot_1$5(ctx) {
     	let col0;
     	let t0;
@@ -16055,14 +16055,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$5.name,
     		type: "slot",
-    		source: "(71:28) <Row class=\\\"mb-3\\\">",
+    		source: "(68:28) <Row class=\\\"mb-3\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (70:24) {#each Object.keys(target.tags) as id (id)}
+    // (67:24) {#each Object.keys(target.tags) as id (id)}
     function create_each_block_1$2(key_1, ctx) {
     	let first;
     	let row;
@@ -16118,7 +16118,7 @@ var app = (function () {
     		block,
     		id: create_each_block_1$2.name,
     		type: "each",
-    		source: "(70:24) {#each Object.keys(target.tags) as id (id)}",
+    		source: "(67:24) {#each Object.keys(target.tags) as id (id)}",
     		ctx
     	});
 
@@ -16131,38 +16131,34 @@ var app = (function () {
     	let td0;
     	let targetstateicon;
     	let t0;
-    	let span0;
+    	let span;
     	let t1_value = /*target*/ ctx[5].name + "";
     	let t1;
     	let t2;
     	let td1;
     	let targettype;
     	let t3;
-    	let span1;
-    	let t4_value = /*target*/ ctx[5].type + "";
+    	let td2;
+    	let t4_value = (/*target*/ ctx[5].measurement || `n/a`) + "";
     	let t4;
     	let t5;
-    	let td2;
-    	let t6_value = (/*target*/ ctx[5].measurement || `n/a`) + "";
-    	let t6;
-    	let t7;
     	let td3;
 
-    	let t8_value = (1 * /*target*/ ctx[5].interval === 0
+    	let t6_value = (1 * /*target*/ ctx[5].interval === 0
     	? `live`
     	: /*target*/ ctx[5].interval) + "";
 
-    	let t8;
-    	let t9;
+    	let t6;
+    	let t7;
     	let td4;
     	let current_block_type_index;
     	let if_block;
-    	let t10;
+    	let t8;
     	let td5;
     	let a0;
-    	let t12;
+    	let t10;
     	let a1;
-    	let t14;
+    	let t12;
     	let current;
     	let mounted;
     	let dispose;
@@ -16204,53 +16200,48 @@ var app = (function () {
     			td0 = element("td");
     			create_component(targetstateicon.$$.fragment);
     			t0 = space();
-    			span0 = element("span");
+    			span = element("span");
     			t1 = text(t1_value);
     			t2 = space();
     			td1 = element("td");
     			create_component(targettype.$$.fragment);
     			t3 = space();
-    			span1 = element("span");
+    			td2 = element("td");
     			t4 = text(t4_value);
     			t5 = space();
-    			td2 = element("td");
+    			td3 = element("td");
     			t6 = text(t6_value);
     			t7 = space();
-    			td3 = element("td");
-    			t8 = text(t8_value);
-    			t9 = space();
     			td4 = element("td");
     			if_block.c();
-    			t10 = space();
+    			t8 = space();
     			td5 = element("td");
     			a0 = element("a");
     			a0.textContent = "Delete";
-    			t12 = space();
+    			t10 = space();
     			a1 = element("a");
     			a1.textContent = "Edit";
-    			t14 = space();
-    			attr_dev(span0, "class", "ml-2");
-    			add_location(span0, file$p, 51, 20, 1488);
+    			t12 = space();
+    			attr_dev(span, "class", "ml-2");
+    			add_location(span, file$p, 51, 20, 1488);
     			attr_dev(td0, "class", "text-left");
     			add_location(td0, file$p, 49, 16, 1396);
-    			attr_dev(span1, "class", "ml-2");
-    			add_location(span1, file$p, 57, 20, 1699);
     			attr_dev(td1, "class", "text-left");
     			add_location(td1, file$p, 55, 16, 1612);
     			attr_dev(td2, "class", "text-left");
-    			add_location(td2, file$p, 61, 16, 1823);
+    			add_location(td2, file$p, 58, 16, 1717);
     			attr_dev(td3, "class", "text-left");
-    			add_location(td3, file$p, 64, 16, 1934);
+    			add_location(td3, file$p, 61, 16, 1828);
     			attr_dev(td4, "class", "text-left");
-    			add_location(td4, file$p, 67, 16, 2070);
+    			add_location(td4, file$p, 64, 16, 1964);
     			attr_dev(a0, "href", "/");
     			attr_dev(a0, "class", "btn btn-link text-danger btn-sm mr-2");
-    			add_location(a0, file$p, 97, 20, 3659);
+    			add_location(a0, file$p, 94, 20, 3553);
     			attr_dev(a1, "href", "/");
     			attr_dev(a1, "class", "btn btn-light btn-sm");
-    			add_location(a1, file$p, 101, 20, 3866);
+    			add_location(a1, file$p, 98, 20, 3760);
     			attr_dev(td5, "class", "text-center");
-    			add_location(td5, file$p, 96, 16, 3614);
+    			add_location(td5, file$p, 93, 16, 3508);
     			add_location(tr, file$p, 48, 12, 1375);
     			this.first = tr;
     		},
@@ -16259,29 +16250,26 @@ var app = (function () {
     			append_dev(tr, td0);
     			mount_component(targetstateicon, td0, null);
     			append_dev(td0, t0);
-    			append_dev(td0, span0);
-    			append_dev(span0, t1);
+    			append_dev(td0, span);
+    			append_dev(span, t1);
     			append_dev(tr, t2);
     			append_dev(tr, td1);
     			mount_component(targettype, td1, null);
-    			append_dev(td1, t3);
-    			append_dev(td1, span1);
-    			append_dev(span1, t4);
-    			append_dev(tr, t5);
+    			append_dev(tr, t3);
     			append_dev(tr, td2);
-    			append_dev(td2, t6);
-    			append_dev(tr, t7);
+    			append_dev(td2, t4);
+    			append_dev(tr, t5);
     			append_dev(tr, td3);
-    			append_dev(td3, t8);
-    			append_dev(tr, t9);
+    			append_dev(td3, t6);
+    			append_dev(tr, t7);
     			append_dev(tr, td4);
     			if_blocks[current_block_type_index].m(td4, null);
-    			append_dev(tr, t10);
+    			append_dev(tr, t8);
     			append_dev(tr, td5);
     			append_dev(td5, a0);
-    			append_dev(td5, t12);
+    			append_dev(td5, t10);
     			append_dev(td5, a1);
-    			append_dev(tr, t14);
+    			append_dev(tr, t12);
     			current = true;
 
     			if (!mounted) {
@@ -16302,12 +16290,11 @@ var app = (function () {
     			const targettype_changes = {};
     			if (dirty & /*$targets*/ 2) targettype_changes.target = /*target*/ ctx[5];
     			targettype.$set(targettype_changes);
-    			if ((!current || dirty & /*$targets*/ 2) && t4_value !== (t4_value = /*target*/ ctx[5].type + "")) set_data_dev(t4, t4_value);
-    			if ((!current || dirty & /*$targets*/ 2) && t6_value !== (t6_value = (/*target*/ ctx[5].measurement || `n/a`) + "")) set_data_dev(t6, t6_value);
+    			if ((!current || dirty & /*$targets*/ 2) && t4_value !== (t4_value = (/*target*/ ctx[5].measurement || `n/a`) + "")) set_data_dev(t4, t4_value);
 
-    			if ((!current || dirty & /*$targets*/ 2) && t8_value !== (t8_value = (1 * /*target*/ ctx[5].interval === 0
+    			if ((!current || dirty & /*$targets*/ 2) && t6_value !== (t6_value = (1 * /*target*/ ctx[5].interval === 0
     			? `live`
-    			: /*target*/ ctx[5].interval) + "")) set_data_dev(t8, t8_value);
+    			: /*target*/ ctx[5].interval) + "")) set_data_dev(t6, t6_value);
 
     			let previous_block_index = current_block_type_index;
     			current_block_type_index = select_block_type(ctx);
@@ -20050,19 +20037,33 @@ var app = (function () {
     const { console: console_1$3 } = globals;
     const file$u = "svelte/Config/Panel.svelte";
 
-    // (116:12) {:else}
-    function create_else_block_4(ctx) {
+    function get_each_context_1$4(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[30] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context$8(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[30] = list[i];
+    	child_ctx[31] = list;
+    	child_ctx[32] = i;
+    	return child_ctx;
+    }
+
+    // (156:12) {:else}
+    function create_else_block_6(ctx) {
     	let div4;
     	let div1;
     	let t0;
-    	let t1_value = /*$config*/ ctx[7].sampling.history + "";
+    	let t1_value = /*$config*/ ctx[8].sampling.history + "";
     	let t1;
     	let t2;
     	let div0;
     	let t4;
     	let div3;
     	let t5;
-    	let t6_value = /*$config*/ ctx[7].sampling.interval + "";
+    	let t6_value = /*$config*/ ctx[8].sampling.interval + "";
     	let t6;
     	let t7;
     	let div2;
@@ -20093,19 +20094,19 @@ var app = (function () {
     			a = element("a");
     			a.textContent = "Edit";
     			attr_dev(div0, "class", "font-italic font-weight-lighter");
-    			add_location(div0, file$u, 119, 24, 4893);
+    			add_location(div0, file$u, 159, 24, 5809);
     			attr_dev(div1, "class", "mt-2 mb-2");
-    			add_location(div1, file$u, 117, 20, 4785);
+    			add_location(div1, file$u, 157, 20, 5701);
     			attr_dev(div2, "class", "font-italic font-weight-lighter");
-    			add_location(div2, file$u, 125, 24, 5182);
+    			add_location(div2, file$u, 165, 24, 6098);
     			attr_dev(div3, "class", "mb-4");
-    			add_location(div3, file$u, 123, 20, 5068);
+    			add_location(div3, file$u, 163, 20, 5984);
     			attr_dev(div4, "class", "small py-1");
-    			add_location(div4, file$u, 116, 16, 4740);
+    			add_location(div4, file$u, 156, 16, 5656);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "class", "btn btn-light btn-sm");
-    			add_location(a, file$u, 131, 20, 5405);
-    			add_location(div5, file$u, 130, 16, 5379);
+    			add_location(a, file$u, 171, 20, 6321);
+    			add_location(div5, file$u, 170, 16, 6295);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div4, anchor);
@@ -20125,13 +20126,13 @@ var app = (function () {
     			append_dev(div5, a);
 
     			if (!mounted) {
-    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_1*/ ctx[14]), false, true, false);
+    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_1*/ ctx[16]), false, true, false);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$config*/ 128 && t1_value !== (t1_value = /*$config*/ ctx[7].sampling.history + "")) set_data_dev(t1, t1_value);
-    			if (dirty & /*$config*/ 128 && t6_value !== (t6_value = /*$config*/ ctx[7].sampling.interval + "")) set_data_dev(t6, t6_value);
+    			if (dirty[0] & /*$config*/ 256 && t1_value !== (t1_value = /*$config*/ ctx[8].sampling.history + "")) set_data_dev(t1, t1_value);
+    			if (dirty[0] & /*$config*/ 256 && t6_value !== (t6_value = /*$config*/ ctx[8].sampling.interval + "")) set_data_dev(t6, t6_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div4);
@@ -20144,17 +20145,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block_4.name,
+    		id: create_else_block_6.name,
     		type: "else",
-    		source: "(116:12) {:else}",
+    		source: "(156:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (69:12) {#if editSampling}
-    function create_if_block_6$1(ctx) {
+    // (109:12) {#if editSampling}
+    function create_if_block_9$1(ctx) {
     	let form;
     	let div1;
     	let label0;
@@ -20187,8 +20188,8 @@ var app = (function () {
     	let dispose;
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*state*/ ctx[2] === `saving` && /*saving*/ ctx[5] === `sampling`) return create_if_block_7$1;
-    		return create_else_block_3;
+    		if (/*state*/ ctx[2] === `saving` && /*saving*/ ctx[6] === `sampling`) return create_if_block_10$1;
+    		return create_else_block_5;
     	}
 
     	let current_block_type = select_block_type_1(ctx);
@@ -20221,38 +20222,38 @@ var app = (function () {
     			t9 = space();
     			if_block.c();
     			if_block_anchor = empty();
-    			attr_dev(label0, "class", label0_class_value = "col-sm-" + /*col_left*/ ctx[8] + " col-form-label-sm");
-    			add_location(label0, file$u, 71, 24, 2528);
+    			attr_dev(label0, "class", label0_class_value = "col-sm-" + /*col_left*/ ctx[9] + " col-form-label-sm" + " svelte-1nlxoci");
+    			add_location(label0, file$u, 111, 24, 3444);
     			attr_dev(input0, "type", "number");
     			attr_dev(input0, "name", "history");
     			attr_dev(input0, "class", "form-control form-control-sm");
     			input0.disabled = input0_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null;
-    			add_location(input0, file$u, 75, 28, 2734);
-    			add_location(em0, file$u, 81, 32, 3116);
+    			add_location(input0, file$u, 115, 28, 3650);
+    			add_location(em0, file$u, 121, 32, 4032);
     			attr_dev(small0, "class", "form-text text-muted");
-    			add_location(small0, file$u, 80, 28, 3047);
-    			attr_dev(div0, "class", div0_class_value = "col-sm-" + /*col_right*/ ctx[9]);
-    			add_location(div0, file$u, 74, 24, 2673);
+    			add_location(small0, file$u, 120, 28, 3963);
+    			attr_dev(div0, "class", div0_class_value = "col-sm-" + /*col_right*/ ctx[10] + " svelte-1nlxoci");
+    			add_location(div0, file$u, 114, 24, 3589);
     			attr_dev(div1, "class", "form-group row");
-    			add_location(div1, file$u, 70, 20, 2475);
-    			attr_dev(label1, "class", label1_class_value = "col-sm-" + /*col_left*/ ctx[8] + " col-form-label-sm");
-    			add_location(label1, file$u, 86, 24, 3316);
+    			add_location(div1, file$u, 110, 20, 3391);
+    			attr_dev(label1, "class", label1_class_value = "col-sm-" + /*col_left*/ ctx[9] + " col-form-label-sm" + " svelte-1nlxoci");
+    			add_location(label1, file$u, 126, 24, 4232);
     			attr_dev(input1, "type", "number");
     			attr_dev(input1, "name", "interval");
     			attr_dev(input1, "class", "form-control form-control-sm");
     			input1.disabled = input1_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null;
-    			add_location(input1, file$u, 90, 28, 3532);
-    			add_location(em1, file$u, 96, 32, 3916);
+    			add_location(input1, file$u, 130, 28, 4448);
+    			add_location(em1, file$u, 136, 32, 4832);
     			attr_dev(small1, "class", "form-text text-muted");
-    			add_location(small1, file$u, 95, 28, 3847);
-    			attr_dev(div2, "class", div2_class_value = "col-sm-" + /*col_right*/ ctx[9]);
-    			add_location(div2, file$u, 89, 24, 3471);
+    			add_location(small1, file$u, 135, 28, 4763);
+    			attr_dev(div2, "class", div2_class_value = "col-sm-" + /*col_right*/ ctx[10] + " svelte-1nlxoci");
+    			add_location(div2, file$u, 129, 24, 4387);
     			attr_dev(div3, "class", "form-group row");
-    			add_location(div3, file$u, 85, 20, 3263);
+    			add_location(div3, file$u, 125, 20, 4179);
     			attr_dev(form, "id", "form-sampling");
     			attr_dev(form, "class", "mt-4");
     			attr_dev(form, "disabled", "");
-    			add_location(form, file$u, 69, 16, 2407);
+    			add_location(form, file$u, 109, 16, 3323);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, form, anchor);
@@ -20283,27 +20284,27 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[11]),
-    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[12])
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[13]),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[14])
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*state*/ 4 && input0_disabled_value !== (input0_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null)) {
+    			if (dirty[0] & /*state*/ 4 && input0_disabled_value !== (input0_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null)) {
     				prop_dev(input0, "disabled", input0_disabled_value);
     			}
 
-    			if (dirty & /*configEdited*/ 1 && to_number(input0.value) !== /*configEdited*/ ctx[0].sampling.history) {
+    			if (dirty[0] & /*configEdited*/ 1 && to_number(input0.value) !== /*configEdited*/ ctx[0].sampling.history) {
     				set_input_value(input0, /*configEdited*/ ctx[0].sampling.history);
     			}
 
-    			if (dirty & /*state*/ 4 && input1_disabled_value !== (input1_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null)) {
+    			if (dirty[0] & /*state*/ 4 && input1_disabled_value !== (input1_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null)) {
     				prop_dev(input1, "disabled", input1_disabled_value);
     			}
 
-    			if (dirty & /*configEdited*/ 1 && to_number(input1.value) !== /*configEdited*/ ctx[0].sampling.interval) {
+    			if (dirty[0] & /*configEdited*/ 1 && to_number(input1.value) !== /*configEdited*/ ctx[0].sampling.interval) {
     				set_input_value(input1, /*configEdited*/ ctx[0].sampling.interval);
     			}
 
@@ -20331,17 +20332,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_6$1.name,
+    		id: create_if_block_9$1.name,
     		type: "if",
-    		source: "(69:12) {#if editSampling}",
+    		source: "(109:12) {#if editSampling}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (106:16) {:else}
-    function create_else_block_3(ctx) {
+    // (146:16) {:else}
+    function create_else_block_5(ctx) {
     	let a0;
     	let t1;
     	let a1;
@@ -20359,10 +20360,10 @@ var app = (function () {
     			t2 = text("Save");
     			attr_dev(a0, "href", "/");
     			attr_dev(a0, "class", "btn btn-light btn-sm mr-4");
-    			add_location(a0, file$u, 106, 20, 4282);
+    			add_location(a0, file$u, 146, 20, 5198);
     			attr_dev(a1, "href", "/");
-    			attr_dev(a1, "class", a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null));
-    			add_location(a1, file$u, 109, 20, 4460);
+    			attr_dev(a1, "class", a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null) + " svelte-1nlxoci");
+    			add_location(a1, file$u, 149, 20, 5376);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a0, anchor);
@@ -20372,15 +20373,15 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(a0, "click", prevent_default(/*click_handler*/ ctx[13]), false, true, false),
-    					listen_dev(a1, "click", prevent_default(/*save*/ ctx[10](`sampling`)), false, true, false)
+    					listen_dev(a0, "click", prevent_default(/*click_handler*/ ctx[15]), false, true, false),
+    					listen_dev(a1, "click", prevent_default(/*save*/ ctx[12](`sampling`)), false, true, false)
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*state*/ 4 && a1_class_value !== (a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null))) {
+    			if (dirty[0] & /*state*/ 4 && a1_class_value !== (a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null) + " svelte-1nlxoci")) {
     				attr_dev(a1, "class", a1_class_value);
     			}
     		},
@@ -20395,17 +20396,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block_3.name,
+    		id: create_else_block_5.name,
     		type: "else",
-    		source: "(106:16) {:else}",
+    		source: "(146:16) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (102:16) {#if state === `saving` && saving === `sampling`}
-    function create_if_block_7$1(ctx) {
+    // (142:16) {#if state === `saving` && saving === `sampling`}
+    function create_if_block_10$1(ctx) {
     	let div;
 
     	const block = {
@@ -20413,7 +20414,7 @@ var app = (function () {
     			div = element("div");
     			div.textContent = "Saving ...";
     			attr_dev(div, "class", "small");
-    			add_location(div, file$u, 102, 20, 4156);
+    			add_location(div, file$u, 142, 20, 5072);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -20426,24 +20427,24 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_7$1.name,
+    		id: create_if_block_10$1.name,
     		type: "if",
-    		source: "(102:16) {#if state === `saving` && saving === `sampling`}",
+    		source: "(142:16) {#if state === `saving` && saving === `sampling`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (64:4) <Col xs="4">
-    function create_default_slot_4$4(ctx) {
+    // (104:4) <Col xs="4">
+    function create_default_slot_6$2(ctx) {
     	let small;
     	let t1;
     	let div;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*editSampling*/ ctx[3]) return create_if_block_6$1;
-    		return create_else_block_4;
+    		if (/*editSampling*/ ctx[3]) return create_if_block_9$1;
+    		return create_else_block_6;
     	}
 
     	let current_block_type = select_block_type(ctx);
@@ -20457,9 +20458,9 @@ var app = (function () {
     			div = element("div");
     			if_block.c();
     			attr_dev(small, "class", "px-2 py-1 bg-light");
-    			add_location(small, file$u, 64, 8, 2246);
+    			add_location(small, file$u, 104, 8, 3162);
     			attr_dev(div, "class", "pl-2");
-    			add_location(div, file$u, 67, 8, 2341);
+    			add_location(div, file$u, 107, 8, 3257);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, small, anchor);
@@ -20490,28 +20491,28 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_4$4.name,
+    		id: create_default_slot_6$2.name,
     		type: "slot",
-    		source: "(64:4) <Col xs=\\\"4\\\">",
+    		source: "(104:4) <Col xs=\\\"4\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (191:12) {:else}
-    function create_else_block_2$1(ctx) {
+    // (231:12) {:else}
+    function create_else_block_4(ctx) {
     	let div4;
     	let div1;
     	let t0;
-    	let t1_value = /*$config*/ ctx[7].battery.min + "";
+    	let t1_value = /*$config*/ ctx[8].battery.min + "";
     	let t1;
     	let t2;
     	let div0;
     	let t4;
     	let div3;
     	let t5;
-    	let t6_value = /*$config*/ ctx[7].battery.max + "";
+    	let t6_value = /*$config*/ ctx[8].battery.max + "";
     	let t6;
     	let t7;
     	let div2;
@@ -20542,19 +20543,19 @@ var app = (function () {
     			a = element("a");
     			a.textContent = "Edit";
     			attr_dev(div0, "class", "font-italic font-weight-lighter");
-    			add_location(div0, file$u, 194, 24, 8273);
+    			add_location(div0, file$u, 234, 24, 9189);
     			attr_dev(div1, "class", "mt-2 mb-2");
-    			add_location(div1, file$u, 192, 20, 8169);
+    			add_location(div1, file$u, 232, 20, 9085);
     			attr_dev(div2, "class", "font-italic font-weight-lighter");
-    			add_location(div2, file$u, 200, 24, 8554);
+    			add_location(div2, file$u, 240, 24, 9470);
     			attr_dev(div3, "class", "mb-4");
-    			add_location(div3, file$u, 198, 20, 8453);
+    			add_location(div3, file$u, 238, 20, 9369);
     			attr_dev(div4, "class", "small py-1");
-    			add_location(div4, file$u, 191, 16, 8124);
+    			add_location(div4, file$u, 231, 16, 9040);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "class", "btn btn-light btn-sm");
-    			add_location(a, file$u, 206, 20, 8781);
-    			add_location(div5, file$u, 205, 16, 8755);
+    			add_location(a, file$u, 246, 20, 9697);
+    			add_location(div5, file$u, 245, 16, 9671);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div4, anchor);
@@ -20574,13 +20575,13 @@ var app = (function () {
     			append_dev(div5, a);
 
     			if (!mounted) {
-    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_3*/ ctx[18]), false, true, false);
+    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_3*/ ctx[20]), false, true, false);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$config*/ 128 && t1_value !== (t1_value = /*$config*/ ctx[7].battery.min + "")) set_data_dev(t1, t1_value);
-    			if (dirty & /*$config*/ 128 && t6_value !== (t6_value = /*$config*/ ctx[7].battery.max + "")) set_data_dev(t6, t6_value);
+    			if (dirty[0] & /*$config*/ 256 && t1_value !== (t1_value = /*$config*/ ctx[8].battery.min + "")) set_data_dev(t1, t1_value);
+    			if (dirty[0] & /*$config*/ 256 && t6_value !== (t6_value = /*$config*/ ctx[8].battery.max + "")) set_data_dev(t6, t6_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div4);
@@ -20593,17 +20594,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block_2$1.name,
+    		id: create_else_block_4.name,
     		type: "else",
-    		source: "(191:12) {:else}",
+    		source: "(231:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (144:12) {#if editBattery}
-    function create_if_block_4$1(ctx) {
+    // (184:12) {#if editBattery}
+    function create_if_block_7$1(ctx) {
     	let form;
     	let div1;
     	let label0;
@@ -20636,8 +20637,8 @@ var app = (function () {
     	let dispose;
 
     	function select_block_type_3(ctx, dirty) {
-    		if (/*state*/ ctx[2] === `saving` && /*saving*/ ctx[5] === `battery`) return create_if_block_5$1;
-    		return create_else_block_1$1;
+    		if (/*state*/ ctx[2] === `saving` && /*saving*/ ctx[6] === `battery`) return create_if_block_8$1;
+    		return create_else_block_3;
     	}
 
     	let current_block_type = select_block_type_3(ctx);
@@ -20670,38 +20671,38 @@ var app = (function () {
     			t9 = space();
     			if_block.c();
     			if_block_anchor = empty();
-    			attr_dev(label0, "class", label0_class_value = "col-sm-" + /*col_left*/ ctx[8] + " col-form-label-sm");
-    			add_location(label0, file$u, 146, 24, 5932);
+    			attr_dev(label0, "class", label0_class_value = "col-sm-" + /*col_left*/ ctx[9] + " col-form-label-sm" + " svelte-1nlxoci");
+    			add_location(label0, file$u, 186, 24, 6848);
     			attr_dev(input0, "type", "number");
     			attr_dev(input0, "name", "min");
     			attr_dev(input0, "class", "form-control form-control-sm");
     			input0.disabled = input0_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null;
-    			add_location(input0, file$u, 150, 28, 6139);
-    			add_location(em0, file$u, 156, 32, 6512);
+    			add_location(input0, file$u, 190, 28, 7055);
+    			add_location(em0, file$u, 196, 32, 7428);
     			attr_dev(small0, "class", "form-text text-muted");
-    			add_location(small0, file$u, 155, 28, 6443);
-    			attr_dev(div0, "class", div0_class_value = "col-sm-" + /*col_right*/ ctx[9]);
-    			add_location(div0, file$u, 149, 24, 6078);
+    			add_location(small0, file$u, 195, 28, 7359);
+    			attr_dev(div0, "class", div0_class_value = "col-sm-" + /*col_right*/ ctx[10] + " svelte-1nlxoci");
+    			add_location(div0, file$u, 189, 24, 6994);
     			attr_dev(div1, "class", "form-group row");
-    			add_location(div1, file$u, 145, 20, 5879);
-    			attr_dev(label1, "class", label1_class_value = "col-sm-" + /*col_left*/ ctx[8] + " col-form-label-sm");
-    			add_location(label1, file$u, 161, 24, 6717);
+    			add_location(div1, file$u, 185, 20, 6795);
+    			attr_dev(label1, "class", label1_class_value = "col-sm-" + /*col_left*/ ctx[9] + " col-form-label-sm" + " svelte-1nlxoci");
+    			add_location(label1, file$u, 201, 24, 7633);
     			attr_dev(input1, "type", "number");
     			attr_dev(input1, "name", "max");
     			attr_dev(input1, "class", "form-control form-control-sm");
     			input1.disabled = input1_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null;
-    			add_location(input1, file$u, 165, 28, 6926);
-    			add_location(em1, file$u, 171, 32, 7299);
+    			add_location(input1, file$u, 205, 28, 7842);
+    			add_location(em1, file$u, 211, 32, 8215);
     			attr_dev(small1, "class", "form-text text-muted");
-    			add_location(small1, file$u, 170, 28, 7230);
-    			attr_dev(div2, "class", div2_class_value = "col-sm-" + /*col_right*/ ctx[9]);
-    			add_location(div2, file$u, 164, 24, 6865);
+    			add_location(small1, file$u, 210, 28, 8146);
+    			attr_dev(div2, "class", div2_class_value = "col-sm-" + /*col_right*/ ctx[10] + " svelte-1nlxoci");
+    			add_location(div2, file$u, 204, 24, 7781);
     			attr_dev(div3, "class", "form-group row");
-    			add_location(div3, file$u, 160, 20, 6664);
+    			add_location(div3, file$u, 200, 20, 7580);
     			attr_dev(form, "id", "form-battery");
     			attr_dev(form, "class", "mt-4");
     			attr_dev(form, "disabled", "");
-    			add_location(form, file$u, 144, 16, 5812);
+    			add_location(form, file$u, 184, 16, 6728);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, form, anchor);
@@ -20732,27 +20733,27 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input0, "input", /*input0_input_handler_1*/ ctx[15]),
-    					listen_dev(input1, "input", /*input1_input_handler_1*/ ctx[16])
+    					listen_dev(input0, "input", /*input0_input_handler_1*/ ctx[17]),
+    					listen_dev(input1, "input", /*input1_input_handler_1*/ ctx[18])
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*state*/ 4 && input0_disabled_value !== (input0_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null)) {
+    			if (dirty[0] & /*state*/ 4 && input0_disabled_value !== (input0_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null)) {
     				prop_dev(input0, "disabled", input0_disabled_value);
     			}
 
-    			if (dirty & /*configEdited*/ 1 && to_number(input0.value) !== /*configEdited*/ ctx[0].battery.min) {
+    			if (dirty[0] & /*configEdited*/ 1 && to_number(input0.value) !== /*configEdited*/ ctx[0].battery.min) {
     				set_input_value(input0, /*configEdited*/ ctx[0].battery.min);
     			}
 
-    			if (dirty & /*state*/ 4 && input1_disabled_value !== (input1_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null)) {
+    			if (dirty[0] & /*state*/ 4 && input1_disabled_value !== (input1_disabled_value = /*state*/ ctx[2] === `saving` ? `disabled` : null)) {
     				prop_dev(input1, "disabled", input1_disabled_value);
     			}
 
-    			if (dirty & /*configEdited*/ 1 && to_number(input1.value) !== /*configEdited*/ ctx[0].battery.max) {
+    			if (dirty[0] & /*configEdited*/ 1 && to_number(input1.value) !== /*configEdited*/ ctx[0].battery.max) {
     				set_input_value(input1, /*configEdited*/ ctx[0].battery.max);
     			}
 
@@ -20780,17 +20781,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_4$1.name,
+    		id: create_if_block_7$1.name,
     		type: "if",
-    		source: "(144:12) {#if editBattery}",
+    		source: "(184:12) {#if editBattery}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (181:16) {:else}
-    function create_else_block_1$1(ctx) {
+    // (221:16) {:else}
+    function create_else_block_3(ctx) {
     	let a0;
     	let t1;
     	let a1;
@@ -20808,10 +20809,10 @@ var app = (function () {
     			t2 = text("Save");
     			attr_dev(a0, "href", "/");
     			attr_dev(a0, "class", "btn btn-light btn-sm mr-4");
-    			add_location(a0, file$u, 181, 20, 7668);
+    			add_location(a0, file$u, 221, 20, 8584);
     			attr_dev(a1, "href", "/");
-    			attr_dev(a1, "class", a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null));
-    			add_location(a1, file$u, 184, 20, 7845);
+    			attr_dev(a1, "class", a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null) + " svelte-1nlxoci");
+    			add_location(a1, file$u, 224, 20, 8761);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a0, anchor);
@@ -20821,15 +20822,15 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(a0, "click", prevent_default(/*click_handler_2*/ ctx[17]), false, true, false),
-    					listen_dev(a1, "click", prevent_default(/*save*/ ctx[10](`battery`)), false, true, false)
+    					listen_dev(a0, "click", prevent_default(/*click_handler_2*/ ctx[19]), false, true, false),
+    					listen_dev(a1, "click", prevent_default(/*save*/ ctx[12](`battery`)), false, true, false)
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*state*/ 4 && a1_class_value !== (a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null))) {
+    			if (dirty[0] & /*state*/ 4 && a1_class_value !== (a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null) + " svelte-1nlxoci")) {
     				attr_dev(a1, "class", a1_class_value);
     			}
     		},
@@ -20844,17 +20845,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block_1$1.name,
+    		id: create_else_block_3.name,
     		type: "else",
-    		source: "(181:16) {:else}",
+    		source: "(221:16) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (177:16) {#if state === `saving` && saving === `battery`}
-    function create_if_block_5$1(ctx) {
+    // (217:16) {#if state === `saving` && saving === `battery`}
+    function create_if_block_8$1(ctx) {
     	let div;
 
     	const block = {
@@ -20862,7 +20863,7 @@ var app = (function () {
     			div = element("div");
     			div.textContent = "Saving ...";
     			attr_dev(div, "class", "small");
-    			add_location(div, file$u, 177, 20, 7542);
+    			add_location(div, file$u, 217, 20, 8458);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -20875,24 +20876,24 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_5$1.name,
+    		id: create_if_block_8$1.name,
     		type: "if",
-    		source: "(177:16) {#if state === `saving` && saving === `battery`}",
+    		source: "(217:16) {#if state === `saving` && saving === `battery`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (139:4) <Col xs="4">
-    function create_default_slot_3$5(ctx) {
+    // (179:4) <Col xs="4">
+    function create_default_slot_5$4(ctx) {
     	let small;
     	let t1;
     	let div;
 
     	function select_block_type_2(ctx, dirty) {
-    		if (/*editBattery*/ ctx[4]) return create_if_block_4$1;
-    		return create_else_block_2$1;
+    		if (/*editBattery*/ ctx[4]) return create_if_block_7$1;
+    		return create_else_block_4;
     	}
 
     	let current_block_type = select_block_type_2(ctx);
@@ -20906,9 +20907,9 @@ var app = (function () {
     			div = element("div");
     			if_block.c();
     			attr_dev(small, "class", "px-2 py-1 bg-light");
-    			add_location(small, file$u, 139, 8, 5647);
+    			add_location(small, file$u, 179, 8, 6563);
     			attr_dev(div, "class", "pl-2");
-    			add_location(div, file$u, 142, 8, 5747);
+    			add_location(div, file$u, 182, 8, 6663);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, small, anchor);
@@ -20939,32 +20940,672 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_3$5.name,
+    		id: create_default_slot_5$4.name,
     		type: "slot",
-    		source: "(139:4) <Col xs=\\\"4\\\">",
+    		source: "(179:4) <Col xs=\\\"4\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:0) <Row class="pt-2">
-    function create_default_slot_2$6(ctx) {
-    	let col0;
+    // (290:12) {:else}
+    function create_else_block_2$1(ctx) {
+    	let div0;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let t0;
+    	let div1;
+    	let a;
+    	let mounted;
+    	let dispose;
+    	let each_value_1 = /*logsHelp*/ ctx[11];
+    	validate_each_argument(each_value_1);
+    	const get_key = ctx => /*log*/ ctx[30].log;
+    	validate_each_keys(ctx, each_value_1, get_each_context_1$4, get_key);
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		let child_ctx = get_each_context_1$4(ctx, each_value_1, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block_1$4(key, child_ctx));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div0 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t0 = space();
+    			div1 = element("div");
+    			a = element("a");
+    			a.textContent = "Edit";
+    			attr_dev(div0, "class", "small py-1");
+    			add_location(div0, file$u, 290, 16, 11520);
+    			attr_dev(a, "href", "/");
+    			attr_dev(a, "class", "btn btn-light btn-sm");
+    			add_location(a, file$u, 302, 20, 12026);
+    			add_location(div1, file$u, 301, 16, 12000);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div0, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div0, null);
+    			}
+
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, a);
+
+    			if (!mounted) {
+    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_5*/ ctx[23]), false, true, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*logsHelp, $config*/ 2304) {
+    				const each_value_1 = /*logsHelp*/ ctx[11];
+    				validate_each_argument(each_value_1);
+    				validate_each_keys(ctx, each_value_1, get_each_context_1$4, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_1, each_1_lookup, div0, destroy_block, create_each_block_1$4, null, get_each_context_1$4);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div0);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d();
+    			}
+
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(div1);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_2$1.name,
+    		type: "else",
+    		source: "(290:12) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (259:12) {#if editLog}
+    function create_if_block_4$1(ctx) {
+    	let form;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
     	let t;
-    	let col1;
+    	let if_block_anchor;
+    	let current;
+    	let each_value = /*logsHelp*/ ctx[11];
+    	validate_each_argument(each_value);
+    	const get_key = ctx => /*log*/ ctx[30].log;
+    	validate_each_keys(ctx, each_value, get_each_context$8, get_key);
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		let child_ctx = get_each_context$8(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$8(key, child_ctx));
+    	}
+
+    	function select_block_type_5(ctx, dirty) {
+    		if (/*state*/ ctx[2] === `saving` && /*saving*/ ctx[6] === `log`) return create_if_block_5$1;
+    		return create_else_block_1$1;
+    	}
+
+    	let current_block_type = select_block_type_5(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			form = element("form");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t = space();
+    			if_block.c();
+    			if_block_anchor = empty();
+    			attr_dev(form, "id", "form-log");
+    			attr_dev(form, "class", "mt-4 select-log svelte-1nlxoci");
+    			attr_dev(form, "disabled", "");
+    			add_location(form, file$u, 259, 16, 10083);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, form, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(form, null);
+    			}
+
+    			insert_dev(target, t, anchor);
+    			if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*logsHelp, configEdited*/ 2049) {
+    				const each_value = /*logsHelp*/ ctx[11];
+    				validate_each_argument(each_value);
+    				group_outros();
+    				validate_each_keys(ctx, each_value, get_each_context$8, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, form, outro_and_destroy_block, create_each_block$8, null, get_each_context$8);
+    				check_outros();
+    			}
+
+    			if (current_block_type === (current_block_type = select_block_type_5(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(form);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d();
+    			}
+
+    			if (detaching) detach_dev(t);
+    			if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_4$1.name,
+    		type: "if",
+    		source: "(259:12) {#if editLog}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (293:24) {#if $config.log[log.log]}
+    function create_if_block_6$1(ctx) {
+    	let div;
+    	let span;
+    	let t0_value = /*log*/ ctx[30].help + "";
+    	let t0;
+    	let t1;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			span = element("span");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			attr_dev(span, "class", "font-italic font-weight-lighter");
+    			add_location(span, file$u, 294, 32, 11734);
+    			attr_dev(div, "class", "mt-2 mb-2");
+    			add_location(div, file$u, 293, 28, 11678);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, span);
+    			append_dev(span, t0);
+    			append_dev(div, t1);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_6$1.name,
+    		type: "if",
+    		source: "(293:24) {#if $config.log[log.log]}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (292:20) {#each logsHelp as log (log.log)}
+    function create_each_block_1$4(key_1, ctx) {
+    	let first;
+    	let if_block_anchor;
+    	let if_block = /*$config*/ ctx[8].log[/*log*/ ctx[30].log] && create_if_block_6$1(ctx);
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			first = empty();
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    			this.first = first;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (/*$config*/ ctx[8].log[/*log*/ ctx[30].log]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block_6$1(ctx);
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1$4.name,
+    		type: "each",
+    		source: "(292:20) {#each logsHelp as log (log.log)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (263:28) <Col class="font-weight-lighter small">
+    function create_default_slot_4$4(ctx) {
+    	let custominput;
+    	let updating_checked;
     	let current;
 
-    	col0 = new Col({
+    	function custominput_checked_binding(value) {
+    		/*custominput_checked_binding*/ ctx[21].call(null, value, /*log*/ ctx[30]);
+    	}
+
+    	let custominput_props = {
+    		type: "switch",
+    		bsSize: "sm",
+    		inline: "true",
+    		id: "show_" + /*log*/ ctx[30].log,
+    		name: /*log*/ ctx[30].log,
+    		label: /*log*/ ctx[30].help
+    	};
+
+    	if (/*configEdited*/ ctx[0].log[/*log*/ ctx[30].log] !== void 0) {
+    		custominput_props.checked = /*configEdited*/ ctx[0].log[/*log*/ ctx[30].log];
+    	}
+
+    	custominput = new CustomInput({ props: custominput_props, $$inline: true });
+    	binding_callbacks.push(() => bind(custominput, "checked", custominput_checked_binding));
+
+    	const block = {
+    		c: function create() {
+    			create_component(custominput.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(custominput, target, anchor);
+    			current = true;
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			const custominput_changes = {};
+
+    			if (!updating_checked && dirty[0] & /*configEdited, logsHelp*/ 2049) {
+    				updating_checked = true;
+    				custominput_changes.checked = /*configEdited*/ ctx[0].log[/*log*/ ctx[30].log];
+    				add_flush_callback(() => updating_checked = false);
+    			}
+
+    			custominput.$set(custominput_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(custominput.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(custominput.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(custominput, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_4$4.name,
+    		type: "slot",
+    		source: "(263:28) <Col class=\\\"font-weight-lighter small\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (261:20) {#each logsHelp as log (log.log)}
+    function create_each_block$8(key_1, ctx) {
+    	let div;
+    	let col;
+    	let t;
+    	let current;
+
+    	col = new Col({
     			props: {
-    				xs: "4",
+    				class: "font-weight-lighter small",
     				$$slots: { default: [create_default_slot_4$4] },
     				$$scope: { ctx }
     			},
     			$$inline: true
     		});
 
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			div = element("div");
+    			create_component(col.$$.fragment);
+    			t = space();
+    			attr_dev(div, "class", "form-group row");
+    			add_location(div, file$u, 261, 24, 10215);
+    			this.first = div;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			mount_component(col, div, null);
+    			append_dev(div, t);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const col_changes = {};
+
+    			if (dirty[0] & /*configEdited*/ 1 | dirty[1] & /*$$scope*/ 16) {
+    				col_changes.$$scope = { dirty, ctx };
+    			}
+
+    			col.$set(col_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(col.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(col.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_component(col);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$8.name,
+    		type: "each",
+    		source: "(261:20) {#each logsHelp as log (log.log)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (280:16) {:else}
+    function create_else_block_1$1(ctx) {
+    	let a0;
+    	let t1;
+    	let a1;
+    	let t2;
+    	let a1_class_value;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			a0 = element("a");
+    			a0.textContent = "Cancel";
+    			t1 = space();
+    			a1 = element("a");
+    			t2 = text("Save");
+    			attr_dev(a0, "href", "/");
+    			attr_dev(a0, "class", "btn btn-light btn-sm mr-4");
+    			add_location(a0, file$u, 280, 20, 11072);
+    			attr_dev(a1, "href", "/");
+    			attr_dev(a1, "class", a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null) + " svelte-1nlxoci");
+    			add_location(a1, file$u, 283, 20, 11245);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, a0, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, a1, anchor);
+    			append_dev(a1, t2);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(a0, "click", prevent_default(/*click_handler_4*/ ctx[22]), false, true, false),
+    					listen_dev(a1, "click", prevent_default(/*save*/ ctx[12](`log`)), false, true, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*state*/ 4 && a1_class_value !== (a1_class_value = "btn btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null) + " svelte-1nlxoci")) {
+    				attr_dev(a1, "class", a1_class_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(a0);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(a1);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_1$1.name,
+    		type: "else",
+    		source: "(280:16) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (276:16) {#if state === `saving` && saving === `log`}
+    function create_if_block_5$1(ctx) {
+    	let div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			div.textContent = "Saving ...";
+    			attr_dev(div, "class", "small");
+    			add_location(div, file$u, 276, 20, 10946);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_5$1.name,
+    		type: "if",
+    		source: "(276:16) {#if state === `saving` && saving === `log`}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (254:4) <Col xs="4">
+    function create_default_slot_3$5(ctx) {
+    	let small;
+    	let t1;
+    	let div;
+    	let current_block_type_index;
+    	let if_block;
+    	let current;
+    	const if_block_creators = [create_if_block_4$1, create_else_block_2$1];
+    	const if_blocks = [];
+
+    	function select_block_type_4(ctx, dirty) {
+    		if (/*editLog*/ ctx[5]) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type_4(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	const block = {
+    		c: function create() {
+    			small = element("small");
+    			small.textContent = "Server Logs";
+    			t1 = space();
+    			div = element("div");
+    			if_block.c();
+    			attr_dev(small, "class", "px-2 py-1 bg-light");
+    			add_location(small, file$u, 254, 8, 9938);
+    			attr_dev(div, "class", "pl-2");
+    			add_location(div, file$u, 257, 8, 10022);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, small, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, div, anchor);
+    			if_blocks[current_block_type_index].m(div, null);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type_4(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(div, null);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(small);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(div);
+    			if_blocks[current_block_type_index].d();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_3$5.name,
+    		type: "slot",
+    		source: "(254:4) <Col xs=\\\"4\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (103:0) <Row class="pt-2">
+    function create_default_slot_2$6(ctx) {
+    	let col0;
+    	let t0;
+    	let col1;
+    	let t1;
+    	let col2;
+    	let current;
+
+    	col0 = new Col({
+    			props: {
+    				xs: "4",
+    				$$slots: { default: [create_default_slot_6$2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
     	col1 = new Col({
+    			props: {
+    				xs: "4",
+    				$$slots: { default: [create_default_slot_5$4] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	col2 = new Col({
     			props: {
     				xs: "4",
     				$$slots: { default: [create_default_slot_3$5] },
@@ -20976,46 +21617,61 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			create_component(col0.$$.fragment);
-    			t = space();
+    			t0 = space();
     			create_component(col1.$$.fragment);
+    			t1 = space();
+    			create_component(col2.$$.fragment);
     		},
     		m: function mount(target, anchor) {
     			mount_component(col0, target, anchor);
-    			insert_dev(target, t, anchor);
+    			insert_dev(target, t0, anchor);
     			mount_component(col1, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			mount_component(col2, target, anchor);
     			current = true;
     		},
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope, state, saving, editSampling, configEdited, $config*/ 33554605) {
+    			if (dirty[0] & /*state, saving, editSampling, configEdited, $config*/ 333 | dirty[1] & /*$$scope*/ 16) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope, state, saving, editBattery, configEdited, $config*/ 33554613) {
+    			if (dirty[0] & /*state, saving, editBattery, configEdited, $config*/ 341 | dirty[1] & /*$$scope*/ 16) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
     			col1.$set(col1_changes);
+    			const col2_changes = {};
+
+    			if (dirty[0] & /*state, saving, editLog, configEdited, $config*/ 357 | dirty[1] & /*$$scope*/ 16) {
+    				col2_changes.$$scope = { dirty, ctx };
+    			}
+
+    			col2.$set(col2_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
     			transition_in(col0.$$.fragment, local);
     			transition_in(col1.$$.fragment, local);
+    			transition_in(col2.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
     			transition_out(col0.$$.fragment, local);
     			transition_out(col1.$$.fragment, local);
+    			transition_out(col2.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
     			destroy_component(col0, detaching);
-    			if (detaching) detach_dev(t);
+    			if (detaching) detach_dev(t0);
     			destroy_component(col1, detaching);
+    			if (detaching) detach_dev(t1);
+    			destroy_component(col2, detaching);
     		}
     	};
 
@@ -21023,19 +21679,19 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$6.name,
     		type: "slot",
-    		source: "(63:0) <Row class=\\\"pt-2\\\">",
+    		source: "(103:0) <Row class=\\\"pt-2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (229:8) {:else}
+    // (325:8) {:else}
     function create_else_block$c(ctx) {
     	let t;
     	let if_block1_anchor;
-    	let if_block0 = /*stateConfig*/ ctx[6] === `import` && create_if_block_3$7(ctx);
-    	let if_block1 = /*stateConfig*/ ctx[6] !== `hidden` && create_if_block_2$8(ctx);
+    	let if_block0 = /*stateConfig*/ ctx[7] === `import` && create_if_block_3$7(ctx);
+    	let if_block1 = /*stateConfig*/ ctx[7] !== `hidden` && create_if_block_2$8(ctx);
 
     	const block = {
     		c: function create() {
@@ -21051,7 +21707,7 @@ var app = (function () {
     			insert_dev(target, if_block1_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (/*stateConfig*/ ctx[6] === `import`) {
+    			if (/*stateConfig*/ ctx[7] === `import`) {
     				if (if_block0) {
     					if_block0.p(ctx, dirty);
     				} else {
@@ -21064,7 +21720,7 @@ var app = (function () {
     				if_block0 = null;
     			}
 
-    			if (/*stateConfig*/ ctx[6] !== `hidden`) {
+    			if (/*stateConfig*/ ctx[7] !== `hidden`) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
@@ -21089,14 +21745,14 @@ var app = (function () {
     		block,
     		id: create_else_block$c.name,
     		type: "else",
-    		source: "(229:8) {:else}",
+    		source: "(325:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (225:8) {#if state === `saving` && saving === `config`}
+    // (321:8) {#if state === `saving` && saving === `config`}
     function create_if_block_1$a(ctx) {
     	let div;
 
@@ -21105,7 +21761,7 @@ var app = (function () {
     			div = element("div");
     			div.textContent = "Saving ...";
     			attr_dev(div, "class", "float-right ml-2 small");
-    			add_location(div, file$u, 225, 12, 9472);
+    			add_location(div, file$u, 321, 12, 12713);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -21120,14 +21776,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$a.name,
     		type: "if",
-    		source: "(225:8) {#if state === `saving` && saving === `config`}",
+    		source: "(321:8) {#if state === `saving` && saving === `config`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (230:12) {#if stateConfig === `import`}
+    // (326:12) {#if stateConfig === `import`}
     function create_if_block_3$7(ctx) {
     	let a;
     	let t;
@@ -21140,20 +21796,20 @@ var app = (function () {
     			a = element("a");
     			t = text("Save Configuration");
     			attr_dev(a, "href", "/");
-    			attr_dev(a, "class", a_class_value = "float-right ml-2 btn btn-sm btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null));
-    			add_location(a, file$u, 230, 16, 9630);
+    			attr_dev(a, "class", a_class_value = "float-right ml-2 btn btn-sm btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null) + " svelte-1nlxoci");
+    			add_location(a, file$u, 326, 16, 12871);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
     			append_dev(a, t);
 
     			if (!mounted) {
-    				dispose = listen_dev(a, "click", prevent_default(/*save*/ ctx[10](`config`)), false, true, false);
+    				dispose = listen_dev(a, "click", prevent_default(/*save*/ ctx[12](`config`)), false, true, false);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*state*/ 4 && a_class_value !== (a_class_value = "float-right ml-2 btn btn-sm btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null))) {
+    			if (dirty[0] & /*state*/ 4 && a_class_value !== (a_class_value = "float-right ml-2 btn btn-sm btn-light btn-sm " + (/*state*/ ctx[2] === `saving` ? `disabled` : null) + " svelte-1nlxoci")) {
     				attr_dev(a, "class", a_class_value);
     			}
     		},
@@ -21168,14 +21824,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3$7.name,
     		type: "if",
-    		source: "(230:12) {#if stateConfig === `import`}",
+    		source: "(326:12) {#if stateConfig === `import`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (236:12) {#if stateConfig !== `hidden`}
+    // (332:12) {#if stateConfig !== `hidden`}
     function create_if_block_2$8(ctx) {
     	let a;
     	let mounted;
@@ -21187,13 +21843,13 @@ var app = (function () {
     			a.textContent = "Cancel";
     			attr_dev(a, "href", "/");
     			attr_dev(a, "class", "float-right ml-2 btn btn-sm btn-light btn-sm");
-    			add_location(a, file$u, 236, 16, 9932);
+    			add_location(a, file$u, 332, 16, 13173);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
 
     			if (!mounted) {
-    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_6*/ ctx[21]), false, true, false);
+    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_8*/ ctx[26]), false, true, false);
     				mounted = true;
     			}
     		},
@@ -21209,14 +21865,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$8.name,
     		type: "if",
-    		source: "(236:12) {#if stateConfig !== `hidden`}",
+    		source: "(332:12) {#if stateConfig !== `hidden`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (243:8) {#if stateConfig !== `hidden`}
+    // (339:8) {#if stateConfig !== `hidden`}
     function create_if_block$j(ctx) {
     	let div;
     	let textarea;
@@ -21229,11 +21885,11 @@ var app = (function () {
     			div = element("div");
     			textarea = element("textarea");
     			attr_dev(textarea, "class", "form-control form-control-sm small");
-    			textarea.readOnly = textarea_readonly_value = /*stateConfig*/ ctx[6] === `export`;
+    			textarea.readOnly = textarea_readonly_value = /*stateConfig*/ ctx[7] === `export`;
     			attr_dev(textarea, "rows", "16");
-    			add_location(textarea, file$u, 244, 16, 10238);
+    			add_location(textarea, file$u, 340, 16, 13479);
     			attr_dev(div, "class", "mt-3");
-    			add_location(div, file$u, 243, 12, 10203);
+    			add_location(div, file$u, 339, 12, 13444);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -21241,16 +21897,16 @@ var app = (function () {
     			set_input_value(textarea, /*configJSON*/ ctx[1]);
 
     			if (!mounted) {
-    				dispose = listen_dev(textarea, "input", /*textarea_input_handler*/ ctx[22]);
+    				dispose = listen_dev(textarea, "input", /*textarea_input_handler*/ ctx[27]);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*stateConfig*/ 64 && textarea_readonly_value !== (textarea_readonly_value = /*stateConfig*/ ctx[6] === `export`)) {
+    			if (dirty[0] & /*stateConfig*/ 128 && textarea_readonly_value !== (textarea_readonly_value = /*stateConfig*/ ctx[7] === `export`)) {
     				prop_dev(textarea, "readOnly", textarea_readonly_value);
     			}
 
-    			if (dirty & /*configJSON*/ 2) {
+    			if (dirty[0] & /*configJSON*/ 2) {
     				set_input_value(textarea, /*configJSON*/ ctx[1]);
     			}
     		},
@@ -21265,14 +21921,14 @@ var app = (function () {
     		block,
     		id: create_if_block$j.name,
     		type: "if",
-    		source: "(243:8) {#if stateConfig !== `hidden`}",
+    		source: "(339:8) {#if stateConfig !== `hidden`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (216:4) <Col xs="8">
+    // (312:4) <Col xs="8">
     function create_default_slot_1$8(ctx) {
     	let a0;
     	let t1;
@@ -21283,14 +21939,14 @@ var app = (function () {
     	let mounted;
     	let dispose;
 
-    	function select_block_type_4(ctx, dirty) {
-    		if (/*state*/ ctx[2] === `saving` && /*saving*/ ctx[5] === `config`) return create_if_block_1$a;
+    	function select_block_type_6(ctx, dirty) {
+    		if (/*state*/ ctx[2] === `saving` && /*saving*/ ctx[6] === `config`) return create_if_block_1$a;
     		return create_else_block$c;
     	}
 
-    	let current_block_type = select_block_type_4(ctx);
+    	let current_block_type = select_block_type_6(ctx);
     	let if_block0 = current_block_type(ctx);
-    	let if_block1 = /*stateConfig*/ ctx[6] !== `hidden` && create_if_block$j(ctx);
+    	let if_block1 = /*stateConfig*/ ctx[7] !== `hidden` && create_if_block$j(ctx);
 
     	const block = {
     		c: function create() {
@@ -21306,10 +21962,10 @@ var app = (function () {
     			if_block1_anchor = empty();
     			attr_dev(a0, "href", "/");
     			attr_dev(a0, "class", "btn btn-sm mr-2 btn-light btn-sm");
-    			add_location(a0, file$u, 216, 8, 9064);
+    			add_location(a0, file$u, 312, 8, 12305);
     			attr_dev(a1, "href", "/");
     			attr_dev(a1, "class", "btn btn-sm mr-2 btn-light btn-sm");
-    			add_location(a1, file$u, 220, 8, 9238);
+    			add_location(a1, file$u, 316, 8, 12479);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a0, anchor);
@@ -21323,15 +21979,15 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(a0, "click", prevent_default(/*click_handler_4*/ ctx[19]), false, true, false),
-    					listen_dev(a1, "click", prevent_default(/*click_handler_5*/ ctx[20]), false, true, false)
+    					listen_dev(a0, "click", prevent_default(/*click_handler_6*/ ctx[24]), false, true, false),
+    					listen_dev(a1, "click", prevent_default(/*click_handler_7*/ ctx[25]), false, true, false)
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (current_block_type === (current_block_type = select_block_type_4(ctx)) && if_block0) {
+    			if (current_block_type === (current_block_type = select_block_type_6(ctx)) && if_block0) {
     				if_block0.p(ctx, dirty);
     			} else {
     				if_block0.d(1);
@@ -21343,7 +21999,7 @@ var app = (function () {
     				}
     			}
 
-    			if (/*stateConfig*/ ctx[6] !== `hidden`) {
+    			if (/*stateConfig*/ ctx[7] !== `hidden`) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
@@ -21374,14 +22030,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$8.name,
     		type: "slot",
-    		source: "(216:4) <Col xs=\\\"8\\\">",
+    		source: "(312:4) <Col xs=\\\"8\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (215:0) <Row class="border-top pt-3 mt-3">
+    // (311:0) <Row class="border-top pt-3 mt-3">
     function create_default_slot$a(ctx) {
     	let col;
     	let current;
@@ -21406,7 +22062,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col_changes = {};
 
-    			if (dirty & /*$$scope, stateConfig, configJSON, state, saving*/ 33554534) {
+    			if (dirty[0] & /*stateConfig, configJSON, state, saving*/ 198 | dirty[1] & /*$$scope*/ 16) {
     				col_changes.$$scope = { dirty, ctx };
     			}
 
@@ -21430,7 +22086,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$a.name,
     		type: "slot",
-    		source: "(215:0) <Row class=\\\"border-top pt-3 mt-3\\\">",
+    		source: "(311:0) <Row class=\\\"border-top pt-3 mt-3\\\">",
     		ctx
     	});
 
@@ -21476,17 +22132,17 @@ var app = (function () {
     			mount_component(row1, target, anchor);
     			current = true;
     		},
-    		p: function update(ctx, [dirty]) {
+    		p: function update(ctx, dirty) {
     			const row0_changes = {};
 
-    			if (dirty & /*$$scope, state, saving, editBattery, configEdited, $config, editSampling*/ 33554621) {
+    			if (dirty[0] & /*state, saving, editLog, configEdited, $config, editBattery, editSampling*/ 381 | dirty[1] & /*$$scope*/ 16) {
     				row0_changes.$$scope = { dirty, ctx };
     			}
 
     			row0.$set(row0_changes);
     			const row1_changes = {};
 
-    			if (dirty & /*$$scope, stateConfig, configJSON, state, saving*/ 33554534) {
+    			if (dirty[0] & /*stateConfig, configJSON, state, saving*/ 198 | dirty[1] & /*$$scope*/ 16) {
     				row1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -21525,9 +22181,9 @@ var app = (function () {
     	let $config;
     	let $targets;
     	validate_store(config, "config");
-    	component_subscribe($$self, config, $$value => $$invalidate(7, $config = $$value));
+    	component_subscribe($$self, config, $$value => $$invalidate(8, $config = $$value));
     	validate_store(targets, "targets");
-    	component_subscribe($$self, targets, $$value => $$invalidate(23, $targets = $$value));
+    	component_subscribe($$self, targets, $$value => $$invalidate(28, $targets = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Panel", slots, []);
     	let configEdited;
@@ -21542,7 +22198,8 @@ var app = (function () {
     				battery: $config.battery,
     				ruuvitags: $config.ruuvitags,
     				targets: $targets,
-    				columns: $config.columns
+    				columns: $config.columns,
+    				log: $config.log
     			},
     			null,
     			2
@@ -21555,13 +22212,36 @@ var app = (function () {
     	let state = `view`; // `view` | `saving`
     	let editSampling = false;
     	let editBattery = false;
+    	let editLog = false;
     	let saving = ``;
     	let stateConfig = `hidden`; // `hidden` | `export` | `export`
+
+    	const logsHelp = [
+    		{
+    			log: `timestamp`,
+    			help: `Prefix logs with timestamp`
+    		},
+    		{ log: `error`, help: `Display error logs` },
+    		{ log: `info`, help: `Display info logs` },
+    		{
+    			log: `tags`,
+    			help: `Display measures received by tags`
+    		},
+    		{
+    			log: `send`,
+    			help: `Display measures sent to targets`
+    		},
+    		{ log: `debug`, help: `Display debug logs` },
+    		{
+    			log: `ws`,
+    			help: `Display web socket logs`
+    		}
+    	];
 
     	function save(target) {
     		return async function () {
     			$$invalidate(2, state = `saving`);
-    			$$invalidate(5, saving = target);
+    			$$invalidate(6, saving = target);
 
     			if (target === `config`) {
     				try {
@@ -21571,6 +22251,7 @@ var app = (function () {
     					set_store_value(config, $config.battery = configSaved.battery, $config);
     					set_store_value(config, $config.ruuvitags = configSaved.ruuvitags, $config);
     					set_store_value(config, $config.columns = configSaved.columns, $config);
+    					set_store_value(config, $config.log = configSaved.log, $config);
     					set_store_value(targets, $targets = configSaved.targets, $targets);
     					updateConfig();
     					$$invalidate(2, state = `view`);
@@ -21578,7 +22259,7 @@ var app = (function () {
     					console.log(error);
     				}
     			} else {
-    				$$invalidate(6, stateConfig = `hidden`);
+    				$$invalidate(7, stateConfig = `hidden`);
     				const data = {};
     				data[`${target}`] = configEdited[target];
 
@@ -21593,6 +22274,7 @@ var app = (function () {
     				$$invalidate(2, state = `view`);
     				$$invalidate(3, editSampling = false);
     				$$invalidate(4, editBattery = false);
+    				$$invalidate(5, editLog = false);
     			}
     		};
     	}
@@ -21639,16 +22321,29 @@ var app = (function () {
     		$$invalidate(4, editBattery = true);
     	};
 
+    	function custominput_checked_binding(value, log) {
+    		configEdited.log[log.log] = value;
+    		$$invalidate(0, configEdited);
+    	}
+
     	const click_handler_4 = () => {
-    		$$invalidate(6, stateConfig = `export`);
+    		$$invalidate(5, editLog = false);
     	};
 
     	const click_handler_5 = () => {
-    		$$invalidate(6, stateConfig = `import`);
+    		$$invalidate(5, editLog = true);
     	};
 
     	const click_handler_6 = () => {
-    		$$invalidate(6, stateConfig = `hidden`);
+    		$$invalidate(7, stateConfig = `export`);
+    	};
+
+    	const click_handler_7 = () => {
+    		$$invalidate(7, stateConfig = `import`);
+    	};
+
+    	const click_handler_8 = () => {
+    		$$invalidate(7, stateConfig = `hidden`);
     	};
 
     	function textarea_input_handler() {
@@ -21674,8 +22369,10 @@ var app = (function () {
     		state,
     		editSampling,
     		editBattery,
+    		editLog,
     		saving,
     		stateConfig,
+    		logsHelp,
     		save,
     		$config,
     		$targets
@@ -21684,13 +22381,14 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ("configEdited" in $$props) $$invalidate(0, configEdited = $$props.configEdited);
     		if ("configJSON" in $$props) $$invalidate(1, configJSON = $$props.configJSON);
-    		if ("col_left" in $$props) $$invalidate(8, col_left = $$props.col_left);
-    		if ("col_right" in $$props) $$invalidate(9, col_right = $$props.col_right);
+    		if ("col_left" in $$props) $$invalidate(9, col_left = $$props.col_left);
+    		if ("col_right" in $$props) $$invalidate(10, col_right = $$props.col_right);
     		if ("state" in $$props) $$invalidate(2, state = $$props.state);
     		if ("editSampling" in $$props) $$invalidate(3, editSampling = $$props.editSampling);
     		if ("editBattery" in $$props) $$invalidate(4, editBattery = $$props.editBattery);
-    		if ("saving" in $$props) $$invalidate(5, saving = $$props.saving);
-    		if ("stateConfig" in $$props) $$invalidate(6, stateConfig = $$props.stateConfig);
+    		if ("editLog" in $$props) $$invalidate(5, editLog = $$props.editLog);
+    		if ("saving" in $$props) $$invalidate(6, saving = $$props.saving);
+    		if ("stateConfig" in $$props) $$invalidate(7, stateConfig = $$props.stateConfig);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -21703,11 +22401,13 @@ var app = (function () {
     		state,
     		editSampling,
     		editBattery,
+    		editLog,
     		saving,
     		stateConfig,
     		$config,
     		col_left,
     		col_right,
+    		logsHelp,
     		save,
     		input0_input_handler,
     		input1_input_handler,
@@ -21717,9 +22417,12 @@ var app = (function () {
     		input1_input_handler_1,
     		click_handler_2,
     		click_handler_3,
+    		custominput_checked_binding,
     		click_handler_4,
     		click_handler_5,
     		click_handler_6,
+    		click_handler_7,
+    		click_handler_8,
     		textarea_input_handler
     	];
     }
@@ -21727,7 +22430,7 @@ var app = (function () {
     class Panel$2 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$A, create_fragment$A, safe_not_equal, {});
+    		init(this, options, instance$A, create_fragment$A, safe_not_equal, {}, [-1, -1]);
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -21743,7 +22446,7 @@ var app = (function () {
     const { console: console_1$4 } = globals;
     const file$v = "svelte/App.svelte";
 
-    // (93:12) <Col xs="8" class="p-3 pl-4">
+    // (96:12) <Col xs="8" class="p-3 pl-4">
     function create_default_slot_3$6(ctx) {
     	let span;
     	let t0_value = /*$addon*/ ctx[1].name + "";
@@ -21795,40 +22498,40 @@ var app = (function () {
     			small2 = element("small");
     			t9 = text("Configuration");
     			attr_dev(span, "class", "mr-4");
-    			add_location(span, file$v, 93, 16, 3778);
+    			add_location(span, file$v, 96, 16, 3886);
     			attr_dev(i0, "class", "fab fa-bluetooth fa-sm");
-    			add_location(i0, file$v, 95, 20, 3965);
+    			add_location(i0, file$v, 98, 20, 4073);
 
     			attr_dev(small0, "class", small0_class_value = "ml-1 " + (/*panel*/ ctx[0] === `discover`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small0, file$v, 96, 20, 4024);
+    			add_location(small0, file$v, 99, 20, 4132);
     			attr_dev(a0, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a0, "href", "/");
-    			add_location(a0, file$v, 94, 16, 3834);
+    			add_location(a0, file$v, 97, 16, 3942);
     			attr_dev(i1, "class", "fas fa-database fa-sm");
-    			add_location(i1, file$v, 101, 20, 4344);
+    			add_location(i1, file$v, 104, 20, 4452);
 
     			attr_dev(small1, "class", small1_class_value = "ml-1 " + (/*panel*/ ctx[0] === `targets`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small1, file$v, 102, 20, 4402);
+    			add_location(small1, file$v, 105, 20, 4510);
     			attr_dev(a1, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a1, "href", "/");
-    			add_location(a1, file$v, 100, 16, 4214);
+    			add_location(a1, file$v, 103, 16, 4322);
     			attr_dev(i2, "class", "fas fa-cog fa-sm");
-    			add_location(i2, file$v, 107, 20, 4719);
+    			add_location(i2, file$v, 110, 20, 4827);
 
     			attr_dev(small2, "class", small2_class_value = "ml-1 " + (/*panel*/ ctx[0] === `config`
     			? `font-weight-bolder`
     			: `font-weight-lighter`));
 
-    			add_location(small2, file$v, 108, 20, 4772);
+    			add_location(small2, file$v, 111, 20, 4880);
     			attr_dev(a2, "class", "mr-4 text-white text-decoration-none");
     			attr_dev(a2, "href", "/");
-    			add_location(a2, file$v, 106, 16, 4590);
+    			add_location(a2, file$v, 109, 16, 4698);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -21900,14 +22603,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$6.name,
     		type: "slot",
-    		source: "(93:12) <Col xs=\\\"8\\\" class=\\\"p-3 pl-4\\\">",
+    		source: "(96:12) <Col xs=\\\"8\\\" class=\\\"p-3 pl-4\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (114:12) <Col xs="4" class="m-auto pr-4">
+    // (117:12) <Col xs="4" class="m-auto pr-4">
     function create_default_slot_2$7(ctx) {
     	let div;
     	let small;
@@ -21940,21 +22643,21 @@ var app = (function () {
     			attr_dev(a0, "class", "text-white font-weight-lighter text-decoration-none");
     			attr_dev(a0, "href", a0_href_value = "" + (/*$addon*/ ctx[1].url + "/blob/master/CHANGELOG.md"));
     			attr_dev(a0, "target", "_blank");
-    			add_location(a0, file$v, 117, 28, 5140);
-    			add_location(em, file$v, 116, 24, 5107);
-    			add_location(small, file$v, 115, 20, 5075);
+    			add_location(a0, file$v, 120, 28, 5248);
+    			add_location(em, file$v, 119, 24, 5215);
+    			add_location(small, file$v, 118, 20, 5183);
     			attr_dev(i, "class", "fab fa-github fa-sm");
-    			add_location(i, file$v, 123, 24, 5515);
+    			add_location(i, file$v, 126, 24, 5623);
     			attr_dev(a1, "class", "ml-2 text-white");
     			attr_dev(a1, "href", a1_href_value = /*$addon*/ ctx[1].url);
     			attr_dev(a1, "target", "_blank");
-    			add_location(a1, file$v, 122, 20, 5427);
+    			add_location(a1, file$v, 125, 20, 5535);
     			attr_dev(a2, "class", "ml-1 text-white");
     			attr_dev(a2, "href", "https://ruuvi.com/");
     			attr_dev(a2, "target", "_blank");
-    			add_location(a2, file$v, 125, 20, 5596);
+    			add_location(a2, file$v, 128, 20, 5704);
     			attr_dev(div, "class", "float-right");
-    			add_location(div, file$v, 114, 16, 5029);
+    			add_location(div, file$v, 117, 16, 5137);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -21990,14 +22693,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$7.name,
     		type: "slot",
-    		source: "(114:12) <Col xs=\\\"4\\\" class=\\\"m-auto pr-4\\\">",
+    		source: "(117:12) <Col xs=\\\"4\\\" class=\\\"m-auto pr-4\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (92:8) <Row class="app-bgcolor" id="header">
+    // (95:8) <Row class="app-bgcolor" id="header">
     function create_default_slot_1$9(ctx) {
     	let col0;
     	let t;
@@ -22074,14 +22777,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$9.name,
     		type: "slot",
-    		source: "(92:8) <Row class=\\\"app-bgcolor\\\" id=\\\"header\\\">",
+    		source: "(95:8) <Row class=\\\"app-bgcolor\\\" id=\\\"header\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (133:12) {#if panel === `discover`}
+    // (136:12) {#if panel === `discover`}
     function create_if_block_2$9(ctx) {
     	let paneldiscover;
     	let current;
@@ -22113,14 +22816,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$9.name,
     		type: "if",
-    		source: "(133:12) {#if panel === `discover`}",
+    		source: "(136:12) {#if panel === `discover`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (136:12) {#if panel === `targets`}
+    // (139:12) {#if panel === `targets`}
     function create_if_block_1$b(ctx) {
     	let paneltargets;
     	let current;
@@ -22152,14 +22855,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$b.name,
     		type: "if",
-    		source: "(136:12) {#if panel === `targets`}",
+    		source: "(139:12) {#if panel === `targets`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (139:12) {#if panel === `config`}
+    // (142:12) {#if panel === `config`}
     function create_if_block$k(ctx) {
     	let panelconfig;
     	let current;
@@ -22191,14 +22894,14 @@ var app = (function () {
     		block,
     		id: create_if_block$k.name,
     		type: "if",
-    		source: "(139:12) {#if panel === `config`}",
+    		source: "(142:12) {#if panel === `config`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (91:4) <Container fluid id="page">
+    // (94:4) <Container fluid id="page">
     function create_default_slot$b(ctx) {
     	let row;
     	let t0;
@@ -22232,7 +22935,7 @@ var app = (function () {
     			t2 = space();
     			if (if_block2) if_block2.c();
     			attr_dev(div, "class", "mb-4");
-    			add_location(div, file$v, 131, 8, 5794);
+    			add_location(div, file$v, 134, 8, 5902);
     		},
     		m: function mount(target, anchor) {
     			mount_component(row, target, anchor);
@@ -22346,7 +23049,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$b.name,
     		type: "slot",
-    		source: "(91:4) <Container fluid id=\\\"page\\\">",
+    		source: "(94:4) <Container fluid id=\\\"page\\\">",
     		ctx
     	});
 
@@ -22372,7 +23075,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			create_component(container.$$.fragment);
-    			add_location(main, file$v, 89, 0, 3635);
+    			add_location(main, file$v, 92, 0, 3743);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -22478,6 +23181,10 @@ var app = (function () {
 
     				if (data.config.columns) {
     					set_store_value(config, $config.columns = data.config.columns, $config);
+    				}
+
+    				if (data.config.log) {
+    					set_store_value(config, $config.log = data.config.log, $config);
     				}
 
     				if (data.config.targets) {

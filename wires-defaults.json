@@ -5,6 +5,15 @@
     "server": {
         "timeout": 5
     },
+    "logs": {
+        "timestamp": true,
+        "error": true,
+        "info": true,
+        "tags": false,
+        "send": false,
+        "debug": false,
+        "ws": false
+    },
     "ha_mqtt": {
         "present": 30000
     },

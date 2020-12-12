@@ -40,6 +40,9 @@
                 if (data.config.columns) {
                     $config.columns = data.config.columns;
                 }
+                if (data.config.log) {
+                    $config.log = data.config.log;
+                }
                 if (data.config.targets) {
                     $targets = data.config.targets;
                 }

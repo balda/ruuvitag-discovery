@@ -4,6 +4,7 @@ require(`wires`)
 
 const config = require(':lib/config')
 const addon = require(`./config.json`)
+const log = require(':lib/log')
 
 const ruuvitag = require('node-ruuvitag')
 const calc = require(':utils/calc')
@@ -68,6 +69,7 @@ const broadcast = ({target, tag, field = `last`}) => {
         }))
     }
     // console.log({target, data})
+    log.send(`Send data to target "${target.name}" (${target.type}): ${JSON.stringify(data)}`)
     broadcaster(target).send(data)
 }
 
@@ -76,9 +78,8 @@ ruuvitag.on('found', tag => {
         tags[tag.id] = null
         history[tag.id] = []
     }
-    console.log(`Discover RuuviTag ${tag.id}`)
-    // console.log(`(address "${tag.address}", addressType "${tag.addressType}", connectable "${tag.connectable}")`)
-    // console.log(tag)
+    log(`Discover RuuviTag ${tag.id}`)
+    // log.debug(`RuuviTag payload: ${JSON.stringify(tag)}`)
     tag.on('updated', data => {
         if (tags[tag.id] === null) {
             tags[tag.id] = {
@@ -109,8 +110,9 @@ ruuvitag.on('found', tag => {
         tags[tag.id].first = history[tag.id][0]
         tags[tag.id].samples = history[tag.id].length
         server.tag(tags[tag.id])
-        // console.log(`Got data from RuuviTag ${tag.id}`);
-        // console.log(JSON.stringify(data, null, 2))
+        log.tags(`Got data from RuuviTag ${tag.id}: ${JSON.stringify(data)}`)
+        // log.debug(JSON.stringify(data, null, 2))
+        // log.debug(JSON.stringify(data))
     })
 })
 
@@ -172,19 +174,19 @@ const sampleAggregation = () => {
 let samplingInterval = null
 const handleSampling = () => {
     if (1 * config.sampling.interval > 0) {
-        console.log(`Start measures sampling every ${config.sampling.interval / 1000} seconds`)
+        log(`Start measures sampling every ${config.sampling.interval / 1000} seconds`)
         samplingInterval = setInterval(() => {
             sampleAggregation()
         }, config.sampling.interval)
     } else if (samplingInterval) {
-        console.log(`Stop measures sampling`)
+        log(`Stop measures sampling`)
         clearInterval(samplingInterval)
         samplingInterval = null
     }
 }
 
 const clearTargetInterval = (target) => {
-    // console.log(`clear "${target.name}" broadcast interval`)
+    // log.debug(`Clear "${target.name}" broadcast interval`)
     if (broadcasterInterval[`${target.id}`] !== undefined) {
         clearInterval(broadcasterInterval[`${target.id}`].id)
         broadcasterInterval[`${target.id}`] = undefined
@@ -195,7 +197,7 @@ const activateTargetInterval = (target) => {
     broadcasterInterval[`${target.id}`] = {
         interval: `${target.interval}`,
         id: setInterval(() => {
-            // console.log(`broadcast to "${target.name}"`)
+            log.debug(`Broadcast to "${target.name}"`)
             for (const tag in tags) {
                 if (target.tags && target.tags[tag] !== undefined) {
                     broadcast({target, tag: tags[tag], field: `median`})
@@ -245,6 +247,12 @@ const store = {
         return config.targets
     },
     target: async (data) => {
+        data.tags = data.tags || {}
+        for (const tagId in data.tags) {
+            if (!data.tags[tagId].id) {
+                data.tags[tagId].id = tagId
+            }
+        }
         if (data.id === undefined) {
             data.id = config.targets.length
             config.targets.push(data)
@@ -292,32 +300,40 @@ const store = {
         if (data.columns) {
             config.columns = data.columns
         }
+        if (data.log) {
+            config.log = data.log
+        }
         config.backup()
         return config
     },
 }
 
+let ending = false
 const end = async (signal) => {
-    console.log(`Stop RuuviTag Discovery`)
+    if (ending) {
+        return
+    }
+    ending = true
+    log(`Stop RuuviTag Discovery (${signal})`)
     processStopped = true
     // stop broadcasters
     // console.log(`Stop broadcasting...`)
     for (const target of config.targets) {
         try {
-            // console.log(`Clear interval...`)
+            // log.debug(`Clear target "${target.name}" interval...`)
             clearTargetInterval(target)
-            // console.log(`Stop broadcaster...`)
+            log.debug(`Stop "${target.name}" broadcaster...`)
             await broadcaster(target).stop()
         } catch(err) {
             console.error(err)
         }
     }
     // close web server
-    // console.log(`Close server...`)
+    log.debug(`Close web server...`)
     try {
         await server.stop()
     } catch(err) {
-        console.error(err)
+        log.error(err)
         process.exit(1)
     }
     // console.log(`process.exit(0)`)

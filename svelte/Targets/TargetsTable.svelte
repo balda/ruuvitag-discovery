@@ -55,9 +55,6 @@
                 </td>
                 <td class="text-left">
                     <TargetType {target} />
-                    <span class="ml-2">
-                        {target.type}
-                    </span>
                 </td>
                 <td class="text-left">
                     {target.measurement || `n/a`}
