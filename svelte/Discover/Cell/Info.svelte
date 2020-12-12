@@ -1,5 +1,6 @@
 <script>
     import { cols } from './../../store/api.js';
+    import { config } from './../../store/config.js';
     import {
         Button,
         Modal,
@@ -10,6 +11,10 @@
     import Tooltip from './../../UI/Tooltip.svelte';
 	import Cell from './../Cell.svelte';
     export let tag = {};
+    let tagName = false;
+    if (tag.id && $config.ruuvitags[tag.id]) {
+        tagName = $config.ruuvitags[tag.id];
+    }
     let open = false;
     const toggle = () => (open = !open);
     const sources = [`last`, `median`, `first`];
@@ -25,8 +30,13 @@
     <ModalHeader {toggle}>
         RuuviTag
         <span class="font-weight-lighter mx-2">
-            {tag.id}
+            {tagName || tag.id}
         </span>
+        {#if tagName}
+            <span class="small font-weight-lighter font-italic mx-2">
+                {tag.id}
+            </span>
+        {/if}
     </ModalHeader>
     <ModalBody>
         <div class="container-fluid">
