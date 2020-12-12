@@ -39,6 +39,7 @@
                 ruuvitags,
             });
             $config.ruuvitags = ruuvitags;
+            tagName = `${value}`;
         } catch(error) {
             console.log(error);
         }
