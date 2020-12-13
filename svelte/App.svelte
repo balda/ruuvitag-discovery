@@ -40,6 +40,9 @@
                 if (data.config.columns) {
                     $config.columns = data.config.columns;
                 }
+                if (data.config.customColums) {
+                    $config.customColums = data.config.customColums;
+                }
                 if (data.config.log) {
                     $config.log = data.config.log;
                 }
@@ -71,7 +74,7 @@
                     measure.render = `measure`;
                     measure.show = $config.columns ? $config.columns[measure.field] : measure.required === undefined;
                     return measure;
-                }), {
+                }), ...$config.customColums, {
                     label: `Last seen`,
                     field: `ts`,
                     render: `date`,

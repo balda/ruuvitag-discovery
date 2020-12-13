@@ -1,6 +1,7 @@
 <script>
     import { cols, syncColumns } from './../store/api.js';
     import { FormGroup, CustomInput, Label, Row, Col } from 'sveltestrap';
+    import CustomColums from './CustomColums.svelte';
     let showSelectColumns = false;
     $: syncColumns($cols);
 </script>
@@ -11,17 +12,24 @@
     }
 </style>
 
-<div class="mt-2 mb-2 select-columns small">
-    <CustomInput
-        bind:checked={showSelectColumns}
-        type="switch"
-        bsSize="sm"
-        inline=true
-        class="bg-light mt-1 pr-2 pl-5 pt-1 pb-2 border rounded"
-        id="selectColumns"
-        name="selectColumns"
-        label="Select Columns" />
-</div>
+<Row class="mt-2 mb-2 small">
+    <Col>
+        <div class="float-left select-columns">
+            <CustomInput
+                bind:checked={showSelectColumns}
+                type="switch"
+                bsSize="sm"
+                inline=true
+                class="bg-light mt-1 pr-2 pl-5 pt-1 pb-2 border rounded"
+                id="selectColumns"
+                name="selectColumns"
+                label="Select Columns" />
+        </div>
+        <div class="float-left">
+            <CustomColums />
+        </div>
+    </Col>
+</Row>
 <div class="select-columns">
     {#if showSelectColumns}
         <Row>

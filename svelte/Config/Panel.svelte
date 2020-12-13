@@ -13,6 +13,7 @@
             ruuvitags: $config.ruuvitags,
             targets: $targets,
             columns: $config.columns,
+            customColums: $config.customColums,
             log: $config.log,
         }, null, 2);
     };
@@ -67,6 +68,7 @@
                     $config.battery = configSaved.battery;
                     $config.ruuvitags = configSaved.ruuvitags;
                     $config.columns = configSaved.columns;
+                    $config.customColums = configSaved.customColums;
                     $config.log = configSaved.log;
                     $targets = configSaved.targets;
                     updateConfig();
