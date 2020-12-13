@@ -1,5 +1,8 @@
 'use strict'
 
+const log = require(`:lib/log`)
+const mathjs = require(`mathjs`)
+
 const precision = (val) => {
     return Math.round(val * 100) / 100
 }
@@ -94,6 +97,13 @@ const calc = (data, config) => {
     absoluteHumidity(data)
     acceleration(data)
     vaporPressureDeficit(data)
+    for (const customColum of config.customColums) {
+        try {
+            data[customColum.field] = mathjs.evaluate(customColum.math, data)
+        } catch(error) {
+            log.error(error)
+        }
+    }
 }
 
 module.exports = calc

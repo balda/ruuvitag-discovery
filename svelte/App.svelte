@@ -41,7 +41,10 @@
                     $config.columns = data.config.columns;
                 }
                 if (data.config.customColums) {
-                    $config.customColums = data.config.customColums;
+                    $config.customColums = data.config.customColums.map((customColum, id) => {
+                        customColum.id = id;
+                        return customColum;
+                    });
                 }
                 if (data.config.log) {
                     $config.log = data.config.log;
@@ -51,7 +54,7 @@
                 }
             }
             if (data.measures) {
-                $dictMeasures = data.measures;
+                $dictMeasures = data.measures.concat(...$config.customColums);
                 $cols = [{
                     label: `ID`,
                     field: `id`,
@@ -70,11 +73,11 @@
                     class: `text-left`,
                     render: `name`,
                     show: $config.columns ? $config.columns.name : true,
-                }].concat(...data.measures.map(measure => {
+                }].concat(...$dictMeasures.map(measure => {
                     measure.render = `measure`;
                     measure.show = $config.columns ? $config.columns[measure.field] : measure.required === undefined;
                     return measure;
-                }), ...$config.customColums, {
+                }), {
                     label: `Last seen`,
                     field: `ts`,
                     render: `date`,

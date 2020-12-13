@@ -1,7 +1,8 @@
 <script>
-    import { cols } from './../store/api.js';
+    import { api, cols } from './../store/api.js';
 	import { config } from './../store/config.js';
     import {
+        Table,
         Button,
         Modal,
         ModalBody,
@@ -15,9 +16,7 @@
     let col_left = 3;
     let col_right = 8;
     let state = `view`; // `view` | `saving`
-    let newCustomColumn = {};
-    // $: syncColumns($cols);
-    // border rounded bg-light mt-1 pr-2 pl-5 pt-1 pb-2
+    let edited = null;
     const fields = [
         {
             field: `label`,
@@ -37,19 +36,73 @@
         {
             field: `accuracy`,
             label: `Accuracy`,
+            type: `number`,
             help: `Accuracy`,
         },
         {
             field: `math`,
-            label: `Math`,
-            help: `Math Expression`,
+            label: `Math Expression`,
+            help: `See <a href="https://mathjs.org/" target="_blank">mathjs.org</a> for syntax.`,
         },
     ];
+    let columnEdited = {};
+    $: if (edited === -1) {
+        for (const field of fields) {
+            columnEdited[field.field] = field.type === `number` ? 0 : ``;
+        }
+    }
+    function edit(id) {
+        columnEdited = JSON.parse(JSON.stringify($config.customColums.find(customColum => 1 * customColum.id === 1 * id)));
+        edited = id;
+    };
+    async function save() {
+        state = `saving`;
+        const data = {
+            customColums: JSON.parse(JSON.stringify($config.customColums)),
+        };
+        if (edited === -1) {
+            columnEdited.id = data.customColums.length;
+            data.customColums.push(columnEdited);
+        } else {
+            data.customColums[edited] = columnEdited;
+        }
+        try {
+            await api.post(`config`, data);
+            $config.customColums = data.customColums;
+            if (edited === -1) {
+                $cols.splice(-1, 0, columnEdited);
+                $cols = $cols;
+            } else {
+                const index = $cols.length - 1 - $config.customColums.length + edited;
+                for (const field in $cols[index]) {
+                    $cols[index][field] = columnEdited[field];
+                }
+            }
+        } catch(error) {
+            console.log(error);
+        }
+        state = `view`;
+        edited = null;
+    };
+    async function deleteCustomColums(customColums) {
+        // state = `saving`;
+        console.log(customColums);
+        // if (confirm(`Confirm Delete`)) {
+        //     try {
+        //         targets.set(await api.post(`target/delete`, {
+        //             id: target.id
+        //         }));
+        //     } catch(error) {
+        //         console.log(error);
+        //     }
+        // }
+        // state = `view`;
+    };
 </script>
 
 <Tooltip tip="Custom Columns" bottom >
     <a on:click|preventDefault={toggle} href="/" class="pt-1 pb-1 mt-1 btn btn-light border">
-        <i class="fas fa-plus"></i> <small>Custom Columns</small>
+        <small>Custom Columns</small>
     </a>
 </Tooltip>
 <Modal isOpen={open} {toggle} size="lg">
@@ -58,30 +111,87 @@
     </ModalHeader>
     <ModalBody>
         <div class="container-fluid">
-            <div>
-                <pre>{JSON.stringify($config.customColums, null, 2)}</pre>
-            </div>
-            <div>
-                <form id="form-custom-column" class="mt-4" disabled>
-                    {#each fields as field}
-                        <div class="form-group row">
-                            <label class="col-sm-{col_left} col-form-label-sm">
-                                {field.label}
-                            </label>
-                            <div class="col-sm-{col_right}">
-                                <input type="text" name="{field.field}"
-                                 bind:value="{newCustomColumn[field.field]}"
-                                 class="form-control form-control-sm"
-                                 disabled={state === `saving` ? `disabled` : null}
-                                >
-                                <small class="form-text text-muted">
-                                    <em>{field.help}</em>
-                                </small>
+            {#if edited !== null}
+                <div>
+                    <form id="form-custom-column" class="mt-4" disabled>
+                        {#each fields as field}
+                            <div class="form-group row">
+                                <label class="col-sm-{col_left} col-form-label-sm">
+                                    {field.label}
+                                </label>
+                                <div class="col-sm-{col_right}">
+                                    {#if field.type === `number`}
+                                        <input type="number" name="{field.field}"
+                                         bind:value="{columnEdited[field.field]}"
+                                         class="form-control form-control-sm"
+                                         disabled={state === `saving` ? `disabled` : null}
+                                        >
+                                    {:else}
+                                        <input type="text" name="{field.field}"
+                                         bind:value="{columnEdited[field.field]}"
+                                         class="form-control form-control-sm"
+                                         disabled={state === `saving` ? `disabled` : null}
+                                        >
+                                    {/if}
+                                    <small class="form-text text-muted">
+                                        <em>{@html field.help}</em>
+                                    </small>
+                                </div>
                             </div>
-                        </div>
-                    {/each}
-                </form>
-            </div>
+                        {/each}
+                    </form>
+                </div>
+                <div>
+                    <a class="btn btn-light btn-sm mr-2" href="/" on:click|preventDefault={() => edited = null}>
+                        Cancel
+                    </a>
+                    <a class="btn btn-light btn-sm mr-2" href="/" on:click|preventDefault={() => save()}>
+                        Save
+                    </a>
+                </div>
+            {:else}
+                <div>
+                    <a class="btn btn-light btn-sm mr-2" href="/" on:click|preventDefault={() => edited = -1}>
+                        <i class="fas fa-plus"></i>
+                        New Custom
+                    </a>
+                </div>
+                <Table class="mt-2 table-sm font-weight-lighter" responsive>
+                    <thead>
+                        <tr>
+                            {#each fields as field}
+                                <th>
+                                    {field.label}
+                                </th>
+                            {/each}
+                            <th class="text-center">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {#each $config.customColums as customColums (customColums.id)}
+                            <tr>
+                                {#each fields as field}
+                                    <td class="align-middle">
+                                        {customColums[field.field]}
+                                    </td>
+                                {/each}
+                                <td class="text-center">
+                                    <a href="/" on:click|preventDefault={() => deleteCustomColums(customColums)}
+                                     class="btn btn-link text-danger btn-sm mr-2">
+                                        Delete
+                                    </a>
+                                    <a href="/" on:click|preventDefault={() => edit(customColums.id * 1)}
+                                     class="btn btn-light btn-sm">
+                                        Edit
+                                    </a>
+                                </td>
+                            </tr>
+                        {/each}
+                    </tbody>
+                </Table>
+            {/if}
         </div>
     </ModalBody>
     <ModalFooter>

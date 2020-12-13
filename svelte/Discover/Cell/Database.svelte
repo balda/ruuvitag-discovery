@@ -47,7 +47,7 @@
                         <strong>Field</strong> {tagConfig.field}<br>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3 mt-md-0">
                     <p><strong>Measures</strong></p>
                     <div class="font-weight-lighter">
                         {#each Object.keys(tagConfig.measures) as measure}

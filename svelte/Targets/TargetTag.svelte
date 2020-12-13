@@ -1,13 +1,9 @@
 <script>
-    import { dictMeasures } from './../store/dict.js';
     import { Container, Row, Col, CustomInput } from 'sveltestrap';
     import TargetTagMeasure from  './TargetTagMeasure.svelte';
     export let tag = {};
     export let targetTag = {};
     let state = `view`; // `view` | `edit`
-    $: tagMeasures = $dictMeasures.filter(measure => {
-        return tag.last[measure.field] !== undefined || tag[measure.field] !== undefined;
-    });
     $: if (targetTag && !targetTag.name) {
         targetTag.name = `RuuviTag ${tag.id}`;
     }

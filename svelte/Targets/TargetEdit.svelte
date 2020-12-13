@@ -1,7 +1,7 @@
 <script>
-    import { api, tags } from './../store/api.js';
+    import { api, tags, cols } from './../store/api.js';
     import { targets } from './../store/targets.js';
-    import { dictTargets, dictMeasures } from './../store/dict.js';
+    import { dictTargets } from './../store/dict.js';
     import { createEventDispatcher } from 'svelte';
     import { Form, FormGroup, FormText, Input, CustomInput, Label, Button, Table, Row, Col } from 'sveltestrap';
     import TargetTag from  './TargetTag.svelte';
@@ -30,11 +30,11 @@
         targetEdited.tags[tag.id] = {
             ...tagEdited,
             selected,
-            // TODO: add filter
+            // TODO: add filter? (only available measures)
             // $: tagMeasures = measures.filter(measure => {
             //     return tag.last[measure.field] !== undefined || tag[measure.field] !== undefined;
             // });
-            measures: $dictMeasures.map(measure => {
+            measures: $cols.filter(col => col.render === `measure`).map(measure => {
                 return {
                     measure,
                     selected: selected && tagEdited.measures[measure.field] !== undefined,
@@ -89,10 +89,10 @@
          class="btn btn-light btn-sm">
             Save
         </a>
-        <!-- <a href="/" on:click|preventDefault={e => console.log(targetEdited)}
+        <a href="/" on:click|preventDefault={e => console.log(targetEdited)}
          class="btn btn-link btn-sm text-muted float-right">
             log
-        </a> -->
+        </a>
     </div>
 
     <Row>
