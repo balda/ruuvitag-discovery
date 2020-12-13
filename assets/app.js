@@ -10080,31 +10080,31 @@ var app = (function () {
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[22] = list[i];
+    	child_ctx[23] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[19] = list[i];
+    	child_ctx[20] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[19] = list[i];
+    	child_ctx[20] = list[i];
     	return child_ctx;
     }
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[19] = list[i];
-    	child_ctx[20] = list;
-    	child_ctx[21] = i;
+    	child_ctx[20] = list[i];
+    	child_ctx[21] = list;
+    	child_ctx[22] = i;
     	return child_ctx;
     }
 
-    // (103:0) <Tooltip tip="Custom Columns" bottom >
+    // (105:0) <Tooltip tip="Custom Columns" bottom >
     function create_default_slot_6(ctx) {
     	let a;
     	let small;
@@ -10116,10 +10116,10 @@ var app = (function () {
     			a = element("a");
     			small = element("small");
     			small.textContent = "Custom Columns";
-    			add_location(small, file$j, 104, 8, 3165);
+    			add_location(small, file$j, 106, 8, 3286);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "class", "pt-1 pb-1 mt-1 btn btn-light border");
-    			add_location(a, file$j, 103, 4, 3067);
+    			add_location(a, file$j, 105, 4, 3188);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -10142,14 +10142,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(103:0) <Tooltip tip=\\\"Custom Columns\\\" bottom >",
+    		source: "(105:0) <Tooltip tip=\\\"Custom Columns\\\" bottom >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (109:4) <ModalHeader {toggle}>
+    // (111:4) <ModalHeader {toggle}>
     function create_default_slot_5(ctx) {
     	let t;
 
@@ -10169,14 +10169,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(109:4) <ModalHeader {toggle}>",
+    		source: "(111:4) <ModalHeader {toggle}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (152:12) {:else}
+    // (154:12) {:else}
     function create_else_block_1$1(ctx) {
     	let div;
     	let a;
@@ -10207,11 +10207,11 @@ var app = (function () {
     			t1 = space();
     			create_component(table.$$.fragment);
     			attr_dev(i, "class", "fas fa-plus");
-    			add_location(i, file$j, 154, 24, 5647);
+    			add_location(i, file$j, 156, 24, 5768);
     			attr_dev(a, "class", "btn btn-light btn-sm mr-2");
     			attr_dev(a, "href", "/");
-    			add_location(a, file$j, 153, 20, 5532);
-    			add_location(div, file$j, 152, 16, 5506);
+    			add_location(a, file$j, 155, 20, 5653);
+    			add_location(div, file$j, 154, 16, 5627);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -10223,14 +10223,14 @@ var app = (function () {
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_2*/ ctx[15]), false, true, false);
+    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_2*/ ctx[16]), false, true, false);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
     			const table_changes = {};
 
-    			if (dirty & /*$$scope, $config*/ 536870928) {
+    			if (dirty & /*$$scope, $config*/ 1073741840) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
@@ -10258,14 +10258,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1$1.name,
     		type: "else",
-    		source: "(152:12) {:else}",
+    		source: "(154:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (114:12) {#if edited !== null}
+    // (116:12) {#if edited !== null}
     function create_if_block$8(ctx) {
     	let div0;
     	let form;
@@ -10303,15 +10303,15 @@ var app = (function () {
     			attr_dev(form, "id", "form-custom-column");
     			attr_dev(form, "class", "mt-4");
     			attr_dev(form, "disabled", "");
-    			add_location(form, file$j, 115, 20, 3455);
-    			add_location(div0, file$j, 114, 16, 3429);
+    			add_location(form, file$j, 117, 20, 3576);
+    			add_location(div0, file$j, 116, 16, 3550);
     			attr_dev(a0, "class", "btn btn-light btn-sm mr-2");
     			attr_dev(a0, "href", "/");
-    			add_location(a0, file$j, 144, 20, 5138);
+    			add_location(a0, file$j, 146, 20, 5259);
     			attr_dev(a1, "class", "btn btn-light btn-sm mr-2");
     			attr_dev(a1, "href", "/");
-    			add_location(a1, file$j, 147, 20, 5307);
-    			add_location(div1, file$j, 143, 16, 5112);
+    			add_location(a1, file$j, 149, 20, 5428);
+    			add_location(div1, file$j, 145, 16, 5233);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -10329,8 +10329,8 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(a0, "click", prevent_default(/*click_handler*/ ctx[13]), false, true, false),
-    					listen_dev(a1, "click", prevent_default(/*click_handler_1*/ ctx[14]), false, true, false)
+    					listen_dev(a0, "click", prevent_default(/*click_handler*/ ctx[14]), false, true, false),
+    					listen_dev(a1, "click", prevent_default(/*click_handler_1*/ ctx[15]), false, true, false)
     				];
 
     				mounted = true;
@@ -10377,24 +10377,24 @@ var app = (function () {
     		block,
     		id: create_if_block$8.name,
     		type: "if",
-    		source: "(114:12) {#if edited !== null}",
+    		source: "(116:12) {#if edited !== null}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (162:28) {#each fields as field}
+    // (164:28) {#each fields as field}
     function create_each_block_3(ctx) {
     	let th;
-    	let t_value = /*field*/ ctx[19].label + "";
+    	let t_value = /*field*/ ctx[20].label + "";
     	let t;
 
     	const block = {
     		c: function create() {
     			th = element("th");
     			t = text(t_value);
-    			add_location(th, file$j, 162, 32, 5976);
+    			add_location(th, file$j, 164, 32, 6097);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, th, anchor);
@@ -10410,17 +10410,17 @@ var app = (function () {
     		block,
     		id: create_each_block_3.name,
     		type: "each",
-    		source: "(162:28) {#each fields as field}",
+    		source: "(164:28) {#each fields as field}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (175:32) {#each fields as field}
+    // (177:32) {#each fields as field}
     function create_each_block_2(ctx) {
     	let td;
-    	let t_value = /*customColums*/ ctx[22][/*field*/ ctx[19].field] + "";
+    	let t_value = /*customColum*/ ctx[23][/*field*/ ctx[20].field] + "";
     	let t;
 
     	const block = {
@@ -10428,14 +10428,14 @@ var app = (function () {
     			td = element("td");
     			t = text(t_value);
     			attr_dev(td, "class", "align-middle");
-    			add_location(td, file$j, 175, 36, 6531);
+    			add_location(td, file$j, 177, 36, 6650);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, td, anchor);
     			append_dev(td, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$config*/ 16 && t_value !== (t_value = /*customColums*/ ctx[22][/*field*/ ctx[19].field] + "")) set_data_dev(t, t_value);
+    			if (dirty & /*$config*/ 16 && t_value !== (t_value = /*customColum*/ ctx[23][/*field*/ ctx[20].field] + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(td);
@@ -10446,14 +10446,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(175:32) {#each fields as field}",
+    		source: "(177:32) {#each fields as field}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (173:24) {#each $config.customColums as customColums (customColums.id)}
+    // (175:24) {#each $config.customColums as customColum (customColum.id)}
     function create_each_block_1(key_1, ctx) {
     	let tr;
     	let t0;
@@ -10473,11 +10473,11 @@ var app = (function () {
     	}
 
     	function click_handler_3() {
-    		return /*click_handler_3*/ ctx[16](/*customColums*/ ctx[22]);
+    		return /*click_handler_3*/ ctx[17](/*customColum*/ ctx[23]);
     	}
 
     	function click_handler_4() {
-    		return /*click_handler_4*/ ctx[17](/*customColums*/ ctx[22]);
+    		return /*click_handler_4*/ ctx[18](/*customColum*/ ctx[23]);
     	}
 
     	const block = {
@@ -10500,13 +10500,13 @@ var app = (function () {
     			t4 = space();
     			attr_dev(a0, "href", "/");
     			attr_dev(a0, "class", "btn btn-link text-danger btn-sm mr-2");
-    			add_location(a0, file$j, 180, 36, 6800);
+    			add_location(a0, file$j, 182, 36, 6918);
     			attr_dev(a1, "href", "/");
     			attr_dev(a1, "class", "btn btn-light btn-sm");
-    			add_location(a1, file$j, 184, 36, 7084);
+    			add_location(a1, file$j, 186, 36, 7201);
     			attr_dev(td, "class", "text-center");
-    			add_location(td, file$j, 179, 32, 6739);
-    			add_location(tr, file$j, 173, 28, 6434);
+    			add_location(td, file$j, 181, 32, 6857);
+    			add_location(tr, file$j, 175, 28, 6553);
     			this.first = tr;
     		},
     		m: function mount(target, anchor) {
@@ -10571,14 +10571,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(173:24) {#each $config.customColums as customColums (customColums.id)}",
+    		source: "(175:24) {#each $config.customColums as customColum (customColum.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (159:16) <Table class="mt-2 table-sm font-weight-lighter" responsive>
+    // (161:16) <Table class="mt-2 table-sm font-weight-lighter" responsive>
     function create_default_slot_4(ctx) {
     	let thead;
     	let tr;
@@ -10598,7 +10598,7 @@ var app = (function () {
 
     	let each_value_1 = /*$config*/ ctx[4].customColums;
     	validate_each_argument(each_value_1);
-    	const get_key = ctx => /*customColums*/ ctx[22].id;
+    	const get_key = ctx => /*customColum*/ ctx[23].id;
     	validate_each_keys(ctx, each_value_1, get_each_context_1, get_key);
 
     	for (let i = 0; i < each_value_1.length; i += 1) {
@@ -10627,10 +10627,10 @@ var app = (function () {
     			}
 
     			attr_dev(th, "class", "text-center");
-    			add_location(th, file$j, 166, 28, 6133);
-    			add_location(tr, file$j, 160, 24, 5887);
-    			add_location(thead, file$j, 159, 20, 5855);
-    			add_location(tbody, file$j, 171, 20, 6311);
+    			add_location(th, file$j, 168, 28, 6254);
+    			add_location(tr, file$j, 162, 24, 6008);
+    			add_location(thead, file$j, 161, 20, 5976);
+    			add_location(tbody, file$j, 173, 20, 6432);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -10674,7 +10674,7 @@ var app = (function () {
     				each_blocks_1.length = each_value_3.length;
     			}
 
-    			if (dirty & /*edit, $config, deleteCustomColums, fields*/ 784) {
+    			if (dirty & /*edit, $config, deleteCustomColums, fields*/ 2832) {
     				const each_value_1 = /*$config*/ ctx[4].customColums;
     				validate_each_argument(each_value_1);
     				validate_each_keys(ctx, each_value_1, get_each_context_1, get_key);
@@ -10697,14 +10697,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(159:16) <Table class=\\\"mt-2 table-sm font-weight-lighter\\\" responsive>",
+    		source: "(161:16) <Table class=\\\"mt-2 table-sm font-weight-lighter\\\" responsive>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (129:36) {:else}
+    // (131:36) {:else}
     function create_else_block$7(ctx) {
     	let input;
     	let input_name_value;
@@ -10713,21 +10713,21 @@ var app = (function () {
     	let dispose;
 
     	function input_input_handler_1() {
-    		/*input_input_handler_1*/ ctx[12].call(input, /*field*/ ctx[19]);
+    		/*input_input_handler_1*/ ctx[13].call(input, /*field*/ ctx[20]);
     	}
 
     	const block = {
     		c: function create() {
     			input = element("input");
     			attr_dev(input, "type", "text");
-    			attr_dev(input, "name", input_name_value = /*field*/ ctx[19].field);
+    			attr_dev(input, "name", input_name_value = /*field*/ ctx[20].field);
     			attr_dev(input, "class", "form-control form-control-sm");
     			input.disabled = input_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null;
-    			add_location(input, file$j, 129, 40, 4378);
+    			add_location(input, file$j, 131, 40, 4499);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
-    			set_input_value(input, /*columnEdited*/ ctx[3][/*field*/ ctx[19].field]);
+    			set_input_value(input, /*columnEdited*/ ctx[3][/*field*/ ctx[20].field]);
 
     			if (!mounted) {
     				dispose = listen_dev(input, "input", input_input_handler_1);
@@ -10741,8 +10741,8 @@ var app = (function () {
     				prop_dev(input, "disabled", input_disabled_value);
     			}
 
-    			if (dirty & /*columnEdited, fields*/ 264 && input.value !== /*columnEdited*/ ctx[3][/*field*/ ctx[19].field]) {
-    				set_input_value(input, /*columnEdited*/ ctx[3][/*field*/ ctx[19].field]);
+    			if (dirty & /*columnEdited, fields*/ 264 && input.value !== /*columnEdited*/ ctx[3][/*field*/ ctx[20].field]) {
+    				set_input_value(input, /*columnEdited*/ ctx[3][/*field*/ ctx[20].field]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -10756,14 +10756,14 @@ var app = (function () {
     		block,
     		id: create_else_block$7.name,
     		type: "else",
-    		source: "(129:36) {:else}",
+    		source: "(131:36) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (123:36) {#if field.type === `number`}
+    // (125:36) {#if field.type === `number`}
     function create_if_block_1$5(ctx) {
     	let input;
     	let input_name_value;
@@ -10772,21 +10772,21 @@ var app = (function () {
     	let dispose;
 
     	function input_input_handler() {
-    		/*input_input_handler*/ ctx[11].call(input, /*field*/ ctx[19]);
+    		/*input_input_handler*/ ctx[12].call(input, /*field*/ ctx[20]);
     	}
 
     	const block = {
     		c: function create() {
     			input = element("input");
     			attr_dev(input, "type", "number");
-    			attr_dev(input, "name", input_name_value = /*field*/ ctx[19].field);
+    			attr_dev(input, "name", input_name_value = /*field*/ ctx[20].field);
     			attr_dev(input, "class", "form-control form-control-sm");
     			input.disabled = input_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null;
-    			add_location(input, file$j, 123, 40, 3959);
+    			add_location(input, file$j, 125, 40, 4080);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
-    			set_input_value(input, /*columnEdited*/ ctx[3][/*field*/ ctx[19].field]);
+    			set_input_value(input, /*columnEdited*/ ctx[3][/*field*/ ctx[20].field]);
 
     			if (!mounted) {
     				dispose = listen_dev(input, "input", input_input_handler);
@@ -10800,8 +10800,8 @@ var app = (function () {
     				prop_dev(input, "disabled", input_disabled_value);
     			}
 
-    			if (dirty & /*columnEdited, fields*/ 264 && to_number(input.value) !== /*columnEdited*/ ctx[3][/*field*/ ctx[19].field]) {
-    				set_input_value(input, /*columnEdited*/ ctx[3][/*field*/ ctx[19].field]);
+    			if (dirty & /*columnEdited, fields*/ 264 && to_number(input.value) !== /*columnEdited*/ ctx[3][/*field*/ ctx[20].field]) {
+    				set_input_value(input, /*columnEdited*/ ctx[3][/*field*/ ctx[20].field]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -10815,18 +10815,18 @@ var app = (function () {
     		block,
     		id: create_if_block_1$5.name,
     		type: "if",
-    		source: "(123:36) {#if field.type === `number`}",
+    		source: "(125:36) {#if field.type === `number`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (117:24) {#each fields as field}
+    // (119:24) {#each fields as field}
     function create_each_block(ctx) {
     	let div1;
     	let label;
-    	let t0_value = /*field*/ ctx[19].label + "";
+    	let t0_value = /*field*/ ctx[20].label + "";
     	let t0;
     	let label_class_value;
     	let t1;
@@ -10834,12 +10834,12 @@ var app = (function () {
     	let t2;
     	let small;
     	let em;
-    	let raw_value = /*field*/ ctx[19].help + "";
+    	let raw_value = /*field*/ ctx[20].help + "";
     	let div0_class_value;
     	let t3;
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*field*/ ctx[19].type === `number`) return create_if_block_1$5;
+    		if (/*field*/ ctx[20].type === `number`) return create_if_block_1$5;
     		return create_else_block$7;
     	}
 
@@ -10859,14 +10859,14 @@ var app = (function () {
     			em = element("em");
     			t3 = space();
     			attr_dev(label, "class", label_class_value = "col-sm-" + /*col_left*/ ctx[6] + " col-form-label-sm");
-    			add_location(label, file$j, 118, 32, 3645);
-    			add_location(em, file$j, 136, 40, 4866);
+    			add_location(label, file$j, 120, 32, 3766);
+    			add_location(em, file$j, 138, 40, 4987);
     			attr_dev(small, "class", "form-text text-muted");
-    			add_location(small, file$j, 135, 36, 4789);
+    			add_location(small, file$j, 137, 36, 4910);
     			attr_dev(div0, "class", div0_class_value = "col-sm-" + /*col_right*/ ctx[7]);
-    			add_location(div0, file$j, 121, 32, 3820);
+    			add_location(div0, file$j, 123, 32, 3941);
     			attr_dev(div1, "class", "form-group row");
-    			add_location(div1, file$j, 117, 28, 3584);
+    			add_location(div1, file$j, 119, 28, 3705);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -10894,14 +10894,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(117:24) {#each fields as field}",
+    		source: "(119:24) {#each fields as field}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (112:4) <ModalBody>
+    // (114:4) <ModalBody>
     function create_default_slot_3(ctx) {
     	let div;
     	let current_block_type_index;
@@ -10923,7 +10923,7 @@ var app = (function () {
     			div = element("div");
     			if_block.c();
     			attr_dev(div, "class", "container-fluid");
-    			add_location(div, file$j, 112, 8, 3349);
+    			add_location(div, file$j, 114, 8, 3470);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -10976,14 +10976,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(112:4) <ModalBody>",
+    		source: "(114:4) <ModalBody>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (198:8) <Button color="secondary" outline size="sm" on:click={toggle}>
+    // (200:8) <Button color="secondary" outline size="sm" on:click={toggle}>
     function create_default_slot_2(ctx) {
     	let t;
 
@@ -11003,14 +11003,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(198:8) <Button color=\\\"secondary\\\" outline size=\\\"sm\\\" on:click={toggle}>",
+    		source: "(200:8) <Button color=\\\"secondary\\\" outline size=\\\"sm\\\" on:click={toggle}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (197:4) <ModalFooter>
+    // (199:4) <ModalFooter>
     function create_default_slot_1(ctx) {
     	let button;
     	let current;
@@ -11039,7 +11039,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 536870912) {
+    			if (dirty & /*$$scope*/ 1073741824) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -11063,14 +11063,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(197:4) <ModalFooter>",
+    		source: "(199:4) <ModalFooter>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (108:0) <Modal isOpen={open} {toggle} size="lg">
+    // (110:0) <Modal isOpen={open} {toggle} size="lg">
     function create_default_slot(ctx) {
     	let modalheader;
     	let t0;
@@ -11123,21 +11123,21 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const modalheader_changes = {};
 
-    			if (dirty & /*$$scope*/ 536870912) {
+    			if (dirty & /*$$scope*/ 1073741824) {
     				modalheader_changes.$$scope = { dirty, ctx };
     			}
 
     			modalheader.$set(modalheader_changes);
     			const modalbody_changes = {};
 
-    			if (dirty & /*$$scope, edited, state, columnEdited, $config*/ 536870942) {
+    			if (dirty & /*$$scope, edited, state, columnEdited, $config*/ 1073741854) {
     				modalbody_changes.$$scope = { dirty, ctx };
     			}
 
     			modalbody.$set(modalbody_changes);
     			const modalfooter_changes = {};
 
-    			if (dirty & /*$$scope*/ 536870912) {
+    			if (dirty & /*$$scope*/ 1073741824) {
     				modalfooter_changes.$$scope = { dirty, ctx };
     			}
 
@@ -11169,7 +11169,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(108:0) <Modal isOpen={open} {toggle} size=\\\"lg\\\">",
+    		source: "(110:0) <Modal isOpen={open} {toggle} size=\\\"lg\\\">",
     		ctx
     	});
 
@@ -11221,7 +11221,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const tooltip_changes = {};
 
-    			if (dirty & /*$$scope*/ 536870912) {
+    			if (dirty & /*$$scope*/ 1073741824) {
     				tooltip_changes.$$scope = { dirty, ctx };
     			}
 
@@ -11229,7 +11229,7 @@ var app = (function () {
     			const modal_changes = {};
     			if (dirty & /*open*/ 1) modal_changes.isOpen = /*open*/ ctx[0];
 
-    			if (dirty & /*$$scope, edited, state, columnEdited, $config*/ 536870942) {
+    			if (dirty & /*$$scope, edited, state, columnEdited, $config*/ 1073741854) {
     				modal_changes.$$scope = { dirty, ctx };
     			}
 
@@ -11264,19 +11264,13 @@ var app = (function () {
     	return block;
     }
 
-    async function deleteCustomColums(customColums) {
-    	// state = `saving`;
-    	console.log(customColums);
-    } // if (confirm(`Confirm Delete`)) {
-    //     try {
-
     function instance$j($$self, $$props, $$invalidate) {
     	let $config;
     	let $cols;
     	validate_store(config, "config");
     	component_subscribe($$self, config, $$value => $$invalidate(4, $config = $$value));
     	validate_store(cols, "cols");
-    	component_subscribe($$self, cols, $$value => $$invalidate(18, $cols = $$value));
+    	component_subscribe($$self, cols, $$value => $$invalidate(19, $cols = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("CustomColums", slots, []);
     	let open = false;
@@ -11362,16 +11356,24 @@ var app = (function () {
 
     	
 
-    	//         targets.set(await api.post(`target/delete`, {
-    	//             id: target.id
-    	//         }));
-    	//     } catch(error) {
-    	//         console.log(error);
-    	//     }
-    	// }
-    	// state = `view`;
-    	
+    	async function deleteCustomColums(customColum) {
+    		// state = `saving`;
+    		if (confirm(`Confirm Delete`)) {
+    			try {
+    				const data = {
+    					customColums: JSON.parse(JSON.stringify($config.customColums))
+    				};
 
+    				data.customColums.splice(customColum.id, 1);
+    				await api.post(`config`, data);
+    				set_store_value(config, $config.customColums = data.customColums, $config);
+    			} catch(error) {
+    				console.log(error);
+    			}
+    		}
+    	} // state = `view`;
+
+    	
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -11393,8 +11395,8 @@ var app = (function () {
     	const click_handler = () => $$invalidate(2, edited = null);
     	const click_handler_1 = () => save();
     	const click_handler_2 = () => $$invalidate(2, edited = -1);
-    	const click_handler_3 = customColums => deleteCustomColums(customColums);
-    	const click_handler_4 = customColums => edit(customColums.id * 1);
+    	const click_handler_3 = customColum => deleteCustomColums(customColum);
+    	const click_handler_4 = customColum => edit(customColum.id * 1);
 
     	$$self.$capture_state = () => ({
     		api,
@@ -11462,6 +11464,7 @@ var app = (function () {
     		fields,
     		edit,
     		save,
+    		deleteCustomColums,
     		input_input_handler,
     		input_input_handler_1,
     		click_handler,

@@ -84,18 +84,20 @@
         state = `view`;
         edited = null;
     };
-    async function deleteCustomColums(customColums) {
+    async function deleteCustomColums(customColum) {
         // state = `saving`;
-        console.log(customColums);
-        // if (confirm(`Confirm Delete`)) {
-        //     try {
-        //         targets.set(await api.post(`target/delete`, {
-        //             id: target.id
-        //         }));
-        //     } catch(error) {
-        //         console.log(error);
-        //     }
-        // }
+        if (confirm(`Confirm Delete`)) {
+            try {
+                const data = {
+                    customColums: JSON.parse(JSON.stringify($config.customColums)),
+                };
+                data.customColums.splice(customColum.id, 1);
+                await api.post(`config`, data);
+                $config.customColums = data.customColums;
+            } catch(error) {
+                console.log(error);
+            }
+        }
         // state = `view`;
     };
 </script>
@@ -170,19 +172,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {#each $config.customColums as customColums (customColums.id)}
+                        {#each $config.customColums as customColum (customColum.id)}
                             <tr>
                                 {#each fields as field}
                                     <td class="align-middle">
-                                        {customColums[field.field]}
+                                        {customColum[field.field]}
                                     </td>
                                 {/each}
                                 <td class="text-center">
-                                    <a href="/" on:click|preventDefault={() => deleteCustomColums(customColums)}
+                                    <a href="/" on:click|preventDefault={() => deleteCustomColums(customColum)}
                                      class="btn btn-link text-danger btn-sm mr-2">
                                         Delete
                                     </a>
-                                    <a href="/" on:click|preventDefault={() => edit(customColums.id * 1)}
+                                    <a href="/" on:click|preventDefault={() => edit(customColum.id * 1)}
                                      class="btn btn-light btn-sm">
                                         Edit
                                     </a>
