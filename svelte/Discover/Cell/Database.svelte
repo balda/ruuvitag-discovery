@@ -1,4 +1,5 @@
 <script>
+    import { tags, cols } from './../../store/api.js';
     import {
         Button,
         Modal,
@@ -8,6 +9,7 @@
     } from 'sveltestrap';
     import Tooltip from './../../UI/Tooltip.svelte';
     import TargetStateIcon from './../../Targets/TargetStateIcon.svelte';
+	import Cell from './../../Discover/Cell.svelte';
     export let target = {};
     export let tag = {};
     let open = false;
@@ -53,6 +55,15 @@
                             <strong>Label</strong> {tagConfig.measures[measure].label}
                             -
                             <strong>Field</strong> {tagConfig.measures[measure].field}
+                        </div>
+                        <div class="mb-2">
+                            <strong>Value</strong>
+                            <Cell
+                             col={$cols.find(col => col.field === measure)}
+                             {tag}
+                             source="last"
+                             showUnit="true"
+                            />
                         </div>
                         {/each}
                     </div>

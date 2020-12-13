@@ -1,10 +1,11 @@
 <script>
-    import { api } from './../store/api.js';
+    import { api, tags, cols } from './../store/api.js';
     import { targets } from './../store/targets.js';
     import { Button, Table, Row, Col } from 'sveltestrap';
     import Tooltip from './../UI/Tooltip.svelte';
     import TargetStateIcon from './TargetStateIcon.svelte';
     import TargetType from './TargetType.svelte';
+	import Cell from './../Discover/Cell.svelte';
     export let edited;
     async function deleteTarget(target) {
         // state = `saving`;
@@ -82,6 +83,14 @@
                                         <div class="pl-1">
                                             - {target.tags[id].measures[measure].label}
                                             (<em>{target.tags[id].measures[measure].field}</em>)
+                                            <span class="float-right">
+                                                <Cell
+                                                 col={$cols.find(col => col.field === measure)}
+                                                 tag={$tags.find(tag => tag.id === id)}
+                                                 source="last"
+                                                 showUnit="true"
+                                                />
+                                            </span>
                                         </div>
                                     {/each}
                                 </Col>

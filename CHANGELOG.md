@@ -1,6 +1,7 @@
 # Changelog
 
 ## [Unreleased]
+- Display measures value in real time in target popup (discovery page) and in targets list
 
 ## [0.2.3] - 2020-12-12
 - Bugfixes

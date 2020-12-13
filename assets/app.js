@@ -12716,11 +12716,11 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[5] = list[i];
+    	child_ctx[7] = list[i];
     	return child_ctx;
     }
 
-    // (18:0) <Tooltip tip="{target.name}" left >
+    // (20:0) <Tooltip tip="{target.name}" left >
     function create_default_slot_5$1(ctx) {
     	let a;
     	let i;
@@ -12733,21 +12733,21 @@ var app = (function () {
     			a = element("a");
     			i = element("i");
     			attr_dev(i, "class", "fas fa-database");
-    			add_location(i, file$m, 19, 8, 593);
+    			add_location(i, file$m, 21, 8, 698);
     			attr_dev(a, "href", "/");
 
     			attr_dev(a, "class", a_class_value = "mx-1 " + (1 * /*target*/ ctx[0].enable
     			? `text-success`
     			: `text-muted`));
 
-    			add_location(a, file$m, 18, 4, 474);
+    			add_location(a, file$m, 20, 4, 579);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
     			append_dev(a, i);
 
     			if (!mounted) {
-    				dispose = listen_dev(a, "click", prevent_default(/*toggle*/ ctx[3]), false, true, false);
+    				dispose = listen_dev(a, "click", prevent_default(/*toggle*/ ctx[4]), false, true, false);
     				mounted = true;
     			}
     		},
@@ -12769,14 +12769,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5$1.name,
     		type: "slot",
-    		source: "(18:0) <Tooltip tip=\\\"{target.name}\\\" left >",
+    		source: "(20:0) <Tooltip tip=\\\"{target.name}\\\" left >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (24:4) <ModalHeader {toggle}>
+    // (26:4) <ModalHeader {toggle}>
     function create_default_slot_4$1(ctx) {
     	let t0;
     	let span0;
@@ -12811,11 +12811,11 @@ var app = (function () {
     			span2 = element("span");
     			t6 = text(t6_value);
     			attr_dev(span0, "class", "font-weight-lighter mx-1");
-    			add_location(span0, file$m, 25, 8, 738);
+    			add_location(span0, file$m, 27, 8, 843);
     			attr_dev(span1, "class", "mx-1");
-    			add_location(span1, file$m, 30, 8, 870);
+    			add_location(span1, file$m, 32, 8, 975);
     			attr_dev(span2, "class", "font-weight-lighter ml-1");
-    			add_location(span2, file$m, 33, 8, 933);
+    			add_location(span2, file$m, 35, 8, 1038);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -12862,30 +12862,50 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$1.name,
     		type: "slot",
-    		source: "(24:4) <ModalHeader {toggle}>",
+    		source: "(26:4) <ModalHeader {toggle}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:24) {#each Object.keys(tagConfig.measures) as measure}
+    // (53:24) {#each Object.keys(tagConfig.measures) as measure}
     function create_each_block$1(ctx) {
-    	let div;
+    	let div0;
     	let strong0;
     	let t1;
-    	let t2_value = /*tagConfig*/ ctx[4].measures[/*measure*/ ctx[5]].label + "";
+    	let t2_value = /*tagConfig*/ ctx[5].measures[/*measure*/ ctx[7]].label + "";
     	let t2;
     	let t3;
     	let strong1;
     	let t5;
-    	let t6_value = /*tagConfig*/ ctx[4].measures[/*measure*/ ctx[5]].field + "";
+    	let t6_value = /*tagConfig*/ ctx[5].measures[/*measure*/ ctx[7]].field + "";
     	let t6;
     	let t7;
+    	let div1;
+    	let strong2;
+    	let t9;
+    	let cell;
+    	let t10;
+    	let current;
+
+    	function func(...args) {
+    		return /*func*/ ctx[6](/*measure*/ ctx[7], ...args);
+    	}
+
+    	cell = new Cell({
+    			props: {
+    				col: /*$cols*/ ctx[3].find(func),
+    				tag: /*tag*/ ctx[1],
+    				source: "last",
+    				showUnit: "true"
+    			},
+    			$$inline: true
+    		});
 
     	const block = {
     		c: function create() {
-    			div = element("div");
+    			div0 = element("div");
     			strong0 = element("strong");
     			strong0.textContent = "Label";
     			t1 = space();
@@ -12896,24 +12916,57 @@ var app = (function () {
     			t5 = space();
     			t6 = text(t6_value);
     			t7 = space();
-    			add_location(strong0, file$m, 52, 28, 1734);
-    			add_location(strong1, file$m, 54, 28, 1851);
-    			add_location(div, file$m, 51, 24, 1700);
+    			div1 = element("div");
+    			strong2 = element("strong");
+    			strong2.textContent = "Value";
+    			t9 = space();
+    			create_component(cell.$$.fragment);
+    			t10 = space();
+    			add_location(strong0, file$m, 54, 28, 1839);
+    			add_location(strong1, file$m, 56, 28, 1956);
+    			add_location(div0, file$m, 53, 24, 1805);
+    			add_location(strong2, file$m, 59, 28, 2117);
+    			attr_dev(div1, "class", "mb-2");
+    			add_location(div1, file$m, 58, 24, 2070);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
-    			append_dev(div, strong0);
-    			append_dev(div, t1);
-    			append_dev(div, t2);
-    			append_dev(div, t3);
-    			append_dev(div, strong1);
-    			append_dev(div, t5);
-    			append_dev(div, t6);
-    			append_dev(div, t7);
+    			insert_dev(target, div0, anchor);
+    			append_dev(div0, strong0);
+    			append_dev(div0, t1);
+    			append_dev(div0, t2);
+    			append_dev(div0, t3);
+    			append_dev(div0, strong1);
+    			append_dev(div0, t5);
+    			append_dev(div0, t6);
+    			insert_dev(target, t7, anchor);
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, strong2);
+    			append_dev(div1, t9);
+    			mount_component(cell, div1, null);
+    			append_dev(div1, t10);
+    			current = true;
     		},
-    		p: noop,
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			const cell_changes = {};
+    			if (dirty & /*$cols*/ 8) cell_changes.col = /*$cols*/ ctx[3].find(func);
+    			if (dirty & /*tag*/ 2) cell_changes.tag = /*tag*/ ctx[1];
+    			cell.$set(cell_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(cell.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(cell.$$.fragment, local);
+    			current = false;
+    		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(div0);
+    			if (detaching) detach_dev(t7);
+    			if (detaching) detach_dev(div1);
+    			destroy_component(cell);
     		}
     	};
 
@@ -12921,14 +12974,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(51:24) {#each Object.keys(tagConfig.measures) as measure}",
+    		source: "(53:24) {#each Object.keys(tagConfig.measures) as measure}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (38:4) <ModalBody>
+    // (40:4) <ModalBody>
     function create_default_slot_3$1(ctx) {
     	let div5;
     	let div4;
@@ -12939,13 +12992,13 @@ var app = (function () {
     	let div0;
     	let strong1;
     	let t3;
-    	let t4_value = /*tagConfig*/ ctx[4].name + "";
+    	let t4_value = /*tagConfig*/ ctx[5].name + "";
     	let t4;
     	let br0;
     	let t5;
     	let strong2;
     	let t7;
-    	let t8_value = /*tagConfig*/ ctx[4].field + "";
+    	let t8_value = /*tagConfig*/ ctx[5].field + "";
     	let t8;
     	let br1;
     	let t9;
@@ -12954,13 +13007,18 @@ var app = (function () {
     	let strong3;
     	let t11;
     	let div2;
-    	let each_value = Object.keys(/*tagConfig*/ ctx[4].measures);
+    	let current;
+    	let each_value = Object.keys(/*tagConfig*/ ctx[5].measures);
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
     		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
     	}
+
+    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+    		each_blocks[i] = null;
+    	});
 
     	const block = {
     		c: function create() {
@@ -12995,26 +13053,26 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(strong0, file$m, 41, 23, 1190);
-    			add_location(p0, file$m, 41, 20, 1187);
-    			add_location(strong1, file$m, 43, 24, 1293);
-    			add_location(br0, file$m, 43, 62, 1331);
-    			add_location(strong2, file$m, 44, 24, 1360);
-    			add_location(br1, file$m, 44, 64, 1400);
+    			add_location(strong0, file$m, 43, 23, 1295);
+    			add_location(p0, file$m, 43, 20, 1292);
+    			add_location(strong1, file$m, 45, 24, 1398);
+    			add_location(br0, file$m, 45, 62, 1436);
+    			add_location(strong2, file$m, 46, 24, 1465);
+    			add_location(br1, file$m, 46, 64, 1505);
     			attr_dev(div0, "class", "font-weight-lighter");
-    			add_location(div0, file$m, 42, 20, 1235);
+    			add_location(div0, file$m, 44, 20, 1340);
     			attr_dev(div1, "class", "col-md-6");
-    			add_location(div1, file$m, 40, 16, 1144);
-    			add_location(strong3, file$m, 48, 23, 1517);
-    			add_location(p1, file$m, 48, 20, 1514);
+    			add_location(div1, file$m, 42, 16, 1249);
+    			add_location(strong3, file$m, 50, 23, 1622);
+    			add_location(p1, file$m, 50, 20, 1619);
     			attr_dev(div2, "class", "font-weight-lighter");
-    			add_location(div2, file$m, 49, 20, 1567);
+    			add_location(div2, file$m, 51, 20, 1672);
     			attr_dev(div3, "class", "col-md-6");
-    			add_location(div3, file$m, 47, 16, 1471);
+    			add_location(div3, file$m, 49, 16, 1576);
     			attr_dev(div4, "class", "row text-left");
-    			add_location(div4, file$m, 39, 12, 1100);
+    			add_location(div4, file$m, 41, 12, 1205);
     			attr_dev(div5, "class", "container-fluid");
-    			add_location(div5, file$m, 38, 8, 1058);
+    			add_location(div5, file$m, 40, 8, 1163);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div5, anchor);
@@ -13043,10 +13101,12 @@ var app = (function () {
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(div2, null);
     			}
+
+    			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*tagConfig, Object*/ 16) {
-    				each_value = Object.keys(/*tagConfig*/ ctx[4].measures);
+    			if (dirty & /*$cols, Object, tagConfig, tag*/ 42) {
+    				each_value = Object.keys(/*tagConfig*/ ctx[5].measures);
     				validate_each_argument(each_value);
     				let i;
 
@@ -13055,19 +13115,41 @@ var app = (function () {
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
+    						transition_in(each_blocks[i], 1);
     					} else {
     						each_blocks[i] = create_each_block$1(child_ctx);
     						each_blocks[i].c();
+    						transition_in(each_blocks[i], 1);
     						each_blocks[i].m(div2, null);
     					}
     				}
 
-    				for (; i < each_blocks.length; i += 1) {
-    					each_blocks[i].d(1);
+    				group_outros();
+
+    				for (i = each_value.length; i < each_blocks.length; i += 1) {
+    					out(i);
     				}
 
-    				each_blocks.length = each_value.length;
+    				check_outros();
     			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			each_blocks = each_blocks.filter(Boolean);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div5);
@@ -13079,14 +13161,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$1.name,
     		type: "slot",
-    		source: "(38:4) <ModalBody>",
+    		source: "(40:4) <ModalBody>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (64:8) <Button color="secondary" outline size="sm" on:click={toggle}>
+    // (75:8) <Button color="secondary" outline size="sm" on:click={toggle}>
     function create_default_slot_2$1(ctx) {
     	let t;
 
@@ -13106,14 +13188,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$1.name,
     		type: "slot",
-    		source: "(64:8) <Button color=\\\"secondary\\\" outline size=\\\"sm\\\" on:click={toggle}>",
+    		source: "(75:8) <Button color=\\\"secondary\\\" outline size=\\\"sm\\\" on:click={toggle}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:4) <ModalFooter>
+    // (74:4) <ModalFooter>
     function create_default_slot_1$2(ctx) {
     	let button;
     	let current;
@@ -13129,7 +13211,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button.$on("click", /*toggle*/ ctx[3]);
+    	button.$on("click", /*toggle*/ ctx[4]);
 
     	const block = {
     		c: function create() {
@@ -13142,7 +13224,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 256) {
+    			if (dirty & /*$$scope*/ 1024) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -13166,14 +13248,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$2.name,
     		type: "slot",
-    		source: "(63:4) <ModalFooter>",
+    		source: "(74:4) <ModalFooter>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:0) <Modal isOpen={open} {toggle} size="lg">
+    // (25:0) <Modal isOpen={open} {toggle} size="lg">
     function create_default_slot$4(ctx) {
     	let modalheader;
     	let t0;
@@ -13184,7 +13266,7 @@ var app = (function () {
 
     	modalheader = new ModalHeader({
     			props: {
-    				toggle: /*toggle*/ ctx[3],
+    				toggle: /*toggle*/ ctx[4],
     				$$slots: { default: [create_default_slot_4$1] },
     				$$scope: { ctx }
     			},
@@ -13226,21 +13308,21 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const modalheader_changes = {};
 
-    			if (dirty & /*$$scope, target, tag*/ 259) {
+    			if (dirty & /*$$scope, target, tag*/ 1027) {
     				modalheader_changes.$$scope = { dirty, ctx };
     			}
 
     			modalheader.$set(modalheader_changes);
     			const modalbody_changes = {};
 
-    			if (dirty & /*$$scope*/ 256) {
+    			if (dirty & /*$$scope, $cols, tag*/ 1034) {
     				modalbody_changes.$$scope = { dirty, ctx };
     			}
 
     			modalbody.$set(modalbody_changes);
     			const modalfooter_changes = {};
 
-    			if (dirty & /*$$scope*/ 256) {
+    			if (dirty & /*$$scope*/ 1024) {
     				modalfooter_changes.$$scope = { dirty, ctx };
     			}
 
@@ -13272,7 +13354,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$4.name,
     		type: "slot",
-    		source: "(23:0) <Modal isOpen={open} {toggle} size=\\\"lg\\\">",
+    		source: "(25:0) <Modal isOpen={open} {toggle} size=\\\"lg\\\">",
     		ctx
     	});
 
@@ -13298,7 +13380,7 @@ var app = (function () {
     	modal = new Modal({
     			props: {
     				isOpen: /*open*/ ctx[2],
-    				toggle: /*toggle*/ ctx[3],
+    				toggle: /*toggle*/ ctx[4],
     				size: "lg",
     				$$slots: { default: [create_default_slot$4] },
     				$$scope: { ctx }
@@ -13325,7 +13407,7 @@ var app = (function () {
     			const tooltip_changes = {};
     			if (dirty & /*target*/ 1) tooltip_changes.tip = /*target*/ ctx[0].name;
 
-    			if (dirty & /*$$scope, target*/ 257) {
+    			if (dirty & /*$$scope, target*/ 1025) {
     				tooltip_changes.$$scope = { dirty, ctx };
     			}
 
@@ -13333,7 +13415,7 @@ var app = (function () {
     			const modal_changes = {};
     			if (dirty & /*open*/ 4) modal_changes.isOpen = /*open*/ ctx[2];
 
-    			if (dirty & /*$$scope, target, tag*/ 259) {
+    			if (dirty & /*$$scope, $cols, tag, target*/ 1035) {
     				modal_changes.$$scope = { dirty, ctx };
     			}
 
@@ -13369,6 +13451,9 @@ var app = (function () {
     }
 
     function instance$q($$self, $$props, $$invalidate) {
+    	let $cols;
+    	validate_store(cols, "cols");
+    	component_subscribe($$self, cols, $$value => $$invalidate(3, $cols = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Database", slots, []);
     	let { target = {} } = $$props;
@@ -13382,12 +13467,16 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Database> was created with unknown prop '${key}'`);
     	});
 
+    	const func = (measure, col) => col.field === measure;
+
     	$$self.$$set = $$props => {
     		if ("target" in $$props) $$invalidate(0, target = $$props.target);
     		if ("tag" in $$props) $$invalidate(1, tag = $$props.tag);
     	};
 
     	$$self.$capture_state = () => ({
+    		tags,
+    		cols,
     		Button,
     		Modal,
     		ModalBody,
@@ -13395,25 +13484,27 @@ var app = (function () {
     		ModalHeader,
     		Tooltip,
     		TargetStateIcon,
+    		Cell,
     		target,
     		tag,
     		open,
     		toggle,
-    		tagConfig
+    		tagConfig,
+    		$cols
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("target" in $$props) $$invalidate(0, target = $$props.target);
     		if ("tag" in $$props) $$invalidate(1, tag = $$props.tag);
     		if ("open" in $$props) $$invalidate(2, open = $$props.open);
-    		if ("tagConfig" in $$props) $$invalidate(4, tagConfig = $$props.tagConfig);
+    		if ("tagConfig" in $$props) $$invalidate(5, tagConfig = $$props.tagConfig);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [target, tag, open, toggle, tagConfig];
+    	return [target, tag, open, $cols, toggle, tagConfig, func];
     }
 
     class Database extends SvelteComponentDev {
@@ -15648,23 +15739,23 @@ var app = (function () {
 
     function get_each_context$4(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[5] = list[i];
+    	child_ctx[9] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[8] = list[i];
+    	child_ctx[12] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_2$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[11] = list[i];
+    	child_ctx[15] = list[i];
     	return child_ctx;
     }
 
-    // (90:20) {:else}
+    // (99:20) {:else}
     function create_else_block$a(ctx) {
     	let em;
 
@@ -15672,7 +15763,7 @@ var app = (function () {
     		c: function create() {
     			em = element("em");
     			em.textContent = "none";
-    			add_location(em, file$p, 90, 24, 3430);
+    			add_location(em, file$p, 99, 24, 4029);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, em, anchor);
@@ -15689,22 +15780,22 @@ var app = (function () {
     		block,
     		id: create_else_block$a.name,
     		type: "else",
-    		source: "(90:20) {:else}",
+    		source: "(99:20) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (66:20) {#if target.tags}
+    // (67:20) {#if target.tags}
     function create_if_block$e(ctx) {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let each_1_anchor;
     	let current;
-    	let each_value_1 = Object.keys(/*target*/ ctx[5].tags);
+    	let each_value_1 = Object.keys(/*target*/ ctx[9].tags);
     	validate_each_argument(each_value_1);
-    	const get_key = ctx => /*id*/ ctx[8];
+    	const get_key = ctx => /*id*/ ctx[12];
     	validate_each_keys(ctx, each_value_1, get_each_context_1$2, get_key);
 
     	for (let i = 0; i < each_value_1.length; i += 1) {
@@ -15730,8 +15821,8 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*Object, $targets*/ 2) {
-    				const each_value_1 = Object.keys(/*target*/ ctx[5].tags);
+    			if (dirty & /*Object, $targets, $cols, $tags*/ 14) {
+    				const each_value_1 = Object.keys(/*target*/ ctx[9].tags);
     				validate_each_argument(each_value_1);
     				group_outros();
     				validate_each_keys(ctx, each_value_1, get_each_context_1$2, get_key);
@@ -15768,22 +15859,22 @@ var app = (function () {
     		block,
     		id: create_if_block$e.name,
     		type: "if",
-    		source: "(66:20) {#if target.tags}",
+    		source: "(67:20) {#if target.tags}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (69:32) <Col>
+    // (70:32) <Col>
     function create_default_slot_3$3(ctx) {
     	let div0;
-    	let t0_value = /*target*/ ctx[5].tags[/*id*/ ctx[8]].name + "";
+    	let t0_value = /*target*/ ctx[9].tags[/*id*/ ctx[12]].name + "";
     	let t0;
     	let t1;
     	let div1;
     	let em;
-    	let t2_value = /*target*/ ctx[5].tags[/*id*/ ctx[8]].field + "";
+    	let t2_value = /*target*/ ctx[9].tags[/*id*/ ctx[12]].field + "";
     	let t2;
 
     	const block = {
@@ -15795,9 +15886,9 @@ var app = (function () {
     			em = element("em");
     			t2 = text(t2_value);
     			attr_dev(div0, "class", "font-weight-bolder mb-1");
-    			add_location(div0, file$p, 69, 36, 2214);
-    			add_location(em, file$p, 73, 40, 2440);
-    			add_location(div1, file$p, 72, 36, 2394);
+    			add_location(div0, file$p, 70, 36, 2273);
+    			add_location(em, file$p, 74, 40, 2499);
+    			add_location(div1, file$p, 73, 36, 2453);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -15808,8 +15899,8 @@ var app = (function () {
     			append_dev(em, t2);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$targets*/ 2 && t0_value !== (t0_value = /*target*/ ctx[5].tags[/*id*/ ctx[8]].name + "")) set_data_dev(t0, t0_value);
-    			if (dirty & /*$targets*/ 2 && t2_value !== (t2_value = /*target*/ ctx[5].tags[/*id*/ ctx[8]].field + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*$targets*/ 2 && t0_value !== (t0_value = /*target*/ ctx[9].tags[/*id*/ ctx[12]].name + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*$targets*/ 2 && t2_value !== (t2_value = /*target*/ ctx[9].tags[/*id*/ ctx[12]].field + "")) set_data_dev(t2, t2_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div0);
@@ -15822,24 +15913,46 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$3.name,
     		type: "slot",
-    		source: "(69:32) <Col>",
+    		source: "(70:32) <Col>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (81:36) {#each Object.keys(target.tags[id].measures) as measure (measure)}
+    // (82:36) {#each Object.keys(target.tags[id].measures) as measure (measure)}
     function create_each_block_2$2(key_1, ctx) {
     	let div;
     	let t0;
-    	let t1_value = /*target*/ ctx[5].tags[/*id*/ ctx[8]].measures[/*measure*/ ctx[11]].label + "";
+    	let t1_value = /*target*/ ctx[9].tags[/*id*/ ctx[12]].measures[/*measure*/ ctx[15]].label + "";
     	let t1;
     	let t2;
     	let em;
-    	let t3_value = /*target*/ ctx[5].tags[/*id*/ ctx[8]].measures[/*measure*/ ctx[11]].field + "";
+    	let t3_value = /*target*/ ctx[9].tags[/*id*/ ctx[12]].measures[/*measure*/ ctx[15]].field + "";
     	let t3;
     	let t4;
+    	let span;
+    	let cell;
+    	let t5;
+    	let current;
+
+    	function func(...args) {
+    		return /*func*/ ctx[5](/*measure*/ ctx[15], ...args);
+    	}
+
+    	function func_1(...args) {
+    		return /*func_1*/ ctx[6](/*id*/ ctx[12], ...args);
+    	}
+
+    	cell = new Cell({
+    			props: {
+    				col: /*$cols*/ ctx[2].find(func),
+    				tag: /*$tags*/ ctx[3].find(func_1),
+    				source: "last",
+    				showUnit: "true"
+    			},
+    			$$inline: true
+    		});
 
     	const block = {
     		key: key_1,
@@ -15851,10 +15964,15 @@ var app = (function () {
     			t2 = text("\n                                            (");
     			em = element("em");
     			t3 = text(t3_value);
-    			t4 = text(")\n                                        ");
-    			add_location(em, file$p, 83, 45, 3129);
+    			t4 = text(")\n                                            ");
+    			span = element("span");
+    			create_component(cell.$$.fragment);
+    			t5 = space();
+    			add_location(em, file$p, 84, 45, 3188);
+    			attr_dev(span, "class", "float-right");
+    			add_location(span, file$p, 85, 44, 3284);
     			attr_dev(div, "class", "pl-1");
-    			add_location(div, file$p, 81, 40, 2977);
+    			add_location(div, file$p, 82, 40, 3036);
     			this.first = div;
     		},
     		m: function mount(target, anchor) {
@@ -15865,13 +15983,32 @@ var app = (function () {
     			append_dev(div, em);
     			append_dev(em, t3);
     			append_dev(div, t4);
+    			append_dev(div, span);
+    			mount_component(cell, span, null);
+    			append_dev(div, t5);
+    			current = true;
     		},
-    		p: function update(ctx, dirty) {
-    			if (dirty & /*$targets*/ 2 && t1_value !== (t1_value = /*target*/ ctx[5].tags[/*id*/ ctx[8]].measures[/*measure*/ ctx[11]].label + "")) set_data_dev(t1, t1_value);
-    			if (dirty & /*$targets*/ 2 && t3_value !== (t3_value = /*target*/ ctx[5].tags[/*id*/ ctx[8]].measures[/*measure*/ ctx[11]].field + "")) set_data_dev(t3, t3_value);
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			if ((!current || dirty & /*$targets*/ 2) && t1_value !== (t1_value = /*target*/ ctx[9].tags[/*id*/ ctx[12]].measures[/*measure*/ ctx[15]].label + "")) set_data_dev(t1, t1_value);
+    			if ((!current || dirty & /*$targets*/ 2) && t3_value !== (t3_value = /*target*/ ctx[9].tags[/*id*/ ctx[12]].measures[/*measure*/ ctx[15]].field + "")) set_data_dev(t3, t3_value);
+    			const cell_changes = {};
+    			if (dirty & /*$cols, $targets*/ 6) cell_changes.col = /*$cols*/ ctx[2].find(func);
+    			if (dirty & /*$tags, $targets*/ 10) cell_changes.tag = /*$tags*/ ctx[3].find(func_1);
+    			cell.$set(cell_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(cell.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(cell.$$.fragment, local);
+    			current = false;
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
+    			destroy_component(cell);
     		}
     	};
 
@@ -15879,21 +16016,21 @@ var app = (function () {
     		block,
     		id: create_each_block_2$2.name,
     		type: "each",
-    		source: "(81:36) {#each Object.keys(target.tags[id].measures) as measure (measure)}",
+    		source: "(82:36) {#each Object.keys(target.tags[id].measures) as measure (measure)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (77:32) <Col>
+    // (78:32) <Col>
     function create_default_slot_2$3(ctx) {
     	let div;
-    	let t0_value = Object.keys(/*target*/ ctx[5].tags[/*id*/ ctx[8]].measures).length + "";
+    	let t0_value = Object.keys(/*target*/ ctx[9].tags[/*id*/ ctx[12]].measures).length + "";
     	let t0;
     	let t1;
 
-    	let t2_value = (Object.keys(/*target*/ ctx[5].tags[/*id*/ ctx[8]].measures).length > 1
+    	let t2_value = (Object.keys(/*target*/ ctx[9].tags[/*id*/ ctx[12]].measures).length > 1
     	? `s`
     	: ``) + "";
 
@@ -15902,9 +16039,10 @@ var app = (function () {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let each_1_anchor;
-    	let each_value_2 = Object.keys(/*target*/ ctx[5].tags[/*id*/ ctx[8]].measures);
+    	let current;
+    	let each_value_2 = Object.keys(/*target*/ ctx[9].tags[/*id*/ ctx[12]].measures);
     	validate_each_argument(each_value_2);
-    	const get_key = ctx => /*measure*/ ctx[11];
+    	const get_key = ctx => /*measure*/ ctx[15];
     	validate_each_keys(ctx, each_value_2, get_each_context_2$2, get_key);
 
     	for (let i = 0; i < each_value_2.length; i += 1) {
@@ -15926,7 +16064,7 @@ var app = (function () {
     			}
 
     			each_1_anchor = empty();
-    			add_location(div, file$p, 77, 36, 2629);
+    			add_location(div, file$p, 78, 36, 2688);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -15940,20 +16078,39 @@ var app = (function () {
     			}
 
     			insert_dev(target, each_1_anchor, anchor);
+    			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$targets*/ 2 && t0_value !== (t0_value = Object.keys(/*target*/ ctx[5].tags[/*id*/ ctx[8]].measures).length + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty & /*$targets*/ 2) && t0_value !== (t0_value = Object.keys(/*target*/ ctx[9].tags[/*id*/ ctx[12]].measures).length + "")) set_data_dev(t0, t0_value);
 
-    			if (dirty & /*$targets*/ 2 && t2_value !== (t2_value = (Object.keys(/*target*/ ctx[5].tags[/*id*/ ctx[8]].measures).length > 1
+    			if ((!current || dirty & /*$targets*/ 2) && t2_value !== (t2_value = (Object.keys(/*target*/ ctx[9].tags[/*id*/ ctx[12]].measures).length > 1
     			? `s`
     			: ``) + "")) set_data_dev(t2, t2_value);
 
-    			if (dirty & /*$targets, Object*/ 2) {
-    				const each_value_2 = Object.keys(/*target*/ ctx[5].tags[/*id*/ ctx[8]].measures);
+    			if (dirty & /*$cols, Object, $targets, $tags*/ 14) {
+    				const each_value_2 = Object.keys(/*target*/ ctx[9].tags[/*id*/ ctx[12]].measures);
     				validate_each_argument(each_value_2);
+    				group_outros();
     				validate_each_keys(ctx, each_value_2, get_each_context_2$2, get_key);
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_2, each_1_lookup, each_1_anchor.parentNode, destroy_block, create_each_block_2$2, each_1_anchor, get_each_context_2$2);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_2, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block_2$2, each_1_anchor, get_each_context_2$2);
+    				check_outros();
     			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < each_value_2.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
@@ -15971,14 +16128,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$3.name,
     		type: "slot",
-    		source: "(77:32) <Col>",
+    		source: "(78:32) <Col>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (68:28) <Row class="mb-3">
+    // (69:28) <Row class="mb-3">
     function create_default_slot_1$5(ctx) {
     	let col0;
     	let t0;
@@ -16019,14 +16176,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const col0_changes = {};
 
-    			if (dirty & /*$$scope, $targets*/ 16386) {
+    			if (dirty & /*$$scope, $targets*/ 262146) {
     				col0_changes.$$scope = { dirty, ctx };
     			}
 
     			col0.$set(col0_changes);
     			const col1_changes = {};
 
-    			if (dirty & /*$$scope, $targets*/ 16386) {
+    			if (dirty & /*$$scope, $targets, $cols, $tags*/ 262158) {
     				col1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16055,14 +16212,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$5.name,
     		type: "slot",
-    		source: "(68:28) <Row class=\\\"mb-3\\\">",
+    		source: "(69:28) <Row class=\\\"mb-3\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (67:24) {#each Object.keys(target.tags) as id (id)}
+    // (68:24) {#each Object.keys(target.tags) as id (id)}
     function create_each_block_1$2(key_1, ctx) {
     	let first;
     	let row;
@@ -16093,7 +16250,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope, $targets*/ 16386) {
+    			if (dirty & /*$$scope, $targets, $cols, $tags*/ 262158) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16118,35 +16275,35 @@ var app = (function () {
     		block,
     		id: create_each_block_1$2.name,
     		type: "each",
-    		source: "(67:24) {#each Object.keys(target.tags) as id (id)}",
+    		source: "(68:24) {#each Object.keys(target.tags) as id (id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (48:8) {#each $targets as target (target.id)}
+    // (49:8) {#each $targets as target (target.id)}
     function create_each_block$4(key_1, ctx) {
     	let tr;
     	let td0;
     	let targetstateicon;
     	let t0;
     	let span;
-    	let t1_value = /*target*/ ctx[5].name + "";
+    	let t1_value = /*target*/ ctx[9].name + "";
     	let t1;
     	let t2;
     	let td1;
     	let targettype;
     	let t3;
     	let td2;
-    	let t4_value = (/*target*/ ctx[5].measurement || `n/a`) + "";
+    	let t4_value = (/*target*/ ctx[9].measurement || `n/a`) + "";
     	let t4;
     	let t5;
     	let td3;
 
-    	let t6_value = (1 * /*target*/ ctx[5].interval === 0
+    	let t6_value = (1 * /*target*/ ctx[9].interval === 0
     	? `live`
-    	: /*target*/ ctx[5].interval) + "";
+    	: /*target*/ ctx[9].interval) + "";
 
     	let t6;
     	let t7;
@@ -16164,12 +16321,12 @@ var app = (function () {
     	let dispose;
 
     	targetstateicon = new TargetStateIcon({
-    			props: { target: /*target*/ ctx[5] },
+    			props: { target: /*target*/ ctx[9] },
     			$$inline: true
     		});
 
     	targettype = new TargetType({
-    			props: { target: /*target*/ ctx[5] },
+    			props: { target: /*target*/ ctx[9] },
     			$$inline: true
     		});
 
@@ -16177,7 +16334,7 @@ var app = (function () {
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
-    		if (/*target*/ ctx[5].tags) return 0;
+    		if (/*target*/ ctx[9].tags) return 0;
     		return 1;
     	}
 
@@ -16185,11 +16342,11 @@ var app = (function () {
     	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
 
     	function click_handler(...args) {
-    		return /*click_handler*/ ctx[3](/*target*/ ctx[5], ...args);
+    		return /*click_handler*/ ctx[7](/*target*/ ctx[9], ...args);
     	}
 
     	function click_handler_1() {
-    		return /*click_handler_1*/ ctx[4](/*target*/ ctx[5]);
+    		return /*click_handler_1*/ ctx[8](/*target*/ ctx[9]);
     	}
 
     	const block = {
@@ -16223,26 +16380,26 @@ var app = (function () {
     			a1.textContent = "Edit";
     			t12 = space();
     			attr_dev(span, "class", "ml-2");
-    			add_location(span, file$p, 51, 20, 1488);
+    			add_location(span, file$p, 52, 20, 1547);
     			attr_dev(td0, "class", "text-left");
-    			add_location(td0, file$p, 49, 16, 1396);
+    			add_location(td0, file$p, 50, 16, 1455);
     			attr_dev(td1, "class", "text-left");
-    			add_location(td1, file$p, 55, 16, 1612);
+    			add_location(td1, file$p, 56, 16, 1671);
     			attr_dev(td2, "class", "text-left");
-    			add_location(td2, file$p, 58, 16, 1717);
+    			add_location(td2, file$p, 59, 16, 1776);
     			attr_dev(td3, "class", "text-left");
-    			add_location(td3, file$p, 61, 16, 1828);
+    			add_location(td3, file$p, 62, 16, 1887);
     			attr_dev(td4, "class", "text-left");
-    			add_location(td4, file$p, 64, 16, 1964);
+    			add_location(td4, file$p, 65, 16, 2023);
     			attr_dev(a0, "href", "/");
     			attr_dev(a0, "class", "btn btn-link text-danger btn-sm mr-2");
-    			add_location(a0, file$p, 94, 20, 3553);
+    			add_location(a0, file$p, 103, 20, 4152);
     			attr_dev(a1, "href", "/");
     			attr_dev(a1, "class", "btn btn-light btn-sm");
-    			add_location(a1, file$p, 98, 20, 3760);
+    			add_location(a1, file$p, 107, 20, 4359);
     			attr_dev(td5, "class", "text-center");
-    			add_location(td5, file$p, 93, 16, 3508);
-    			add_location(tr, file$p, 48, 12, 1375);
+    			add_location(td5, file$p, 102, 16, 4107);
+    			add_location(tr, file$p, 49, 12, 1434);
     			this.first = tr;
     		},
     		m: function mount(target, anchor) {
@@ -16284,17 +16441,17 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
     			const targetstateicon_changes = {};
-    			if (dirty & /*$targets*/ 2) targetstateicon_changes.target = /*target*/ ctx[5];
+    			if (dirty & /*$targets*/ 2) targetstateicon_changes.target = /*target*/ ctx[9];
     			targetstateicon.$set(targetstateicon_changes);
-    			if ((!current || dirty & /*$targets*/ 2) && t1_value !== (t1_value = /*target*/ ctx[5].name + "")) set_data_dev(t1, t1_value);
+    			if ((!current || dirty & /*$targets*/ 2) && t1_value !== (t1_value = /*target*/ ctx[9].name + "")) set_data_dev(t1, t1_value);
     			const targettype_changes = {};
-    			if (dirty & /*$targets*/ 2) targettype_changes.target = /*target*/ ctx[5];
+    			if (dirty & /*$targets*/ 2) targettype_changes.target = /*target*/ ctx[9];
     			targettype.$set(targettype_changes);
-    			if ((!current || dirty & /*$targets*/ 2) && t4_value !== (t4_value = (/*target*/ ctx[5].measurement || `n/a`) + "")) set_data_dev(t4, t4_value);
+    			if ((!current || dirty & /*$targets*/ 2) && t4_value !== (t4_value = (/*target*/ ctx[9].measurement || `n/a`) + "")) set_data_dev(t4, t4_value);
 
-    			if ((!current || dirty & /*$targets*/ 2) && t6_value !== (t6_value = (1 * /*target*/ ctx[5].interval === 0
+    			if ((!current || dirty & /*$targets*/ 2) && t6_value !== (t6_value = (1 * /*target*/ ctx[9].interval === 0
     			? `live`
-    			: /*target*/ ctx[5].interval) + "")) set_data_dev(t6, t6_value);
+    			: /*target*/ ctx[9].interval) + "")) set_data_dev(t6, t6_value);
 
     			let previous_block_index = current_block_type_index;
     			current_block_type_index = select_block_type(ctx);
@@ -16349,14 +16506,14 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(48:8) {#each $targets as target (target.id)}",
+    		source: "(49:8) {#each $targets as target (target.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (24:0) <Table class="table-sm font-weight-lighter small" responsive>
+    // (25:0) <Table class="table-sm font-weight-lighter small" responsive>
     function create_default_slot$7(ctx) {
     	let thead;
     	let tr;
@@ -16378,7 +16535,7 @@ var app = (function () {
     	let current;
     	let each_value = /*$targets*/ ctx[1];
     	validate_each_argument(each_value);
-    	const get_key = ctx => /*target*/ ctx[5].id;
+    	const get_key = ctx => /*target*/ ctx[9].id;
     	validate_each_keys(ctx, each_value, get_each_context$4, get_key);
 
     	for (let i = 0; i < each_value.length; i += 1) {
@@ -16416,20 +16573,20 @@ var app = (function () {
     			}
 
     			attr_dev(th0, "class", "text-left");
-    			add_location(th0, file$p, 26, 12, 829);
+    			add_location(th0, file$p, 27, 12, 888);
     			attr_dev(th1, "class", "text-left");
-    			add_location(th1, file$p, 29, 12, 903);
+    			add_location(th1, file$p, 30, 12, 962);
     			attr_dev(th2, "class", "text-left");
-    			add_location(th2, file$p, 32, 12, 977);
+    			add_location(th2, file$p, 33, 12, 1036);
     			attr_dev(th3, "class", "text-left");
-    			add_location(th3, file$p, 35, 12, 1058);
+    			add_location(th3, file$p, 36, 12, 1117);
     			attr_dev(th4, "class", "text-left");
-    			add_location(th4, file$p, 38, 12, 1136);
+    			add_location(th4, file$p, 39, 12, 1195);
     			attr_dev(th5, "class", "text-center");
-    			add_location(th5, file$p, 41, 12, 1210);
-    			add_location(tr, file$p, 25, 8, 812);
-    			add_location(thead, file$p, 24, 4, 796);
-    			add_location(tbody, file$p, 46, 4, 1308);
+    			add_location(th5, file$p, 42, 12, 1269);
+    			add_location(tr, file$p, 26, 8, 871);
+    			add_location(thead, file$p, 25, 4, 855);
+    			add_location(tbody, file$p, 47, 4, 1367);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -16455,7 +16612,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*edited, $targets, deleteTarget, Object*/ 7) {
+    			if (dirty & /*edited, $targets, deleteTarget, Object, $cols, $tags*/ 31) {
     				const each_value = /*$targets*/ ctx[1];
     				validate_each_argument(each_value);
     				group_outros();
@@ -16495,7 +16652,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$7.name,
     		type: "slot",
-    		source: "(24:0) <Table class=\\\"table-sm font-weight-lighter small\\\" responsive>",
+    		source: "(25:0) <Table class=\\\"table-sm font-weight-lighter small\\\" responsive>",
     		ctx
     	});
 
@@ -16530,7 +16687,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const table_changes = {};
 
-    			if (dirty & /*$$scope, $targets, edited*/ 16387) {
+    			if (dirty & /*$$scope, $targets, edited, $cols, $tags*/ 262159) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16563,8 +16720,14 @@ var app = (function () {
 
     function instance$v($$self, $$props, $$invalidate) {
     	let $targets;
+    	let $cols;
+    	let $tags;
     	validate_store(targets, "targets");
     	component_subscribe($$self, targets, $$value => $$invalidate(1, $targets = $$value));
+    	validate_store(cols, "cols");
+    	component_subscribe($$self, cols, $$value => $$invalidate(2, $cols = $$value));
+    	validate_store(tags, "tags");
+    	component_subscribe($$self, tags, $$value => $$invalidate(3, $tags = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("TargetsTable", slots, []);
     	let { edited } = $$props;
@@ -16587,6 +16750,8 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$1.warn(`<TargetsTable> was created with unknown prop '${key}'`);
     	});
 
+    	const func = (measure, col) => col.field === measure;
+    	const func_1 = (id, tag) => tag.id === id;
     	const click_handler = (target, e) => deleteTarget(target);
     	const click_handler_1 = target => $$invalidate(0, edited = target.id * 1);
 
@@ -16596,6 +16761,8 @@ var app = (function () {
 
     	$$self.$capture_state = () => ({
     		api,
+    		tags,
+    		cols,
     		targets,
     		Button,
     		Table,
@@ -16604,9 +16771,12 @@ var app = (function () {
     		Tooltip,
     		TargetStateIcon,
     		TargetType,
+    		Cell,
     		edited,
     		deleteTarget,
-    		$targets
+    		$targets,
+    		$cols,
+    		$tags
     	});
 
     	$$self.$inject_state = $$props => {
@@ -16617,7 +16787,17 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [edited, $targets, deleteTarget, click_handler, click_handler_1];
+    	return [
+    		edited,
+    		$targets,
+    		$cols,
+    		$tags,
+    		deleteTarget,
+    		func,
+    		func_1,
+    		click_handler,
+    		click_handler_1
+    	];
     }
 
     class TargetsTable extends SvelteComponentDev {
