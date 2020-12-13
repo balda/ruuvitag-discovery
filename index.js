@@ -300,8 +300,8 @@ const store = {
         if (data.columns) {
             config.columns = data.columns
         }
-        if (data.customColums) {
-            config.customColums = data.customColums
+        if (data.customMeasures) {
+            config.customMeasures = data.customMeasures
         }
         if (data.log) {
             config.log = data.log

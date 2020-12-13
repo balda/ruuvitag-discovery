@@ -97,9 +97,9 @@ const calc = (data, config) => {
     absoluteHumidity(data)
     acceleration(data)
     vaporPressureDeficit(data)
-    for (const customColum of config.customColums) {
+    for (const customMeasure of config.customMeasures) {
         try {
-            data[customColum.field] = mathjs.evaluate(customColum.math, data)
+            data[customMeasure.field] = mathjs.evaluate(customMeasure.math, data)
         } catch(error) {
             log.error(error)
         }

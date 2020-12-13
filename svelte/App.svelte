@@ -40,10 +40,10 @@
                 if (data.config.columns) {
                     $config.columns = data.config.columns;
                 }
-                if (data.config.customColums) {
-                    $config.customColums = data.config.customColums.map((customColum, id) => {
-                        customColum.id = id;
-                        return customColum;
+                if (data.config.customMeasures) {
+                    $config.customMeasures = data.config.customMeasures.map((customMeasure, id) => {
+                        customMeasure.id = id;
+                        return customMeasure;
                     });
                 }
                 if (data.config.log) {
@@ -54,7 +54,7 @@
                 }
             }
             if (data.measures) {
-                $dictMeasures = data.measures.concat(...$config.customColums);
+                $dictMeasures = data.measures.concat(...$config.customMeasures);
                 $cols = [{
                     label: `ID`,
                     field: `id`,

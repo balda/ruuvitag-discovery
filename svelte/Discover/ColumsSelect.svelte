@@ -1,7 +1,7 @@
 <script>
     import { cols, syncColumns } from './../store/api.js';
     import { FormGroup, CustomInput, Label, Row, Col } from 'sveltestrap';
-    import CustomColums from './CustomColums.svelte';
+    import CustomMeasures from './CustomMeasures.svelte';
     let showSelectColumns = false;
     $: syncColumns($cols);
 </script>
@@ -26,7 +26,7 @@
                 label="Select Columns" />
         </div>
         <div class="float-left">
-            <CustomColums />
+            <CustomMeasures />
         </div>
     </Col>
 </Row>
