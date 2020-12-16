@@ -9,15 +9,15 @@ RUN mkdir -p /app
 WORKDIR /app
 
 COPY ./package.json /app/package.json
+COPY ./run.sh /app/run.sh
 RUN npm install --no-audit --production
 
 COPY . /app
 WORKDIR /app
 
 ENV RUUVI_DISCOVERY_ENV homeassistant
-ENV NOBLE_HCI_DEVICE_ID 1
 
-CMD [ "npm", "start" ]
+CMD [ "./run.sh" ]
 
 # Build arguments
 ARG BUILD_ARCH
