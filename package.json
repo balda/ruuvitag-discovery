@@ -1,11 +1,11 @@
 {
   "name": "ruuvitag-discovery",
-  "version": "0.2.3",
+  "version": "0.2.3-dev",
   "description": "Discover RuuviTag Environmental Sensors using a web interface and broadcast measures to multiple targets (MQTT, InfluxDB, Graphite, Home Assistant).",
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
-    "start": "NODE_ENV=production node index.js",
+    "start": "NOBLE_HCI_DEVICE_ID=1 DEBUG=* NODE_ENV=production node index.js",
     "dev": "rollup -c -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
