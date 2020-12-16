@@ -15,6 +15,7 @@ COPY . /app
 WORKDIR /app
 
 ENV RUUVI_DISCOVERY_ENV homeassistant
+ENV NOBLE_HCI_DEVICE_ID 1
 
 CMD [ "npm", "start" ]
 
