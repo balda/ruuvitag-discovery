@@ -73,6 +73,10 @@ const broadcast = ({target, tag, field = `last`}) => {
     broadcaster(target).send(data)
 }
 
+ruuvitag.on('warning', error => {
+    log.error(error.message || error)
+})
+
 ruuvitag.on('found', tag => {
     if (!tags[tag.id]) {
         tags[tag.id] = null
@@ -352,6 +356,11 @@ const run = async () => {
     for (const signal of [`SIGHUP`, `SIGINT`, `SIGTERM`]) {
         process.on(signal, () => end(signal))
     }
+}
+
+log(`Start ${addon.name} - v${addon.version}`)
+if (process.env.NOBLE_HCI_DEVICE_ID !== undefined) {
+    log(`Use Bluetooth interface number ${process.env.NOBLE_HCI_DEVICE_ID} (hci device id)`)
 }
 
 run()
