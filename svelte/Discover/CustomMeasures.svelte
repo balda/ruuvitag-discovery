@@ -1,6 +1,7 @@
 <script>
     import { api, cols } from './../store/api.js';
 	import { config } from './../store/config.js';
+    import { parse } from 'mathjs';
     import {
         Table,
         Button,
@@ -48,8 +49,8 @@
         {
             field: `math`,
             label: `Math expression`,
-            validate: [`required`],
-            error: [`Math expression is required`],
+            validate: [`required`, `mathValid`, `mathVars`],
+            error: [`Math expression is required`, `Math expression is invalid`, `Unknown variable(s)`],
             help: `See <a href="https://mathjs.org/" target="_blank">mathjs.org</a> for syntax.`,
         },
     ];
@@ -60,15 +61,63 @@
             customMeasureEdited[field.field] = field.type === `number` ? 0 : ``;
         }
     }
+    function colIndex() {
+        return $cols.length - 1 - $config.customMeasures.length + edited;
+    };
+    $: colsArray = $cols.map(col => col.field)
     const validator = {
         required: (value) => {
-            return value !== undefined && value !== ``;
+            return {
+                valid: value !== undefined && value !== ``,
+            };
         },
         integer: (value) => {
-            return value !== undefined && value !== null && !isNaN(value) && Number.isInteger(value) && value >= 0;
+            return {
+                valid: `${value}` === `${1 * value}` && Number.isInteger(1 * value) && parseInt(value, 10) >= 0,
+            };
         },
         measureNotExists: (value) => {
-            return $cols.map(col => col.field).indexOf(value) === -1;
+            const index = colsArray.indexOf(value);
+            if (edited === -1) {
+                return {
+                    valid: index === -1,
+                };
+            } else {
+                return {
+                    valid: index === -1 || index === colIndex(),
+                };
+            }
+        },
+        mathValid: (value) => {
+            try {
+                const exp = parse(value);
+                return {
+                    valid: true,
+                };
+            } catch(error) {
+                return {
+                    valid: false,
+                };
+            }
+        },
+        mathVars: (value) => {
+            try {
+                const variables = [];
+                parse(value).traverse(function (node, path, parent) {
+                    if (node.type === `SymbolNode`) {
+                        variables.push(node.name);
+                    }
+                });
+                const notExists = variables.filter(v => colsArray.indexOf(v) === -1);
+                return {
+                    valid: notExists.length === 0,
+                    error: notExists.length === 0 ? false : `Unknown measure${notExists.length > 1 ? `s` : ``}: ${notExists.join(`, `)}`,
+                };
+            } catch(error) {
+                return {
+                    valid: false,
+                };
+            }
         },
     };
     function validate() {
@@ -76,10 +125,15 @@
         errors = {};
         for (const field of fields) {
             if (field.validate) {
+                let fieldValid = true;
                 for (let index = 0 ; index < field.validate.length ; index++ ) {
-                    if (!validator[field.validate[index]](customMeasureEdited[field.field])) {
-                       valid = false;
-                       errors[field.field] = field.error[index];
+                    if (fieldValid) {
+                        const check = validator[field.validate[index]](customMeasureEdited[field.field]);
+                        if (!check.valid) {
+                           valid = false;
+                           fieldValid = false;
+                           errors[field.field] = check.error || field.error[index];
+                        }
                     }
                 }
             }
@@ -120,7 +174,7 @@
                 $cols.splice(-1, 0, customMeasureEdited);
                 $cols = $cols;
             } else {
-                const index = $cols.length - 1 - $config.customMeasures.length + edited;
+                const index = colIndex();
                 for (const field in $cols[index]) {
                     $cols[index][field] = customMeasureEdited[field];
                 }
