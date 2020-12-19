@@ -1,6 +1,6 @@
 {
     "name": "RuuviTag Discovery",
-    "version": "0.2.3",
+    "version": "0.2.4",
     "slug": "ruuvitag-discovery",
     "description": "Web interface to Discover RuuviTag Environmental Sensors and save measures to Home Assistant, MQTT, InfluxDB and Graphite",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
