@@ -1,10 +1,12 @@
 <script>
     import { api, cols } from './../store/api.js';
 	import { config } from './../store/config.js';
+    import { targets } from './../store/targets.js';
     import { parse } from 'mathjs';
     import {
         Table,
         Button,
+        Alert,
         Modal,
         ModalBody,
         ModalFooter,
@@ -13,11 +15,20 @@
     import Tooltip from './../UI/Tooltip.svelte';
     import { FormGroup, CustomInput, Label, Row, Col } from 'sveltestrap';
     let open = false;
-    const toggle = () => (open = !open);
     let col_left = 3;
     let col_right = 8;
     let state = `view`; // `view` | `saving`
     let edited = null;
+    let deleteErrorAlert = false;
+    let deleteErrorMessage = ``;
+    function deleteErrorClose() {
+        deleteErrorAlert = false;
+        deleteErrorMessage = ``;
+    };
+    const toggle = () => {
+        open = !open;
+        deleteErrorClose();
+    };
     const fields = [
         {
             field: `label`,
@@ -145,10 +156,12 @@
         edited = null;
     };
     function add() {
+        deleteErrorClose();
         errors = {};
         edited = -1;
     };
     function edit(id) {
+        deleteErrorClose();
         errors = {};
         customMeasureEdited = JSON.parse(JSON.stringify($config.customMeasures.find(customMeasure => 1 * customMeasure.id === 1 * id)));
         edited = id;
@@ -185,18 +198,53 @@
         state = `view`;
         edited = null;
     };
+    function usedInTargets(customMeasure) {
+        const usedIn = [];
+        for (const target of $targets) {
+            for (const tag of Object.values(target.tags)) {
+                for (const measure in tag.measures) {
+                    if (customMeasure.field === measure) {
+                        usedIn.push({
+                            target: target.name,
+                            tag: tag.name
+                        });
+                    }
+                }
+            }
+        }
+        return usedIn;
+    };
     async function del(customMeasure) {
         // state = `saving`;
-        if (confirm(`Confirm Delete`)) {
-            try {
-                const data = {
-                    customMeasures: JSON.parse(JSON.stringify($config.customMeasures)),
-                };
-                data.customMeasures.splice(customMeasure.id, 1);
-                await api.post(`config`, data);
-                $config.customMeasures = data.customMeasures;
-            } catch(error) {
-                console.log(error);
+        deleteErrorMessage = ``;
+        const usedIn = usedInTargets(customMeasure);
+        if (usedIn.length) {
+            deleteErrorMessage = `
+                <div class="font-weight-bolder">
+                    Can't delete custom measure: already used in following targets:
+                </div>
+                <div class="mt-1">
+                    ${usedIn.map(useMeasure => {
+                        return `
+                            <i class="fas fa-database"></i>
+                            ${useMeasure.target} (in ${useMeasure.tag})
+                        `;
+                    }).join(`</div><div>`)}
+                </div>
+            `;
+            deleteErrorAlert = true;
+        } else {
+            if (confirm(`Confirm Delete`)) {
+                try {
+                    const data = {
+                        customMeasures: JSON.parse(JSON.stringify($config.customMeasures)),
+                    };
+                    data.customMeasures.splice(customMeasure.id, 1);
+                    await api.post(`config`, data);
+                    $config.customMeasures = data.customMeasures;
+                } catch(error) {
+                    console.log(error);
+                }
             }
         }
         // state = `view`;
@@ -253,7 +301,32 @@
                                         {/if}
                                     </label>
                                     <div class="col-sm-{col_right}">
-                                        {#if field.type === `number`}
+                                        {#if field.field === `field`}
+                                            {#if usedInTargets(customMeasureEdited).length > 0}
+                                                <input type="text" name="{field.field}"
+                                                 bind:value="{customMeasureEdited[field.field]}"
+                                                 class="form-control form-control-sm {errors[field.field] ? `is-invalid` : ``}"
+                                                 disabled=disabled
+                                                >
+                                                <div class="ml-1 mt-1 font-weight-lighter font-italic">
+                                                    Can't rename, used in following targets:
+                                                </div>
+                                                <div class="ml-1 mt-1 font-weight-lighter">
+                                                    {@html usedInTargets(customMeasureEdited).map(useMeasure => {
+                                                        return `
+                                                            <i class="fas fa-database"></i>
+                                                            ${useMeasure.target} (in ${useMeasure.tag})
+                                                        `;
+                                                    }).join(`</div><div>`)}
+                                                </div>
+                                            {:else}
+                                                <input type="text" name="{field.field}"
+                                                 bind:value="{customMeasureEdited[field.field]}"
+                                                 class="form-control form-control-sm {errors[field.field] ? `is-invalid` : ``}"
+                                                 disabled={state === `saving` ? `disabled` : null}
+                                                >
+                                            {/if}
+                                        {:else if field.type === `number`}
                                             <input type="number" name="{field.field}"
                                              bind:value="{customMeasureEdited[field.field]}"
                                              class="form-control form-control-sm {errors[field.field] ? `is-invalid` : ``}"
@@ -297,6 +370,9 @@
                     {/if}
                 </div>
             {:else}
+                <Alert color="danger" isOpen={deleteErrorAlert} toggle={() => deleteErrorClose()}>
+                    {@html deleteErrorMessage}
+                </Alert>
                 <div>
                     <a class="btn btn-light btn-sm mr-2" href="/" on:click|preventDefault={() => add()}>
                         <i class="fas fa-plus"></i>
