@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## [0.2.5] - 2020-12-19
+- Fix missing build
+
 ## [0.2.4] - 2020-12-19
 - Display measures value in real time in target popup (discovery page) and in targets list
 - Add reading Home Assistant options file to allow change of `NOBLE_HCI_DEVICE_ID` variable
@@ -93,7 +96,8 @@
 
 First release
 
-[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.2.4...HEAD
+[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.2.5...HEAD
+[0.2.5]: https://github.com/balda/ruuvitag-discovery/compare/0.2.4...0.2.5
 [0.2.4]: https://github.com/balda/ruuvitag-discovery/compare/0.2.3...0.2.4
 [0.2.3]: https://github.com/balda/ruuvitag-discovery/compare/0.2.2...0.2.3
 [0.2.2]: https://github.com/balda/ruuvitag-discovery/compare/0.2.1...0.2.2
