@@ -41,6 +41,8 @@
             field: `accuracy`,
             label: `Accuracy`,
             type: `number`,
+            validate: [`integer`],
+            error: [`Accuracy must be an integer`],
             help: `Number of decimal`,
         },
         {
@@ -62,6 +64,9 @@
         required: (value) => {
             return value !== undefined && value !== ``;
         },
+        integer: (value) => {
+            return value !== undefined && value !== null && !isNaN(value) && Number.isInteger(value) && value >= 0;
+        },
         measureNotExists: (value) => {
             return $cols.map(col => col.field).indexOf(value) === -1;
         },
@@ -79,7 +84,6 @@
                 }
             }
         }
-        // console.log($cols.map(col => col.field));
         return valid;
     };
     function cancel() {
