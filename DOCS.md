@@ -29,7 +29,15 @@ You can start to view RuuviTags measures and to configure targets!
 
 ## Configuration
 
-All the configuration is done in the web interface and saved in `/data/config.json` file.
+In Home Assistant Configuration panel, you can change default HCI device used (leave it empty to use the default).
+
+```yaml
+hci_device_id: 1
+```
+
+_It will change the `NOBLE_HCI_DEVICE_ID` environment variable: see [noble documentation](https://github.com/noble/noble#multiple-adapters) for more information._
+
+All the other configuration is done in the web interface and saved in `/data/config.json` file.
 
 
 ### Global configuration

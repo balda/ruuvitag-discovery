@@ -62,6 +62,12 @@ By default, server port is `8099`. It can be changed using `SERVER_PORT` environ
 SERVER_PORT=8100 npm start
 ```
 
+Default HCI device used can be changed, using `NOBLE_HCI_DEVICE_ID` environment variable (leave it empty to use the default). See [noble documentation](https://github.com/noble/noble#multiple-adapters) for more information.
+
+```bash
+NOBLE_HCI_DEVICE_ID=1 npm start
+```
+
 ##### Stop
 
 To stop the application, use `^c`.
