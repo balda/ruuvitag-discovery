@@ -10080,37 +10080,37 @@ var app = (function () {
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[29] = list[i];
+    	child_ctx[34] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[26] = list[i];
+    	child_ctx[31] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_4(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[26] = list[i];
+    	child_ctx[31] = list[i];
     	return child_ctx;
     }
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[23] = list[i];
+    	child_ctx[28] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[26] = list[i];
-    	child_ctx[27] = list;
-    	child_ctx[28] = i;
+    	child_ctx[31] = list[i];
+    	child_ctx[32] = list;
+    	child_ctx[33] = i;
     	return child_ctx;
     }
 
-    // (121:0) <Tooltip tip="Custom Measures" bottom >
+    // (164:0) <Tooltip tip="Custom Measures" bottom >
     function create_default_slot_6(ctx) {
     	let a;
     	let small;
@@ -10122,17 +10122,17 @@ var app = (function () {
     			a = element("a");
     			small = element("small");
     			small.textContent = "Custom Measures";
-    			add_location(small, file$j, 122, 8, 3808);
+    			add_location(small, file$j, 165, 8, 5158);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "class", "pt-1 pb-1 mt-1 btn btn-light border");
-    			add_location(a, file$j, 121, 4, 3710);
+    			add_location(a, file$j, 164, 4, 5060);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
     			append_dev(a, small);
 
     			if (!mounted) {
-    				dispose = listen_dev(a, "click", prevent_default(/*toggle*/ ctx[5]), false, true, false);
+    				dispose = listen_dev(a, "click", prevent_default(/*toggle*/ ctx[6]), false, true, false);
     				mounted = true;
     			}
     		},
@@ -10148,14 +10148,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(121:0) <Tooltip tip=\\\"Custom Measures\\\" bottom >",
+    		source: "(164:0) <Tooltip tip=\\\"Custom Measures\\\" bottom >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (127:4) <ModalHeader {toggle}>
+    // (170:4) <ModalHeader {toggle}>
     function create_default_slot_5(ctx) {
     	let t;
 
@@ -10175,14 +10175,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(127:4) <ModalHeader {toggle}>",
+    		source: "(170:4) <ModalHeader {toggle}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (195:12) {:else}
+    // (241:12) {:else}
     function create_else_block_1$1(ctx) {
     	let div;
     	let a;
@@ -10213,11 +10213,11 @@ var app = (function () {
     			t1 = space();
     			create_component(table.$$.fragment);
     			attr_dev(i, "class", "fas fa-plus");
-    			add_location(i, file$j, 197, 24, 7948);
+    			add_location(i, file$j, 243, 24, 9627);
     			attr_dev(a, "class", "btn btn-light btn-sm mr-2");
     			attr_dev(a, "href", "/");
-    			add_location(a, file$j, 196, 20, 7833);
-    			add_location(div, file$j, 195, 16, 7807);
+    			add_location(a, file$j, 242, 20, 9518);
+    			add_location(div, file$j, 241, 16, 9492);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -10229,14 +10229,14 @@ var app = (function () {
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_3*/ ctx[19]), false, true, false);
+    				dispose = listen_dev(a, "click", prevent_default(/*click_handler_3*/ ctx[22]), false, true, false);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
     			const table_changes = {};
 
-    			if (dirty[0] & /*$config*/ 16 | dirty[1] & /*$$scope*/ 32) {
+    			if (dirty[0] & /*$config*/ 32 | dirty[1] & /*$$scope*/ 1024) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
@@ -10264,14 +10264,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1$1.name,
     		type: "else",
-    		source: "(195:12) {:else}",
+    		source: "(241:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (132:12) {#if edited !== null}
+    // (175:12) {#if edited !== null}
     function create_if_block$8(ctx) {
     	let div0;
     	let a0;
@@ -10285,7 +10285,7 @@ var app = (function () {
     	let t4;
     	let mounted;
     	let dispose;
-    	let each_value_1 = /*fields*/ ctx[8];
+    	let each_value_1 = /*fields*/ ctx[9];
     	validate_each_argument(each_value_1);
     	let each_blocks = [];
 
@@ -10316,18 +10316,18 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(a0, "class", "btn btn-light btn-sm mr-2");
     			attr_dev(a0, "href", "/");
-    			add_location(a0, file$j, 133, 20, 4100);
+    			add_location(a0, file$j, 176, 20, 5450);
     			attr_dev(a1, "class", "btn btn-light btn-sm mr-2");
     			attr_dev(a1, "href", "/");
-    			add_location(a1, file$j, 136, 20, 4269);
-    			add_location(div0, file$j, 132, 16, 4074);
+    			add_location(a1, file$j, 179, 20, 5614);
+    			add_location(div0, file$j, 175, 16, 5424);
     			attr_dev(form, "id", "form-custom-column");
     			attr_dev(form, "class", "mt-4");
-    			add_location(form, file$j, 142, 24, 4555);
+    			add_location(form, file$j, 185, 24, 5900);
     			attr_dev(div1, "class", div1_class_value = "col" + (/*edited*/ ctx[2] === -1 ? `-8` : ``));
-    			add_location(div1, file$j, 141, 20, 4486);
+    			add_location(div1, file$j, 184, 20, 5831);
     			attr_dev(div2, "class", "row");
-    			add_location(div2, file$j, 140, 16, 4448);
+    			add_location(div2, file$j, 183, 16, 5793);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -10348,16 +10348,16 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(a0, "click", prevent_default(/*click_handler*/ ctx[13]), false, true, false),
-    					listen_dev(a1, "click", prevent_default(/*click_handler_1*/ ctx[14]), false, true, false)
+    					listen_dev(a0, "click", prevent_default(/*click_handler*/ ctx[16]), false, true, false),
+    					listen_dev(a1, "click", prevent_default(/*click_handler_1*/ ctx[17]), false, true, false)
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*col_right, fields, state, customMeasureEdited, col_left*/ 458) {
-    				each_value_1 = /*fields*/ ctx[8];
+    			if (dirty[0] & /*col_right, errors, fields, state, customMeasureEdited, col_left*/ 922) {
+    				each_value_1 = /*fields*/ ctx[9];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -10414,24 +10414,24 @@ var app = (function () {
     		block,
     		id: create_if_block$8.name,
     		type: "if",
-    		source: "(132:12) {#if edited !== null}",
+    		source: "(175:12) {#if edited !== null}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (205:28) {#each fields as field}
+    // (251:28) {#each fields as field}
     function create_each_block_4(ctx) {
     	let th;
-    	let t_value = /*field*/ ctx[26].label + "";
+    	let t_value = /*field*/ ctx[31].label + "";
     	let t;
 
     	const block = {
     		c: function create() {
     			th = element("th");
     			t = text(t_value);
-    			add_location(th, file$j, 205, 32, 8278);
+    			add_location(th, file$j, 251, 32, 9957);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, th, anchor);
@@ -10447,17 +10447,17 @@ var app = (function () {
     		block,
     		id: create_each_block_4.name,
     		type: "each",
-    		source: "(205:28) {#each fields as field}",
+    		source: "(251:28) {#each fields as field}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (216:32) {#each fields as field}
+    // (262:32) {#each fields as field}
     function create_each_block_3(ctx) {
     	let td;
-    	let t_value = /*customMeasure*/ ctx[29][/*field*/ ctx[26].field] + "";
+    	let t_value = /*customMeasure*/ ctx[34][/*field*/ ctx[31].field] + "";
     	let t;
 
     	const block = {
@@ -10465,14 +10465,14 @@ var app = (function () {
     			td = element("td");
     			t = text(t_value);
     			attr_dev(td, "class", "align-middle");
-    			add_location(td, file$j, 216, 36, 8767);
+    			add_location(td, file$j, 262, 36, 10446);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, td, anchor);
     			append_dev(td, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*$config*/ 16 && t_value !== (t_value = /*customMeasure*/ ctx[29][/*field*/ ctx[26].field] + "")) set_data_dev(t, t_value);
+    			if (dirty[0] & /*$config*/ 32 && t_value !== (t_value = /*customMeasure*/ ctx[34][/*field*/ ctx[31].field] + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(td);
@@ -10483,14 +10483,14 @@ var app = (function () {
     		block,
     		id: create_each_block_3.name,
     		type: "each",
-    		source: "(216:32) {#each fields as field}",
+    		source: "(262:32) {#each fields as field}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (214:24) {#each $config.customMeasures as customMeasure (customMeasure.id)}
+    // (260:24) {#each $config.customMeasures as customMeasure (customMeasure.id)}
     function create_each_block_2(key_1, ctx) {
     	let tr;
     	let t0;
@@ -10501,7 +10501,7 @@ var app = (function () {
     	let t4;
     	let mounted;
     	let dispose;
-    	let each_value_3 = /*fields*/ ctx[8];
+    	let each_value_3 = /*fields*/ ctx[9];
     	validate_each_argument(each_value_3);
     	let each_blocks = [];
 
@@ -10510,11 +10510,11 @@ var app = (function () {
     	}
 
     	function click_handler_4() {
-    		return /*click_handler_4*/ ctx[20](/*customMeasure*/ ctx[29]);
+    		return /*click_handler_4*/ ctx[23](/*customMeasure*/ ctx[34]);
     	}
 
     	function click_handler_5() {
-    		return /*click_handler_5*/ ctx[21](/*customMeasure*/ ctx[29]);
+    		return /*click_handler_5*/ ctx[24](/*customMeasure*/ ctx[34]);
     	}
 
     	const block = {
@@ -10537,13 +10537,13 @@ var app = (function () {
     			t4 = space();
     			attr_dev(a0, "href", "/");
     			attr_dev(a0, "class", "btn btn-link text-danger btn-sm mr-2");
-    			add_location(a0, file$j, 221, 36, 9037);
+    			add_location(a0, file$j, 267, 36, 10716);
     			attr_dev(a1, "href", "/");
     			attr_dev(a1, "class", "btn btn-light btn-sm");
-    			add_location(a1, file$j, 225, 36, 9323);
+    			add_location(a1, file$j, 271, 36, 10986);
     			attr_dev(td, "class", "text-center");
-    			add_location(td, file$j, 220, 32, 8976);
-    			add_location(tr, file$j, 214, 28, 8670);
+    			add_location(td, file$j, 266, 32, 10655);
+    			add_location(tr, file$j, 260, 28, 10349);
     			this.first = tr;
     		},
     		m: function mount(target, anchor) {
@@ -10572,8 +10572,8 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty[0] & /*$config, fields*/ 272) {
-    				each_value_3 = /*fields*/ ctx[8];
+    			if (dirty[0] & /*$config, fields*/ 544) {
+    				each_value_3 = /*fields*/ ctx[9];
     				validate_each_argument(each_value_3);
     				let i;
 
@@ -10608,14 +10608,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(214:24) {#each $config.customMeasures as customMeasure (customMeasure.id)}",
+    		source: "(260:24) {#each $config.customMeasures as customMeasure (customMeasure.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (202:16) <Table class="mt-2 table-sm font-weight-lighter" responsive>
+    // (248:16) <Table class="mt-2 table-sm font-weight-lighter" responsive>
     function create_default_slot_4(ctx) {
     	let thead;
     	let tr;
@@ -10625,7 +10625,7 @@ var app = (function () {
     	let tbody;
     	let each_blocks = [];
     	let each1_lookup = new Map();
-    	let each_value_4 = /*fields*/ ctx[8];
+    	let each_value_4 = /*fields*/ ctx[9];
     	validate_each_argument(each_value_4);
     	let each_blocks_1 = [];
 
@@ -10633,9 +10633,9 @@ var app = (function () {
     		each_blocks_1[i] = create_each_block_4(get_each_context_4(ctx, each_value_4, i));
     	}
 
-    	let each_value_2 = /*$config*/ ctx[4].customMeasures;
+    	let each_value_2 = /*$config*/ ctx[5].customMeasures;
     	validate_each_argument(each_value_2);
-    	const get_key = ctx => /*customMeasure*/ ctx[29].id;
+    	const get_key = ctx => /*customMeasure*/ ctx[34].id;
     	validate_each_keys(ctx, each_value_2, get_each_context_2, get_key);
 
     	for (let i = 0; i < each_value_2.length; i += 1) {
@@ -10664,10 +10664,10 @@ var app = (function () {
     			}
 
     			attr_dev(th, "class", "text-center");
-    			add_location(th, file$j, 207, 28, 8365);
-    			add_location(tr, file$j, 203, 24, 8189);
-    			add_location(thead, file$j, 202, 20, 8157);
-    			add_location(tbody, file$j, 212, 20, 8543);
+    			add_location(th, file$j, 253, 28, 10044);
+    			add_location(tr, file$j, 249, 24, 9868);
+    			add_location(thead, file$j, 248, 20, 9836);
+    			add_location(tbody, file$j, 258, 20, 10222);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -10687,8 +10687,8 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*fields*/ 256) {
-    				each_value_4 = /*fields*/ ctx[8];
+    			if (dirty[0] & /*fields*/ 512) {
+    				each_value_4 = /*fields*/ ctx[9];
     				validate_each_argument(each_value_4);
     				let i;
 
@@ -10711,8 +10711,8 @@ var app = (function () {
     				each_blocks_1.length = each_value_4.length;
     			}
 
-    			if (dirty[0] & /*edit, $config, deleteCustomMeasure, fields*/ 2832) {
-    				const each_value_2 = /*$config*/ ctx[4].customMeasures;
+    			if (dirty[0] & /*edit, $config, del, fields*/ 21024) {
+    				const each_value_2 = /*$config*/ ctx[5].customMeasures;
     				validate_each_argument(each_value_2);
     				validate_each_keys(ctx, each_value_2, get_each_context_2, get_key);
     				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_2, each1_lookup, tbody, destroy_block, create_each_block_2, null, get_each_context_2);
@@ -10734,26 +10734,26 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(202:16) <Table class=\\\"mt-2 table-sm font-weight-lighter\\\" responsive>",
+    		source: "(248:16) <Table class=\\\"mt-2 table-sm font-weight-lighter\\\" responsive>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (148:40) {#if field.help}
-    function create_if_block_4$1(ctx) {
+    // (191:40) {#if field.help}
+    function create_if_block_5$1(ctx) {
     	let small;
     	let em;
-    	let raw_value = /*field*/ ctx[26].help + "";
+    	let raw_value = /*field*/ ctx[31].help + "";
 
     	const block = {
     		c: function create() {
     			small = element("small");
     			em = element("em");
-    			add_location(em, file$j, 149, 48, 5040);
+    			add_location(em, file$j, 192, 48, 6385);
     			attr_dev(small, "class", "form-text text-muted");
-    			add_location(small, file$j, 148, 44, 4955);
+    			add_location(small, file$j, 191, 44, 6300);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, small, anchor);
@@ -10768,39 +10768,44 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_4$1.name,
+    		id: create_if_block_5$1.name,
     		type: "if",
-    		source: "(148:40) {#if field.help}",
+    		source: "(191:40) {#if field.help}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (167:40) {:else}
+    // (210:40) {:else}
     function create_else_block$7(ctx) {
     	let input;
     	let input_name_value;
+    	let input_class_value;
     	let input_disabled_value;
     	let mounted;
     	let dispose;
 
     	function input_input_handler_1() {
-    		/*input_input_handler_1*/ ctx[17].call(input, /*field*/ ctx[26]);
+    		/*input_input_handler_1*/ ctx[20].call(input, /*field*/ ctx[31]);
     	}
 
     	const block = {
     		c: function create() {
     			input = element("input");
     			attr_dev(input, "type", "text");
-    			attr_dev(input, "name", input_name_value = /*field*/ ctx[26].field);
-    			attr_dev(input, "class", "form-control form-control-sm");
+    			attr_dev(input, "name", input_name_value = /*field*/ ctx[31].field);
+
+    			attr_dev(input, "class", input_class_value = "form-control form-control-sm " + (/*errors*/ ctx[3][/*field*/ ctx[31].field]
+    			? `is-invalid`
+    			: ``));
+
     			input.disabled = input_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null;
-    			add_location(input, file$j, 167, 44, 6309);
+    			add_location(input, file$j, 210, 44, 7738);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
-    			set_input_value(input, /*customMeasureEdited*/ ctx[3][/*field*/ ctx[26].field]);
+    			set_input_value(input, /*customMeasureEdited*/ ctx[4][/*field*/ ctx[31].field]);
 
     			if (!mounted) {
     				dispose = listen_dev(input, "input", input_input_handler_1);
@@ -10810,12 +10815,18 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
+    			if (dirty[0] & /*errors*/ 8 && input_class_value !== (input_class_value = "form-control form-control-sm " + (/*errors*/ ctx[3][/*field*/ ctx[31].field]
+    			? `is-invalid`
+    			: ``))) {
+    				attr_dev(input, "class", input_class_value);
+    			}
+
     			if (dirty[0] & /*state*/ 2 && input_disabled_value !== (input_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null)) {
     				prop_dev(input, "disabled", input_disabled_value);
     			}
 
-    			if (dirty[0] & /*customMeasureEdited, fields*/ 264 && input.value !== /*customMeasureEdited*/ ctx[3][/*field*/ ctx[26].field]) {
-    				set_input_value(input, /*customMeasureEdited*/ ctx[3][/*field*/ ctx[26].field]);
+    			if (dirty[0] & /*customMeasureEdited, fields*/ 528 && input.value !== /*customMeasureEdited*/ ctx[4][/*field*/ ctx[31].field]) {
+    				set_input_value(input, /*customMeasureEdited*/ ctx[4][/*field*/ ctx[31].field]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -10829,35 +10840,40 @@ var app = (function () {
     		block,
     		id: create_else_block$7.name,
     		type: "else",
-    		source: "(167:40) {:else}",
+    		source: "(210:40) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (161:73) 
-    function create_if_block_3$3(ctx) {
+    // (204:73) 
+    function create_if_block_4$1(ctx) {
     	let textarea;
+    	let textarea_class_value;
     	let textarea_disabled_value;
     	let mounted;
     	let dispose;
 
     	function textarea_input_handler() {
-    		/*textarea_input_handler*/ ctx[16].call(textarea, /*field*/ ctx[26]);
+    		/*textarea_input_handler*/ ctx[19].call(textarea, /*field*/ ctx[31]);
     	}
 
     	const block = {
     		c: function create() {
     			textarea = element("textarea");
     			attr_dev(textarea, "rows", "4");
-    			attr_dev(textarea, "class", "form-control form-control-sm");
+
+    			attr_dev(textarea, "class", textarea_class_value = "form-control form-control-sm " + (/*errors*/ ctx[3][/*field*/ ctx[31].field]
+    			? `is-invalid`
+    			: ``));
+
     			textarea.disabled = textarea_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null;
-    			add_location(textarea, file$j, 161, 44, 5871);
+    			add_location(textarea, file$j, 204, 44, 7258);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, textarea, anchor);
-    			set_input_value(textarea, /*customMeasureEdited*/ ctx[3][/*field*/ ctx[26].field]);
+    			set_input_value(textarea, /*customMeasureEdited*/ ctx[4][/*field*/ ctx[31].field]);
 
     			if (!mounted) {
     				dispose = listen_dev(textarea, "input", textarea_input_handler);
@@ -10867,12 +10883,18 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
+    			if (dirty[0] & /*errors*/ 8 && textarea_class_value !== (textarea_class_value = "form-control form-control-sm " + (/*errors*/ ctx[3][/*field*/ ctx[31].field]
+    			? `is-invalid`
+    			: ``))) {
+    				attr_dev(textarea, "class", textarea_class_value);
+    			}
+
     			if (dirty[0] & /*state*/ 2 && textarea_disabled_value !== (textarea_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null)) {
     				prop_dev(textarea, "disabled", textarea_disabled_value);
     			}
 
-    			if (dirty[0] & /*customMeasureEdited, fields*/ 264) {
-    				set_input_value(textarea, /*customMeasureEdited*/ ctx[3][/*field*/ ctx[26].field]);
+    			if (dirty[0] & /*customMeasureEdited, fields*/ 528) {
+    				set_input_value(textarea, /*customMeasureEdited*/ ctx[4][/*field*/ ctx[31].field]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -10884,39 +10906,44 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3$3.name,
+    		id: create_if_block_4$1.name,
     		type: "if",
-    		source: "(161:73) ",
+    		source: "(204:73) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (155:40) {#if field.type === `number`}
-    function create_if_block_2$3(ctx) {
+    // (198:40) {#if field.type === `number`}
+    function create_if_block_3$3(ctx) {
     	let input;
     	let input_name_value;
+    	let input_class_value;
     	let input_disabled_value;
     	let mounted;
     	let dispose;
 
     	function input_input_handler() {
-    		/*input_input_handler*/ ctx[15].call(input, /*field*/ ctx[26]);
+    		/*input_input_handler*/ ctx[18].call(input, /*field*/ ctx[31]);
     	}
 
     	const block = {
     		c: function create() {
     			input = element("input");
     			attr_dev(input, "type", "number");
-    			attr_dev(input, "name", input_name_value = /*field*/ ctx[26].field);
-    			attr_dev(input, "class", "form-control form-control-sm");
+    			attr_dev(input, "name", input_name_value = /*field*/ ctx[31].field);
+
+    			attr_dev(input, "class", input_class_value = "form-control form-control-sm " + (/*errors*/ ctx[3][/*field*/ ctx[31].field]
+    			? `is-invalid`
+    			: ``));
+
     			input.disabled = input_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null;
-    			add_location(input, file$j, 155, 44, 5395);
+    			add_location(input, file$j, 198, 44, 6740);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
-    			set_input_value(input, /*customMeasureEdited*/ ctx[3][/*field*/ ctx[26].field]);
+    			set_input_value(input, /*customMeasureEdited*/ ctx[4][/*field*/ ctx[31].field]);
 
     			if (!mounted) {
     				dispose = listen_dev(input, "input", input_input_handler);
@@ -10926,12 +10953,18 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
+    			if (dirty[0] & /*errors*/ 8 && input_class_value !== (input_class_value = "form-control form-control-sm " + (/*errors*/ ctx[3][/*field*/ ctx[31].field]
+    			? `is-invalid`
+    			: ``))) {
+    				attr_dev(input, "class", input_class_value);
+    			}
+
     			if (dirty[0] & /*state*/ 2 && input_disabled_value !== (input_disabled_value = /*state*/ ctx[1] === `saving` ? `disabled` : null)) {
     				prop_dev(input, "disabled", input_disabled_value);
     			}
 
-    			if (dirty[0] & /*customMeasureEdited, fields*/ 264 && to_number(input.value) !== /*customMeasureEdited*/ ctx[3][/*field*/ ctx[26].field]) {
-    				set_input_value(input, /*customMeasureEdited*/ ctx[3][/*field*/ ctx[26].field]);
+    			if (dirty[0] & /*customMeasureEdited, fields*/ 528 && to_number(input.value) !== /*customMeasureEdited*/ ctx[4][/*field*/ ctx[31].field]) {
+    				set_input_value(input, /*customMeasureEdited*/ ctx[4][/*field*/ ctx[31].field]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -10943,37 +10976,75 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2$3.name,
+    		id: create_if_block_3$3.name,
     		type: "if",
-    		source: "(155:40) {#if field.type === `number`}",
+    		source: "(198:40) {#if field.type === `number`}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (144:28) {#each fields as field}
+    // (217:40) {#if errors[field.field]}
+    function create_if_block_2$3(ctx) {
+    	let div;
+    	let t_value = /*errors*/ ctx[3][/*field*/ ctx[31].field] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			t = text(t_value);
+    			attr_dev(div, "class", "invalid-feedback");
+    			add_location(div, file$j, 217, 44, 8292);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*errors*/ 8 && t_value !== (t_value = /*errors*/ ctx[3][/*field*/ ctx[31].field] + "")) set_data_dev(t, t_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2$3.name,
+    		type: "if",
+    		source: "(217:40) {#if errors[field.field]}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (187:28) {#each fields as field}
     function create_each_block_1(ctx) {
     	let div1;
     	let label;
-    	let t0_value = /*field*/ ctx[26].label + "";
+    	let t0_value = /*field*/ ctx[31].label + "";
     	let t0;
     	let t1;
     	let label_class_value;
     	let t2;
     	let div0;
-    	let div0_class_value;
     	let t3;
-    	let if_block0 = /*field*/ ctx[26].help && create_if_block_4$1(ctx);
+    	let div0_class_value;
+    	let t4;
+    	let if_block0 = /*field*/ ctx[31].help && create_if_block_5$1(ctx);
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*field*/ ctx[26].type === `number`) return create_if_block_2$3;
-    		if (/*field*/ ctx[26].field === `math`) return create_if_block_3$3;
+    		if (/*field*/ ctx[31].type === `number`) return create_if_block_3$3;
+    		if (/*field*/ ctx[31].field === `math`) return create_if_block_4$1;
     		return create_else_block$7;
     	}
 
     	let current_block_type = select_block_type_1(ctx);
     	let if_block1 = current_block_type(ctx);
+    	let if_block2 = /*errors*/ ctx[3][/*field*/ ctx[31].field] && create_if_block_2$3(ctx);
 
     	const block = {
     		c: function create() {
@@ -10986,12 +11057,14 @@ var app = (function () {
     			div0 = element("div");
     			if_block1.c();
     			t3 = space();
-    			attr_dev(label, "class", label_class_value = "col-sm-" + /*col_left*/ ctx[6] + " col-form-label-sm");
-    			add_location(label, file$j, 145, 36, 4748);
-    			attr_dev(div0, "class", div0_class_value = "col-sm-" + /*col_right*/ ctx[7]);
-    			add_location(div0, file$j, 153, 36, 5248);
+    			if (if_block2) if_block2.c();
+    			t4 = space();
+    			attr_dev(label, "class", label_class_value = "col-sm-" + /*col_left*/ ctx[7] + " col-form-label-sm");
+    			add_location(label, file$j, 188, 36, 6093);
+    			attr_dev(div0, "class", div0_class_value = "col-sm-" + /*col_right*/ ctx[8]);
+    			add_location(div0, file$j, 196, 36, 6593);
     			attr_dev(div1, "class", "form-group row");
-    			add_location(div1, file$j, 144, 32, 4683);
+    			add_location(div1, file$j, 187, 32, 6028);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -11002,16 +11075,32 @@ var app = (function () {
     			append_dev(div1, t2);
     			append_dev(div1, div0);
     			if_block1.m(div0, null);
-    			append_dev(div1, t3);
+    			append_dev(div0, t3);
+    			if (if_block2) if_block2.m(div0, null);
+    			append_dev(div1, t4);
     		},
     		p: function update(ctx, dirty) {
-    			if (/*field*/ ctx[26].help) if_block0.p(ctx, dirty);
+    			if (/*field*/ ctx[31].help) if_block0.p(ctx, dirty);
     			if_block1.p(ctx, dirty);
+
+    			if (/*errors*/ ctx[3][/*field*/ ctx[31].field]) {
+    				if (if_block2) {
+    					if_block2.p(ctx, dirty);
+    				} else {
+    					if_block2 = create_if_block_2$3(ctx);
+    					if_block2.c();
+    					if_block2.m(div0, null);
+    				}
+    			} else if (if_block2) {
+    				if_block2.d(1);
+    				if_block2 = null;
+    			}
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div1);
     			if (if_block0) if_block0.d();
     			if_block1.d();
+    			if (if_block2) if_block2.d();
     		}
     	};
 
@@ -11019,21 +11108,21 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(144:28) {#each fields as field}",
+    		source: "(187:28) {#each fields as field}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (179:20) {#if edited === -1}
+    // (225:20) {#if edited === -1}
     function create_if_block_1$5(ctx) {
     	let div2;
     	let div0;
     	let t1;
     	let div1;
     	let t3;
-    	let each_value = /*examples*/ ctx[12];
+    	let each_value = /*examples*/ ctx[15];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -11056,11 +11145,11 @@ var app = (function () {
     			}
 
     			attr_dev(div0, "class", "font-weight-bold");
-    			add_location(div0, file$j, 180, 28, 7000);
+    			add_location(div0, file$j, 226, 28, 8685);
     			attr_dev(div1, "class", "font-italic");
-    			add_location(div1, file$j, 181, 28, 7073);
+    			add_location(div1, file$j, 227, 28, 8758);
     			attr_dev(div2, "class", "col-4");
-    			add_location(div2, file$j, 179, 24, 6952);
+    			add_location(div2, file$j, 225, 24, 8637);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -11074,8 +11163,8 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*customMeasureEdited, examples*/ 4104) {
-    				each_value = /*examples*/ ctx[12];
+    			if (dirty[0] & /*customMeasureEdited, examples*/ 32784) {
+    				each_value = /*examples*/ ctx[15];
     				validate_each_argument(each_value);
     				let i;
 
@@ -11108,27 +11197,27 @@ var app = (function () {
     		block,
     		id: create_if_block_1$5.name,
     		type: "if",
-    		source: "(179:20) {#if edited === -1}",
+    		source: "(225:20) {#if edited === -1}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (183:28) {#each examples as example}
+    // (229:28) {#each examples as example}
     function create_each_block(ctx) {
     	let div;
     	let i;
     	let t0;
     	let a;
-    	let t1_value = /*example*/ ctx[23].label + "";
+    	let t1_value = /*example*/ ctx[28].label + "";
     	let t1;
     	let t2;
     	let mounted;
     	let dispose;
 
     	function click_handler_2() {
-    		return /*click_handler_2*/ ctx[18](/*example*/ ctx[23]);
+    		return /*click_handler_2*/ ctx[21](/*example*/ ctx[28]);
     	}
 
     	const block = {
@@ -11140,12 +11229,12 @@ var app = (function () {
     			t1 = text(t1_value);
     			t2 = space();
     			attr_dev(i, "class", "fas fa-flask");
-    			add_location(i, file$j, 184, 36, 7301);
+    			add_location(i, file$j, 230, 36, 8986);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "class", "ml-1");
-    			add_location(a, file$j, 185, 36, 7366);
+    			add_location(a, file$j, 231, 36, 9051);
     			attr_dev(div, "class", "mt-2");
-    			add_location(div, file$j, 183, 32, 7246);
+    			add_location(div, file$j, 229, 32, 8931);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -11174,14 +11263,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(183:28) {#each examples as example}",
+    		source: "(229:28) {#each examples as example}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (130:4) <ModalBody>
+    // (173:4) <ModalBody>
     function create_default_slot_3(ctx) {
     	let div;
     	let current_block_type_index;
@@ -11203,7 +11292,7 @@ var app = (function () {
     			div = element("div");
     			if_block.c();
     			attr_dev(div, "class", "container-fluid");
-    			add_location(div, file$j, 130, 8, 3994);
+    			add_location(div, file$j, 173, 8, 5344);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -11256,14 +11345,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(130:4) <ModalBody>",
+    		source: "(173:4) <ModalBody>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (239:8) <Button color="secondary" outline size="sm" on:click={toggle}>
+    // (285:8) <Button color="secondary" outline size="sm" on:click={toggle}>
     function create_default_slot_2(ctx) {
     	let t;
 
@@ -11283,14 +11372,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(239:8) <Button color=\\\"secondary\\\" outline size=\\\"sm\\\" on:click={toggle}>",
+    		source: "(285:8) <Button color=\\\"secondary\\\" outline size=\\\"sm\\\" on:click={toggle}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (238:4) <ModalFooter>
+    // (284:4) <ModalFooter>
     function create_default_slot_1(ctx) {
     	let button;
     	let current;
@@ -11306,7 +11395,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button.$on("click", /*toggle*/ ctx[5]);
+    	button.$on("click", /*toggle*/ ctx[6]);
 
     	const block = {
     		c: function create() {
@@ -11319,7 +11408,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const button_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 32) {
+    			if (dirty[1] & /*$$scope*/ 1024) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -11343,14 +11432,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(238:4) <ModalFooter>",
+    		source: "(284:4) <ModalFooter>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (126:0) <Modal isOpen={open} {toggle} size="lg">
+    // (169:0) <Modal isOpen={open} {toggle} size="lg">
     function create_default_slot(ctx) {
     	let modalheader;
     	let t0;
@@ -11361,7 +11450,7 @@ var app = (function () {
 
     	modalheader = new ModalHeader({
     			props: {
-    				toggle: /*toggle*/ ctx[5],
+    				toggle: /*toggle*/ ctx[6],
     				$$slots: { default: [create_default_slot_5] },
     				$$scope: { ctx }
     			},
@@ -11403,21 +11492,21 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const modalheader_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 32) {
+    			if (dirty[1] & /*$$scope*/ 1024) {
     				modalheader_changes.$$scope = { dirty, ctx };
     			}
 
     			modalheader.$set(modalheader_changes);
     			const modalbody_changes = {};
 
-    			if (dirty[0] & /*customMeasureEdited, edited, state, $config*/ 30 | dirty[1] & /*$$scope*/ 32) {
+    			if (dirty[0] & /*customMeasureEdited, edited, errors, state, $config*/ 62 | dirty[1] & /*$$scope*/ 1024) {
     				modalbody_changes.$$scope = { dirty, ctx };
     			}
 
     			modalbody.$set(modalbody_changes);
     			const modalfooter_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 32) {
+    			if (dirty[1] & /*$$scope*/ 1024) {
     				modalfooter_changes.$$scope = { dirty, ctx };
     			}
 
@@ -11449,7 +11538,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(126:0) <Modal isOpen={open} {toggle} size=\\\"lg\\\">",
+    		source: "(169:0) <Modal isOpen={open} {toggle} size=\\\"lg\\\">",
     		ctx
     	});
 
@@ -11475,7 +11564,7 @@ var app = (function () {
     	modal = new Modal({
     			props: {
     				isOpen: /*open*/ ctx[0],
-    				toggle: /*toggle*/ ctx[5],
+    				toggle: /*toggle*/ ctx[6],
     				size: "lg",
     				$$slots: { default: [create_default_slot] },
     				$$scope: { ctx }
@@ -11501,7 +11590,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const tooltip_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 32) {
+    			if (dirty[1] & /*$$scope*/ 1024) {
     				tooltip_changes.$$scope = { dirty, ctx };
     			}
 
@@ -11509,7 +11598,7 @@ var app = (function () {
     			const modal_changes = {};
     			if (dirty[0] & /*open*/ 1) modal_changes.isOpen = /*open*/ ctx[0];
 
-    			if (dirty[0] & /*customMeasureEdited, edited, state, $config*/ 30 | dirty[1] & /*$$scope*/ 32) {
+    			if (dirty[0] & /*customMeasureEdited, edited, errors, state, $config*/ 62 | dirty[1] & /*$$scope*/ 1024) {
     				modal_changes.$$scope = { dirty, ctx };
     			}
 
@@ -11545,12 +11634,12 @@ var app = (function () {
     }
 
     function instance$j($$self, $$props, $$invalidate) {
-    	let $config;
     	let $cols;
-    	validate_store(config, "config");
-    	component_subscribe($$self, config, $$value => $$invalidate(4, $config = $$value));
+    	let $config;
     	validate_store(cols, "cols");
-    	component_subscribe($$self, cols, $$value => $$invalidate(22, $cols = $$value));
+    	component_subscribe($$self, cols, $$value => $$invalidate(25, $cols = $$value));
+    	validate_store(config, "config");
+    	component_subscribe($$self, config, $$value => $$invalidate(5, $config = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("CustomMeasures", slots, []);
     	let open = false;
@@ -11561,10 +11650,17 @@ var app = (function () {
     	let edited = null;
 
     	const fields = [
-    		{ field: `label`, label: `Label` },
+    		{
+    			field: `label`,
+    			label: `Label`,
+    			validate: [`required`],
+    			error: [`Label is required`]
+    		},
     		{
     			field: `field`, // help: `Label title`,
-    			label: `Field name`
+    			label: `Field name`,
+    			validate: [`required`, `measureNotExists`],
+    			error: [`Field name is required`, `This field name already exists`]
     		},
     		{
     			field: `unit`, // help: `Field name`,
@@ -11578,21 +11674,73 @@ var app = (function () {
     		},
     		{
     			field: `math`,
-    			label: `Math Expression`,
+    			label: `Math expression`,
+    			validate: [`required`],
+    			error: [`Math expression is required`],
     			help: `See <a href="https://mathjs.org/" target="_blank">mathjs.org</a> for syntax.`
     		}
     	];
 
+    	let errors = {};
     	let customMeasureEdited = {};
 
+    	const validator = {
+    		required: value => {
+    			return value !== undefined && value !== ``;
+    		},
+    		measureNotExists: value => {
+    			return $cols.map(col => col.field).indexOf(value) === -1;
+    		}
+    	};
+
+    	function validate() {
+    		let valid = true;
+    		$$invalidate(3, errors = {});
+
+    		for (const field of fields) {
+    			if (field.validate) {
+    				for (let index = 0; index < field.validate.length; index++) {
+    					if (!validator[field.validate[index]](customMeasureEdited[field.field])) {
+    						valid = false;
+    						$$invalidate(3, errors[field.field] = field.error[index], errors);
+    					}
+    				}
+    			}
+    		}
+
+    		// console.log($cols.map(col => col.field));
+    		return valid;
+    	}
+
+    	
+
+    	function cancel() {
+    		$$invalidate(3, errors = {});
+    		$$invalidate(2, edited = null);
+    	}
+
+    	
+
+    	function add() {
+    		$$invalidate(3, errors = {});
+    		$$invalidate(2, edited = -1);
+    	}
+
+    	
+
     	function edit(id) {
-    		$$invalidate(3, customMeasureEdited = JSON.parse(JSON.stringify($config.customMeasures.find(customMeasure => 1 * customMeasure.id === 1 * id))));
+    		$$invalidate(3, errors = {});
+    		$$invalidate(4, customMeasureEdited = JSON.parse(JSON.stringify($config.customMeasures.find(customMeasure => 1 * customMeasure.id === 1 * id))));
     		$$invalidate(2, edited = id);
     	}
 
     	
 
     	async function save() {
+    		if (!validate()) {
+    			return;
+    		}
+
     		$$invalidate(1, state = `saving`);
 
     		const data = {
@@ -11600,7 +11748,7 @@ var app = (function () {
     		};
 
     		if (edited === -1) {
-    			$$invalidate(3, customMeasureEdited.id = data.customMeasures.length, customMeasureEdited);
+    			$$invalidate(4, customMeasureEdited.id = data.customMeasures.length, customMeasureEdited);
     			data.customMeasures.push(customMeasureEdited);
     		} else {
     			data.customMeasures[edited] = customMeasureEdited;
@@ -11630,7 +11778,7 @@ var app = (function () {
 
     	
 
-    	async function deleteCustomMeasure(customMeasure) {
+    	async function del(customMeasure) {
     		// state = `saving`;
     		if (confirm(`Confirm Delete`)) {
     			try {
@@ -11672,30 +11820,30 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1.warn(`<CustomMeasures> was created with unknown prop '${key}'`);
     	});
 
-    	const click_handler = () => $$invalidate(2, edited = null);
+    	const click_handler = () => cancel();
     	const click_handler_1 = () => save();
 
     	function input_input_handler(field) {
     		customMeasureEdited[field.field] = to_number(this.value);
-    		($$invalidate(3, customMeasureEdited), $$invalidate(2, edited));
-    		$$invalidate(8, fields);
+    		($$invalidate(4, customMeasureEdited), $$invalidate(2, edited));
+    		$$invalidate(9, fields);
     	}
 
     	function textarea_input_handler(field) {
     		customMeasureEdited[field.field] = this.value;
-    		($$invalidate(3, customMeasureEdited), $$invalidate(2, edited));
-    		$$invalidate(8, fields);
+    		($$invalidate(4, customMeasureEdited), $$invalidate(2, edited));
+    		$$invalidate(9, fields);
     	}
 
     	function input_input_handler_1(field) {
     		customMeasureEdited[field.field] = this.value;
-    		($$invalidate(3, customMeasureEdited), $$invalidate(2, edited));
-    		$$invalidate(8, fields);
+    		($$invalidate(4, customMeasureEdited), $$invalidate(2, edited));
+    		$$invalidate(9, fields);
     	}
 
-    	const click_handler_2 = example => $$invalidate(3, customMeasureEdited = JSON.parse(JSON.stringify(example)));
-    	const click_handler_3 = () => $$invalidate(2, edited = -1);
-    	const click_handler_4 = customMeasure => deleteCustomMeasure(customMeasure);
+    	const click_handler_2 = example => $$invalidate(4, customMeasureEdited = JSON.parse(JSON.stringify(example)));
+    	const click_handler_3 = () => add();
+    	const click_handler_4 = customMeasure => del(customMeasure);
     	const click_handler_5 = customMeasure => edit(customMeasure.id * 1);
 
     	$$self.$capture_state = () => ({
@@ -11721,22 +11869,28 @@ var app = (function () {
     		state,
     		edited,
     		fields,
+    		errors,
     		customMeasureEdited,
+    		validator,
+    		validate,
+    		cancel,
+    		add,
     		edit,
     		save,
-    		deleteCustomMeasure,
+    		del,
     		examples,
-    		$config,
-    		$cols
+    		$cols,
+    		$config
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("open" in $$props) $$invalidate(0, open = $$props.open);
-    		if ("col_left" in $$props) $$invalidate(6, col_left = $$props.col_left);
-    		if ("col_right" in $$props) $$invalidate(7, col_right = $$props.col_right);
+    		if ("col_left" in $$props) $$invalidate(7, col_left = $$props.col_left);
+    		if ("col_right" in $$props) $$invalidate(8, col_right = $$props.col_right);
     		if ("state" in $$props) $$invalidate(1, state = $$props.state);
     		if ("edited" in $$props) $$invalidate(2, edited = $$props.edited);
-    		if ("customMeasureEdited" in $$props) $$invalidate(3, customMeasureEdited = $$props.customMeasureEdited);
+    		if ("errors" in $$props) $$invalidate(3, errors = $$props.errors);
+    		if ("customMeasureEdited" in $$props) $$invalidate(4, customMeasureEdited = $$props.customMeasureEdited);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -11747,7 +11901,7 @@ var app = (function () {
     		if ($$self.$$.dirty[0] & /*edited*/ 4) {
     			 if (edited === -1) {
     				for (const field of fields) {
-    					$$invalidate(3, customMeasureEdited[field.field] = field.type === `number` ? 0 : ``, customMeasureEdited);
+    					$$invalidate(4, customMeasureEdited[field.field] = field.type === `number` ? 0 : ``, customMeasureEdited);
     				}
     			}
     		}
@@ -11757,15 +11911,18 @@ var app = (function () {
     		open,
     		state,
     		edited,
+    		errors,
     		customMeasureEdited,
     		$config,
     		toggle,
     		col_left,
     		col_right,
     		fields,
+    		cancel,
+    		add,
     		edit,
     		save,
-    		deleteCustomMeasure,
+    		del,
     		examples,
     		click_handler,
     		click_handler_1,
@@ -12404,7 +12561,59 @@ var app = (function () {
 
     /* svelte/Discover/Cell/Measure.svelte generated by Svelte v3.29.7 */
 
-    // (16:4) {:else}
+    // (8:0) {#if tag}
+    function create_if_block$a(ctx) {
+    	let if_block_anchor;
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*tag*/ ctx[0][/*col*/ ctx[1].field]) return create_if_block_1$6;
+    		if (/*tag*/ ctx[0][/*source*/ ctx[2]] && /*tag*/ ctx[0][/*source*/ ctx[2]][/*col*/ ctx[1].field] !== undefined) return create_if_block_2$4;
+    		return create_else_block$8;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$a.name,
+    		type: "if",
+    		source: "(8:0) {#if tag}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (17:8) {:else}
     function create_else_block$8(ctx) {
     	let t;
 
@@ -12425,20 +12634,20 @@ var app = (function () {
     		block,
     		id: create_else_block$8.name,
     		type: "else",
-    		source: "(16:4) {:else}",
+    		source: "(17:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:4) {#if tag[source] && tag[source][col.field] !== undefined}
-    function create_if_block_1$6(ctx) {
+    // (12:8) {#if tag[source] && tag[source][col.field] !== undefined}
+    function create_if_block_2$4(ctx) {
     	let t0_value = (/*tag*/ ctx[0][/*source*/ ctx[2]][/*col*/ ctx[1].field] * (/*col*/ ctx[1].scale || 1)).toFixed(/*col*/ ctx[1].accuracy || 0) + "";
     	let t0;
     	let t1;
     	let if_block_anchor;
-    	let if_block = /*showUnit*/ ctx[3] && /*col*/ ctx[1].unit && /*col*/ ctx[1].unit !== `count` && create_if_block_2$4(ctx);
+    	let if_block = /*showUnit*/ ctx[3] && /*col*/ ctx[1].unit && /*col*/ ctx[1].unit !== `count` && create_if_block_3$4(ctx);
 
     	const block = {
     		c: function create() {
@@ -12460,7 +12669,7 @@ var app = (function () {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block_2$4(ctx);
+    					if_block = create_if_block_3$4(ctx);
     					if_block.c();
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
     				}
@@ -12479,17 +12688,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$6.name,
+    		id: create_if_block_2$4.name,
     		type: "if",
-    		source: "(11:4) {#if tag[source] && tag[source][col.field] !== undefined}",
+    		source: "(12:8) {#if tag[source] && tag[source][col.field] !== undefined}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (8:0) {#if tag[col.field]}
-    function create_if_block$a(ctx) {
+    // (9:4) {#if tag[col.field]}
+    function create_if_block_1$6(ctx) {
     	let t_value = (/*tag*/ ctx[0][/*col*/ ctx[1].field] * (/*col*/ ctx[1].scale || 1)).toFixed(/*col*/ ctx[1].accuracy || 0) + "";
     	let t;
 
@@ -12510,17 +12719,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$a.name,
+    		id: create_if_block_1$6.name,
     		type: "if",
-    		source: "(8:0) {#if tag[col.field]}",
+    		source: "(9:4) {#if tag[col.field]}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (13:8) {#if showUnit && col.unit && col.unit !== `count`}
-    function create_if_block_2$4(ctx) {
+    // (14:12) {#if showUnit && col.unit && col.unit !== `count`}
+    function create_if_block_3$4(ctx) {
     	let t_value = /*col*/ ctx[1].unit + "";
     	let t;
 
@@ -12541,9 +12750,9 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2$4.name,
+    		id: create_if_block_3$4.name,
     		type: "if",
-    		source: "(13:8) {#if showUnit && col.unit && col.unit !== `count`}",
+    		source: "(14:12) {#if showUnit && col.unit && col.unit !== `count`}",
     		ctx
     	});
 
@@ -12552,45 +12761,38 @@ var app = (function () {
 
     function create_fragment$l(ctx) {
     	let if_block_anchor;
-
-    	function select_block_type(ctx, dirty) {
-    		if (/*tag*/ ctx[0][/*col*/ ctx[1].field]) return create_if_block$a;
-    		if (/*tag*/ ctx[0][/*source*/ ctx[2]] && /*tag*/ ctx[0][/*source*/ ctx[2]][/*col*/ ctx[1].field] !== undefined) return create_if_block_1$6;
-    		return create_else_block$8;
-    	}
-
-    	let current_block_type = select_block_type(ctx);
-    	let if_block = current_block_type(ctx);
+    	let if_block = /*tag*/ ctx[0] && create_if_block$a(ctx);
 
     	const block = {
     		c: function create() {
-    			if_block.c();
+    			if (if_block) if_block.c();
     			if_block_anchor = empty();
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			if_block.m(target, anchor);
+    			if (if_block) if_block.m(target, anchor);
     			insert_dev(target, if_block_anchor, anchor);
     		},
     		p: function update(ctx, [dirty]) {
-    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
-    				if_block.p(ctx, dirty);
-    			} else {
-    				if_block.d(1);
-    				if_block = current_block_type(ctx);
-
+    			if (/*tag*/ ctx[0]) {
     				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block$a(ctx);
     					if_block.c();
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
     				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
     			}
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if_block.d(detaching);
+    			if (if_block) if_block.d(detaching);
     			if (detaching) detach_dev(if_block_anchor);
     		}
     	};
@@ -13924,7 +14126,7 @@ var app = (function () {
     /* svelte/Discover/Cell.svelte generated by Svelte v3.29.7 */
 
     // (13:0) {#if col.render === `measure`}
-    function create_if_block_3$4(ctx) {
+    function create_if_block_3$5(ctx) {
     	let cellmeasure;
     	let current;
 
@@ -13970,7 +14172,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3$4.name,
+    		id: create_if_block_3$5.name,
     		type: "if",
     		source: "(13:0) {#if col.render === `measure`}",
     		ctx
@@ -14141,7 +14343,7 @@ var app = (function () {
     	let t2;
     	let if_block3_anchor;
     	let current;
-    	let if_block0 = /*col*/ ctx[0].render === `measure` && create_if_block_3$4(ctx);
+    	let if_block0 = /*col*/ ctx[0].render === `measure` && create_if_block_3$5(ctx);
     	let if_block1 = /*col*/ ctx[0].render === `text` && create_if_block_2$5(ctx);
     	let if_block2 = /*col*/ ctx[0].render === `date` && create_if_block_1$7(ctx);
     	let if_block3 = /*col*/ ctx[0].render === `name` && create_if_block$c(ctx);
@@ -14180,7 +14382,7 @@ var app = (function () {
     						transition_in(if_block0, 1);
     					}
     				} else {
-    					if_block0 = create_if_block_3$4(ctx);
+    					if_block0 = create_if_block_3$5(ctx);
     					if_block0.c();
     					transition_in(if_block0, 1);
     					if_block0.m(t0.parentNode, t0);
@@ -16426,7 +16628,7 @@ var app = (function () {
     	let if_block;
     	let th_class_value;
     	let current;
-    	const if_block_creators = [create_if_block_3$5, create_else_block$a];
+    	const if_block_creators = [create_if_block_3$6, create_else_block$a];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -16540,7 +16742,7 @@ var app = (function () {
     }
 
     // (17:24) {#if col.unit}
-    function create_if_block_3$5(ctx) {
+    function create_if_block_3$6(ctx) {
     	let tooltip;
     	let current;
 
@@ -16588,7 +16790,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3$5.name,
+    		id: create_if_block_3$6.name,
     		type: "if",
     		source: "(17:24) {#if col.unit}",
     		ctx
@@ -18685,7 +18887,7 @@ var app = (function () {
     // (25:8) {#if measure.selected}
     function create_if_block_2$7(ctx) {
     	let if_block_anchor;
-    	let if_block = /*state*/ ctx[2] === `view` && create_if_block_3$6(ctx);
+    	let if_block = /*state*/ ctx[2] === `view` && create_if_block_3$7(ctx);
 
     	const block = {
     		c: function create() {
@@ -18701,7 +18903,7 @@ var app = (function () {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block_3$6(ctx);
+    					if_block = create_if_block_3$7(ctx);
     					if_block.c();
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
     				}
@@ -18728,7 +18930,7 @@ var app = (function () {
     }
 
     // (26:12) {#if state === `view`}
-    function create_if_block_3$6(ctx) {
+    function create_if_block_3$7(ctx) {
     	let a;
     	let i;
     	let mounted;
@@ -18763,7 +18965,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3$6.name,
+    		id: create_if_block_3$7.name,
     		type: "if",
     		source: "(26:12) {#if state === `view`}",
     		ctx
@@ -19174,7 +19376,7 @@ var app = (function () {
     // (28:8) {#if targetTag.selected}
     function create_if_block_2$8(ctx) {
     	let if_block_anchor;
-    	let if_block = /*state*/ ctx[2] === `view` && create_if_block_3$7(ctx);
+    	let if_block = /*state*/ ctx[2] === `view` && create_if_block_3$8(ctx);
 
     	const block = {
     		c: function create() {
@@ -19190,7 +19392,7 @@ var app = (function () {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block_3$7(ctx);
+    					if_block = create_if_block_3$8(ctx);
     					if_block.c();
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
     				}
@@ -19217,7 +19419,7 @@ var app = (function () {
     }
 
     // (29:12) {#if state === `view`}
-    function create_if_block_3$7(ctx) {
+    function create_if_block_3$8(ctx) {
     	let a;
     	let i;
     	let mounted;
@@ -19252,7 +19454,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3$7.name,
+    		id: create_if_block_3$8.name,
     		type: "if",
     		source: "(29:12) {#if state === `view`}",
     		ctx
@@ -23088,7 +23290,7 @@ var app = (function () {
     	}
 
     	function select_block_type_5(ctx, dirty) {
-    		if (/*state*/ ctx[2] === `saving` && /*saving*/ ctx[6] === `log`) return create_if_block_5$1;
+    		if (/*state*/ ctx[2] === `saving` && /*saving*/ ctx[6] === `log`) return create_if_block_5$2;
     		return create_else_block_1$2;
     	}
 
@@ -23483,7 +23685,7 @@ var app = (function () {
     }
 
     // (278:16) {#if state === `saving` && saving === `log`}
-    function create_if_block_5$1(ctx) {
+    function create_if_block_5$2(ctx) {
     	let div;
 
     	const block = {
@@ -23504,7 +23706,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_5$1.name,
+    		id: create_if_block_5$2.name,
     		type: "if",
     		source: "(278:16) {#if state === `saving` && saving === `log`}",
     		ctx
@@ -23718,7 +23920,7 @@ var app = (function () {
     function create_else_block$d(ctx) {
     	let t;
     	let if_block1_anchor;
-    	let if_block0 = /*stateConfig*/ ctx[7] === `import` && create_if_block_3$8(ctx);
+    	let if_block0 = /*stateConfig*/ ctx[7] === `import` && create_if_block_3$9(ctx);
     	let if_block1 = /*stateConfig*/ ctx[7] !== `hidden` && create_if_block_2$9(ctx);
 
     	const block = {
@@ -23739,7 +23941,7 @@ var app = (function () {
     				if (if_block0) {
     					if_block0.p(ctx, dirty);
     				} else {
-    					if_block0 = create_if_block_3$8(ctx);
+    					if_block0 = create_if_block_3$9(ctx);
     					if_block0.c();
     					if_block0.m(t.parentNode, t);
     				}
@@ -23812,7 +24014,7 @@ var app = (function () {
     }
 
     // (328:12) {#if stateConfig === `import`}
-    function create_if_block_3$8(ctx) {
+    function create_if_block_3$9(ctx) {
     	let a;
     	let t;
     	let a_class_value;
@@ -23850,7 +24052,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3$8.name,
+    		id: create_if_block_3$9.name,
     		type: "if",
     		source: "(328:12) {#if stateConfig === `import`}",
     		ctx

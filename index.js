@@ -106,13 +106,13 @@ ruuvitag.on('found', tag => {
             history[tag.id].splice(0, del)
         }
         calcFrequency(tag.id)
+        tags[tag.id].samples = history[tag.id].length
         for (const target of config.targets) {
             if (target.tags && target.tags[tag.id] !== undefined && 1 * target.interval === 0) {
                 broadcast({target, tag: tags[tag.id], field: `last`})
             }
         }
         tags[tag.id].first = history[tag.id][0]
-        tags[tag.id].samples = history[tag.id].length
         server.tag(tags[tag.id])
         log.tags(`Got data from RuuviTag ${tag.id}: ${JSON.stringify(data)}`)
         // log.debug(JSON.stringify(data, null, 2))

@@ -21,11 +21,15 @@
         {
             field: `label`,
             label: `Label`,
+            validate: [`required`],
+            error: [`Label is required`],
             // help: `Label title`,
         },
         {
             field: `field`,
             label: `Field name`,
+            validate: [`required`, `measureNotExists`],
+            error: [`Field name is required`, `This field name already exists`],
             // help: `Field name`,
         },
         {
@@ -41,21 +45,60 @@
         },
         {
             field: `math`,
-            label: `Math Expression`,
+            label: `Math expression`,
+            validate: [`required`],
+            error: [`Math expression is required`],
             help: `See <a href="https://mathjs.org/" target="_blank">mathjs.org</a> for syntax.`,
         },
     ];
+    let errors = {};
     let customMeasureEdited = {};
     $: if (edited === -1) {
         for (const field of fields) {
             customMeasureEdited[field.field] = field.type === `number` ? 0 : ``;
         }
     }
+    const validator = {
+        required: (value) => {
+            return value !== undefined && value !== ``;
+        },
+        measureNotExists: (value) => {
+            return $cols.map(col => col.field).indexOf(value) === -1;
+        },
+    };
+    function validate() {
+        let valid = true;
+        errors = {};
+        for (const field of fields) {
+            if (field.validate) {
+                for (let index = 0 ; index < field.validate.length ; index++ ) {
+                    if (!validator[field.validate[index]](customMeasureEdited[field.field])) {
+                       valid = false;
+                       errors[field.field] = field.error[index];
+                    }
+                }
+            }
+        }
+        // console.log($cols.map(col => col.field));
+        return valid;
+    };
+    function cancel() {
+        errors = {};
+        edited = null;
+    };
+    function add() {
+        errors = {};
+        edited = -1;
+    };
     function edit(id) {
+        errors = {};
         customMeasureEdited = JSON.parse(JSON.stringify($config.customMeasures.find(customMeasure => 1 * customMeasure.id === 1 * id)));
         edited = id;
     };
     async function save() {
+        if (!validate()) {
+            return;
+        }
         state = `saving`;
         const data = {
             customMeasures: JSON.parse(JSON.stringify($config.customMeasures)),
@@ -84,7 +127,7 @@
         state = `view`;
         edited = null;
     };
-    async function deleteCustomMeasure(customMeasure) {
+    async function del(customMeasure) {
         // state = `saving`;
         if (confirm(`Confirm Delete`)) {
             try {
@@ -131,7 +174,7 @@
         <div class="container-fluid">
             {#if edited !== null}
                 <div>
-                    <a class="btn btn-light btn-sm mr-2" href="/" on:click|preventDefault={() => edited = null}>
+                    <a class="btn btn-light btn-sm mr-2" href="/" on:click|preventDefault={() => cancel()}>
                         Cancel
                     </a>
                     <a class="btn btn-light btn-sm mr-2" href="/" on:click|preventDefault={() => save()}>
@@ -155,21 +198,24 @@
                                         {#if field.type === `number`}
                                             <input type="number" name="{field.field}"
                                              bind:value="{customMeasureEdited[field.field]}"
-                                             class="form-control form-control-sm"
+                                             class="form-control form-control-sm {errors[field.field] ? `is-invalid` : ``}"
                                              disabled={state === `saving` ? `disabled` : null}
                                             >
                                         {:else if field.field === `math`}
                                             <textarea rows="4"
                                              bind:value="{customMeasureEdited[field.field]}"
-                                             class="form-control form-control-sm"
+                                             class="form-control form-control-sm {errors[field.field] ? `is-invalid` : ``}"
                                              disabled={state === `saving` ? `disabled` : null}
                                             ></textarea>
                                         {:else}
                                             <input type="text" name="{field.field}"
                                              bind:value="{customMeasureEdited[field.field]}"
-                                             class="form-control form-control-sm"
+                                             class="form-control form-control-sm {errors[field.field] ? `is-invalid` : ``}"
                                              disabled={state === `saving` ? `disabled` : null}
                                             >
+                                        {/if}
+                                        {#if errors[field.field]}
+                                            <div class="invalid-feedback">{errors[field.field]}</div>
                                         {/if}
                                     </div>
                                 </div>
@@ -194,7 +240,7 @@
                 </div>
             {:else}
                 <div>
-                    <a class="btn btn-light btn-sm mr-2" href="/" on:click|preventDefault={() => edited = -1}>
+                    <a class="btn btn-light btn-sm mr-2" href="/" on:click|preventDefault={() => add()}>
                         <i class="fas fa-plus"></i>
                         New Measure
                     </a>
@@ -219,7 +265,7 @@
                                     </td>
                                 {/each}
                                 <td class="text-center">
-                                    <a href="/" on:click|preventDefault={() => deleteCustomMeasure(customMeasure)}
+                                    <a href="/" on:click|preventDefault={() => del(customMeasure)}
                                      class="btn btn-link text-danger btn-sm mr-2">
                                         Delete
                                     </a>
