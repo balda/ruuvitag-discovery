@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## [0.2.6] - 2020-12-20
+- Add custom measures as experimental feature (#7, #11)
+
 ## [0.2.5] - 2020-12-19
 - Fix missing build
 
@@ -96,7 +99,8 @@
 
 First release
 
-[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.2.5...HEAD
+[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.2.6...HEAD
+[0.2.6]: https://github.com/balda/ruuvitag-discovery/compare/0.2.5...0.2.6
 [0.2.5]: https://github.com/balda/ruuvitag-discovery/compare/0.2.4...0.2.5
 [0.2.4]: https://github.com/balda/ruuvitag-discovery/compare/0.2.3...0.2.4
 [0.2.3]: https://github.com/balda/ruuvitag-discovery/compare/0.2.2...0.2.3
