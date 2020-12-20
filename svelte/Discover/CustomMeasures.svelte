@@ -55,14 +55,39 @@
             type: `number`,
             validate: [`integer`],
             error: [`Accuracy must be an integer`],
-            help: `Number of decimal`,
+            help: `Number of decimals`,
         },
         {
             field: `math`,
             label: `Math expression`,
-            validate: [`required`, `mathValid`, `mathVars`],
+            validate: [`required`, `mathValid`],//, `mathVars`
             error: [`Math expression is required`, `Math expression is invalid`, `Unknown variable(s)`],
-            help: `See <a href="https://mathjs.org/" target="_blank">mathjs.org</a> for syntax.`,
+            help: `
+                <div>
+                    measures field in a math expression:
+                </div>
+                <div>
+                    <code>temperature + 273.15</code><br>
+                    <code>temperature * humidity</code>
+                </div>
+                <div class="mt-1">
+                    <a href="https://mathjs.org/docs/reference/functions.html" target="_blank">functions</a>:
+                    <code>min()</code>, <code>log()</code>, <code>sin()</code>,...
+                </div>
+                <div class="mt-1">
+                    <a href="https://mathjs.org/docs/reference/constants.html" target="_blank">constants</a>:
+                    <code>pi</code>, <code>e</code>, ...
+                </div>
+                <div class="mt-1">
+                    conditionnal expressions:
+                </div>
+                <div>
+                    <code>temperature > 23 ? battery * 0.9 : battery</code>
+                </div>
+                <div class="mt-2 font-italic">
+                    See <a href="https://mathjs.org/docs/expressions/syntax.html" target="_blank">mathjs.org</a> for more documentation about syntax.
+                </div>
+            `,
         },
     ];
     let errors = {};
@@ -117,6 +142,7 @@
                 parse(value).traverse(function (node, path, parent) {
                     if (node.type === `SymbolNode`) {
                         variables.push(node.name);
+                        console.log(node);
                     }
                 });
                 const notExists = variables.filter(v => colsArray.indexOf(v) === -1);
@@ -239,9 +265,12 @@
                     const data = {
                         customMeasures: JSON.parse(JSON.stringify($config.customMeasures)),
                     };
+                    const index = $cols.length - $config.customMeasures.length + customMeasure.id - 1;
                     data.customMeasures.splice(customMeasure.id, 1);
                     await api.post(`config`, data);
                     $config.customMeasures = data.customMeasures;
+                    $cols.splice(index, 1);
+                    $cols = $cols;
                 } catch(error) {
                     console.log(error);
                 }
@@ -264,11 +293,26 @@
             "unit": "K",
             "accuracy": "2",
         },
+        {
+            "label": "Capped Humidity",
+            "field": "humidity_capped",
+            "math": "min(humidity, 100)",
+            "unit": "%",
+            "accuracy": "2",
+        },
+        {
+            "label": "Conditional Battery",
+            "field": "battery_conditional",
+            "math": "temperature > 23 ? battery * 0.9 : battery",
+            "unit": "mV",
+            "accuracy": "0",
+        },
     ];
 </script>
 
-<Tooltip tip="Custom Measures" bottom >
+<Tooltip tip="Experimental feature" bottom >
     <a on:click|preventDefault={toggle} href="/" class="pt-1 pb-1 mt-1 btn btn-light border">
+        <i class="fas fa-flask fa-sm"></i>
         <small>Custom Measures</small>
     </a>
 </Tooltip>
@@ -294,11 +338,6 @@
                                 <div class="form-group row">
                                     <label class="col-sm-{col_left} col-form-label-sm">
                                         {field.label}
-                                        {#if field.help}
-                                            <small class="form-text text-muted">
-                                                <em>{@html field.help}</em>
-                                            </small>
-                                        {/if}
                                     </label>
                                     <div class="col-sm-{col_right}">
                                         {#if field.field === `field`}
@@ -348,6 +387,11 @@
                                         {#if errors[field.field]}
                                             <div class="invalid-feedback">{errors[field.field]}</div>
                                         {/if}
+                                        {#if field.help}
+                                            <div class="form-text text-muted font-weight-lighter">
+                                                {@html field.help}
+                                            </div>
+                                        {/if}
                                     </div>
                                 </div>
                             {/each}
@@ -356,7 +400,7 @@
                     {#if edited === -1}
                         <div class="col-4">
                             <div class="font-weight-bold">Examples</div>
-                            <div class="font-italic">click on the links below to fill some common measures</div>
+                            <div class="font-italic">click on the links below to fill the form with some usage examples</div>
                             {#each examples as example}
                                 <div class="mt-2">
                                     <i class="fas fa-flask"></i>

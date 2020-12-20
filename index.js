@@ -308,6 +308,11 @@ const store = {
             config.customMeasures = data.customMeasures
         }
         if (data.log) {
+            for (const level in data.log) {
+                if (data.log[level] !== config.log[level]) {
+                    log(`${data.log[level] ? `Activate` : `Desactivate`} "${level}" logs`)
+                }
+            }
             config.log = data.log
         }
         config.backup()
