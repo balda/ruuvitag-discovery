@@ -100,6 +100,12 @@ const targets = [
             // },
         ],
     },
+    {
+        type: `ha`,
+        label: `Home Assistant (API)`,
+        config: [
+        ],
+    },
     // {
     //     type: `webhook`,
     //     label: `Webhook`,
