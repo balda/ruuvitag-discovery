@@ -19,8 +19,8 @@
     },
     "hassio": {
         "host": "{?>HASS_HOST}",
-        "host?": "http://hassio/",
-        "token": "{?>HASSIO_TOKEN}",
+        "host?": "http://supervisor/",
+        "token": "{?>SUPERVISOR_TOKEN}",
         "token?": ""
     }
 }
