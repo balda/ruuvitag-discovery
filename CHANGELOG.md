@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.2.7] - 2020-12-30
+- New target: Home Assistant (API) (#2)
+- Fix target measures accuracy and scale (pressure is properly sent in `hPa`)
+- Custom measures doc
+
 ## [0.2.6] - 2020-12-20
 - Add custom measures as experimental feature (#7, #11)
 
@@ -99,7 +104,8 @@
 
 First release
 
-[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.2.6...HEAD
+[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.2.7...HEAD
+[0.2.7]: https://github.com/balda/ruuvitag-discovery/compare/0.2.6...0.2.7
 [0.2.6]: https://github.com/balda/ruuvitag-discovery/compare/0.2.5...0.2.6
 [0.2.5]: https://github.com/balda/ruuvitag-discovery/compare/0.2.4...0.2.5
 [0.2.4]: https://github.com/balda/ruuvitag-discovery/compare/0.2.3...0.2.4
