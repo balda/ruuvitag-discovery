@@ -7,7 +7,7 @@ Save measures to multiple targets:
 - [MQTT](http://mqtt.org/)
 - [InfluxDB](https://docs.influxdata.com/influxdb/)
 - [Graphite](https://graphite.readthedocs.io/en/latest/)
-- [Home Assistant](https://www.home-assistant.io/hassio/) (using [MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/) integration)
+- [Home Assistant](https://www.home-assistant.io/hassio/) (using [MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/) integration or [API](https://developers.home-assistant.io/docs/api/rest))
 
 Other Features:
 
@@ -105,6 +105,18 @@ Battery level is between 1% and 100%, for respectivly 2500mV (`min` config) and 
 
 _See [battery FAQ](https://github.com/ruuvi/ruuvitag_fw/wiki/FAQ:-battery) in RuuviTag firmware repository._
 
+#### Server logs
+
+Log options can be enable or disable in real time.
+
+- Prefix logs with timestamp (enabled by default)
+- Display error logs (enabled by default)
+- Display info logs (enabled by default)
+- Display measures received by tags
+- Display measures sent to targets
+- Display debug logs
+- Display web socket logs
+
 
 ### Measures
 
@@ -138,6 +150,26 @@ Calculated using default measures
 - Dew point
 - Equilibrium vapor pressure
 - Vapor pressure deficit
+
+##### Custom measures
+
+New measure can be created, using a math expression like `(temperature * 9/5) + 32` for Fahrenheit.
+
+Each custom measure has a label, a field name (must be uniq in all the measures), an optional unit, an accuracy (number of decimals displayed and sent to targets) and a math expression.
+
+Custom measures can be used to:
+
+- Convert units (temperature Celcius in Kelvin or Fahrenheit)
+- Scale measure (pressure hPa in Pa or Bar)
+- Change measure accuracy (round temperature)
+- Offset a value or add/remove gain
+- Cap a measure
+- Calculate conditional values
+- Make a crazy formula
+
+There are some examples on the "New Custom Measure" panel.
+
+See [mathjs.org](https://mathjs.org/docs/expressions/syntax.html) for more documentation about math expressions syntax.
 
 
 ### Targets
@@ -244,6 +276,18 @@ Home Assistant does not provide an easy way to remove devices. For now, there's 
 
 - Remove MQTT integration.
 - Remove all device entities (see "remove entity"), then edit manually `/config/.storage/core.device_registry` json file, remove RuuviTag reference in the `data.devices` array and reboot.
+
+#### Home Assistant (API)
+
+_For now, Home Assistant (API) target only works as an Home Assistant  addon (no remote: API Token is auto discovered by the addon)._
+
+The measure label will be used as the **Entity** name (with some attributes: RuuviTag name, RuuviTag ID, Measure and Unit).
+
+API integration is limited compared to MQTT discovery integration:
+
+- Each tag measure is an **Entity** without **Device** in Home Assistant.
+- **Entities** created with the Home Assistant API can't be placed in an **Area** (use MQTT discovery for that).
+- Friendly name can't be changed in Home Assistant (but can be done in RuuviTag Discovery interface).
 
 
 ### Configuration file format
