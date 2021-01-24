@@ -1,7 +1,10 @@
 <script>
+    // import { dictTargets } from './../store/dict.js';
     import { Container, Row, Col, CustomInput } from 'sveltestrap';
     import TargetTagMeasure from  './TargetTagMeasure.svelte';
     export let tag = {};
+    export let measurement;
+    export let target;
     export let targetTag = {};
     let state = `view`; // `view` | `edit`
     $: if (targetTag && !targetTag.name) {
@@ -10,6 +13,10 @@
     $: if (!targetTag.field) {
         targetTag.field = `ruuvitag_${tag.id}`;
     }
+    $: if (!measurement) {
+        measurement = `default`;
+    }
+    $: fields = target.fields[measurement]
 </script>
 
 <div class="small">
@@ -34,6 +41,14 @@
             {/if}
         {/if}
     </div>
+    {#if false}
+    <div>
+        <pre>{JSON.stringify(measurement, null, 2)}</pre>
+    </div>
+    <div>
+        <pre>{JSON.stringify(fields, null, 2)}</pre>
+    </div>
+    {/if}
     {#if targetTag.selected}
         {#if state === `edit`}
             <div class="my-2">

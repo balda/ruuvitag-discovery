@@ -171,7 +171,7 @@
         <Col xs="8" class="mt-3">
             <p>Tags</p>
             {#each $tags as tag (tag.id)}
-                <TargetTag {tag} bind:targetTag={targetEdited.tags[tag.id]} />
+                <TargetTag {tag} target={config} measurement={targetEdited.measurement} bind:targetTag={targetEdited.tags[tag.id]} />
             {/each}
         </Col>
     </Row>
