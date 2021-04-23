@@ -147,8 +147,8 @@
                         </div>
                     </FormGroup>
                 {/each}
-                <hr>
                 {#if config.measurement}
+                    <hr>
                     <FormGroup class="row">
                         <Label class="col-sm-4" for="measurement">Measurement</Label>
                         <div class="col-sm-8">
@@ -166,12 +166,21 @@
                         </div>
                     </FormGroup>
                 {/if}
+                {#if config.help}
+                    <hr>
+                    {@html config.help}
+                {/if}
             </Form>
         </Col>
         <Col xs="8" class="mt-3">
             <p>Tags</p>
             {#each $tags as tag (tag.id)}
-                <TargetTag {tag} target={config} measurement={targetEdited.measurement} bind:targetTag={targetEdited.tags[tag.id]} />
+                <TargetTag {tag}
+                 target={target}
+                 measurement={targetEdited.measurement}
+                 fields={config.fields[targetEdited.measurement || `default`]}
+                 bind:targetTag={targetEdited.tags[tag.id]}
+                />
             {/each}
         </Col>
     </Row>

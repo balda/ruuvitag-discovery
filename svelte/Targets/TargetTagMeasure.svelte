@@ -3,6 +3,7 @@
 	import Cell from './../Discover/Cell.svelte';
     export let measure = {};
     export let tag = {};
+    export let fields;
     let state = `view`; // `view` | `edit`
 </script>
 
@@ -19,9 +20,11 @@
             label="{measure.label}"
             class="float-left"
         />
-        <div class="ml-2 float-left font-italic font-weight-lighter">
-            {measure.field}
-        </div>
+        {#if fields.measure.field}
+            <div class="ml-2 float-left font-italic font-weight-lighter">
+                {measure.field}
+            </div>
+        {/if}
         {#if measure.selected}
             {#if state === `view`}
                 <a href="/" on:click|preventDefault={() => state = `edit`}
@@ -34,19 +37,36 @@
     {#if measure.selected}
         {#if state === `edit`}
             <div class="my-2">
-                <form class="form-inline">
-                    <input type="text" name="label"
-                     bind:value="{measure.label}"
-                     class="form-control form-control-sm mr-2"
-                    >
-                    <input type="text" name="field"
-                     bind:value="{measure.field}"
-                     class="form-control form-control-sm mr-2"
-                    >
-                    <a href="/" on:click|preventDefault={() => state = `view`}
-                     class="ml-2 text-dark">
-                        <i class="fas fa-check-circle fa-sm"></i>
-                    </a>
+                <form>
+                    <div class="form-row">
+                        <div class="col-sm-5">
+                            <input type="text" name="label"
+                             bind:value="{measure.label}"
+                             class="form-control form-control-sm mr-2"
+                            >
+                            <small class="form-text text-muted">
+                                {fields.measure.label ? fields.measure.label : `Unused`}
+                            </small>
+                        </div>
+                        {#if fields.measure.field}
+                            <div class="col-sm-5">
+                                <input type="text" name="field"
+                                 bind:value="{measure.field}"
+                                 class="form-control form-control-sm mr-2"
+                                >
+                                <small class="form-text text-muted">
+                                    {fields.measure.field ? fields.measure.field : `Unused`}
+                                </small>
+                            </div>
+                        {:else}
+                            <input type="hidden" name="field" value="{measure.field}" >
+                        {/if}
+                        <div class="col-sm-2 pt-1">
+                            <a href="/" on:click|preventDefault={() => state = `view`}
+                             class="ml-1 text-dark">
+                                <i class="fas fa-check-circle"></i>
+                            </a>
+                    </div>
                 </form>
             </div>
         {/if}
