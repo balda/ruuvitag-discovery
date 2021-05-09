@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.2.9] - 2021-05-09
+- Add documentation about fields used in target tags
+- Home Assistant API: entity id can now be changed (#41)
+
 ## [0.2.8] - 2021-01-24
 - Update dependencies
 
@@ -107,7 +111,8 @@
 
 First release
 
-[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.2.8...HEAD
+[Unreleased]: https://github.com/balda/ruuvitag-discovery/compare/0.2.9...HEAD
+[0.2.9]: https://github.com/balda/ruuvitag-discovery/compare/0.2.8...0.2.9
 [0.2.8]: https://github.com/balda/ruuvitag-discovery/compare/0.2.7...0.2.8
 [0.2.7]: https://github.com/balda/ruuvitag-discovery/compare/0.2.6...0.2.7
 [0.2.6]: https://github.com/balda/ruuvitag-discovery/compare/0.2.5...0.2.6

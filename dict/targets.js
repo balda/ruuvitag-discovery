@@ -218,14 +218,21 @@ const targets = [
         ],
         fields: {
             default: {
-                tag: {},
+                tag: {
+                    field: `RuuviTag part of Entity ID`,
+                },
                 measure: {
+                    field: `Measure part of Entity ID`,
                     label: `Entity name`,
                 },
             },
         },
         help: `
             <p>The measure label will be used as the Entity name (with some attributes: RuuviTag name, RuuviTag ID, Measure and Unit).</p>
+            <p>
+                Entity ID is built with the fields of RuuviTags and measures:<br>
+                <code>sensor.[ruuvitag.field]_[measure.field]</code>
+            </p>
         `,
     },
     // {

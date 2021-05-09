@@ -283,6 +283,8 @@ _For now, Home Assistant (API) target only works as an Home Assistant  addon (no
 
 The measure label will be used as the **Entity** name (with some attributes: RuuviTag name, RuuviTag ID, Measure and Unit).
 
+**Entity ID** is built with the fields of RuuviTags and measures: `sensor.[ruuvitag.field]_[measure.field]`.
+
 API integration is limited compared to MQTT discovery integration:
 
 - Each tag measure is an **Entity** without **Device** in Home Assistant.
