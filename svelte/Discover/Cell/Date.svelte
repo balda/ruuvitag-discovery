@@ -14,7 +14,7 @@
 
 {#if value}
     <Tooltip tip="{date.format(`YYYY-MM-DD HH:mm:ss`)}" left >
-    	{date.format(`HH[h]mm`)}
+    	{date.format(`HH:mm`)}
     </Tooltip>
 {:else}
     -

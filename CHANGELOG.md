@@ -5,6 +5,7 @@
 ## [0.2.9] - 2021-05-09
 - Add documentation about fields used in target tags
 - Home Assistant API: entity id can now be changed (#41)
+- Fix `Last seen` hour format (#42)
 
 ## [0.2.8] - 2021-01-24
 - Update dependencies

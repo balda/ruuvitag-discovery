@@ -77066,7 +77066,7 @@ var app = (function () {
 
     // (16:4) <Tooltip tip="{date.format(`YYYY-MM-DD HH:mm:ss`)}" left >
     function create_default_slot$2(ctx) {
-    	let t_value = /*date*/ ctx[1].format(`HH[h]mm`) + "";
+    	let t_value = /*date*/ ctx[1].format(`HH:mm`) + "";
     	let t;
 
     	const block = {
@@ -77077,7 +77077,7 @@ var app = (function () {
     			insert_dev(target, t, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*date*/ 2 && t_value !== (t_value = /*date*/ ctx[1].format(`HH[h]mm`) + "")) set_data_dev(t, t_value);
+    			if (dirty & /*date*/ 2 && t_value !== (t_value = /*date*/ ctx[1].format(`HH:mm`) + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
